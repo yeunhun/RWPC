@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>2.2.1</TEMPLATE-VERSION>
+
+  <!-- Generation Tool versions which are supported by this Template -->
+  <SUPPORTED-TOOL-VERSIONS>2.2.1</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <!-- Module under test -->
+    <MODULE-UNDER-TEST>CDD</MODULE-UNDER-TEST>
+    <!-- Modules required MDT File information -->
+    <MODULE-UNDER-TEST-MDT>CDD</MODULE-UNDER-TEST-MDT>
+    <!-- Mandatory Modules required to Parse CDD -->
+    <MANDATORY-MODULES>CDD ECUC</MANDATORY-MODULES>
+    <!-- All the Modules to be Parsed -->
+    <MODULES>CDD CANIF ECUC PDUR SOAD</MODULES>
+    <!-- To check if the correct description file is provided as input.
+      ArReleaseVersion in the description file is compared with the below versions -->
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+  </PARSER-DETAILS>
+  <!-- Pre compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_LOWER_IF_TX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '0'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Tx Lower Layer IF PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaLowerIfTxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_LOWER_IF_RX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '1'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Rx Lower Layer IF PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaLowerIfRxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_LOWER_SOAD_IF_TX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '2'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Tx Lower Layer SoAd IF PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaLowerSoAdIfTxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_LOWER_SOAD_IF_RX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '3'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Rx Lower Layer SoAd IF PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaLowerSoAdIfRxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>    
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_UPPER_IF_TX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '4'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Tx Upper Layer IF PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaUpperIfTxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>		
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_UPPER_TP_RX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '5'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Rx Upper Layer TP PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaUpperTpRxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_UPPER_IF_RX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '6'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Rx Upper Layer IF PDU Count'
+      Container = ''
+      Structure = 'CDD_Router_GaaUpperIfRxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_IPC_IF_RX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '7'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Rx IPC Layer IF PDU Count'
+      Container = ''
+      Structure = 'CDD_IPC_GaaUpperIfRxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_IPC_IF_TX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '8'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Tx IPC Layer IF PDU Count'
+      Container = ''
+      Structure = 'CDD_IPC_GaaUpperIfTxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_IPC_TP_RX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '9'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Rx IPC Layer TP PDU Count'
+      Container = ''
+      Structure = 'CDD_IPC_GaaUpperTpRxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>   
+    <MACRO-ENTRY
+      Name      = 'CDD_ROUTER_MAX_IPC_TP_TX_PDU_COUNT'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '10'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Tx IPC Layer TP PDU Count'
+      Container = ''
+      Structure = 'CDD_IPC_GaaUpperTpTxPduInfo'
+      Parameter = '' >
+    </MACRO-ENTRY>
+    
+  </PRE-COMPILE-OPTIONS>
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+      <CONTAINER NAME = 'CddPduRLowerLayerContribution'>
+        <PARAMETER-NAME>CddPduRLowerLayerHandleId</PARAMETER-NAME>
+        <PARAMETER-NAME>CddPduRLowerLayerPduRef</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'CddComIfUpperLayerContribution'>
+        <PARAMETER-NAME>CddComIfHandleId</PARAMETER-NAME>
+        <PARAMETER-NAME>CddComIfPduRef</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'CddSoAdUpperLayerContribution'>
+        <PARAMETER-NAME>CddSoAdUpperLayerHandleId</PARAMETER-NAME>
+        <PARAMETER-NAME>CddSoAdUpperLayerPduRef</PARAMETER-NAME>
+      </CONTAINER>      
+    </MANDATORY-CHECK>
+  </CONSISTENCY-CHECKS>
+  
+  <OUTPUT-FILES>
+    <CDD_Router_Cfg.h>
+      <TEMPLATE>/*******************************************************************************
+**  (C) 2015 HYUNDAI AUTOEVER Co., Ltd.                                       **
+**                                                                            **
+**  SRC-MODULE: CDD_Router_Cfg.h                                              **
+**                                                                            **
+**  PRODUCT   : CDD_Router Module                                             **
+**                                                                            **
+**  NOTE      : This file is auto generated, do not edit this file manually.  **
+**              The provided static and generated codes of CDD_Router Module  **
+**              are just for the understanding of the relationship between    **
+**              communication Modules. The user must make sure that there are **
+**              no problems with the operation through the full verification. **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+#ifndef CDD_ROUTER_CFG_H
+#define CDD_ROUTER_CFG_H
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Common Published Information                          **
+*******************************************************************************/
+
+AR_SW_COMMON_PUBLISH_INFO
+
+/*******************************************************************************
+**                      Precompile Macros                                     **
+*******************************************************************************/
+
+PRECOMPILE_OPTIONS
+
+/*******************************************************************************
+**                           Macros                                           **
+*******************************************************************************/
+
+SIZE_MACROS
+
+/*******************************************************************************
+**                     IF Tx Lower I-PDU Handles                              **
+*******************************************************************************/
+IF_LOWER_TX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Rx Lower I-PDU Handles                              **
+*******************************************************************************/
+IF_LOWER_RX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Tx Lower SoAd I-PDU Handles                         **
+*******************************************************************************/
+IF_LOWER_SOAD_TX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Rx Lower SoAd I-PDU Handles                         **
+*******************************************************************************/
+IF_LOWER_SOAD_RX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Tx Upper I-PDU Handles                              **
+*******************************************************************************/
+IF_UPPER_TX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     TP Rx Upper I-PDU Handles                              **
+*******************************************************************************/
+TP_UPPER_RX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Rx Upper I-PDU Handles                              **
+*******************************************************************************/
+IF_UPPER_RX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Rx IPC I-PDU Handles                                **
+*******************************************************************************/
+IF_IPC_RX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     IF Tx IPC I-PDU Handles                                **
+*******************************************************************************/
+IF_IPC_TX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     TP Rx IPC I-PDU Handles                                **
+*******************************************************************************/
+TP_IPC_RX_IPDU_HANDLES
+
+/*******************************************************************************
+**                     TP Tx IPC I-PDU Handles                                **
+*******************************************************************************/
+TP_IPC_TX_IPDU_HANDLES
+
+
+/*******************************************************************************
+**                      Function Prototypes                                   **
+*******************************************************************************/
+
+#endif /* CDD_ROUTER_CFG_H */
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+  </CDD_Router_Cfg.h>
+
+<CDD_Router_Cfg.c>
+    <TEMPLATE>/*******************************************************************************
+**  (C) 2015 HYUNDAI AUTOEVER Co., Ltd.                                       **
+**                                                                            **
+**  SRC-MODULE: CDD_Router_Cfg.c                                              **
+**                                                                            **
+**  PRODUCT   : CDD_Router Module                                             **
+**                                                                            **
+**  NOTE      : This file is auto generated, do not edit this file manually.  **
+**              The provided static and generated codes of CDD_Router Module  **
+**              are just for the understanding of the relationship between    **
+**              communication Modules. The user must make sure that there are **
+**              no problems with the operation through the full verification. **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+
+#include "CDD_Router.h"
+#include "CDD_Router_PCTypes.h"
+
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Version Check                                         **
+*******************************************************************************/
+
+VERSION_CHECK
+
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+
+CDD_Router_GaaLowerIfTxPduInfo
+CDD_Router_GaaLowerIfRxPduInfo
+CDD_Router_GaaLowerSoAdIfTxPduInfo
+CDD_Router_GaaLowerSoAdIfRxPduInfo
+CDD_Router_GaaUpperIfTxPduInfo
+CDD_Router_GaaUpperTpRxPduInfo
+CDD_Router_GaaUpperIfRxPduInfo
+
+CDD_IPC_GaaUpperIfRxPduInfo
+CDD_IPC_GaaUpperIfTxPduInfo
+CDD_IPC_GaaUpperTpRxPduInfo
+CDD_IPC_GaaUpperTpTxPduInfo
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+    <STRUCTURES-AND-ARRAYS>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Tx Lower IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaLowerIfTxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_LowerIfTxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaLowerIfTxPduInfo[CDD_ROUTER_MAX_LOWER_IF_TX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddTxPduHandleId ddPduLength</FIELD>
+          <TYPE>UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Rx Lower IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaLowerIfRxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_LowerIfRxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaLowerIfRxPduInfo[CDD_ROUTER_MAX_LOWER_IF_RX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddRxPduHandleId ddPduLength</FIELD>
+          <TYPE>UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Tx Lower SoAd IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaLowerSoAdIfTxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_LowerIfTxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaLowerSoAdIfTxPduInfo[CDD_ROUTER_MAX_LOWER_SOAD_IF_TX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddTxPduHandleId ddPduLength</FIELD>
+          <TYPE>UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Rx Lower SoAd IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaLowerSoAdIfRxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_LowerIfRxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaLowerSoAdIfRxPduInfo[CDD_ROUTER_MAX_LOWER_SOAD_IF_RX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddRxPduHandleId ddPduLength</FIELD>
+          <TYPE>UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>	
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Tx Upper IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaUpperIfTxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_UpperIfTxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaUpperIfTxPduInfo[CDD_ROUTER_MAX_UPPER_IF_TX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddTxPduHandleId ddPduLength ddLoTargetPduId ddLayerType</FIELD>
+          <TYPE>UINT16 UINT16 UINT16 UINT8 </TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Tx Upper TP Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaUpperTpTxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_UpperTpTxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaUpperTpTxPduInfo[]; */</COMMENT>
+          <FIELD>ddTxPduHandleId ddPduLength </FIELD>
+          <TYPE>UINT16 UINT16 </TYPE>
+          <RANGE>NONE#NONE NONE#NONE </RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE </REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>        
+        
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Rx Upper TP Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaUpperTpRxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_UpperTpRxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaUpperTpRxPduInfo[CDD_ROUTER_MAX_UPPER_TP_RX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddRxPduHandleId ddPduLength </FIELD>
+          <TYPE>UINT16 UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE </REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Rx Upper IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_Router_GaaUpperIfRxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_Router_UpperIfRxPduInfo, CDD_ROUTER_CONST) CDD_Router_GaaUpperIfRxPduInfo[CDD_ROUTER_MAX_UPPER_IF_RX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddRxPduHandleId ddPduLength </FIELD>
+          <TYPE>UINT16 UINT16 </TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE </REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Rx Upper IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_IPC_GaaUpperIfRxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_IPC_UpperIfRxPduInfo, CDD_ROUTER_CONST) CDD_IPC_GaaUpperIfRxPduInfo[CDD_ROUTER_MAX_IPC_IF_RX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddRxPduHandleId ddPduLength ddTargetAddressId</FIELD>
+          <TYPE>UINT16 UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Tx Upper IF Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_IPC_GaaUpperIfTxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_IPC_UpperIfTxPduInfo, CDD_ROUTER_CONST) CDD_IPC_GaaUpperIfTxPduInfo[CDD_ROUTER_MAX_IPC_IF_TX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddTxPduHandleId ddPduLength ddTargetAddressId</FIELD>
+          <TYPE>UINT16 UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Rx Upper TP Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_IPC_GaaUpperTpRxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_IPC_UpperTpRxPduInfo, CDD_ROUTER_CONST) CDD_IPC_GaaUpperTpRxPduInfo[CDD_ROUTER_MAX_IPC_TP_RX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddRxPduHandleId ddPduLength ddTargetAddressId</FIELD>
+          <TYPE>UINT16 UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* This array defines the attributes of Tx Upper TP Module I-PDU */</STRUCTURE-COMMENT>
+          <NAME>CDD_IPC_GaaUpperTpTxPduInfo</NAME>
+          <COMMENT>/* CONST(CDD_IPC_UpperTpTxPduInfo, CDD_ROUTER_CONST) CDD_IPC_GaaUpperTpTxPduInfo[CDD_ROUTER_MAX_IPC_TP_TX_PDU_COUNT]; */</COMMENT>
+          <FIELD>ddTxPduHandleId ddPduLength ddTargetAddressId</FIELD>
+          <TYPE>UINT16 UINT16 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define CDD_ROUTER_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define CDD_ROUTER_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO></SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+       
+        
+      </STRUCTURES-AND-ARRAYS>	  
+    </CDD_Router_Cfg.c>
+  </OUTPUT-FILES>
+</GENERAL-INFORMATION>

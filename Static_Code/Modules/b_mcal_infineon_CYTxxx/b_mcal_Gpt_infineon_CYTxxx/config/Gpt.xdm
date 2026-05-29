@@ -1,0 +1,947 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<datamodel version="5.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Gpt" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                <ad:ADMIN-DATA>
+                  <ad:DOC-REVISIONS>
+                    <ad:DOC-REVISION>
+                      <ad:REVISION-LABEL>4.2.2</ad:REVISION-LABEL>
+                      <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      <ad:DATE>2014-10-31</ad:DATE>
+                    </ad:DOC-REVISION>
+                  </ad:DOC-REVISIONS>
+                </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="DESC" 
+                   value="EN: Configuration of the Gpt (General Purpose Timer) module."/>
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="UPPER-MULTIPLICITY" value="1"/>
+              <a:a name="POSTBUILDVARIANTSUPPORT" value="true"/>
+              <a:a name="UUID" value="df4db1f1-ad07-4259-a2fc-639bebddf8fa"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                     type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                </a:a>
+                <a:a name="LABEL" value="Config Variant"/>
+                <a:a name="DESC">
+                  <a:v>EN:&lt;html&gt; This is the configuration parameter of setting variant.
+                       &lt;/html&gt;</a:v>
+                </a:a>
+                <a:da name="DEFAULT" value="VariantPostBuild"/>
+                <a:da name="RANGE">
+                  <a:v>VariantPostBuild</a:v>
+                </a:da>
+              </v:var>
+              <v:lst name="GptChannelConfigSet" type="MAP">
+                <a:da name="MIN" value="1"/>
+                <v:ctr name="GptChannelConfigSet" type="IDENTIFIABLE">
+                  <a:a name="DESC" 
+                       value="EN: This container is the base of a Configuration Set which contains the configured GPT channels. This way, different configuration sets can be defined for post-build process."/>
+                  <a:a name="UUID" value="ccf73107-9c1f-4dc4-bb68-162b8d4354f0"/>
+                  <v:lst name="GptChannelConfiguration" type="MAP">
+                    <a:da name="MIN" value="1"/>
+                    <v:ctr name="GptChannelConfiguration" type="IDENTIFIABLE">
+                      <a:a name="DESC" 
+                           value="EN: This container contains the channel-wide configuration (parameters) of the GPT Driver"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="UUID" 
+                           value="4fcd629a-b941-44d6-bcb4-7954f296f31f"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(node:foreach(node:paths(../../../*/GptChannelConfiguration/*), 'i', &quot;node:when(node:name($i) = node:name(.), node:ref(concat($i,'/GptChannelId')) != ./GptChannelId and substring-before(node:path($i), node:name($i)) != substring-before(node:path(.), node:name(.)))&quot;), 'true')" true="The same GptChannelId value is not assigned to GptChannelConfiguration with the same short name. GptChannelId value should be equal in all occurrences of the same short name."/>
+                      </a:da>
+                      <v:var name="GptChannelId" type="INTEGER">
+                        <a:a name="DESC" 
+                             value="EN: Channel Id of the GPT channel. This value will be assigned to the symbolic name derived of the GptChannelConfiguration container short name."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="ECU"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                        <a:a name="UUID" 
+                             value="619b9c0c-8f58-4981-8141-270e43fbc3fa"/>
+                        <a:da name="DEFAULT" type="XPath" expr="num:integer(../@index)"/>
+                        <a:da name="INVALID" type="Range">
+                          <a:tst expr="&lt;=65535" />
+                          <a:tst expr="&gt;=0" />
+                        </a:da>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="(node:fallback(.,0) &gt;= 0) and (node:fallback(.,0) &lt; num:i(count(node:fallback(node:current()/../../*,1))))" false="Value out of range: must be in range 0 to N-1 (N is number of configured channels)."/>
+                          <a:tst expr="text:uniq(node:fallback(../../*/GptChannelId,text:split('0')),node:fallback(.,1))" false="Duplicated value, GptChannelId must be unique across all GPT channels."/>
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptTimer" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>Specifies the physical hardware timer that is assigned to this logical channel.</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="CB662813-541F-5ec8-AB5A-F481B1E5CEB0"/>
+                        <a:da name="DEFAULT" type="XPath" expr="(text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' ')))[1]"/>
+                        <a:da name="RANGE" type="XPath" expr="text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' '))"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="text:uniq(../../*/GptTimer,.)"
+                               false="Only one configuration per Gpt Timer is allowed in the same configuration set." />
+                          <a:tst
+                               expr="text:contains(../../../GptPredefTimerChannelConfiguration/*/GptPredefTimer,.)"
+                               true="Only one configuration per Gpt Timer is allowed in the same configuration set (including GptPredefTimer)." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource,.)"
+                               true="Icu module already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer,.)"
+                               true="Ocu module already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer,.)"
+                               true="Pwm module already uses this TCPWM Timer for PwmTimer - the timer hardware must not be configured multiple times." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer,.)"
+                               true="Pwm module already uses this TCPWM Timer for PwmStartDelayTimer - the timer hardware must not be configured multiple times." />
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptChannelMode" type="ENUMERATION">
+                        <a:a name="DESC" 
+                             value="EN: Specifies the behavior of the timer channel after the timeout has expired."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="ECU"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="f0267279-0ad9-45a0-aeb9-9c80c4666622"/>
+                        <a:da name="DEFAULT" value="GPT_CH_MODE_CONTINUOUS"/>
+                        <a:da name="RANGE">
+                          <a:v>GPT_CH_MODE_CONTINUOUS</a:v>
+                          <a:v>GPT_CH_MODE_ONESHOT</a:v>
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptChannelClkSrc" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>EN: The GPT module specific clock input for the timer unit can statically
+be configured and allows to select different clock sources (internal clock or external clock) per channel.
+</a:v></a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="67DF5EB5-9B7A-5739-920F-1F136D2725F7"/>
+                        <a:da name="DEFAULT" value="CLK_INT"/>
+                        <a:da name="RANGE">
+                          <a:v>CLK_INT</a:v>
+                          <a:v>CLK_EXT</a:v>
+                        </a:da>
+                      </v:var>
+                      <v:ref name="GptChannelClkSrcRef" type="REFERENCE">
+                        <a:a name="DESC" 
+                             value="EN: Reference to the GptClockReferencePoint from which the channel clock is derived."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="UUID" 
+                             value="32461053-54cf-4d30-9386-46f02dd66605"/>
+                        <a:da name="REF" 
+                              value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Gpt/GptDriverConfiguration/GptClockReferencePoint"/>
+                        <a:da name="RANGE" type="XPath" expr="node:foreach(node:paths(../../../../../GptDriverConfiguration/GptClockReferencePoint/*),'ref','node:when(substring-before(substring-after(node:ref(node:ref($ref)/GptClockReference)/McuClock,&quot;MCU_PCLK_TCPWM&quot;),&quot;_&quot;)=substring-before(substring-after(node:current()/../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;) and substring-after(node:ref(node:ref($ref)/GptClockReference)/McuClock,&quot;CLOCKS&quot;)=substring-after(substring-after(node:current()/../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;),$ref)')"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                            expr="((substring-before(substring-after(node:ref(node:ref(.)/GptClockReference)/McuClock,&quot;MCU_PCLK_TCPWM&quot;),&quot;_&quot;)=substring-before(substring-after(node:current()/../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;)) and (substring-after(node:ref(node:ref(.)/GptClockReference)/McuClock,'CLOCKS')=substring-after(substring-after(../GptTimer,'TCPWM_'),'_')))"
+                            false="The configured GptChannelClkSrcRef is invalid due to not matching selected resource of McuClock with GptTimer."/>
+                        </a:da>
+                      </v:ref>
+                      <v:var name="GptChannelTickFrequency" type="FLOAT">
+                        <a:a name="DESC" 
+                             value="EN: Specifies the tick frequency of the timer channel in Hz."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="ECU"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="f607f7c6-7972-438e-94bf-b397124ddf92"/>
+                        <a:da name="DEFAULT" type="XPath" expr="node:when(node:value(../GptChannelClkSrc) != 'CLK_EXT',node:ref(node:ref(../GptChannelClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,0)"/>
+                        <a:da name="INVALID" type="Range">
+                          <a:tst expr="&lt;=1.0E8" />
+                          <a:tst expr="&gt;=0" />
+                        </a:da>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                            expr=".=0 or num:i(num:div(node:ref(node:ref(../GptChannelClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,.)) &gt;= 1 or (node:value(../GptChannelClkSrc)='CLK_EXT')"
+                            false="The configured GptChannelTickFrequency is out of range (too low prescaler)."/>
+                          <a:tst
+                            expr=".=0 or num:i(num:div(node:ref(node:ref(../GptChannelClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,.)) &lt;= 128 or (node:value(../GptChannelClkSrc)='CLK_EXT')"
+                            false="The configured GptChannelTickFrequency is out of range (too high prescaler)."/>
+                          <a:tst
+                            expr="(.!=0 and num:mod(node:ref(node:ref(../GptChannelClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,.)=0) or (node:value(../GptChannelClkSrc)='CLK_EXT')"
+                            false="The configured GptChannelTickFrequency is invalid due to prescaler inaccuracy."/>
+                          <a:tst
+                            expr=".=0 or text:contains(text:split('1 2 4 8 16 32 64 128'),num:i(num:div(node:ref(node:ref(../GptChannelClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,.))) or (node:value(../GptChannelClkSrc)='CLK_EXT')"
+                            false="The configured GptChannelTickFrequency is out of range due to prescaler inaccuracy."/>
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptInputTriggerSelection" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>EN: Specifies input trigger only when clock source CLK_EXT is selected. The input trigger is used as external clock input bound to one TCPWM resource. The trigger configuration between IO input and TCPWM is also required in PORT module.</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="0b919504-2524-4ef3-ac2b-dacdc7aea827"/>
+                        <a:da name="ENABLE" type="XPath" expr="node:value(../GptChannelClkSrc)='CLK_EXT'"/>
+                        <a:da name="EDITABLE" type="XPath" expr="node:value(../GptChannelClkSrc)='CLK_EXT'"/>
+                        <a:da name="DEFAULT" type="XPath" expr="(text:split(concat(text:join(text:order(node:foreach(ecu:list(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.pins.TR_ONE_CNT_IN')),'trg','node:when(num:i(num:div(num:i(substring-after($trg,concat(&quot;TCPWM_&quot;,substring-before(substring-after(../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;_TR_ONE_CNT_IN_&quot;))),num:i(ecu:get(concat(&quot;TCPWM.&quot;,substring-before(substring-after(../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;.TR_ONE_CNT_NR&quot;)))))=num:i(substring-after(substring-after(../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;)),$trg,&quot;&quot;)'))),&quot; &quot;,text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')))))[1]"/>
+                        <a:da name="RANGE" type="XPath" expr="text:split(concat(text:join(text:order(node:foreach(ecu:list(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.pins.TR_ONE_CNT_IN')),'trg','node:when(num:i(num:div(num:i(substring-after($trg,concat(&quot;TCPWM_&quot;,substring-before(substring-after(../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;_TR_ONE_CNT_IN_&quot;))),num:i(ecu:get(concat(&quot;TCPWM.&quot;,substring-before(substring-after(../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;.TR_ONE_CNT_NR&quot;)))))=num:i(substring-after(substring-after(../GptTimer,&quot;TCPWM_&quot;),&quot;_&quot;)),$trg,&quot;&quot;)'))),&quot; &quot;,text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))'))))"/>
+                        <a:da name="WARNING" type="XPath">
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                               true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                        </a:da>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="substring-before(substring-after(.,'TCPWM_'),'_') = substring-before(substring-after(../GptTimer,'TCPWM_'),'_')"
+                               false="GptInputTriggerSelection should use the same TCPWM instance of GPT Timer." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                               true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                               true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                               true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                               true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                               true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                               true="PwmChannelGroupStartTrigger already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                               true="PwmChannelGroupStopTrigger already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0,.)"
+                               true="PwmStartTriggerSelect0 already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1,.)"
+                               true="PwmStartTriggerSelect1 already uses this TCPWM trigger." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                               true="PwmStartDelayTrigger already uses this TCPWM trigger." />
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptChannelPrescale" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>EN: GPT module specific prescaler factor per channel. GptChannelPrescale is used for external clock input.</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="CD17E03D-74FF-5128-AF84-652E9D21BD62"/>
+                        <a:da name="DEFAULT"  value="GPT_PRESCALE_1"/>
+                        <a:da name="RANGE">
+                          <a:v>GPT_PRESCALE_1</a:v>
+                        </a:da>
+                        <a:da name="ENABLE" type="XPath" expr="node:value(../GptChannelClkSrc)='CLK_EXT'"/>
+                        <a:da name="EDITABLE" type="XPath" expr="node:value(../GptChannelClkSrc)='CLK_EXT'"/>
+                      </v:var>
+                      <v:var name="GptChannelTickValueMax" type="INTEGER">
+                        <a:a name="DESC" 
+                             value="EN: Maximum value in ticks, the timer channel is able to count. With the next tick, the timer rolls over to zero."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="ECU"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="2aebf132-5a97-4ec4-9642-59ab71ff73d3"/>
+                        <a:da name="DEFAULT" type="XPath" expr="num:i(bit:shl(1,ecu:get(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../GptTimer,'TCPWM_'),'_')),256))),'.CNT.GRP_CNT_WIDTH')))-1)"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr=". &lt;= 4294967295" false="GptChannelTickValueMax must not be greater than 4294967295 (=0xFFFFFFFF)"/>
+                          <a:tst expr=". &lt; bit:shl(1,num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../GptTimer,'TCPWM_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))))" false="GptChannelTickValueMax must not exceed the limit of the HW instance."/>
+                          <a:tst expr=". &gt;= 1" false="GptChannelTickValueMax must be greater than zero."/>
+                        </a:da>
+                      </v:var>   
+                      <v:var name="GptEnableWakeup" type="BOOLEAN">
+                        <a:a name="DESC" 
+                             value="EN: Enables wakeup capability of CPU for a channel when timeout period expires. This might be different to enabling the notification depending on hardware capabilities"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="946c049e-4862-436b-9b17-e824430c6cd8"/>
+                        <a:da name="DEFAULT" value="false"/>
+                      </v:var>
+                      <v:var name="GptEnableDebug" type="BOOLEAN">
+                        <a:a name="DESC" 
+                             value="EN: Enables debug capability to stop a timer channel when processor is in debug mode."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="2E22F9AE-4C61-4cbe-BDA1-9F4635AD541A"/>
+                            <a:da name="DEFAULT" value="false"/>
+                      </v:var>
+                      <v:var name="GptNotification" type="FUNCTION-NAME">
+                        <a:a name="DESC" 
+                             value="EN: Function pointer to callback function"/>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="a1086ddb-644d-4ba8-87e4-a6d0c8782701"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="text:uniq(../../*/GptNotification,.)"
+                               false="Duplicated value, GptNotification must be unique across all channels." />
+                          <a:tst
+                               expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                               false="Invalid name of the GptNotification. Must be valid C function name."/>
+                        </a:da>
+                        <a:da name="DEFAULT" value="Gpt_Notification_0"/>
+                      </v:var>
+                      <v:var name="GptHwTriggerOutputLine" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>EN: Specifies the output trigger channel. The trigger connection between output trigger channel (trigger source) and trigger destination is configured with PORT module.</a:v>
+                        </a:a>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="807278d8-331f-4e09-adc1-a17d9ec1863e"/>
+                        <a:da name="DEFAULT" type="XPath"
+                                expr="node:when(ecu:has(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT0.',substring-after(substring-after(../GptTimer,'TCPWM_'),'_'),'.signal')),'TR_OUT0',
+                                node:when(ecu:has(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT1.',substring-after(substring-after(../GptTimer,'TCPWM_'),'_'),'.signal')),'TR_OUT1',''))"/>
+                        <a:da name="RANGE">
+                          <a:v>TR_OUT0</a:v>
+                          <a:v>TR_OUT1</a:v>
+                          <a:v>BOTH</a:v>
+                        </a:da>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="((.='TR_OUT0' or .='BOTH') and ecu:has(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT0.',substring-after(substring-after(../GptTimer,'TCPWM_'),'_'),'.signal'))=false()) or ((.='TR_OUT1' or .='BOTH')  and ecu:has(concat('TCPWM.',substring-before(substring-after(../GptTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT1.',substring-after(substring-after(../GptTimer,'TCPWM_'),'_'),'.signal'))=false())"
+                               true="There is no GptHwTriggerOutputLine available for this TCPWM." />
+                        </a:da>
+                      </v:var>
+                      <v:lst name="GptWakeupConfiguration" type="MAP">
+                        <a:da name="MAX" value="1"/>
+                        <v:ctr name="GptWakeupConfiguration" 
+                               type="IDENTIFIABLE">
+                          <a:a name="DESC" 
+                             value="EN: Function pointer to callback function (for non-wakeup notification)."/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                             <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                          <a:a name="UUID" 
+                               value="75e5a837-81cb-4dd1-a5e8-22a03ef16d54"/>
+                          <v:ref name="GptWakeupSourceRef" 
+                                 type="SYMBOLIC-NAME-REFERENCE">
+                            <a:a name="DESC">
+                              <a:v>EN: In case the wakeup-capability is true this value is transmitted to the Ecu
+State Manager.
+
+Implementation Type: reference to EcuM_WakeupSourceType.</a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                               <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                            </a:a>
+                            <a:a name="SCOPE" value="LOCAL"/>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                            <a:a name="UUID" 
+                                 value="c760fcaf-b20b-488a-bc65-c27d258989b7"/>
+                            <a:da name="REF" 
+                                  value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"/>
+                          </v:ref>
+                        </v:ctr>
+                      </v:lst>
+                    </v:ctr>
+                  </v:lst>
+                  <v:lst name="GptPredefTimerChannelConfiguration" type="MAP">
+                    <a:da name="MAX" value="2"/>
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="num:i(count(./*))=0 and (../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade!='GPT_PREDEF_TIMER_1US_DISABLED' or ../../../GptDriverConfiguration/GptPredefTimer100us32bitEnable='true')" true="GptPredefTimerChannelConfiguration is not configured. Please configure GptPredefTimerChannelConfiguration in accordance with GptPredefTimer1usEnablingGrade or GptPredefTimer100us32bitEnable."/>
+                      <a:tst expr="num:i(count(./*))=1 and (../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_DISABLED' and ../../../GptDriverConfiguration/GptPredefTimer100us32bitEnable='false')" true="Number of GptPredefTimerChannelConfiguration exceeds the allowed number. Please configure GptPredefTimerChannelConfiguration in accordance with GptPredefTimer1usEnablingGrade or GptPredefTimer100us32bitEnable."/>
+                      <a:tst expr="num:i(count(./*))=1 and (../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade!='GPT_PREDEF_TIMER_1US_DISABLED' and ../../../GptDriverConfiguration/GptPredefTimer100us32bitEnable='true')" true="Number of GptPredefTimerChannelConfiguration is not enough. Please configure both 1us and 100us of GPT Predef Timer."/>
+                      <a:tst expr="num:i(count(./*))=2 and (../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_DISABLED' or ../../../GptDriverConfiguration/GptPredefTimer100us32bitEnable='false')" true="Number of GptPredefTimerChannelConfiguration exceeds the allowed number. Please configure GptPredefTimerChannelConfiguration in accordance with GptPredefTimer1usEnablingGrade or GptPredefTimer100us32bitEnable."/>
+                    </a:da>
+                    <v:ctr name="GptPredefTimerChannelConfiguration" type="IDENTIFIABLE">
+                      <a:a name="DESC" 
+                           value="EN: This container contains the configuration (parameters) of the GPT Predef Timer"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="UUID" 
+                           value="7b640959-f964-4424-8b72-79d8f9fd7e6f"/>
+                      <v:var name="GptPredefTimer" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>Specifies the hardware timer associated with this Predef Timer.</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="8d8f178b-152f-4fbe-8e71-487c50d47245"/>
+                        <a:da name="DEFAULT" type="XPath" expr="(text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' ')))[1]"/>
+                        <a:da name="RANGE" type="XPath" expr="text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' '))"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="text:uniq(../../*/GptPredefTimer,.)"
+                               false="Only one configuration per Gpt Timer is allowed in the same configuration set." />
+                          <a:tst
+                               expr="text:contains(../../../GptChannelConfiguration/*/GptTimer,.)"
+                               true="Only one configuration per Gpt Timer is allowed in the same configuration set (including GptTimer)." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource,.)"
+                               true="Icu module already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer,.)"
+                               true="Ocu module already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer,.)"
+                               true="Pwm module already uses this TCPWM Timer for PwmTimer - the timer hardware must not be configured multiple times." />
+                          <a:tst
+                               expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer,.)"
+                               true="Pwm module already uses this TCPWM Timer for PwmStartDelayTimer - the timer hardware must not be configured multiple times." />
+                        </a:da>
+                      </v:var>
+                      <v:ref name="GptPredefTimerClkSrcRef" type="REFERENCE">
+                        <a:a name="DESC" 
+                             value="EN: Reference to the GptClockReferencePoint from which the Predef Timer clock is derived."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="UUID" 
+                             value="4835dc8b-8e52-4a0e-84aa-e46bdd5080c2"/>
+                        <a:da name="REF" 
+                              value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Gpt/GptDriverConfiguration/GptClockReferencePoint"/>
+                        <a:da name="ENABLE" value="true"/>
+                        <a:da name="RANGE" type="XPath" expr="node:foreach(node:paths(../../../../../GptDriverConfiguration/GptClockReferencePoint/*),'ref','node:when(substring-before(substring-after(node:ref(node:ref($ref)/GptClockReference)/McuClock,&quot;MCU_PCLK_TCPWM&quot;),&quot;_&quot;)=substring-before(substring-after(node:current()/../GptPredefTimer,&quot;TCPWM_&quot;),&quot;_&quot;) and substring-after(node:ref(node:ref($ref)/GptClockReference)/McuClock,&quot;CLOCKS&quot;)=substring-after(substring-after(node:current()/../GptPredefTimer,&quot;TCPWM_&quot;),&quot;_&quot;),$ref)')"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                            expr="(substring-before(substring-after(node:ref(node:ref(.)/GptClockReference)/McuClock,&quot;MCU_PCLK_TCPWM&quot;),&quot;_&quot;)=substring-before(substring-after(node:current()/../GptPredefTimer,&quot;TCPWM_&quot;),&quot;_&quot;)) and (substring-after(node:ref(node:ref(.)/GptClockReference)/McuClock,'CLOCKS')=substring-after(substring-after(../GptPredefTimer,'TCPWM_'),'_'))"
+                            false="The configured GptPredefTimerClkSrcRef is invalid due to not matching selected resource of McuClock with GptPredefTimer."/>
+                        </a:da>
+                      </v:ref>
+                      <v:var name="GptPredefTimerType" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>Specifies type of Predef Timer.</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="2aeaf0ca-fc2d-41fb-9757-f134a9d18034"/>
+                        <a:da name="DEFAULT" value="GPT_PREDEF_TIMER_100US_32BIT"/>
+                        <a:da name="RANGE">
+                          <a:v>GPT_PREDEF_TIMER_100US_32BIT</a:v>
+                          <a:v>GPT_PREDEF_TIMER_1US_16_24_32BIT</a:v>
+                          <a:v>GPT_PREDEF_TIMER_1US_16_24BIT</a:v>
+                          <a:v>GPT_PREDEF_TIMER_1US_16BIT</a:v>
+                        </a:da>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_DISABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_16_24BIT_ENABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_16_24_32BIT_ENABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_DISABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_16BIT_ENABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_16_24_32BIT_ENABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24_32BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_DISABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24_32BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_16BIT_ENABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24_32BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade='GPT_PREDEF_TIMER_1US_16_24BIT_ENABLED'" true="Selected GptPredefTimerType is not suitable for GptPredefTimer1usEnablingGrade."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_100US_32BIT' and ../../../../../GptDriverConfiguration/GptPredefTimer100us32bitEnable='false'" true="GPT_PREDEF_TIMER_100US_32BIT must not be selected if GptPredefTimer100us32bitEnable is false."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_100US_32BIT' and num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../GptPredefTimer,'TCPWM_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../GptPredefTimer,'TCPWM_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))) &lt; 32" true="The selected TCPWM channel does not support the bit width specified by GptPredefTimerType."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24_32BIT' and num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../GptPredefTimer,'TCPWM_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../GptPredefTimer,'TCPWM_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))) &lt; 32" true="The selected TCPWM channel does not support the bit width specified by GptPredefTimerType."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24BIT' and num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../GptPredefTimer,'TCPWM_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../GptPredefTimer,'TCPWM_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))) &lt; 24" true="The selected TCPWM channel does not support the bit width specified by GptPredefTimerType."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_100US_32BIT' and text:uniq(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_100US_32BIT')=false()" true="100us tick duration Predef Timer is already configured. Multiple configuration of the same tick duration Predef Timer is not allowed."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24_32BIT' and (text:uniq(../../*/GptPredefTimerType,.)=false() or node:containsValue(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_1US_16BIT')=true() or node:containsValue(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_1US_16_24BIT')=true())" true="1us tick duration Predef Timer is already configured. Multiple configuration of the same tick duration Predef Timer is not allowed."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16_24BIT' and (text:uniq(../../*/GptPredefTimerType,.)=false() or node:containsValue(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_1US_16BIT')=true() or node:containsValue(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_1US_16_24_32BIT')=true())" true="1us tick duration Predef Timer is already configured. Multiple configuration of the same tick duration Predef Timer is not allowed."/>
+                          <a:tst expr=".='GPT_PREDEF_TIMER_1US_16BIT' and (text:uniq(../../*/GptPredefTimerType,.)=false() or node:containsValue(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_1US_16_24BIT')=true() or node:containsValue(../../*/GptPredefTimerType,'GPT_PREDEF_TIMER_1US_16_24_32BIT')=true())" true="1us tick duration Predef Timer is already configured. Multiple configuration of the same tick duration Predef Timer is not allowed."/>
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptPredefTimerTickFrequencyResult" type="FLOAT">
+                        <a:a name="DESC" 
+                             value="EN: Shows calculated tick frequency of GptPredefTimer in Hz (ex. 1us -> 1000000Hz, 100us -> 10000Hz)."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="6772ea76-0e1d-422d-b8cc-a111a40a3228"/>
+                        <a:da name="DEFAULT" type="XPath" expr="(num:order(node:foreach(text:split('1 2 4 8 16 32 64 128'),'prescale','node:when(node:when(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))) &gt;= num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div($prescale,2)))),num:f(num:sub(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))),num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div($prescale,2)))))),num:f(num:sub(num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div($prescale,2)))),num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;))))))) &gt; node:when(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))) &gt;= num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))),num:f(num:sub(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))),num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))))),num:f(num:sub(num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))),num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;))))))),num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))),num:f(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency))'),-1))[last()]"/>
+                        <a:da name="WARNING" type="XPath">
+                          <a:tst expr=". = (num:order(node:foreach(text:split('1 2 4 8 16 32 64 128'),'prescale','node:when(node:when(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))) &gt;= num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div($prescale,2)))),num:f(num:sub(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))),num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div($prescale,2)))))),num:f(num:sub(num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div($prescale,2)))),num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;))))))) &gt; node:when(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))) &gt;= num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))),num:f(num:sub(num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))),num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))))),num:f(num:sub(num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))),num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;))))))),num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f($prescale))),num:f(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency))'),-1))[last()]" false="GptPredefTimerTickFrequencyResult has to be re-calculated. Please press &apos;Calculate value&apos; button."/>
+                          <a:tst expr="num:i(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))))) &gt;= 1" false="The calculated GptPredefTimerTickFrequencyResult is out of range (too low prescaler)."/>
+                          <a:tst expr="num:i(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))))) &lt;= 128" false="The calculated GptPredefTimerTickFrequencyResult is out of range (too high prescaler)."/>
+                          <a:tst expr="node:containsValue(node:foreach(text:split('1 2 4 8 16 32 64 128'),'prescale','num:f(num:div(node:ref(node:ref(../GptPredefTimerClkSrcRef)/GptClockReference)/McuClockReferencePointFrequency,num:i($prescale)))'),num:f(num:div(1000000,num:f(substring-before(substring-after(../GptPredefTimerType,&quot;TIMER_&quot;),&quot;US&quot;)))))" false="GptPredefTimerTickFrequencyResult does not exactly match GptPredefTimerType."/>
+                        </a:da>
+                      </v:var>
+                      <v:var name="GptPredefTimerEnableDebug" type="BOOLEAN">
+                        <a:a name="DESC" 
+                             value="EN: Enables debug capability to stop a Predef Timer when processor is in debug mode."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="03c812b6-cd80-46c2-a8ec-5421baa59f52"/>
+                            <a:da name="DEFAULT" value="false"/>
+                      </v:var>
+                    </v:ctr>
+                  </v:lst>
+                  <v:ctr name="GptPredefTimerStartTriggerConfiguration" type="IDENTIFIABLE">
+                    <a:a name="DESC" 
+                         value="EN: This container contains the configured GPT Predef Timer synchronous start triggers."/>
+                    <a:a name="UUID" value="3e29d7c3-1dd4-4cd8-acd7-38b28ce6e9b5"/>
+                    <v:var name="GptPredefTimerStartTriggerSelect" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: Specifies the input trigger associated with Predef Timers to start synchronously. When two Predef Timers for 1 us and 100 us ticks timers are configured, this parameter is available. When this parameter is configured, Gpt_Init or Gpt_SetMode(GPT_MODE_NORMAL) does not start Predef Timers. It is necessary to call Port_ActTrigger to start Predef Timers synchronously after calling Gpt_Init and Gpt_SetMode(GPT_MODE_NORMAL). When this parameter is not configured, Predef timers start sequentially after calling of Gpt_Init and Gpt_SetMode(GPT_MODE_NORMAL)."/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="8d589672-6323-4ed7-b98c-99a4f783da59"/>
+                      <a:da name="EDITABLE" type="XPath" expr="(node:value(../../../../GptDriverConfiguration/GptPredefTimer1usEnablingGrade)!='GPT_PREDEF_TIMER_1US_DISABLED') and (node:value(../../../../GptDriverConfiguration/GptPredefTimer100us32bitEnable)='true')"/>
+                      <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))'))[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(node:foreach(../../GptPredefTimerChannelConfiguration/*/GptPredefTimer,'i','node:when(substring-before(substring-after(.,&quot;TCPWM_&quot;),&quot;_&quot;)=substring-before(substring-after(string($i),&quot;TCPWM_&quot;),&quot;_&quot;))'),'false')"
+                               true="GptPredefTimerStartTriggerSelect should use the same TCPWM instance of GPT Predef Timer in the same configuration set." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                             true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                             true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                             true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                             true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                             true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                             true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                             true="PwmChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                             true="PwmChannelGroupStopTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0,.)"
+                             true="PwmStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1,.)"
+                             true="PwmStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                             true="PwmStartDelayTrigger already uses this TCPWM trigger." />
+                      </a:da>
+                    </v:var>
+                  </v:ctr>
+                </v:ctr>
+              </v:lst>
+              <v:ctr name="GptConfigurationOfOptApiServices" 
+                     type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: This container contains all configuration switches for configuring optional API services of the GPT driver"/>
+                <a:a name="UUID" value="3b99f728-7309-49bf-9612-344e23413071"/>
+                <v:var name="GptDeinitApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the service Gpt_DeInit() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="040176ad-f87b-4850-8407-e690efe81be4"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptEnableDisableNotificationApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the services Gpt_EnableNotification() and Gpt_DisableNotification() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="51d8abbd-6cc7-42a9-8b61-12c5e4065fde"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptTimeElapsedApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the service Gpt_GetTimeElapsed() from the code"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="869a6619-a4e6-4e31-8a2d-15c9483d240a"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptTimeRemainingApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the service Gpt_GetTimeRemaining() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="338db341-ad79-4ca5-8dd7-07861843a2e9"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptVersionInfoApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the service Gpt_GetVersionInfo() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="9a5c27d5-41e3-4a6f-a7c1-519a823c86bb"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptWakeupFunctionalityApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the services Gpt_SetMode(), Gpt_EnableWakeup(), Gpt_DisableWakeup() and Gpt_CheckWakeup() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="7aa372c2-9429-40b0-9903-681392d3189e"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptSafetyFunctionApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the services Gpt_CheckChannelStatus() and Gpt_CheckPredefTimerStatus() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="7bb313d2-9439-41b0-4491-551392a3167f"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptSetPrescalerApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the services GptSetPrescaler() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="5325c7d7-6663-4d48-9e3a-471594bb6fcf"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptSetPredefTimerPrescalerApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds/removes the services GptSetPredefTimerPrescaler() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="cc738f58-d721-420f-a331-6f04cec13b02"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+              </v:ctr>
+              <v:ctr name="GptDriverConfiguration" type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: This container contains the module-wide configuration (parameters) of the GPT Driver"/>
+                <a:a name="UUID" value="4d7d1ca1-a491-43ce-b239-424054740358"/>
+                <v:var name="GptDevErrorDetect" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Enables/Disables development error detection"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="a4bd4f48-d12e-4366-a530-8919d1362d1d"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptReportWakeupSource" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Enables/Disables wakeup source reporting."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="3e53b4d1-055b-45f1-b9cf-a5734668ff34"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="GptPredefTimer100us32bitEnable" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Enables/Disables the GPT Predef Timer 100us 32bit."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="ECU"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="13c50bf3-03bc-41fb-b734-a8d11f2b5675"/>
+                  <a:da name="DEFAULT" value="false"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr=".='false' and text:contains(../../GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimerType,'GPT_PREDEF_TIMER_100US_32BIT')=true()" true="GptPredefTimer100us32bitEnable must be enabled if any GptPredefTimerType selects GPT_PREDEF_TIMER_100US_32BIT in GptPredefTimerChannelConfiguration."/>
+                  </a:da>
+                </v:var>
+                <v:var name="GptPredefTimer1usEnablingGrade" type="ENUMERATION">
+                  <a:a name="DESC" 
+                       value="EN: Specifies the grade of enabling the GPT Predef Timers with 1us tick duration."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="ECU"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" 
+                       value="c67d4839-ce12-4ad6-bb5c-0a0c9c9b746d"/>
+                  <a:da name="DEFAULT" value="GPT_PREDEF_TIMER_1US_DISABLED" />
+                  <a:da name="RANGE">
+                    <a:v>GPT_PREDEF_TIMER_1US_16BIT_ENABLED</a:v>
+                    <a:v>GPT_PREDEF_TIMER_1US_16_24BIT_ENABLED</a:v>
+                    <a:v>GPT_PREDEF_TIMER_1US_16_24_32BIT_ENABLED</a:v>
+                    <a:v>GPT_PREDEF_TIMER_1US_DISABLED</a:v>
+                  </a:da>
+                </v:var>
+                <v:lst name="GptClockReferencePoint" type="MAP">
+                  <a:da name="MIN" value="1"/>
+                  <v:ctr name="GptClockReferencePoint" type="IDENTIFIABLE">
+                    <a:a name="DESC" 
+                         value="EN: This container contains a parameter, which represents a reference to a container of the type McuClockReferencePoint (defined in module MCU)."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="UUID" 
+                         value="a1ae4e15-d4bb-4038-8531-832a6f7ef281"/>
+                    <v:ref name="GptClockReference" type="REFERENCE">
+                      <a:a name="DESC" 
+                           value="EN: Reference to a container of the type McuClockReferencePoint, to select an input clock."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="63591315-06ec-442a-b97d-6ad949b08be7"/>
+                      <a:da name="REF" 
+                            value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"/>
+                      <a:da name="ENABLE" value="true"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(node:paths(/AUTOSAR/TOP-LEVEL-PACKAGES/Mcu/ELEMENTS/Mcu/McuModuleConfiguration/*/McuClockSettingConfig/*/McuClockReferencePoint/*),'ref','node:when(text:contains(string(node:ref($ref)/McuClock),&quot;TCPWM&quot;),$ref)')"/>
+                      <a:da name="INVALID" type="XPath" expr="text:uniq(../../*/GptClockReference,.)" false="A reference to the same clock source already exists in GptClockReferencePoint."/>
+                    </v:ref>
+                  </v:ctr>
+                </v:lst>
+                <v:var name="GptErrorCalloutFunction"  type="FUNCTION-NAME">
+                  <a:a name="DESC">
+                    <a:v>EN:  &lt;html&gt;Error callout function. Syntax:&lt;br/&gt; void ErrorCalloutHandler (uint16 ModuleId, uint8 InstanceId, uint8 ApiId, uint8 ErrorId)&lt;br/&gt; &lt;br/&gt; The error callout function is called on every error. The ASIL level of this function limits the ASIL level of the GPT driver.</a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="A6DF2629-FC84-4d62-A68B-1F849024A1B4"/>
+                  <a:da name="DEFAULT" value="ErrorCalloutHandler"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the GptErrorCalloutFunction. Must be valid C function name."/>
+                  </a:da>
+                </v:var>
+                <v:lst name="GptIncludeFile">
+                  <v:var name="GptIncludeFile" type="STRING">
+                    <a:a name="DESC"  value="EN: A file that shall be included by Gpt_Cfg_Include.h. Any application specific symbol that is used by the Gpt configuration (e.g. Error callout function) should be included by configuring this parameter."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                      <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="SCOPE" value="LOCAL"/>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="UUID"  value="56AE4389-C91B-11ea-9AAB-67148A24EB8E"/>
+                    <a:da name="DEFAULT" value="ErrorCalloutHandler.h" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:match(normalize-space(.),'^[_0-9a-zA-Z]+\.h$')" false="Invalid name of the GptIncludeFile. Must be a filename with extension.h."/>
+                      <a:tst expr="text:uniq(../*,.)"  false="GptIncludeFile must be unique."/>
+                    </a:da>
+                  </v:var>
+                </v:lst>
+              </v:ctr>
+              <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/EcucDefs/Gpt"/>
+            </v:ctr>
+          </d:chc>
+          <d:chc name="GPT_EcuParameterDefinition" type="AR-ELEMENT" 
+                 value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="DEF" 
+                   value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <a:a name="UUID" value="df4db1f1-ad07-6459-a2fc-639bebddf8fa"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Gpt"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+</datamodel>

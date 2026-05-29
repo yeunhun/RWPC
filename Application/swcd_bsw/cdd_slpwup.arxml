@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="e96069e1-783e-4e80-8d96-9cebcda00743">
+      <SHORT-NAME>cdd_slpwup</SHORT-NAME>
+      <ELEMENTS>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="de822aa2-cbbd-41f7-87e8-207dd25042c1">
+          <SHORT-NAME>CDD_SLPWUP</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="74126196-15cc-49ee-bb8f-33373d85ad61">
+              <SHORT-NAME>R_Slpwup_ComMNoti_BCAN</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</DATA-ELEMENT-REF>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARP_Interface/SRIF_u8</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="f6ed229b-a97e-450a-a532-a08105d89cf9">
+              <SHORT-NAME>R_Slpwup_ComMNoti_LCAN</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</DATA-ELEMENT-REF>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARP_Interface/SRIF_u8</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="9b212088-c20a-4f73-8cd9-4cc9d067ab7f">
+              <SHORT-NAME>R_Slpwup_FullComM_BCAN</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</DATA-ELEMENT-REF>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARP_Interface/SRIF_u8</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="4a5a1647-b9ac-467d-8904-aa796b40db23">
+              <SHORT-NAME>R_Slpwup_FullComM_LCAN</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</DATA-ELEMENT-REF>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARP_Interface/SRIF_u8</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="96b16e55-e150-47c8-87d7-6b9f36aa4018">
+              <SHORT-NAME>R_Slpwup_RequestMode_BCAN</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/ARP_Slpwup/CS_RequestMode</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="6ae7d324-f161-48a8-866d-76e507c3ea98">
+              <SHORT-NAME>R_Slpwup_RequestMode_LCAN</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/ARP_Slpwup/CS_RequestMode</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="0801960a-c914-433d-8505-7ba9b335e1aa">
+              <SHORT-NAME>R_Slpwup_EcuM_StateRequest</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/ARP_Slpwup/CS_EcuM_StateRequest</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="ef4ed37d-f1cd-4127-8285-8fc300c652d8">
+              <SHORT-NAME>R_Slpwup_NvMJobFinished</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</DATA-ELEMENT-REF>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARP_Interface/SRIF_u8</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="521bbdbd-1ff3-4673-9cf5-098ab3694b84">
+              <SHORT-NAME>R_Slpwup_EcuMode</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</DATA-ELEMENT-REF>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARP_Interface/SRIF_u8</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="3e8cf7a4-f2d5-4e6e-994e-ca60ffa59fd3">
+              <SHORT-NAME>InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="0981dd86-db83-4c6b-92f2-3d90b128bdb1">
+                  <SHORT-NAME>TE_RE_Slpwup_10ms_Task</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/cdd_slpwup/CDD_SLPWUP/InternalBehavior/RE_Slpwup_10ms_Task</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="3273b25c-59f9-40c5-be42-510a9726f803">
+                  <SHORT-NAME>RE_Slpwup_10ms_Task</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="abb63257-23a7-414a-9456-840e55c7a71b">
+                      <SHORT-NAME>DRPBA_RE_Slpwup_10ms_Task_R_Slpwup_ComMNoti_BCAN_SR_u8</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_ComMNoti_BCAN</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                      <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="0904d3ac-9269-470f-9629-42c2f12718bc">
+                      <SHORT-NAME>DRPBA_RE_Slpwup_10ms_Task_R_Slpwup_ComMNoti_LCAN_SR_u8</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_ComMNoti_LCAN</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                      <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="6417fdf6-59a0-4ef1-94ba-dec780267ddf">
+                      <SHORT-NAME>DRPBA_RE_Slpwup_10ms_Task_R_Slpwup_FullComM_BCAN_SR_u8</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_FullComM_BCAN</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                      <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="a2b60909-9304-462a-aab8-b83bcc303af8">
+                      <SHORT-NAME>DRPBA_RE_Slpwup_10ms_Task_R_Slpwup_FullComM_LCAN_SR_u8</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_FullComM_LCAN</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                      <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="5474b468-f519-4ae4-b53a-38dd75ce889c">
+                      <SHORT-NAME>DRPBA_RE_Slpwup_10ms_Task_R_Slpwup_NvMJobFinished_SR_u8</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_NvMJobFinished</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                      <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="d1ee4ff4-4f89-4bda-84fe-7d80c058c8a4">
+                      <SHORT-NAME>DRPBA_RE_Slpwup_10ms_Task_R_Slpwup_EcuMode_SR_u8</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_EcuMode</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARP_Interface/SRIF_u8/SR_u8</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                      <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1b172350-cd67-4550-9aac-a68d78213d72">
+                      <SHORT-NAME>SSCP_RE_Slpwup_10ms_Task_R_RequestMode_BCAN_RequestComMode</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_RequestMode_BCAN</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ARP_Slpwup/CS_RequestMode/RequestComMode</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="b92302ac-28ae-4d34-8908-990a143631c9">
+                      <SHORT-NAME>SSCP_RE_Slpwup_10ms_Task_R_RequestMode_LCAN_RequestComMode</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_RequestMode_LCAN</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ARP_Slpwup/CS_RequestMode/RequestComMode</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="725f815f-b41c-47f3-8148-fe273663790a">
+                      <SHORT-NAME>SSCP_RE_Slpwup_10ms_Task_R_Slpwup_EcuM_StateRequest_RequestState</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_EcuM_StateRequest</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ARP_Slpwup/CS_EcuM_StateRequest/RequestState</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                  <SYMBOL>Slpwup_10ms_Task</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

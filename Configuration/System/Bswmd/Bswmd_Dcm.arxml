@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+<AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ARPackage_Dcm</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>EcuConfiuration</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-IMPLEMENTATION>
+              <SHORT-NAME>BswImplementation_Dcm</SHORT-NAME>
+              <SW-VERSION>2.3.13</SW-VERSION>
+              <SWC-BSW-MAPPING-REF DEST="SWC-BSW-MAPPING">/AUTOSAR_Dcm/ServiceSwComponentTypes/SwcBswMapping_Dcm</SWC-BSW-MAPPING-REF>
+              <VENDOR-ID>76</VENDOR-ID>
+              <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+              <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm</BEHAVIOR-REF>
+            </BSW-IMPLEMENTATION>
+            <BSW-MODULE-DESCRIPTION>
+              <SHORT-NAME>Dcm</SHORT-NAME>
+              <MODULE-ID>0x35</MODULE-ID>
+              <PROVIDED-MODE-GROUPS>
+                <MODE-DECLARATION-GROUP-PROTOTYPE>
+                  <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE>
+                  <SHORT-NAME>DcmEcuReset</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE>
+                  <SHORT-NAME>DcmModeRapidPowerShutDown</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE>
+                  <SHORT-NAME>DcmControlDTCSetting</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE>
+                  <SHORT-NAME>DcmApplicationUpdated</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="0c7ae378-dc25-4b8d-93db-8000017cb128">
+                  <SHORT-NAME>DcmCommunicationControl_1</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="8ee0f560-382f-4bad-9583-eaaa0179e309">
+                  <SHORT-NAME>DcmCommunicationControl_0</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+              </PROVIDED-MODE-GROUPS>
+              <REQUIRED-MODE-GROUPS>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="61bb159b-9fd1-4473-8e74-e9698ac0bdd0">
+                  <SHORT-NAME>Dcm_EM_R</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/EcuM/ModeDeclarationGroups/EcuMode</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+              </REQUIRED-MODE-GROUPS>
+              <INTERNAL-BEHAVIORS>
+                <BSW-INTERNAL-BEHAVIOR>
+                  <SHORT-NAME>InternalBehavior_Dcm</SHORT-NAME>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmDiagnosticSessionControl</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmEcuReset</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmModeRapidPowerShutDown</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmCommunicationControl</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmControlDTCSetting</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmApplicationUpdated</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>SIGNAL_DATA_PROTECTION_AREA</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>ProtclProtection</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>RxPduIdProtection</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>RxLengthProtection</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>TimerProtection</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <ENTITYS>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswSE_Dcm_MainFunction</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm/SIGNAL_DATA_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm/ProtclProtection</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm/RxPduIdProtection</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm/RxLengthProtection</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm/TimerProtection</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/ARPackage_Dcm/EcuConfiuration/Dcm_MainFunction</IMPLEMENTED-ENTRY-REF>
+                      <MANAGED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmDiagnosticSessionControl</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmEcuReset</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmModeRapidPowerShutDown</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmControlDTCSetting</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmApplicationUpdated</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmCommunicationControl_1</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmCommunicationControl_0</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </MANAGED-MODE-GROUPS>
+                    </BSW-SCHEDULABLE-ENTITY>
+                  </ENTITYS>
+                  <EVENTS>
+                    <BSW-TIMING-EVENT>
+                      <SHORT-NAME>BswTE_Dcm_MainFunction</SHORT-NAME>
+                      <DISABLED-IN-MODE-IREFS>
+                        <DISABLED-IN-MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/Dcm_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_STARTUP_ONE</TARGET-MODE-REF>
+                        </DISABLED-IN-MODE-IREF>
+                        <DISABLED-IN-MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/Dcm_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_STARTUP_TWO</TARGET-MODE-REF>
+                        </DISABLED-IN-MODE-IREF>
+                        <DISABLED-IN-MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/Dcm_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_STARTUP_THREE</TARGET-MODE-REF>
+                        </DISABLED-IN-MODE-IREF>
+                        <DISABLED-IN-MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/Dcm_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_SHUTDOWN</TARGET-MODE-REF>
+                        </DISABLED-IN-MODE-IREF>
+                      </DISABLED-IN-MODE-IREFS>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/ARPackage_Dcm/EcuConfiuration/Dcm/InternalBehavior_Dcm/BswSE_Dcm_MainFunction</STARTS-ON-EVENT-REF>
+                      <PERIOD>0.01</PERIOD>
+                    </BSW-TIMING-EVENT>
+                  </EVENTS>
+                  <MODE-SENDER-POLICYS>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmEcuReset</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmDiagnosticSessionControl</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmControlDTCSetting</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmModeRapidPowerShutDown</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmApplicationUpdated</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmCommunicationControl_1</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>false</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/EcuConfiuration/Dcm/DcmCommunicationControl_0</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                  </MODE-SENDER-POLICYS>
+                  <SERVICE-DEPENDENCYS>
+                    <BSW-SERVICE-DEPENDENCY>
+                      <ASSIGNED-ENTRY-ROLES>
+                        <ROLE-BASED-BSW-MODULE-ENTRY-ASSIGNMENT>
+                          <ASSIGNED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/ARPackage_Dcm/EcuConfiuration/Dcm_MainFunction</ASSIGNED-ENTRY-REF>
+                        </ROLE-BASED-BSW-MODULE-ENTRY-ASSIGNMENT>
+                      </ASSIGNED-ENTRY-ROLES>
+                      <SERVICE-NEEDS>
+                        <BSW-MGR-NEEDS>
+                          <SHORT-NAME>BswMgrNeeds</SHORT-NAME>
+                        </BSW-MGR-NEEDS>
+                      </SERVICE-NEEDS>
+                    </BSW-SERVICE-DEPENDENCY>
+                  </SERVICE-DEPENDENCYS>
+                  <DISTINGUISHED-PARTITIONS>
+                    <BSW-DISTINGUISHED-PARTITION>
+                      <SHORT-NAME>BswDistinguishedPartition_Dcm</SHORT-NAME>
+                    </BSW-DISTINGUISHED-PARTITION>
+                  </DISTINGUISHED-PARTITIONS>
+                </BSW-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </BSW-MODULE-DESCRIPTION>
+            <BSW-MODULE-ENTRY>
+              <SHORT-NAME>Dcm_MainFunction</SHORT-NAME>
+              <SERVICE-ID>0x25</SERVICE-ID>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>ModeDeclarationGroup</SHORT-NAME>
+          <ELEMENTS>
+            <MODE-DECLARATION-GROUP>
+              <SHORT-NAME>DcmControlDTCSetting</SHORT-NAME>
+              <INITIAL-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting/ENABLEDTCSETTING</INITIAL-MODE-REF>
+              <MODE-DECLARATIONS>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>ENABLEDTCSETTING</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DISABLEDTCSETTING</SHORT-NAME>
+                  <VALUE>2</VALUE>
+                </MODE-DECLARATION>
+              </MODE-DECLARATIONS>
+            </MODE-DECLARATION-GROUP>
+            <MODE-DECLARATION-GROUP>
+              <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
+              <CATEGORY>EXPLICIT_ORDER</CATEGORY>
+              <INITIAL-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_DEFAULT_SESSION</INITIAL-MODE-REF>
+              <MODE-DECLARATIONS>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DEFAULT_SESSION</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_PROGRAMMING_SESSION</SHORT-NAME>
+                  <VALUE>2</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_EXTENDED_DIAGNOSTIC_SESSION</SHORT-NAME>
+                  <VALUE>3</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_SAFETY_SYSTEM_DIAGNOSTIC_SESSION</SHORT-NAME>
+                  <VALUE>4</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ECU_PROGRAMMING_MODE</SHORT-NAME>
+                  <VALUE>5</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_EXTENDED_DIAGNOSTIC_MODE</SHORT-NAME>
+                  <VALUE>16</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_QUIESCENT_CURRENT_DIAGNOSTIC_MODE_START</SHORT-NAME>
+                  <VALUE>80</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_SLEEP_MODE_START_REQUEST</SHORT-NAME>
+                  <VALUE>81</VALUE>
+                </MODE-DECLARATION>
+              </MODE-DECLARATIONS>
+              <ON-TRANSITION-VALUE>0</ON-TRANSITION-VALUE>
+            </MODE-DECLARATION-GROUP>
+            <MODE-DECLARATION-GROUP>
+              <SHORT-NAME>DcmEcuReset</SHORT-NAME>
+              <CATEGORY>EXPLICIT_ORDER</CATEGORY>
+              <INITIAL-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/NONE</INITIAL-MODE-REF>
+              <MODE-DECLARATIONS>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>NONE</SHORT-NAME>
+                  <VALUE>0</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>HARD</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>KEYONOFF</SHORT-NAME>
+                  <VALUE>2</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>SOFT</SHORT-NAME>
+                  <VALUE>3</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>JUMPTOBOOTLOADER</SHORT-NAME>
+                  <VALUE>4</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>JUMPTOSYSSUPPLIERBOOTLOADER</SHORT-NAME>
+                  <VALUE>5</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>EXECUTE</SHORT-NAME>
+                  <VALUE>6</VALUE>
+                </MODE-DECLARATION>
+              </MODE-DECLARATIONS>
+              <ON-TRANSITION-VALUE>255</ON-TRANSITION-VALUE>
+            </MODE-DECLARATION-GROUP>
+            <MODE-DECLARATION-GROUP>
+              <SHORT-NAME>DcmModeRapidPowerShutDown</SHORT-NAME>
+              <INITIAL-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown/ENABLE_RAPIDPOWERSHUTDOWN</INITIAL-MODE-REF>
+              <MODE-DECLARATIONS>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>ENABLE_RAPIDPOWERSHUTDOWN</SHORT-NAME>
+                  <VALUE>0</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DISABLE_RAPIDPOWERSHUTDOWN</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </MODE-DECLARATION>
+              </MODE-DECLARATIONS>
+              <ON-TRANSITION-VALUE>255</ON-TRANSITION-VALUE>
+            </MODE-DECLARATION-GROUP>
+            <MODE-DECLARATION-GROUP>
+              <SHORT-NAME>DcmCommunicationControl</SHORT-NAME>
+              <INITIAL-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NORM_NM</INITIAL-MODE-REF>
+              <MODE-DECLARATIONS>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ENABLE_RX_TX_NORM</SHORT-NAME>
+                  <VALUE>0</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ENABLE_RX_DISABLE_TX_NORM</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DISABLE_RX_ENABLE_TX_NORM</SHORT-NAME>
+                  <VALUE>2</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DISABLE_RX_TX_NORMAL</SHORT-NAME>
+                  <VALUE>3</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ENABLE_RX_TX_NM</SHORT-NAME>
+                  <VALUE>4</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ENABLE_RX_DISABLE_TX_NM</SHORT-NAME>
+                  <VALUE>5</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DISABLE_RX_DISABLE_TX_NM</SHORT-NAME>
+                  <VALUE>6</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DISABLE_RX_TX_NM</SHORT-NAME>
+                  <VALUE>7</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ENABLE_RX_TX_NORM_NM</SHORT-NAME>
+                  <VALUE>8</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_ENABLE_RX_DISABLE_TX_NORM_NM</SHORT-NAME>
+                  <VALUE>9</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DISABLE_RX_ENABLE_TX_NORM_NM</SHORT-NAME>
+                  <VALUE>10</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>DCM_DISABLE_RX_TX_NORM_NM</SHORT-NAME>
+                  <VALUE>11</VALUE>
+                </MODE-DECLARATION>
+              </MODE-DECLARATIONS>
+              <ON-TRANSITION-VALUE>0</ON-TRANSITION-VALUE>
+            </MODE-DECLARATION-GROUP>
+            <MODE-DECLARATION-GROUP>
+              <SHORT-NAME>DcmApplicationUpdated</SHORT-NAME>
+              <CATEGORY>EXPLICIT_ORDER</CATEGORY>
+              <INITIAL-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated/APP_NOT_UPDATED</INITIAL-MODE-REF>
+              <MODE-DECLARATIONS>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>APP_NOT_UPDATED</SHORT-NAME>
+                  <VALUE>0</VALUE>
+                </MODE-DECLARATION>
+                <MODE-DECLARATION>
+                  <SHORT-NAME>APP_UPDATED</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </MODE-DECLARATION>
+              </MODE-DECLARATIONS>
+              <ON-TRANSITION-VALUE>255</ON-TRANSITION-VALUE>
+            </MODE-DECLARATION-GROUP>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>DataTypeMappingSet</SHORT-NAME>
+          <ELEMENTS>
+            <DATA-TYPE-MAPPING-SET>
+              <SHORT-NAME>DcmCommunicationControl</SHORT-NAME>
+              <MODE-REQUEST-TYPE-MAPS>
+                <MODE-REQUEST-TYPE-MAP>
+                  <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</MODE-GROUP-REF>
+                </MODE-REQUEST-TYPE-MAP>
+              </MODE-REQUEST-TYPE-MAPS>
+            </DATA-TYPE-MAPPING-SET>
+            <DATA-TYPE-MAPPING-SET>
+              <SHORT-NAME>DcmControlDTCSetting</SHORT-NAME>
+              <MODE-REQUEST-TYPE-MAPS>
+                <MODE-REQUEST-TYPE-MAP>
+                  <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting</MODE-GROUP-REF>
+                </MODE-REQUEST-TYPE-MAP>
+              </MODE-REQUEST-TYPE-MAPS>
+            </DATA-TYPE-MAPPING-SET>
+            <DATA-TYPE-MAPPING-SET>
+              <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
+              <MODE-REQUEST-TYPE-MAPS>
+                <MODE-REQUEST-TYPE-MAP>
+                  <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl</MODE-GROUP-REF>
+                </MODE-REQUEST-TYPE-MAP>
+              </MODE-REQUEST-TYPE-MAPS>
+            </DATA-TYPE-MAPPING-SET>
+            <DATA-TYPE-MAPPING-SET>
+              <SHORT-NAME>DcmEcuReset</SHORT-NAME>
+              <MODE-REQUEST-TYPE-MAPS>
+                <MODE-REQUEST-TYPE-MAP>
+                  <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset</MODE-GROUP-REF>
+                </MODE-REQUEST-TYPE-MAP>
+              </MODE-REQUEST-TYPE-MAPS>
+            </DATA-TYPE-MAPPING-SET>
+            <DATA-TYPE-MAPPING-SET>
+              <SHORT-NAME>DcmModeRapidPowerShutDown</SHORT-NAME>
+              <MODE-REQUEST-TYPE-MAPS>
+                <MODE-REQUEST-TYPE-MAP>
+                  <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown</MODE-GROUP-REF>
+                </MODE-REQUEST-TYPE-MAP>
+              </MODE-REQUEST-TYPE-MAPS>
+            </DATA-TYPE-MAPPING-SET>
+            <DATA-TYPE-MAPPING-SET>
+              <SHORT-NAME>DcmApplicationUpdated</SHORT-NAME>
+              <MODE-REQUEST-TYPE-MAPS>
+                <MODE-REQUEST-TYPE-MAP>
+                  <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated</MODE-GROUP-REF>
+                </MODE-REQUEST-TYPE-MAP>
+              </MODE-REQUEST-TYPE-MAPS>
+            </DATA-TYPE-MAPPING-SET>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>ModeSwitchInterface</SHORT-NAME>
+          <ELEMENTS>
+            <MODE-SWITCH-INTERFACE>
+              <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
+              <IS-SERVICE>true</IS-SERVICE>
+              <MODE-GROUP>
+                <SHORT-NAME>DcmDiagnosticSessionControl</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+            <MODE-SWITCH-INTERFACE>
+              <SHORT-NAME>DcmEcuReset</SHORT-NAME>
+              <IS-SERVICE>true</IS-SERVICE>
+              <MODE-GROUP>
+                <SHORT-NAME>DcmEcuReset</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+            <MODE-SWITCH-INTERFACE>
+              <SHORT-NAME>DcmModeRapidPowerShutDown</SHORT-NAME>
+              <IS-SERVICE>true</IS-SERVICE>
+              <MODE-GROUP>
+                <SHORT-NAME>DcmModeRapidPowerShutDown</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+            <MODE-SWITCH-INTERFACE>
+              <SHORT-NAME>DcmControlDTCSetting</SHORT-NAME>
+              <IS-SERVICE>false</IS-SERVICE>
+              <SERVICE-KIND>DIAGNOSTIC-EVENT-MANAGER</SERVICE-KIND>
+              <MODE-GROUP>
+                <SHORT-NAME>DcmControlDTCSetting</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+            <MODE-SWITCH-INTERFACE>
+              <SHORT-NAME>DcmApplicationUpdated</SHORT-NAME>
+              <IS-SERVICE>true</IS-SERVICE>
+              <MODE-GROUP>
+                <SHORT-NAME>DcmApplicationUpdated</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+            <MODE-SWITCH-INTERFACE UUID="ce2684ee-c8ed-4f74-bdd3-51e7006446b2">
+              <SHORT-NAME>DcmCommunicationControl_1</SHORT-NAME>
+              <IS-SERVICE>true</IS-SERVICE>
+              <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
+              <MODE-GROUP UUID="18f1c675-2b09-475d-91da-2a8d55730fcb">
+                <SHORT-NAME>DcmCommunicationControl_1</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+            <MODE-SWITCH-INTERFACE UUID="941822cb-db8b-4bf0-bfb4-c862d33bb23f">
+              <SHORT-NAME>DcmCommunicationControl_0</SHORT-NAME>
+              <IS-SERVICE>true</IS-SERVICE>
+              <SERVICE-KIND>DIAGNOSTIC-COMMUNICATION-MANAGER</SERVICE-KIND>
+              <MODE-GROUP UUID="8c88a244-ca12-4c3c-b92d-61e9632400f7">
+                <SHORT-NAME>DcmCommunicationControl_0</SHORT-NAME>
+                <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</TYPE-TREF>
+              </MODE-GROUP>
+            </MODE-SWITCH-INTERFACE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES></AUTOSAR>

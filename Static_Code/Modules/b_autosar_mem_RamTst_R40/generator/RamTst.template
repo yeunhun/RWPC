@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>1.2.7</TEMPLATE-VERSION>
+
+  <!-- Generation Tool versions which are supported by this Template -->
+  <SUPPORTED-TOOL-VERSIONS>1.3.0 1.3.1 1.3.2 1.3.3</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <!-- Module under test -->
+    <MODULE-UNDER-TEST>RAMTST</MODULE-UNDER-TEST>
+    <!-- Modules required MDT File information -->
+    <MODULE-UNDER-TEST-MDT>RAMTST</MODULE-UNDER-TEST-MDT>
+    <!-- Mandatory Modules required to Parse RamTst -->
+    <MANDATORY-MODULES>RAMTST</MANDATORY-MODULES>
+    <!-- All the Modules to be Parsed -->
+    <MODULES>RAMTST DEM</MODULES>
+    <!-- Containers which contain reference parameters -->
+    <REFERENCE-CONTAINER-ARRAY>DemEventParameterRefs</REFERENCE-CONTAINER-ARRAY>
+    <!-- Name of the containers and their corresponding reference parameters -->
+    <SYMREF-PARAM>
+      <ENTRY NAME = 'DemEventParameterRefs' DETAILS = 'E_RAM_FAILURE'></ENTRY>
+    </SYMREF-PARAM>
+    <!-- For each reference parameters corresponding destination containers and parameters -->
+    <REFERENCES>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'E_RAM_FAILURE' DESTINATION-CONTAINER = 'DemEventParameter' DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+    </REFERENCES>
+    <!-- To check if the correct description file is provided as input.
+      ArReleaseVersion in the description file is compared with the below versions -->
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+    <!-- If parameter multiplicity is more than one -->
+    <PARAM-MULTIPLICITY>
+      <ENTRY></ENTRY>
+    </PARAM-MULTIPLICITY>
+    <!-- For the parameters listed below reference need not be configured -->
+    <REF-MUL>
+      <ENTRY>E_RAM_FAILURE</ENTRY>
+    </REF-MUL>
+  </PARSER-DETAILS>
+  <!-- Handle Id details -->
+  <HANDLE-ID-DETAILS>
+    <HANDLE-ENTRY CONTAINER-NAME = ''     PARAMETER-NAME = '' TYPE-CAST = ''></HANDLE-ENTRY>
+  </HANDLE-ID-DETAILS>
+  <!-- Map Names -->
+  <MAP-NAMES>
+  <!-- List all SWC related tags for which map names are required -->
+    <CONTAINER-DETAILS>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstCommon'                          MAP-NAME = 'Common'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstAllowApi'                      MAP-NAME = 'AllowApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstChangeNumOfTestedCellsApi'     MAP-NAME = 'ChangeNumOfTestedCellsApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstDevErrorDetect'                MAP-NAME = 'DevErrorDetect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetAlgParamsApi'               MAP-NAME = 'GetAlgParamsApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetExecutionStatusApi'         MAP-NAME = 'GetExecutionStatusApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetNumberOfTestedCellsApi'     MAP-NAME = 'GetNumberOfTestedCellsApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetTestAlgorithmApi'           MAP-NAME = 'GetTestAlgorithmApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetTestResultApi'              MAP-NAME = 'GetTestResultApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetTestResultPerBlockApi'      MAP-NAME = 'GetTestResultPerBlockApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstGetVersionInfoApi'             MAP-NAME = 'GetVersionInfoApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstResumeApi'                     MAP-NAME = 'ResumeApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstRunFullTestApi'                MAP-NAME = 'RunFullTestApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstRunPartialTestApi'             MAP-NAME = 'RunPartialTestApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstSelectAlgParamsApi'            MAP-NAME = 'SelectAlgParamsApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstStopApi'                       MAP-NAME = 'StopApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstSuspendApi'                    MAP-NAME = 'SuspendApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstParityBit'                     MAP-NAME = 'ParityBit'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstChkTransitionOneToZero'         MAP-NAME = 'ChkTransitionOneToZero'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstCrcAlgorithm'                  MAP-NAME = 'CrcAlgorithm'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstPublicNotifHeaderFile'         MAP-NAME = 'PublicNotifHeaderFile'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstAlgorithms'                      MAP-NAME = 'Algorithms'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstLowCoverageTestSelected'       MAP-NAME = 'LowCoverageTestSelected'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstMediumCoverageTestSelected'    MAP-NAME = 'MediumCoverageTestSelected'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstHighCoverageTestSelected'      MAP-NAME = 'HighCoverageTestSelected'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstConfigParams'                    MAP-NAME = 'ConfigParams'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstDefaultAlgParamsId'            MAP-NAME = 'DefaultAlgParamsId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstMinNumberOfTestedCells'        MAP-NAME = 'MinNumberOfTestedCells'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstNumberOfAlgParamSets'          MAP-NAME = 'NumberOfAlgParamSets'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstTestCompletedNotification'     MAP-NAME = 'TestCompletedNotification'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstTestErrorNotification'         MAP-NAME = 'TestErrorNotification'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstAlgParams'                       MAP-NAME = 'AlgParams'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstAlgParamsId'                   MAP-NAME = 'AlgParamsId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstAlgorithmCoverage'             MAP-NAME = 'AlgorithmCoverage'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstExtNumberOfTestedCells'        MAP-NAME = 'ExtNumberOfTestedCells'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstMaxNumberOfTestedCells'        MAP-NAME = 'MaxNumberOfTestedCells'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstNumberOfBlocks'                MAP-NAME = 'NumberOfBlocks'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstNumberOfTestedCells'           MAP-NAME = 'NumberOfTestedCells'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstBlockParams'                     MAP-NAME = 'BlockParams'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstBlockId'                       MAP-NAME = 'BlockId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstEndAddress'                    MAP-NAME = 'EndAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstFillPattern'                   MAP-NAME = 'FillPattern'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstStartAddress'                  MAP-NAME = 'StartAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstTestPolicy'                    MAP-NAME = 'TestPolicy'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstDemEventParameterRefs'           MAP-NAME = 'DemEventParameterRefs'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RAMTST_E_RAM_FAILURE'                MAP-NAME = 'E_RAM_FAILURE'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RamTstPublishedInformation'            MAP-NAME = 'PublishedInformation'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RamTstCellSize'                      MAP-NAME = 'CellSize'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+       <CONTAINER-DETAIL ORIGINAL-NAME = 'DemEventParameter' MAP-NAME = 'DemEventParameter'></CONTAINER-DETAIL>
+    </CONTAINER-DETAILS>
+  </MAP-NAMES>
+
+  <!-- Container Count -->
+  <CONTAINER-COUNTS>
+    <CONTAINER-COUNT MAP-NAME = 'Common'                     COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Algorithms'                 COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'ConfigParams'               COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlgParams'                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'BlockParams'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'DemEventParameterRefs'      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'PublishedInformation'       COUNT = '0'></CONTAINER-COUNT>
+  </CONTAINER-COUNTS>
+
+  <!-- Pre compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'RAMTST_DEV_ERROR_DETECT'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '1'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre compile option for development error detection'
+      Container = 'Common'
+      Parameter = 'DevErrorDetect' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_VERSION_INFO_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '2'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for version check'
+      Container = 'Common'
+      Parameter = 'GetVersionInfoApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_ALLOW_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '3'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_Allow"'
+      Container = 'Common'
+      Parameter = 'AllowApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CHANGE_NUMBER_OF_TESTED_CELLS_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '4'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_ChangeNumberOfTestedCells"'
+      Container = 'Common'
+      Parameter = 'ChangeNumOfTestedCellsApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_ALG_PARAMS_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '5'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_GetAlgParams"'
+      Container = 'Common'
+      Parameter = 'GetAlgParamsApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_EXECUTION_STATUS_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '6'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_GetExecutionStatus"'
+      Container = 'Common'
+      Parameter = 'GetExecutionStatusApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_NUMBER_OF_TESTED_CELLS_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '7'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_GetNumberOfTestedCells"'
+      Container = 'Common'
+      Parameter = 'GetNumberOfTestedCellsApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_TEST_ALGORITHM_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '8'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_GetTestAlgorithm"'
+      Container = 'Common'
+      Parameter = 'GetTestAlgorithmApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_TEST_RESULT_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '9'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_GetTestResult"'
+      Container = 'Common'
+      Parameter = 'GetTestResultApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_GET_TEST_RESULT_PER_BLOCK_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '10'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_GetTestResultPerBlock"'
+      Container = 'Common'
+      Parameter = 'GetTestResultPerBlockApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_RESUME_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '11'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_Resume"'
+      Container = 'Common'
+      Parameter = 'ResumeApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_RUN_FULL_TEST_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '12'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_RunFullTest"'
+      Container = 'Common'
+      Parameter = 'RunFullTestApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_RUN_PARTIAL_TEST_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '13'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_RunPartialTest"'
+      Container = 'Common'
+      Parameter = 'RunPartialTestApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_SELECT_ALG_PARAMS_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '14'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_SelectAlgParams"'
+      Container = 'Common'
+      Parameter = 'SelectAlgParamsApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_STOP_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '15'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_Stop"'
+      Container = 'Common'
+      Parameter = 'StopApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_SUSPEND_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '16'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for disable / enable the function "RamTst_Suspend"'
+      Container = 'Common'
+      Parameter = 'SuspendApi' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_LOW_COVERAGE_TEST_SELECTED'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '17'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch to select the test with low coverage ON or OFF'
+      Container = 'Algorithms'
+      Parameter = 'LowCoverageTestSelected' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_MEDIUM_COVERAGE_TEST_SELECTED'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '18'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch to select the test with medium coverage ON or OFF'
+      Container = 'Algorithms'
+      Parameter = 'MediumCoverageTestSelected' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_HIGH_COVERAGE_TEST_SELECTED'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '19'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch to select the test with medium coverage ON or OFF'
+      Container = 'Algorithms'
+      Parameter = 'HighCoverageTestSelected' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_DEFAULT_ALG_PARAMS_ID'
+      Type      = '2'
+      Value     = ''
+      Pos       = '20'
+      Prefix    = '(uint8)'
+      Postfix   = ''
+      Comment   = 'This macro is the initial value for a RAM variable which could be changed by the function "RamTst_SelectAlgParams"'
+      Container = 'ConfigParams'
+      Parameter = 'DefaultAlgParamsId' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_MIN_NUMBER_OF_TESTED_CELLS'
+      Type      = '2'
+      Value     = ''
+      Pos       = '21'
+      Prefix    = '(uint32)'
+      Postfix   = ''
+      Comment   = 'This macro is the Minimum number of tested cells for one cyle of a background test, as defined by implementer'
+      Container = 'ConfigParams'
+      Parameter = 'MinNumberOfTestedCells' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_TEST_COMPLETED_NOTIFICATION'
+      Type      = '4'
+      Value     = ''
+      Pos       = '22'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'This is derived from the parameter RamTstTestCompletedNotification in container RamTstConfigParams'
+      Container = 'ConfigParams'
+      Parameter = 'TestCompletedNotification'
+      Macro     = 'RAMTST_TEST_COMPLETED_NOTIFICATION_SUPPORT'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_TEST_ERROR_NOTIFICATION'
+      Type      = '4'
+      Value     = ''
+      Pos       = '23'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'This is derived from the parameter RamTstTestErrorNotification in container RamTstConfigParams'
+      Container = 'ConfigParams'
+      Parameter = 'TestErrorNotification'
+      Macro     = 'RAMTST_TEST_ERROR_NOTIFICATION_SUPPORT'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_E_RAM_FAILURE'
+      Type      = '11'
+      Value     = ''
+      Pos       = '24'
+      Postfix   = ''
+      Comment   = 'Reference to the DemEventParameter which shall be issued when the error "RAM failure" has occurred'
+      Container = 'DemEventParameterRefs'
+      Parameter = 'E_RAM_FAILURE' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CELL_SIZE'
+      Type      = '2'
+      Value     = ''
+      Pos       = '25'
+      Prefix    = '(uint8)'
+      Postfix   = ''
+      Comment   = 'Size of RAM cells (in bits) which can be tested individually by the given implementation'
+      Container = 'PublishedInformation'
+      Parameter = 'CellSize' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_PARITY_BIT'
+      Type      = '4'
+      Value     = ''
+      Pos       = '26'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines if the parity bit algorithm uses even parity or Odd parity'
+      Container = 'Common'
+      Parameter = 'ParityBit'
+      Macro     = 'RAMTST_LOW_COVERAGE_TEST_SELECTED' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_MAX_BLOCKID'
+      Type      = '5'
+      Value     = ''
+      Pos       = '27'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines number of blocks configured all over the module'
+      Container = 'BlockParams'
+      Parameter = ''>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_PATTERN_ZERO'
+      Type      = '6'
+      Value     = '0'
+      Pos       = '28'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines Cell size'
+      Container = 'PublishedInformation'
+      Parameter = 'CellSize'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_PATTERN_ONE'
+      Type      = '6'
+      Value     = '1'
+      Pos       = '29'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines Cell size'
+      Container = 'PublishedInformation'
+      Parameter = 'CellSize'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_PATTERN_TYPE_1'
+      Type      = '6'
+      Value     = '0'
+      Pos       = '30'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines Cell size'
+      Container = 'PublishedInformation'
+      Parameter = 'CellSize'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_PATTERN_TYPE_2'
+      Type      = '6'
+      Value     = '1'
+      Pos       = '31'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines Cell size'
+      Container = 'PublishedInformation'
+      Parameter = 'CellSize'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_DEMERROR_REPORT'
+      Type      = '7'
+      Value     = 'STD_OFF'
+      Pos       = '32'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Defines Dem Container is present or not'
+      Container = 'DemEventParameterRefs'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_TEST_COMPLETED_NOTIFICATION_SUPPORT'
+      Type      = '8'
+      Value     = 'STD_ON'
+      Pos       = '33'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch for RamTstTestCompletedNotification'
+      Container = 'ConfigParams'
+      Parameter = 'TestCompletedNotification'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_TEST_ERROR_NOTIFICATION_SUPPORT'
+      Type      = '8'
+      Value     = 'STD_ON'
+      Pos       = '34'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch for RamTstTestErrorNotification'
+      Container = 'ConfigParams'
+      Parameter = 'TestErrorNotification'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CRC_8_SUPPORT'
+      Type      = '9'
+      Value     = 'STD_OFF'
+      Pos       = '35'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch for coverage of the defined RamTstAlgParams set'
+      Container = 'Common'
+      Parameter = 'CrcAlgorithm'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CRC_16_SUPPORT'
+      Type      = '9'
+      Value     = 'STD_OFF'
+      Pos       = '36'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch for coverage of the defined RamTstAlgParams set'
+      Container = 'Common'
+      Parameter = 'CrcAlgorithm'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CRC_32_SUPPORT'
+      Type      = '9'
+      Value     = 'STD_OFF'
+      Pos       = '37'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch for coverage of the defined RamTstAlgParams set'
+      Container = 'Common'
+      Parameter = 'CrcAlgorithm'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CRC_8H2F_SUPPORT'
+      Type      = '9'
+      Value     = 'STD_OFF'
+      Pos       = '38'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch for coverage of the defined RamTstAlgParams set'
+      Container = 'Common'
+      Parameter = 'CrcAlgorithm'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'RAMTST_CHK_TRANS_ONETOZERO'
+      Type      = '10'
+      Value     = 'STD_OFF'
+      Pos       = '39'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch to select the extra check in Pattern Test Test ON or OFF'
+      Container = 'Common'
+      Parameter = 'ChkTransitionOneToZero'
+      Macro     = 'RAMTST_MEDIUM_COVERAGE_TEST_SELECTED'>
+    </MACRO-ENTRY>
+  </PRE-COMPILE-OPTIONS>
+
+
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+      <CONTAINER NAME = 'Common'>
+        <PARAMETER-NAME>AllowApi</PARAMETER-NAME>
+        <PARAMETER-NAME>ChangeNumOfTestedCellsApi</PARAMETER-NAME>
+        <PARAMETER-NAME>DevErrorDetect</PARAMETER-NAME>
+        <PARAMETER-NAME>GetAlgParamsApi</PARAMETER-NAME>
+        <PARAMETER-NAME>GetExecutionStatusApi</PARAMETER-NAME>
+        <PARAMETER-NAME>GetNumberOfTestedCellsApi</PARAMETER-NAME>
+        <PARAMETER-NAME>GetTestAlgorithmApi</PARAMETER-NAME>
+        <PARAMETER-NAME>GetTestResultApi</PARAMETER-NAME>
+        <PARAMETER-NAME>GetTestResultPerBlockApi</PARAMETER-NAME>
+        <PARAMETER-NAME>GetVersionInfoApi</PARAMETER-NAME>
+        <PARAMETER-NAME>ResumeApi</PARAMETER-NAME>
+        <PARAMETER-NAME>RunFullTestApi</PARAMETER-NAME>
+        <PARAMETER-NAME>RunPartialTestApi</PARAMETER-NAME>
+        <PARAMETER-NAME>SelectAlgParamsApi</PARAMETER-NAME>
+        <PARAMETER-NAME>StopApi</PARAMETER-NAME>
+        <PARAMETER-NAME>SuspendApi</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'Algorithms'>
+        <PARAMETER-NAME>LowCoverageTestSelected</PARAMETER-NAME>
+        <PARAMETER-NAME>MediumCoverageTestSelected</PARAMETER-NAME>
+        <PARAMETER-NAME>HighCoverageTestSelected</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'ConfigParams'>
+        <PARAMETER-NAME>DefaultAlgParamsId</PARAMETER-NAME>
+        <PARAMETER-NAME>MinNumberOfTestedCells</PARAMETER-NAME>
+        <PARAMETER-NAME>NumberOfAlgParamSets</PARAMETER-NAME>
+        <PARAMETER-NAME>TestCompletedNotification</PARAMETER-NAME>
+        <PARAMETER-NAME>TestErrorNotification</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'AlgParams'>
+        <PARAMETER-NAME>AlgParamsId</PARAMETER-NAME>
+        <PARAMETER-NAME>AlgorithmCoverage</PARAMETER-NAME>
+        <PARAMETER-NAME>ExtNumberOfTestedCells</PARAMETER-NAME>
+        <PARAMETER-NAME>MaxNumberOfTestedCells</PARAMETER-NAME>
+        <PARAMETER-NAME>NumberOfBlocks</PARAMETER-NAME>
+        <PARAMETER-NAME>NumberOfTestedCells</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'BlockParams'>
+        <PARAMETER-NAME>BlockId</PARAMETER-NAME>
+        <PARAMETER-NAME>EndAddress</PARAMETER-NAME>
+        <PARAMETER-NAME>FillPattern</PARAMETER-NAME>
+        <PARAMETER-NAME>StartAddress</PARAMETER-NAME>
+        <PARAMETER-NAME>TestPolicy</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'PublishedInformation'>
+        <PARAMETER-NAME>CellSize</PARAMETER-NAME>
+      </CONTAINER>
+    </MANDATORY-CHECK>
+
+    <!-- String check -->
+    <STRING-CHECK>
+      <PARAMETER>
+        <NAME>PublicNotifHeaderFile</NAME>
+        <CONTAINER-NAME>Common</CONTAINER-NAME>
+        <REGULAR-EXPRESSION>[a-zA-Z0-9_]([a-zA-Z0-9\._])*</REGULAR-EXPRESSION>
+      </PARAMETER>
+    </STRING-CHECK>
+  </CONSISTENCY-CHECKS>
+
+  <!-- Static code that is to be added in the output files -->
+  <OUTPUT-FILES>
+    <RamTst_Cfg.h>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: RamTst_Cfg.h                                                   **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR RAM Test Module                                      **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **                                                                **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+#ifndef RAMTST_CFG_H
+#define RAMTST_CFG_H
+
+POLYSPACE_START
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Std_Types.h"
+INCLUDE
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+/*******************************************************************************
+**                      Common Published Information                          **
+*******************************************************************************/
+AR_SW_COMMON_PUBLISH_INFO
+/*******************************************************************************
+**                      Global Data Types                                     **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+TYPEDEF
+
+/* RamTst_AlgorithmType: status value returned by the API service
+ * RamTst_GetTestAlgorithm()
+ */
+TYPEDEF_ENUM
+/*******************************************************************************
+**                      Configuration Set Handles                             **
+*******************************************************************************/
+BLOCKDESC_HANDLES
+
+/*******************************************************************************
+**                      Function Prototypes                                   **
+*******************************************************************************/
+EXTERN_FUNC
+
+POLYSPACE_STOP
+
+#endif /* RAMTST_CFG_H */
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+  </RamTst_Cfg.h>
+  <RamTst_Dem_Cfg.h>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: RamTst_Dem_Cfg.h                                                   **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR RAM Test Module                                      **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **                                                                **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+#ifndef RAMTST_DEM_CFG_H
+#define RAMTST_DEM_CFG_H
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Dem.h"
+
+/*******************************************************************************
+**                      Global Data Types                                     **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+#endif /* RAMTST_DEM_CFG_H */
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+  </RamTst_Dem_Cfg.h>
+<RamTst_Cfg.c>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: RamTst_Cfg.c                                                   **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR RAM Test Module                                      **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **                                                                **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "RamTst.h"
+#include "ComStack_Types.h"
+#include "RamTst_Ram.h"
+
+/* polyspace-begin MISRA-C3:20.1 [Justified:Low] "Not a defect" */
+/* polyspace-begin MISRA-C3:2.5 [Justified:Low] "Not a defect" */
+
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+STRUCTURE_DECLARATIONS
+/*******************************************************************************
+**                      Initialization Structure                              **
+*******************************************************************************/
+
+/* polyspace-end MISRA-C3:20.1 [Justified:Low] "Not a defect" */
+/* polyspace-end MISRA-C3:2.5 [Justified:Low] "Not a defect" */
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+      <STRUCTURES-AND-ARRAYS>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* Structure for configuring an algorithm */</STRUCTURE-COMMENT>
+          <NAME>RamTst_GaaAlgParam</NAME>
+          <COMMENT>/* CONST(RamTst_AlgParams, RAMTST_CONST) RamTst_GaaAlgParam[RAMTST_NUMBER_OF_ALG_PARAM_SETS]; */</COMMENT>
+          <FIELD>ddRamTstAlgCoverage ulRamTstExtNumberOfTestedCells ulRamTstMaxNumberOfTestedCells ulRamTstNumberOfTestedCells usRamTstNumberOfBlocks usRamTstBlkIndex ucRamTstAlgParamsId</FIELD>
+          <TYPE>STR UINT32 UINT32 UINT32 UINT16 UINT16 UINT8</TYPE>
+          <RANGE>NONE#NONE 1#4294967295 1#4294967295 1#4294967295 1#65535 NONE#NONE 1#255</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>AlgorithmCoverage#AlgParams ExtNumberOfTestedCells#AlgParams MaxNumberOfTestedCells#AlgParams
+          NumberOfTestedCells#AlgParams NumberOfBlocks#AlgParams NONE#NONE AlgParamsId#AlgParams</REFERENCE>
+          <MEMMAP-START>#define RAMTST_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define RAMTST_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO>RAMTST_NUMBER_OF_ALG_PARAM_SETS</SIZE-MACRO>
+          <SIZE-MACRO-COMMENT>This macro defined the Number of configured parameter sets for the available test algorithms</SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX>(uint8)</SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* Structure for block of RAM */</STRUCTURE-COMMENT>
+          <NAME>RamTst_GaaBlkParam</NAME>
+          <COMMENT>/* CONST(RamTst_BlockParams, RAMTST_CONST) RamTst_GaaBlkParam[RAMTST_NUMBER_OF_BLOCKS]; */</COMMENT>
+          <FIELD>pTestBlockStatus ddRamTstPolicy ulRamTstStartAddress ulRamTstEndAddress ulRamBlockSize ulRamTstFillPattern usRamTstBlockId</FIELD>
+          <TYPE>PSTR STR UINT32 UINT32 UINT32 UINT32 UINT16</TYPE>
+          <RANGE>NONE#NONE NONE#NONE 1#4294967295 1#4294967295 NONE#NONE 0#4294967295 1#65535</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE#NONE TestPolicy#BlockParams StartAddress#BlockParams EndAddress#BlockParams StartAddress#BlockParams^EndAddress#BlockParams
+          FillPattern#BlockParams BlockId#BlockParams</REFERENCE><MEMMAP-START>#define RAMTST_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define RAMTST_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO>RAMTST_NUMBER_OF_BLOCKS</SIZE-MACRO>
+          <SIZE-MACRO-COMMENT>This macro defined the Number of configured parameter sets for the available test algorithms</SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX>(uint32)</SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+      </STRUCTURES-AND-ARRAYS>
+    </RamTst_Cfg.c>
+  </OUTPUT-FILES>
+</GENERAL-INFORMATION>
+
+<!--
+################################################################################
+# Revision History:                                                            #
+# Version No.  Last modified  Author         Description                       #
+################################################################################
+# 1.3.2     30-Dec-2020   YJ Yun           RedMine #27378                      #
+# 1.2.8     12-Dec-2018   YJ Yun           RedMine #15208,#15298               #
+# 1.2.7     18-Nov-2016   CY Song          Update support tool version         #
+# 1.2.5     24-May-2016   CY Song          Update support tool version         #
+# 1.2.5     16-May-2016   CY Song          Update support tool version         #
+# 1.2.4     12-Jan-2016   CY Song          Update support tool version         #
+# 1.2.3     02-Dec-2015   CY Song          Update support tool version         #
+# 1.2.2     22-Jun-2015   CY Song          Update support tool version         #
+# 1.0.0     07-Jun-2013   CY Song          Initial Version                     #
+################################################################################
+-->

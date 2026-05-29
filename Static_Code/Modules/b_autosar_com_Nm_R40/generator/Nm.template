@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>2.3.0</TEMPLATE-VERSION>
+
+  <!-- Generation Tool versions which are supported by Nm Template -->
+  <SUPPORTED-TOOL-VERSIONS>2.3.0</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <MODULE-UNDER-TEST>NM</MODULE-UNDER-TEST>
+    <MANDATORY-MODULES>NM COMM</MANDATORY-MODULES>
+    <MODULES>NM COMM COM CANNM LINNM UDPNM FRNM</MODULES>
+    <MODULE-UNDER-TEST-MDT>NM</MODULE-UNDER-TEST-MDT>
+    <CMDLINEOPTIONS></CMDLINEOPTIONS>
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+    <REFERENCES>
+    <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'ComMChannelRef'       DESTINATION-CONTAINER = 'Channel' DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+    <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'StateReportSignalRef' DESTINATION-CONTAINER = 'ComSignal'     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+    </REFERENCES>
+    <SYMREF-PARAM>
+      <ENTRY NAME = 'ChannelConfig' DETAILS = 'ComMChannelRef'></ENTRY>
+    </SYMREF-PARAM>
+    <REFERENCE-CONTAINER-ARRAY>ChannelConfig</REFERENCE-CONTAINER-ARRAY>
+    <PARAMETER-COPY></PARAMETER-COPY>
+    <PARAM-MULTIPLICITY>
+     <ENTRY>HeaderFileInclusion</ENTRY>
+    </PARAM-MULTIPLICITY>
+    <REF-MUL>
+    </REF-MUL>
+  </PARSER-DETAILS>
+
+  <HANDLE-ID-DETAILS>
+    <HANDLE-ENTRY CONTAINER-NAME = 'ChannelConfig' PARAMETER-NAME = 'ChannelId' TYPE-CAST = 'NetworkHandleType'></HANDLE-ENTRY>
+  </HANDLE-ID-DETAILS>
+
+
+  <MAP-NAMES>
+    <CONTAINER-DETAILS>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmGenericBusNmConfig"            MAP-NAME= "GenericBusNmConfig">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmGenericBusNmPrefix"          MAP-NAME= "GenericBusNmPrefix"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmStandardBusNmConfig"           MAP-NAME= "StandardBusNmConfig">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmStandardBusType"             MAP-NAME= "StandardBusType"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmChannelConfig"                 MAP-NAME= "ChannelConfig">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmCoordClusterIndex"           MAP-NAME= "CoordClusterIndex"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmActiveCoordinator"           MAP-NAME= "ActiveCoordinator"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmPassiveModeEnabled"          MAP-NAME= "PassiveMode"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmStateReportSignalRef"        MAP-NAME= "StateReportSignalRef"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmStateReportEnabled"          MAP-NAME= "StateReportEnabled"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmChannelSleepMaster"          MAP-NAME= "ChnSleepMaster"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmComMChannelRef"              MAP-NAME= "ComMChannelRef"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmChannelId"                   MAP-NAME= "ChannelId"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmShutdownDelayTimer"          MAP-NAME= "ShutdownDelayTimer"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmSynchronizingNetwork"        MAP-NAME= "SynchronizingNetwork"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmGlobalConfig"                  MAP-NAME= "GlobalConfig"></CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmGlobalConstants"               MAP-NAME= "GlobalConstants">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmNumberOfChannels"            MAP-NAME= "NumberOfChannels"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmGlobalFeatures"                MAP-NAME= "GlobalFeatures">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmNodeIdEnabled"               MAP-NAME= "NodeId"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmBusSynchronizationEnabled"   MAP-NAME= "BusSynchronization"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmCoordinatorSupportEnabled"   MAP-NAME= "CoordinationSupport"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmNodeDetectionEnabled"        MAP-NAME= "NodeDetect"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmComControlEnabled"           MAP-NAME= "ComControl"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmCarWakeUpRxEnabled"          MAP-NAME= "CarWakeUpRxEnabled"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmRemoteSleepIndEnabled"       MAP-NAME= "RemoteSleepInd"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmUserDataEnabled"             MAP-NAME= "UserData"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmPduRxIndicationEnabled"      MAP-NAME= "PduRxIndication"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmCarWakeUpCallback"           MAP-NAME= "CarWakeUpCallback"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmStateChangeIndEnabled"       MAP-NAME= "StateChangeInd"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmRepeatMsgIndEnabled"         MAP-NAME= "RepeatMsgIndEnabled"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmComUserDataSupport"          MAP-NAME= "ComUserDataSupport"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmGlobalCoordinatorTime"       MAP-NAME= "GlobalCoordinatorTime"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmHeaderFileInclusion"         MAP-NAME= "HeaderFileInclusion"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmCoordinatorSyncSupport"      MAP-NAME= "CoordinatorSyncSupport"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "NmGlobalProperties"              MAP-NAME= "GlobalProperties">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmDevErrorDetect"              MAP-NAME= "ErrorDetect"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmVersionInfoApi"              MAP-NAME= "InfoApi"></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME= "NmCycletimeMainFunction"       MAP-NAME= "CycletimeMainFunc"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "ComMChannel"              MAP-NAME= "Channel">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "ComMChannelId"              MAP-NAME= "ChannelId"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "ComSignal"              MAP-NAME= "ComSignal">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "ComHandleId"              MAP-NAME= "ComHandleId"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "CanNmGlobalConfig"              MAP-NAME= "CanNmGlobalConfig">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "CanNmComUserDataSupport"              MAP-NAME= "CanNmComUserDataSupport"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "FrNmGlobalFeatures"              MAP-NAME= "FrNmGlobalFeatures">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "FrNmComUserDataSupport"              MAP-NAME= "FrNmComUserDataSupport"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "LinNmGlobalConfig"              MAP-NAME= "LinNmGlobalConfig">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "LinNmComUserDataSupport"              MAP-NAME= "LinNmComUserDataSupport"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME= "UdpNmGlobalConfig"              MAP-NAME= "UdpNmGlobalConfig">
+        <PARAMETER-DETAIL ORIGINAL-NAME= "UdpNmComUserDataSupport"              MAP-NAME= "UdpNmComUserDataSupport"></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+    </CONTAINER-DETAILS>
+  </MAP-NAMES>
+
+  <!-- Container Count -->
+  <CONTAINER-COUNTS>
+    <CONTAINER-COUNT MAP-NAME= "GenericBusNmConfig"         COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "StandardBusNmConfig"        COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "ChannelConfig"              COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "GlobalConfig"               COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "GlobalConstants"            COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "GlobalFeatures"             COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "GlobalProperties"           COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "Channel"                    COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "CanNmGlobalConfig"          COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "FrNmGlobalFeatures"         COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "LinNmGlobalConfig"          COUNT="0"></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME= "UdpNmGlobalConfig"          COUNT="0"></CONTAINER-COUNT>
+  </CONTAINER-COUNTS>
+
+  <!-- Pre compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'NM_NUMBER_OF_CHANNELS'
+      Type      = '4'
+      Value     = '0'
+      Pos       = '14'
+      Prefix    = '(uint8)'
+      Postfix   = ''
+      Comment   = 'Pre-compile option for Number of Nm channels allowed within one ECU'
+      Container = 'ChannelConfig'>
+    </MACRO-ENTRY>
+  </PRE-COMPILE-OPTIONS>
+
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+      <CONTAINER NAME= "GenericBusNmConfig">
+        <PARAMETER-NAME>GenericBusNmPrefix</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME= "StandardBusNmConfig">
+        <PARAMETER-NAME>StandardBusType</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME= "ChannelConfig">
+        <PARAMETER-NAME>PassiveMode</PARAMETER-NAME>
+        <PARAMETER-NAME>StateReportEnabled</PARAMETER-NAME>
+ <!--  <PARAMETER-NAME>ChnSleepMaster</PARAMETER-NAME>-->
+        <PARAMETER-NAME>ChannelId</PARAMETER-NAME>
+  <!--  <PARAMETER-NAME>ShutdownDelayTimer</PARAMETER-NAME>
+        <PARAMETER-NAME>SynchronizingNetwork</PARAMETER-NAME>-->
+      </CONTAINER>
+      <CONTAINER NAME="GlobalFeatures">
+        <PARAMETER-NAME>NodeId</PARAMETER-NAME>
+        <PARAMETER-NAME>BusSynchronization</PARAMETER-NAME>
+        <PARAMETER-NAME>CoordinationSupport</PARAMETER-NAME>
+        <PARAMETER-NAME>NodeDetect</PARAMETER-NAME>
+        <PARAMETER-NAME>ComControl</PARAMETER-NAME>
+        <PARAMETER-NAME>CarWakeUpRxEnabled</PARAMETER-NAME>
+        <PARAMETER-NAME>RemoteSleepInd</PARAMETER-NAME>
+        <PARAMETER-NAME>UserData</PARAMETER-NAME>
+        <PARAMETER-NAME>PduRxIndication</PARAMETER-NAME>
+        <PARAMETER-NAME>StateChangeInd</PARAMETER-NAME>
+        <PARAMETER-NAME>RepeatMsgIndEnabled</PARAMETER-NAME>
+        <PARAMETER-NAME>ComUserDataSupport</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME="GlobalConstants">
+        <PARAMETER-NAME>NumberOfChannels</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME="GlobalProperties">
+        <PARAMETER-NAME>ErrorDetect</PARAMETER-NAME>
+        <PARAMETER-NAME>InfoApi</PARAMETER-NAME>
+        <PARAMETER-NAME>CycletimeMainFunc</PARAMETER-NAME>
+      </CONTAINER>
+    </MANDATORY-CHECK>
+
+    <!-- String check -->
+    <STRING-CHECK>
+      <PARAMETER>
+        <NAME>GenericBusNmPrefix</NAME>
+        <CONTAINER-NAME>GenericBusNmConfig</CONTAINER-NAME>
+        <REGULAR-EXPRESSION>[a-zA-Z][a-zA-Z0-9\_]*</REGULAR-EXPRESSION>
+      </PARAMETER>
+      <PARAMETER>
+        <NAME>HeaderFileInclusion</NAME>
+        <CONTAINER-NAME>GlobalFeatures</CONTAINER-NAME>
+        <REGULAR-EXPRESSION>[a-zA-Z0-9_]([a-zA-Z0-9\._])*</REGULAR-EXPRESSION>
+      </PARAMETER>
+    </STRING-CHECK>
+  </CONSISTENCY-CHECKS>
+
+    <!-- Decimal Fields -->
+  <DECIMAL-FIELDS>
+    <ENTRY></ENTRY>
+  </DECIMAL-FIELDS>
+
+  <!-- Static codes that to be added in the output files -->
+  <OUTPUT-FILES>
+	<Nm_Cfg.h>
+		<TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Nm_Cfg.h                                                       **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR Network Management Module                            **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+#ifndef NM_CFG_H
+#define NM_CFG_H
+
+/*******************************************************************************
+**                       Include Section                                      **
+*******************************************************************************/
+
+/* For inclusion of standard types */
+#include "Std_Types.h"
+
+/* For inclusion of StateType, ModeType and Std_ReturnType */
+#include "NmStack_Types.h"
+#include "Nm_PCTypes.h"
+FILE_INCLUDES
+INCLUDES
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Common Published Information                          **
+*******************************************************************************/
+AR_SW_COMMON_PUBLISH_INFO
+
+/*******************************************************************************
+**                      Global Data Types                                     **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+NM_NUM_OF_COORD_CLUSTER
+NM_NUM_OF_CH_IDX_ARRAY
+
+PRIMITIVE_DECLARATIONS
+ARRAY_DECLARATIONS
+
+/*******************************************************************************
+**                      Channel Handles                                       **
+*******************************************************************************/
+CHANNEL_HANDLES
+
+/*******************************************************************************
+**                      Function Definitions                                  **
+*******************************************************************************/
+FUNC_MAC_SINGLE_CHANNEL
+FUNC_USER_CALLOUT
+
+#endif /* #ifndef NM_CFG_H */
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+	</Nm_Cfg.h>
+
+	<Nm_Cfg.c>
+		<TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Nm_Cfg.c                                                       **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR Network Mananagement Module                          **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Nm_Cfg.h" /* For declarations of structures and definition of macros */
+
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Version Check                                         **
+*******************************************************************************/
+VERSION_CHECK
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+
+ARRAY_DECLARATIONS
+
+/* Structure to store channel details */
+STRUCTURE_DECLARATIONS
+PRIMITIVE_DECLARATIONS
+/*******************************************************************************
+**                      Function Definitions                                  **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+		<STRUCTURES-AND-ARRAYS>
+  <STRUCTURE-ARRAY-ENTRY>
+    <NAME>Nm_GaaChannelConfig</NAME>
+    <COMMENT>/* CONST(Nm_ChannelConfig, NM_CONST) Nm_GaaChannelConfig[NM_NUMBER_OF_CHANNELS]; */</COMMENT>
+    <FIELD>ddNmStateReportSignalId ucChnlCoordInfoIndex ddChannelId          blStateReportEnabled
+           blPassiveModeEnabled    blActiveCoordinator  blChannelSleepMaster blSynchronizingNetwork ulShutdownDelayTimerTick
+           ucClusterListInfoIndex
+           pfnBusNm_PassiveStartUp pfnBusNm_NetworkRequest pfnBusNm_NetworkRelease pfnBusNm_DisableCommunication pfnBusNm_EnableCommunication
+           pfnBusNm_RepeatMessageRequest pfnBusNm_SetUserData pfnBusNm_GetUserData pfnBusNm_GetPduData pfnBusNm_GetNodeIdentifier
+           pfnBusNm_GetLocalNodeIdentifier pfnBusNm_CheckRemoteSleepIndication pfnBusNm_GetState pfnBusNm_RequestBusSynchronization pfnBusNm_SetSleepReadyBit
+           pfnBusNm_StateChangeIndUserCallout pfnBusNm_PduRxIndUserCallout
+    </FIELD>
+    <TYPE>UINT8 UINT8 UINT8 BOOL
+          BOOL BOOL BOOL BOOL UINT32
+          UINT8</TYPE>
+    <RANGE>NONE#NONE        NONE#NONE        NONE#NONE        NM_TRUE#NM_FALSE
+           NM_TRUE#NM_FALSE NM_TRUE#NM_FALSE NM_TRUE#NM_FALSE NM_TRUE#NM_FALSE NONE#NONE
+           NONE#NONE
+           NONE#NONE        NONE#NONE        NONE#NONE        NONE#NONE        NONE#NONE
+           NONE#NONE        NONE#NONE        NONE#NONE        NONE#NONE        NONE#NONE
+           NONE#NONE        NONE#NONE        NONE#NONE        NONE#NONE        NONE#NONE
+           NONE#NONE        NONE#NONE
+    </RANGE>
+    <ELEMENT-COMMENT></ELEMENT-COMMENT>
+    <REFERENCE>ComHandleId#ComSignal ChannelId#ChannelConfig ChannelId#ChannelConfig StateReportEnabled#ChannelConfig
+               NONE                  NONE                    NONE                    NONE                             NONE
+               NONE
+               NONE                  NONE                    NONE                    NONE                             NONE
+               NONE                  NONE                    NONE                    NONE                             NONE
+               NONE                  NONE                    NONE                    NONE                             NONE
+               NONE                  NONE
+    </REFERENCE>
+    <MEMMAP-START>#define NM_START_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-START>
+    <MEMMAP-STOP>#define NM_STOP_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-STOP>
+    <ENTRY-TYPE>Structure</ENTRY-TYPE>
+  </STRUCTURE-ARRAY-ENTRY>
+  <STRUCTURE-ARRAY-ENTRY>
+    <NAME>Nm_GaaClusterList</NAME>
+    <COMMENT>/* static CONST(Nm_ClusterList, NM_CONST) Nm_GaaClusterList[NM_NUM_OF_COORD_CLUSTER]; */</COMMENT>
+    <FIELD>usCoordDelayTimer ucNumOfChnls ucChnlStartIndex</FIELD>
+    <TYPE>UINT16 UINT8 UINT8</TYPE>
+    <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+    <ELEMENT-COMMENT></ELEMENT-COMMENT>
+    <REFERENCE>CoordClusterIndex#ChannelConfig NONE NONE</REFERENCE>
+    <MEMMAP-START>#define NM_START_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-START>
+    <MEMMAP-STOP>#define NM_STOP_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-STOP>
+    <ENTRY-TYPE>Structure</ENTRY-TYPE>
+  </STRUCTURE-ARRAY-ENTRY>
+  <STRUCTURE-ARRAY-ENTRY>
+    <NAME>Nm_GaaChnlArray</NAME>
+    <COMMENT>/* static CONST(uint8, NM_CONST) Nm_GaaChnlArray[NM_NUMBER_OF_CHANNELS]; */</COMMENT>
+    <FIELD>Index</FIELD>
+    <TYPE>UINT8</TYPE>
+    <RANGE>NONE#NONE</RANGE>
+    <ELEMENT-COMMENT></ELEMENT-COMMENT>
+    <REFERENCE>NONE</REFERENCE>
+    <MEMMAP-START>#define NM_START_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-START>
+    <MEMMAP-STOP>#define NM_STOP_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-STOP>
+    <ENTRY-TYPE>Structure</ENTRY-TYPE>
+  </STRUCTURE-ARRAY-ENTRY>
+  <STRUCTURE-ARRAY-ENTRY>
+    <NAME>Nm_GaaChnlIndexArray</NAME>
+    <COMMENT>/* CONST(uint8, NM_CONST) Nm_GaaChnlIndexArray[NM_NUM_OF_CH_IDX_ARRAY]; */</COMMENT>
+    <FIELD>Index</FIELD>
+    <TYPE>UINT8</TYPE>
+    <RANGE>NONE#NONE</RANGE>
+    <ELEMENT-COMMENT></ELEMENT-COMMENT>
+    <REFERENCE>NONE</REFERENCE>
+    <MEMMAP-START>#define NM_START_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-START>
+    <MEMMAP-STOP>#define NM_STOP_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-STOP>
+    <ENTRY-TYPE>Structure</ENTRY-TYPE>
+  </STRUCTURE-ARRAY-ENTRY>
+  <STRUCTURE-ARRAY-ENTRY>
+    <NAME>Nm_GaaSchMEnterFuncPtr</NAME>
+    <COMMENT>/* CONST(Nm_SchMFuncPtr, NM_CONST) Nm_GaaSchMEnterFuncPtr[NM_NUMBER_OF_CHANNELS];*/</COMMENT>
+    <FIELD>pEnterFuncPtr</FIELD>
+    <TYPE>STR</TYPE>
+    <RANGE>NONE#NONE</RANGE>
+    <ELEMENT-COMMENT></ELEMENT-COMMENT>
+    <REFERENCE>ChannelId#ChannelConfig</REFERENCE>
+    <MEMMAP-START>#define NM_START_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-START>
+    <MEMMAP-STOP>#define NM_STOP_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-STOP>
+    <ENTRY-TYPE>Structure</ENTRY-TYPE>
+  </STRUCTURE-ARRAY-ENTRY>
+  <STRUCTURE-ARRAY-ENTRY>
+    <NAME>Nm_GaaSchMExitFuncPtr</NAME>
+    <COMMENT>/* CONST(Nm_SchMFuncPtr, NM_CONST) Nm_GaaSchMExitFuncPtr[NM_NUMBER_OF_CHANNELS]; */</COMMENT>
+    <FIELD>pExitFuncPtr</FIELD>
+    <TYPE>STR</TYPE>
+    <RANGE>NONE#NONE</RANGE>
+    <ELEMENT-COMMENT></ELEMENT-COMMENT>
+    <REFERENCE>ChannelId#ChannelConfig</REFERENCE>
+    <MEMMAP-START>#define NM_START_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-START>
+    <MEMMAP-STOP>#define NM_STOP_SEC_CONST_UNSPECIFIED
+#include"MemMap.h"</MEMMAP-STOP>
+    <ENTRY-TYPE>Structure</ENTRY-TYPE>
+  </STRUCTURE-ARRAY-ENTRY>
+</STRUCTURES-AND-ARRAYS>
+	</Nm_Cfg.c>
+</OUTPUT-FILES>
+</GENERAL-INFORMATION>
+<!--
+################################################################################
+# Revision History:                                                            #
+# Version No.  Last modified  Author         Description                       #
+################################################################################
+# 2.2.0        28-Dec-2018    JeongSu Lim    #13630, #15277, #15276, #15275,   #
+#                                            #15274                            #
+# 2.1.1        08-Apr-2016    Kt Kim         #4641                             #
+# 1.0.5        28-Jul-2014    Kt Kim         SUPPORTED-TOOL-VERSIONS and       #
+#                                            TEMPLATE-VERSION are updated.     #
+# 1.0.3        01-Feb-2013    Kt Kim         Initial version                   #
+################################################################################
+-->

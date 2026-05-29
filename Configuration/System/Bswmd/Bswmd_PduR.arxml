@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Bsw_PduR</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION>
+          <SHORT-NAME>BswImplementation_PduR</SHORT-NAME>
+          <SW-VERSION>2.9.2</SW-VERSION>
+          <VENDOR-ID>76</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Bsw_PduR/PduR/BswInternalBehavior_PduR</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-DESCRIPTION>
+          <SHORT-NAME>PduR</SHORT-NAME>
+          <MODULE-ID>51</MODULE-ID>
+          <BSW-MODULE-DEPENDENCYS>
+            <BSW-MODULE-DEPENDENCY>
+              <SHORT-NAME>BswModuleDependency0</SHORT-NAME>
+              <TARGET-MODULE-ID>60</TARGET-MODULE-ID>
+              <REQUIRED-ENTRYS>
+                <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_CanIf/CanIf_SetPduMode</BSW-MODULE-ENTRY-REF>
+                </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              </REQUIRED-ENTRYS>
+            </BSW-MODULE-DEPENDENCY>
+          </BSW-MODULE-DEPENDENCYS>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>BswInternalBehavior_PduR</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>TP_TX_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>GROUP_STATUS_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>FIFO_STATUS_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>DATA_BUFFER_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>MULTICAST_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>TP_GATEWAY_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <ENTITYS>
+                <BSW-CALLED-ENTITY>
+                  <SHORT-NAME>BswCalledEntity_0</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_PduR/PduR/BswInternalBehavior_PduR/MULTICAST_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_PduR/PduR/BswInternalBehavior_PduR/DATA_BUFFER_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_PduR/PduR/BswInternalBehavior_PduR/FIFO_STATUS_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_PduR/PduR/BswInternalBehavior_PduR/GROUP_STATUS_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_PduR/PduR/BswInternalBehavior_PduR/TP_TX_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_PduR/PduR/BswInternalBehavior_PduR/TP_GATEWAY_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_PduR/PduR_LoTpTxConfirmation</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+              </ENTITYS>
+              <DISTINGUISHED-PARTITIONS>
+                <BSW-DISTINGUISHED-PARTITION>
+                  <SHORT-NAME>BswDistinguishedPartition_PduR</SHORT-NAME>
+                </BSW-DISTINGUISHED-PARTITION>
+              </DISTINGUISHED-PARTITIONS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+        <BSW-MODULE-ENTRY>
+          <SHORT-NAME>PduR_LoTpTxConfirmation</SHORT-NAME>
+          <SERVICE-ID>55</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

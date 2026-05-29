@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AUTRON</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="4d17923b-de7f-41cb-bf81-d13424b1ca68">
+          <SHORT-NAME>SCons_FBL</SHORT-NAME>
+          <ADMIN-DATA>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>4.2.0</REVISION-LABEL>
+                <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                <DATE>2018-10-09</DATE>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTRON/SCons</DEFINITION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="ce721371-e429-4cb0-b378-b02f857756bc">
+              <SHORT-NAME>FBL</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/SCons/Build/McuFamilyType</DEFINITION-REF>
+                  <VALUE>CYT2B9XX</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/SCons/Build/CopyToCProject</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/FBLFolder</DEFINITION-REF>
+                  <VALUE>FBL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="9d8b0ea5-45c1-49da-bf56-99b63b0aaa3b">
+                  <SHORT-NAME>Compile</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-03-24T17:46:12Z" GID="CompilerLicense">ip=10.208.199.229</SD>
+                        <SD T="2022-04-19T09:41:11Z" GID="DefaultCompileOption">--no_alternative_tokens,--no_commons,--prototype_errors,--short_enum,-DCPU_BOARD_REVC,-DCYT2B93CAS,-DCY_USE_PSVP=0,-D__GHS__,-D__ghs__,-Dcyt2b9,-Dtviibe2m,-G,-OI,-Ointerproc,-Olink,-Omax,-Ospeed,-Wformat,-Wimplicit-int,-Wshadow,-Wtrigraphs,-Wundef,-align4,-asm3g,-c,-cpu=cortexm4f,-dwarf2,-globalcheck=normal,-globalcheck_qualifiers,-list,-nostartfiles,-preprocess_assembly_files,-reject_duplicates,-thumb,-thumb_lib,--gnu_asm,-D__cortexm4__,-fsoft</SD>
+                        <SD T="2022-05-30T09:36:09Z" GID="LibraryFiles">arch,ind_sf,math_fp,startup,sys,ansi,ASK_150_cyt2b9_fbl,CryptoLib_cyt2b9_fbl,HSM_Driver_CYT2B9X_rel,HKMC_SecureFlash2_Except_Crypto</SD>
+                        <SD T="2022-05-30T09:35:43Z" GID="LibraryDirectory">D:\ts_mirr\gh\ARM.V2017.1.4\comp_201714\lib\thumb2,CryptoLib\HAE_ASK\FBL,CryptoLib\HAE_Crypto\FBL,CryptoLib\HAE_HSM\HSM_Driver\lib,CryptoLib\HAE_SFM2\HAE_SFM2_FBL</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Compile</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompilerPath</DEFINITION-REF>
+                      <VALUE>D:\ts_mirr\gh\ARM.V2017.1.4\comp_201714\ccarm.exe</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompilerType</DEFINITION-REF>
+                      <VALUE>multiide</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LinkDiscriptFile</DEFINITION-REF>
+                      <VALUE>Build\CYTXXXX_FBL.ld</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompilerLicense</DEFINITION-REF>
+                      <VALUE>ip=10.208.199.229</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryDirectory</DEFINITION-REF>
+                      <VALUE>D:\ts_mirr\gh\ARM.V2017.1.4\comp_201714\lib\thumb2</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CSuffixes</DEFINITION-REF>
+                      <VALUE>asm</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CSuffixes</DEFINITION-REF>
+                      <VALUE>c</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CSuffixes</DEFINITION-REF>
+                      <VALUE>s</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CSuffixes</DEFINITION-REF>
+                      <VALUE>arm</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>arch</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>ind_sf</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>math_fp</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>startup</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>sys</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>ansi</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/ReleaseExceptedDirectory</DEFINITION-REF>
+                      <VALUE>lib</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LinkOption</DEFINITION-REF>
+                      <VALUE>-delete</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LinkOption</DEFINITION-REF>
+                      <VALUE>-errmax=20</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LinkOption</DEFINITION-REF>
+                      <VALUE>-keepmap</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LinkOption</DEFINITION-REF>
+                      <VALUE>-nocpp</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LinkOption</DEFINITION-REF>
+                      <VALUE>-Mn</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>--no_alternative_tokens</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>--no_commons</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>--prototype_errors</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>--short_enum</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-DCPU_BOARD_REVC</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-DCYT2B93CAS</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-DCY_USE_PSVP=0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-D__GHS__</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-D__ghs__</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Dcyt2b9</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Dtviibe2m</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-G</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-OI</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Ointerproc</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Olink</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Omax</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Ospeed</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Wformat</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Wimplicit-int</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Wshadow</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Wtrigraphs</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-Wundef</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-align4</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-asm3g</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-c</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-cpu=cortexm4f</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-dwarf2</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-globalcheck=normal</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-globalcheck_qualifiers</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-list</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-nostartfiles</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-preprocess_assembly_files</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-reject_duplicates</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-thumb</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-thumb_lib</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>--gnu_asm</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-D__cortexm4__</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/DefaultCompileOption</DEFINITION-REF>
+                      <VALUE>-fsoft</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryDirectory</DEFINITION-REF>
+                      <VALUE>CryptoLib\HAE_ASK\FBL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryDirectory</DEFINITION-REF>
+                      <VALUE>CryptoLib\HAE_Crypto\FBL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryDirectory</DEFINITION-REF>
+                      <VALUE>CryptoLib\HAE_HSM\HSM_Driver\lib</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryDirectory</DEFINITION-REF>
+                      <VALUE>CryptoLib\HAE_SFM2\HAE_SFM2_FBL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>ASK_150_cyt2b9_fbl</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>CryptoLib_cyt2b9_fbl</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>HSM_Driver_CYT2B9X_rel</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/LibraryFiles</DEFINITION-REF>
+                      <VALUE>HKMC_SecureFlash2_Except_Crypto</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="9ab7b7b9-b449-4e44-b272-ca70e3c5304f">
+                      <SHORT-NAME>FBL</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                            <SD T="2021-05-04T19:23:04Z" GID="DefineOption">FLASH_START,GHS,IN_BOOT,_GHS_C_ARM_,__EDG__,DISABLE_MCAL_INTERMODULE_ASR_CHECK</SD>
+                            <SD T="2018-09-28T11:40:25Z" GID="PatternType">FBL</SD>
+                            <SD T="2021-05-10T16:54:47Z" GID="CompileOption">-D__GHS__,--no_alternative_tokens,--no_commons,--prototype_errors,--short_enum,-DCPU_BOARD_REVC,-DCYT2B98CAE,-DCY_USE_PSVP=0,-D__ghs__,-Dcyt2b9,-Dtviibe2m,-G,-OI,-Ointerproc,-Olink,-Omax,-Ospeed,-Wformat,-Wimplicit-int,-Wshadow,-Wtrigraphs,-Wundef,-align4,-asm3g,-c,-cpu=cortexm4f,-dwarf2,-fsingle,-globalcheck=normal,-globalcheck_qualifiers,-list,-nostartfiles,-preprocess_assembly_files,-reject_duplicates,-thumb,-thumb_lib,--gnu_asm,-D__cortexm4__</SD>
+                            <SD T="2021-05-25T11:49:22Z" GID="SourcePath">CryptoLib,FBL</SD>
+                            <SD T="2019-11-26T09:27:52Z" GID="InternalLibPath" />
+                            <SD T="2019-06-24T09:00:44Z" GID="IsInternalFile">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/Pattern</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/IsInternalFile</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/PatternType</DEFINITION-REF>
+                          <VALUE>FBL</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/SourcePath</DEFINITION-REF>
+                          <VALUE>CryptoLib</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/SourcePath</DEFINITION-REF>
+                          <VALUE>FBL</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/DefineOption</DEFINITION-REF>
+                          <VALUE>FLASH_START</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/DefineOption</DEFINITION-REF>
+                          <VALUE>GHS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/DefineOption</DEFINITION-REF>
+                          <VALUE>IN_BOOT</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/DefineOption</DEFINITION-REF>
+                          <VALUE>_GHS_C_ARM_</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/DefineOption</DEFINITION-REF>
+                          <VALUE>__EDG__</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/DefineOption</DEFINITION-REF>
+                          <VALUE>DISABLE_MCAL_INTERMODULE_ASR_CHECK</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-D__GHS__</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>--no_alternative_tokens</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>--no_commons</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>--prototype_errors</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>--short_enum</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-DCPU_BOARD_REVC</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-DCYT2B98CAE</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-DCY_USE_PSVP=0</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-D__ghs__</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Dcyt2b9</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Dtviibe2m</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-G</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-OI</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Ointerproc</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Olink</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Omax</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Ospeed</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Wformat</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Wimplicit-int</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Wshadow</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Wtrigraphs</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-Wundef</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-align4</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-asm3g</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-c</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-cpu=cortexm4f</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-dwarf2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-fsingle</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-globalcheck=normal</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-globalcheck_qualifiers</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-list</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-nostartfiles</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-preprocess_assembly_files</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-reject_duplicates</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-thumb</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-thumb_lib</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>--gnu_asm</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/Pattern/CompileOption</DEFINITION-REF>
+                          <VALUE>-D__cortexm4__</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="6dc7372c-c077-4d2e-ae5b-7aea0dea7dc3">
+                      <SHORT-NAME>Build</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="5acf8e13-2be9-4dde-a422-8a6f1746b20b">
+                          <SHORT-NAME>Build</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                                <SD T="2022-05-30T09:36:41Z" GID="ExcludeList">Static_Code,Generated,Application,CryptoLib\DummyCrypto,CryptoLib\HAE_HSM\HOST_SAMPLE,CryptoLib\HAE_SFM2\HAE_SFM2_RTSW,CryptoLib\HAE_ASK\RTSW,CryptoLib\HAE_Crypto\RTSW</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>Static_Code</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>Generated</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>Application</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\DummyCrypto</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_HSM\HOST_SAMPLE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_SFM2\HAE_SFM2_RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_ASK\RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Build/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_Crypto\RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="4b6733c5-be39-4fd0-95df-b970008ac7a6">
+                      <SHORT-NAME>Compile</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="a1939780-c536-479d-b614-9fe1edffe3c7">
+                          <SHORT-NAME>Compile</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                                <SD T="2022-05-30T09:37:10Z" GID="ExcludeList">Static_Code,Generated,Application,CryptoLib\DummyCrypto,CryptoLib\HAE_HSM\HOST_SAMPLE,CryptoLib\HAE_SFM2\HAE_SFM2_RTSW,CryptoLib\HAE_ASK\RTSW,CryptoLib\HAE_Crypto\RTSW</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>Static_Code</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>Generated</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>Application</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\DummyCrypto</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_HSM\HOST_SAMPLE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_SFM2\HAE_SFM2_RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_ASK\RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Compile/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_Crypto\RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="5b299d5d-ce64-4ba6-b2c7-41d1baf79034">
+                      <SHORT-NAME>Release</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="1f915d5e-2b73-4cfc-8cb4-f7575a7ee64a">
+                          <SHORT-NAME>Release</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                                <SD T="2022-05-30T09:37:40Z" GID="ExcludeList">Static_Code,Generated,Configuration,Application,CryptoLib\DummyCrypto,CryptoLib\HAE_HSM\HOST_SAMPLE,CryptoLib\HAE_SFM2\HAE_SFM2_RTSW,CryptoLib\HAE_ASK\RTSW,CryptoLib\HAE_Crypto\RTSW</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>Static_Code</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>Generated</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>Configuration</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>Application</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\DummyCrypto</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_HSM\HOST_SAMPLE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_SFM2\HAE_SFM2_RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_ASK\RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Compile/CompileCmdChoice/Release/ExcludeList</DEFINITION-REF>
+                              <VALUE>CryptoLib\HAE_Crypto\RTSW</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="ec5161a5-9503-49a9-a672-74b8661acb34">
+                  <SHORT-NAME>Generation</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Generation</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="b72d0a80-1289-4741-ae18-b66fd7f7586e">
+                      <SHORT-NAME>FBL</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/SCons/Build/Generation/Module</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/ModuleName</DEFINITION-REF>
+                          <VALUE>FBL</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/InputFilesList</DEFINITION-REF>
+                          <VALUE>Bswmd_Fbl</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/Used</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/IsMCAL</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/InputFilesList</DEFINITION-REF>
+                          <VALUE>Ecud_Fbl</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/ExpectedFilesList</DEFINITION-REF>
+                          <VALUE>Fbl_Cfg.c</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/ExpectedFilesList</DEFINITION-REF>
+                          <VALUE>Fbl_SharedMemMap.h</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/SCons/Build/Generation/Module/ExpectedFilesList</DEFINITION-REF>
+                          <VALUE>Fbl_Cfg.h</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

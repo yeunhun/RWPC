@@ -1,0 +1,16 @@
+#ifndef DEMO_KEY_MANAGEMENT_H_
+#define DEMO_KEY_MANAGEMENT_H_
+
+#include "Hsm_Types.h"
+#include "Demo_AppTestDefine.h"
+
+/* Key Management */
+Std_ReturnType HostTest_HSM_KeyManagementSetUserDefinedAesKey(HSM_KEY_MANAGEMENT_AES_TestVector_t hsmKmAesTv);
+Std_ReturnType HostTest_HSM_KeyManagementSetUserDefinedRsaKey(HSM_KEY_MANAGEMENT_RSA_TestVector_t hsmKmRsaTv);
+Std_ReturnType HostTest_HSM_KeyManagementSetUserDefinedEccKey(HSM_KEY_MANAGEMENT_ECC_TestVector_t hsmKmEccTv);
+Std_ReturnType HostTest_HSM_KeyManagementSetHostTempAesKey(HSM_KEY_MANAGEMENT_AES_TestVector_t hsmKmAesTv);
+Std_ReturnType HostTest_HSM_KeyManagementSetHostTempRsaKey(HSM_KEY_MANAGEMENT_RSA_TestVector_t hsmKmRsaTv);
+Std_ReturnType HostTest_HSM_KeyManagementSetHostTempEccKey(HSM_KEY_MANAGEMENT_ECC_TestVector_t hsmKmEccTv);
+Std_ReturnType HostTest_HSM_KeyManagementValidateKey(KEY_TYPE keyType, UINT16 keyIndex);
+
+#endif /* DEMO_KEY_MANAGEMENT_H_ */

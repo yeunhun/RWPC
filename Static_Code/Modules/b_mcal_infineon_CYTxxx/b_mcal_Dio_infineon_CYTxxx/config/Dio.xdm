@@ -1,0 +1,401 @@
+<?xml version='1.0'?>
+<datamodel version="5.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Dio" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                <ad:ADMIN-DATA>
+                  <ad:DOC-REVISIONS>
+                    <ad:DOC-REVISION>
+                      <ad:REVISION-LABEL>4.2.2</ad:REVISION-LABEL>
+                      <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      <ad:DATE>2014-10-31</ad:DATE>
+                    </ad:DOC-REVISION>
+                  </ad:DOC-REVISIONS>
+                </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="DESC" 
+                   value="EN: Configuration of the Dio (Digital IO) module."/>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="POSTBUILDVARIANTSUPPORT" value="true"/>
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="UPPER-MULTIPLICITY" value="1"/>
+              <a:a name="UUID" value="931ea64f-2292-46cb-9005-8e8fc88dfb7d"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                     type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                </a:a>
+                <a:a name="LABEL" value="Config Variant"/>
+                <a:a name="UUID" value="8ae781de-9f61-439a-b66b-34c5388af4bb"/>
+                <a:da name="DEFAULT" value="VariantPreCompile"/>
+                <a:da name="RANGE">
+                  <a:v>VariantPreCompile</a:v>
+                </a:da>
+              </v:var>
+              <v:lst name="DioConfig" type="MAP">
+                <a:da name="MIN" value="1"/>
+                <a:da name="MAX" value="1"/>
+                <v:ctr name="DioConfig" type="IDENTIFIABLE">
+                  <a:a name="DESC" 
+                       value="EN: This container contains the configuration parameters and sub containers of the AUTOSAR DIO module. This container is a MultipleConfigurationContainer, i.e. this container and its sub-containers exist once per configuration set."/>
+                  <a:a name="UUID" value="dffcb0d2-122e-4eb7-8996-95755f12869b"/>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <v:lst name="DioPort" type="MAP">
+                    <a:a name="COLUMNS">
+                      <a:v>DioPortId</a:v>
+                    </a:a>
+                    <a:da name="MIN" value="1"/>
+                    <v:ctr name="DioPort" type="IDENTIFIABLE">
+                      <a:a name="DESC">
+                        <a:v>EN: Configuration of individual DIO ports, consisting of channels and possible channel groups.&lt;br/&gt;
+Note that this container definition does not explicitly&lt;br/&gt;
+define a symbolic name parameter. Instead, the container&apos;s short name will be used in the Ecu Configuration Description to specify the symbolic name of the port.</a:v>
+                      </a:a>
+                      <a:a name="UUID" value="7b6cd255-efa7-4a41-a8bf-0194e96f5567"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst 
+                               expr="count(../*/DioChannel/*[@name=node:name(node:current())]) &gt;= 1.0" 
+                               true="Dio Port symbolic name used by Dio channel."/>
+                        <a:tst 
+                               expr="count(../*/DioChannelGroup/*[@name=node:name(node:current())]) &gt;= 1.0" 
+                               true="Dio Port symbolic name used by Dio channel group."/>
+                      </a:da>
+                      <v:var name="DioPortId" type="INTEGER">
+                        <a:a name="DESC">
+                          <a:v>EN: Numeric identifier of the DIO port. Not all MCU ports may be used for DIO, thus there may be &quot;gaps&quot; in the list of all IDs. This value will be&lt;br/&gt;
+assigned to the DIO port symbolic name (i.e. the SHORT-NAME of the DioPort container).</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                        <a:a name="SCOPE" value="ECU"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                        <a:a name="UUID" value="214bc483-69a8-4411-887d-7289785d1d1e"/>
+                        <a:da name="DEFAULT" value="0"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="(.&gt;(num:max(ecu:list('PORT.ports'))))" true="DioPortId is greater than the maximum value."/>
+                          <a:tst expr="(.&lt;((ecu:list('PORT.ports'))[1]))" true="DioPortId is less than the minimum value."/>
+                          <a:tst expr="text:uniq(../../*/DioPortId,.)" false="One configuration for each port allowed in the same configuration set."/>
+                          <a:tst expr="contains(concat(&apos;,&apos;,ecu:get(&apos;PORT.ports&apos;),&apos;,&apos;),concat(&apos;,&apos;,.,&apos;,&apos;))" false="Port not available in the derivate."/>
+                        </a:da>
+                      </v:var>
+                      <v:lst name="DioChannel" type="MAP">
+                        <a:a name="COLUMNS">
+                          <a:v>DioChannelId</a:v>
+                          <a:v>DioChannelPin</a:v>
+                        </a:a>
+                        <v:ctr name="DioChannel" type="IDENTIFIABLE">
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="count(node:stod(node:path(node:dtos(.)))[@name=node:name(node:current())]) = 1" false="Only one DioChannel is allowed to use this name."/>
+                          </a:da>
+                          <a:a name="DESC">
+                            <a:v>EN: Configuration of an individual DIO channel. Besides a HW specific channel name which is typically fixed for a specific micro controller, additional symbolic names can be defined per channel.&lt;br/&gt;
+Note that this container definition does not explicitly define a symbolic name parameter. Instead, the container&apos;s short name will be used in the Ecu Configuration Description to specify the symbolic name of the channel.</a:v>
+                          </a:a>
+                          <a:a name="UUID" value="001f134a-574d-4e75-b86e-65a8dabb1429"/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                               type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                          </a:a>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                          <v:var name="DioChannelId" type="INTEGER">
+                            <a:a name="DESC" 
+                                 value="EN: Channel Id of the DIO channel. This value will be assigned to the symbolic names."/>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                              <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                            <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                            <a:a name="SCOPE" value="ECU"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                            <a:a name="UUID" value="9c3bfea9-893d-4172-905d-954613d3d021"/>
+                            <a:da name="DEFAULT" type="XPath" expr="num:i((num:i(substring-before(substring-after(../DioChannelPin,'P'),'_')) * 8) + num:i(substring-after(../DioChannelPin,'_')))"/>
+                            <a:da name="INVALID" type="XPath">
+                              <a:tst expr="(0 > .)" true="DioChannelId is less than 0."/>
+                              <a:tst expr="(num:i(. div 8) = num:i(substring-before(substring-after(../DioChannelPin,'P'),'_')))" false="Wrong DioPort container assigned"/>
+                              <a:tst expr="text:uniq(../../*/DioChannelId,.)" false="Only one configuration for each channel id is allowed in the same configuration set."/>
+                              <a:tst expr="(num:i(. mod 8) = num:i(substring-after(../DioChannelPin,'_')))" false="Press the calculate button, id is different to DioChannelPin!"/>
+                            </a:da>
+                          </v:var>
+                          <v:var name="DioChannelPin" type="ENUMERATION">
+                            <a:a name="DESC">
+                              <a:v>EN: HW-Pin Id of the hardware port pin. This value is not assigned to the symbolic name.&lt;br/&gt;&lt;br/&gt;
+ATTENTION!&lt;br/&gt;
+The PortPinId can not be used for an API call.&lt;br/&gt;
+Please use the symbolic name for API calls only.</a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                                type="IMPLEMENTATIONCONFIGCLASS">
+                              <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="Cypress"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                            <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                            <a:a name="UUID" value="bf6d985f-17d8-435c-8b92-3f149bcdfd57"/>
+                            <a:da name="DEFAULT" type="XPath" expr="text:concat('P',text:concat(num:mod(../../../DioPortId div 100,10),text:concat(num:mod(../../../DioPortId div 10,10),text:concat(num:mod(../../../DioPortId,10),text:concat('_',ecu:list(concat('PORT.',../../../DioPortId,'.pins')))))))[1]"/>
+                            <a:da name="INVALID" type="XPath">
+                              <a:tst expr="ecu:has(concat('PORT.',string(../../../DioPortId),'.',substring-after(string(.),'_'),'.modes'))" false="Port pin not available in this derivate."/>
+                              <a:tst expr="text:uniq(../../*/DioChannelPin,.)" false="Only one configuration for each port pin is allowed in the same configuration set."/>
+                            </a:da>
+                            <a:da name="RANGE" type="XPath" expr="text:concat('P',text:concat(num:mod(../../../DioPortId div 100,10),text:concat(num:mod(../../../DioPortId div 10,10),text:concat(num:mod(../../../DioPortId,10),text:concat('_',ecu:list(concat('PORT.',../../../DioPortId,'.pins')))))))" />
+                          </v:var>
+                        </v:ctr>
+                      </v:lst>
+                      <v:lst name="DioChannelGroup" type="MAP">
+                        <a:a name="COLUMNS">
+                          <a:v>DioChannelGroupIdentification</a:v>
+                          <a:v>DioPortMask</a:v>
+                          <a:v>DioPortOffset</a:v>
+                        </a:a>
+                        <v:ctr name="DioChannelGroup" type="IDENTIFIABLE">
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="count(node:stod(node:path(node:dtos(.)))[@name=node:name(node:current())]) = 1" false="Only one DioChannelGroup is allowed to use this name."/>
+                          </a:da>
+                          <a:a name="DESC">
+                            <a:v>EN: Definition and configuration of DIO channel groups. A channel group represents several adjoining DIO channels represented by a logical group.&lt;br/&gt;
+Note that this container definition does not explicitly define a symbolic name parameter. Instead, the container&apos;s short name will be used in the Ecu Configuration Description to specify the symbolic name of the channel group.</a:v>
+                          </a:a>
+                          <a:a name="UUID" value="2d0b2704-a626-40b5-84e1-75e8f7af6c07"/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                               type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                          </a:a>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                          <v:var name="DioChannelGroupIdentification" 
+                                 type="STRING">
+                            <a:a name="DESC">
+                              <a:v>EN: The DIO channel group is identified in DIO API by a pointer to a data structure (of type Dio_ChannelGroupType). That data structure contains the channel group information.&lt;br/&gt;&lt;br/&gt;
+This parameter contains the code fragment that has to be inserted in the API call of the calling module to get the address of the variable in memory which holds the channel group information.&lt;br/&gt;
+Default value is &quot;&amp;Dio_ChannelGroupCfg[0]&quot;.</a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                              <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                            <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                            <a:a name="SCOPE" value="ECU"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                            <a:da name="DEFAULT" type="XPath" expr="concat('&amp;Dio_ChannelGroupCfg[', num:i(node:pos(..)), ']')"/>
+                            <a:a name="UUID" value="f0dc671c-8d88-49c4-87db-e4a99cf20d4d"/>
+                            <a:da name="INVALID" type="XPath">
+                              <a:tst expr="text:uniq(../../../../*/DioChannelGroup/*/DioChannelGroupIdentification,.)" false="Duplicated value, DioChannelGroupIdentification must be unique across all Dio channels across all Dio Ports. Please see description." />
+                              <a:tst expr="text:match(normalize-space(.),'&amp;Dio_ChannelGroupCfg\[[0-9]+\]')" false="Invalid value of the DioChannelGroupIdentification. Must be &quot;&amp;Dio_ChannelGroupCfg[*]&quot;."/>
+                              <a:tst expr="(num:i(count(../../../../*/DioChannelGroup/*)) &gt; num:i(substring-before(substring-after(.,'['),']')))" false="Value out of range: must be in range 0 to N-1 (N is number of configured DioChannelGroup)."/>
+                            </a:da>
+                          </v:var>
+                          <v:var name="DioPortMask" type="INTEGER">
+                            <a:a name="DESC">
+                              <a:v>EN: This shall be the mask which defines the positions of the channel group.&lt;br/&gt;
+The channels shall consist of adjoining bits in the same port.&lt;br/&gt;
+The data type depends on the port width.</a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                              <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                            <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                            <a:a name="SCOPE" value="LOCAL"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                            <a:a name="UUID" value="1472fbdf-3e52-44a9-a4af-c71f13a4dc34"/>
+                            <a:da name="DEFAULT" value="1"/>
+                            <a:da name="INVALID" type="Range">
+                              <a:tst expr="&lt;=255"/>
+                              <a:tst expr="&gt;=1" false="DioPortMask must be higher than zero."/>
+                            </a:da>
+                          </v:var>
+                          <v:var name="DioPortOffset" type="INTEGER">
+                            <a:a name="DESC">
+                              <a:v>EN: The position of the Channel Group on the port, counted from the LSB. This value can be derived from DioPortMask.&lt;br/&gt;&lt;br/&gt;
+calculationFormula = Position of the first bit of DioPortMask which is set to &apos;1&apos; counted from LSB.&lt;br/&gt;&lt;br/&gt;
+This value will be calculated at generation time.</a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                              <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                            <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                            <a:a name="SCOPE" value="LOCAL"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                            <a:a name="UUID" value="f8fea5ba-3baf-4d8f-bfde-0a08ff57cfcf"/>
+                            <a:da name="DEFAULT" value="0"/>
+                            <a:da name="EDITABLE" value="FALSE"/>
+                            <a:da name="INVALID" type="Range">
+                              <a:tst expr="&lt;=7"/>
+                              <a:tst expr="&gt;=0"/>
+                            </a:da>
+                          </v:var>
+                        </v:ctr>
+                      </v:lst>
+                    </v:ctr>
+                  </v:lst>
+                </v:ctr>
+              </v:lst>
+              <v:ctr name="DioGeneral" type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: General DIO module configuration parameters."/>
+                <a:a name="UUID" value="74e15c2c-d3eb-4e67-8278-9ff53528cf32"/>
+                <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                <v:var name="DioDevErrorDetect" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switches the Default Error Tracer (Det) detection and notification ON or OFF."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="65f530ba-6fe4-4693-846d-e004c4d28785"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="DioFlipChannelApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Dio_FlipChannel() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="e5f22f9a-3d38-4f02-a19b-7c5c29a2dc66"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="DioVersionInfoApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Dio_GetVersionInfo() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="62381508-e6ff-46dd-a8ca-6631883185bc"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="DioMaskedWritePortApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Dio_MaskedWritePort() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="ef24a99d-3f39-41f3-ba32-973556288a53"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="DioErrorCalloutFunction" type="FUNCTION-NAME">
+                  <a:a name="DESC">
+                    <a:v>EN: A symbol name for a call-out function. Dio module calls the function whenever any error occurs.&lt;br/&gt;&lt;br/&gt;
+&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;[Checking if the configuration is correct]&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;
+&lt;u&gt;1) DioErrorCalloutFunction is an appropriate C language function name;&lt;/u&gt;&lt;br/&gt;
+if it is not satisfied, the following message shall be reported:&lt;br/&gt;
+Invalid name of the DioErrorCalloutFunction. Must be valid C function name.</a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="547ad601-31ea-4cbb-8295-eb2484c0fe8d"/>
+                  <a:da name="DEFAULT" value="ErrorCalloutHandler"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the DioErrorCalloutFunction. Must be valid C function name."/>
+                  </a:da>
+                </v:var>
+                <v:lst name="DioIncludeFile">
+                  <v:var name="DioIncludeFile" type="STRING">
+                    <a:a name="DESC">
+                      <a:v>EN: The header file to which Dio module refers. The file is used to define the functional declaration about call-out by users.&lt;br/&gt;&lt;br/&gt;
+&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;[Checking if the configuration is correct]&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;
+&lt;u&gt;1) DioIncludeFile is an appropriate header file name;&lt;/u&gt;&lt;br/&gt;
+if it is not satisfied, the following message shall be reported:&lt;br/&gt;
+Invalid name of the DioIncludeFile. Must be a filename with extension .h.&lt;br/&gt;&lt;br/&gt;
+&lt;u&gt;2) All of DioIncludeFile have a different file name each other;&lt;/u&gt;&lt;br/&gt;
+if it is not satisfied, the following message shall be reported:&lt;br/&gt;
+DioIncludeFile must be unique.</a:v>
+                    </a:a>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                         type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                      <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="UUID"  value="b07132ba-03e3-4547-9dcc-d6849f9c28c5"/>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                    <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                    <a:da name="DEFAULT" value="ErrorCalloutHandler.h" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:match(normalize-space(.),'^[_0-9a-zA-Z]+\.h$')" false="Invalid name of the DioIncludeFile. Must be a filename with extension .h."/>
+                      <a:tst expr="text:uniq(../*, .)"  false="DioIncludeFile must be unique."/>
+                    </a:da>
+                  </v:var>
+                </v:lst>
+              </v:ctr>
+              <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/EcucDefs/Dio"/>
+            </v:ctr>
+          </d:chc>
+          <d:chc name="DIO_EcuParameterDefinition" type="AR-ELEMENT" 
+                 value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="UUID" value="31699a26-58af-48e7-b7db-f37f4e5ff207"/> 
+              <a:a name="DEF" 
+                   value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Dio"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

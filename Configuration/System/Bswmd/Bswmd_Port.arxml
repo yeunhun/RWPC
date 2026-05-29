@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="04696ab1-fd37-4d2d-9064-09ed70cc1434">
+      <SHORT-NAME>TS_T40D13M1I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="417452ac-d821-4a1f-aeb2-3ecc04a83927">
+          <SHORT-NAME>PortImplementation</SHORT-NAME>
+          <SW-VERSION>1.11.0</SW-VERSION>
+          <VENDOR-ID>66</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.2.2</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-ENTRY UUID="c96fcca7-a2ef-423e-a367-6dec11f60a5a">
+          <SHORT-NAME>Port_Init</SHORT-NAME>
+          <SERVICE-ID>0</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="3b569e10-ecca-4db3-ba12-753824c6fdd2">
+          <SHORT-NAME>Port_SetPinDirection</SHORT-NAME>
+          <SERVICE-ID>1</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="7607cb77-6a17-43ba-bc2a-f1106871161f">
+          <SHORT-NAME>Port_RefreshPortDirection</SHORT-NAME>
+          <SERVICE-ID>2</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="1edf8d19-f188-489e-80ca-7080a0bebfb0">
+          <SHORT-NAME>Port_GetVersionInfo</SHORT-NAME>
+          <SERVICE-ID>3</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="df8cfac8-a566-4a4a-9a22-3d1714a1ba99">
+          <SHORT-NAME>Port_SetPinMode</SHORT-NAME>
+          <SERVICE-ID>4</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="df8cfac8-a566-4a4a-9a22-3d1714a1ba9a">
+          <SHORT-NAME>Port_SetResourceInputMode</SHORT-NAME>
+          <SERVICE-ID>10</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="669b2be2-a96c-4f8c-a1e8-bdc8b43450a4">
+          <SHORT-NAME>Port_GetStatus</SHORT-NAME>
+          <SERVICE-ID>254</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="20de342d-7287-42ef-9e2a-691da258505a">
+          <SHORT-NAME>Port_GetStatusResourceInput</SHORT-NAME>
+          <SERVICE-ID>255</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="9957f145-e01e-4a9e-a948-79722a09bcc9">
+          <SHORT-NAME>BswDescr</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-DESCRIPTION UUID="fee71ede-2162-470e-bdea-bfc5c5d8e278">
+              <SHORT-NAME>Port</SHORT-NAME>
+              <MODULE-ID>124</MODULE-ID>
+              <INTERNAL-BEHAVIORS>
+                <BSW-INTERNAL-BEHAVIOR UUID="5ec8a241-3b58-433e-b214-448892445ec8">
+                  <SHORT-NAME>PortBehavior</SHORT-NAME>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA UUID="7841f411-a850-4d9e-92b6-87c4ede20899">
+                      <SHORT-NAME>PORT_EXCLUSIVE_AREA_0</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <ENTITYS>
+                    <BSW-CALLED-ENTITY UUID="56758f41-4088-4bc3-9076-28f8731a9c5e">
+                      <SHORT-NAME>Port_Init</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_Init</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="5f57dd6f-50f1-4261-82b3-0551ab65a1a0">
+                      <SHORT-NAME>Port_SetPinDirection</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_SetPinDirection</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="dae4f984-04ff-4428-b629-2e60ef9baef0">
+                      <SHORT-NAME>Port_RefreshPortDirection</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_RefreshPortDirection</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="d2075f9a-6253-4b47-91b7-159ea36fa7ed">
+                      <SHORT-NAME>Port_GetVersionInfo</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_GetVersionInfo</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="7daf13ed-5c18-4e0a-b580-d814dcaf1334">
+                      <SHORT-NAME>Port_SetPinMode</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_SetPinMode</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="7daf13ed-5c18-4e0a-b580-d814dcaf1335">
+                      <SHORT-NAME>Port_SetResourceInputMode</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_SetResourceInputMode</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="7daf13ed-5c18-4e0a-b580-d814dcaf1336">
+                      <SHORT-NAME>Port_GetStatus</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_GetStatus</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="7daf13ed-5c18-4e0a-b580-d814dcaf1337">
+                      <SHORT-NAME>Port_GetStatusResourceInput</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Port/PortBehavior/PORT_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Port_GetStatusResourceInput</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                  </ENTITYS>
+                  <DISTINGUISHED-PARTITIONS>
+                    <BSW-DISTINGUISHED-PARTITION>
+                      <SHORT-NAME>BswDistinguishedPartition_Port</SHORT-NAME>
+                    </BSW-DISTINGUISHED-PARTITION>
+                  </DISTINGUISHED-PARTITIONS>
+                </BSW-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </BSW-MODULE-DESCRIPTION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

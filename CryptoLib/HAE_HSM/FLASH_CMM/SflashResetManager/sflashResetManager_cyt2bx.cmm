@@ -1,0 +1,193 @@
+local &filePath
+entry &filePath
+local &cmmResult
+local &maxLoop
+
+;WinCLEAR
+
+goSub loopInit
+goSub parsePath
+
+goSub sysInit
+goSub writeSram
+goSub runSystem
+goSub setWindow
+goSub doCmm
+goSub readResult
+goSub continueOrNot
+goSub showResult
+ENDDO
+
+
+
+parsePath:
+(
+	&filePath="Sflash_REPAIR_CYT2BX.elf"
+    IF !OS.FILE("&filePath")
+	(
+		DIALOG.FILE *
+		ENTRY &filePath
+	)
+	return
+)
+
+writeSram:
+(
+	local &filetype
+	Data.LOAD.auto "&filePath"
+	&strlen=STRING.LEN("&filePath")
+	&strlen=&strlen-3.
+	&filetype=string.mid("&filePath", &strlen, 3)
+	if "&filetype"=="rec"
+	(
+		&strlen=STRING.LEN("&filePath")-4
+	)
+	else
+	(
+		&strlen=STRING.LEN("&filePath")-3
+	)
+	
+	&elfFilePath=string.mid("&filePath", 0, &strlen)
+	&elfFilePath="&elfFilePath"+"elf"
+	print "Load File=>&elfFilePath"
+	data.load "&elfFilePath" /noreg /nocode
+	;Data.LOAD.Elf "&filePath" /NoCODE /NoRegister
+	; DO NOT RESET
+	return
+)
+
+runSystem:
+(
+	Go.direct main
+	WAIT !STATE.RUN()
+	return
+)
+
+loopInit:
+(
+	WinCLEAR
+	&maxLoop=0
+	return 
+)
+
+sysInit:
+(
+	IF SYStem.INSTANCE()!=1.
+	(
+	  PRINT %ERROR "This script must be called from MASTER GUI!"
+	  ENDDO
+	)
+
+	RESet
+	SYStem.RESet
+	SYStem.CPU CYT2B98CA-CM0+
+	SYStem.CONFIG CORE 1. 1.
+	SYStem.CONFIG SLAVE OFF
+	SYStem.Down
+	IF COMBIPROBE()||UTRACE()
+	(
+	  SYStem.CONFIG.CONNECTOR MIPI20T
+	)
+	SYStem.Option DUALPORT ON
+	(
+	  ; assert reset line and do another debugger based reset
+	  ; -> M0+ should stop in BootROM/Supervisory Flash
+	  SYStem.Option EnReset ON
+	  SYStem.Option WaitIDCODE ON
+	  SYStem.Option CoreSightRESet ON
+	)
+	SYStem.MemAccess DAP
+	SYStem.JtagClock 10MHz
+	Trace.DISable
+	SYStem.Up
+	
+	return 
+)
+
+setWindow:
+(
+	;WinCLEAR
+	Mode.Hll
+	B::
+
+	TOOLBAR   ON
+	STATUSBAR ON
+	;FramePOS 66.286,16.0,,,Maximized
+	;WinPAGE.RESet
+
+	WinPAGE.Create P000
+	;WinCLEAR
+
+	WinPOS 94.429 23.25 64. 16. 0. 0. W010 ICONIC
+	SYStem.state
+
+	WinPOS 9.7143 48.917 48. 13. 0. 0. W004
+	sys.option.dualport on
+	sys
+
+	WinPOS 0.0 42.583 74. 25. 0. 0. W003
+	var.watch
+	VAR.ADDWATCH SROM_SCRATCH_BUFF
+
+	WinPOS 41.0 33.417 32. 2. 16. 1. W009
+	Data.dump (0x0800d400) /DIALOG
+
+	WinPOS 80.0 33.5 45. 39. 16. 1. W007
+	data.dump 0x0800d000 /ascii /spotlight
+
+	WinPAGE.select P000
+
+	return
+)
+
+doCmm:
+(
+	go
+	return
+)
+
+readResult:
+(
+	SCREEN.WAIT 1s
+	&cmmResult=data.long(sd:0x0800D400)
+	;print &cmmResult
+		
+	return
+)
+
+continueOrNot:
+(
+	area.clear
+	area
+	
+	while &maxLoop<0x100
+	(		
+		goSub sysInit
+		goSub writeSram
+		goSub runSystem
+		goSub doCmm
+		goSub readResult
+
+		if &cmmResult==0x900D
+			return
+		else if &cmmResult==0xBAAD
+			print "failed, retry"
+		else
+			print "????"
+		
+		&maxLoop=&maxLoop+1
+		print &maxLoop
+	)
+
+	return
+)
+
+showResult:
+(
+	if &cmmResult==0x900D
+		print "GOOD"
+	else
+		print "BAD"
+	
+	return
+)

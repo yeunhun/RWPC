@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+<AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ARPackage_Dem</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>EcuConfiuration</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-IMPLEMENTATION>
+              <SHORT-NAME>BswImplementation_Dem</SHORT-NAME>
+              <SW-VERSION>3.3.2</SW-VERSION>
+              <SWC-BSW-MAPPING-REF DEST="SWC-BSW-MAPPING">/AUTOSAR_Dem/ServiceSwComponentTypes/SwcBswMapping_Dem</SWC-BSW-MAPPING-REF>
+              <VENDOR-ID>76</VENDOR-ID>
+              <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+              <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem</BEHAVIOR-REF>
+            </BSW-IMPLEMENTATION>
+            <BSW-MODULE-DESCRIPTION>
+              <SHORT-NAME>Dem</SHORT-NAME>
+              <MODULE-ID>54</MODULE-ID>
+              <INTERNAL-BEHAVIORS>
+                <BSW-INTERNAL-BEHAVIOR>
+                  <SHORT-NAME>BswInternalBehaviors_Dem</SHORT-NAME>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_BUFFER_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_RECORD_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_STATUS_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_OCC_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_OCCTIME_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_NVDATA_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>CAPTURE_OBD_DATA</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_DATA_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_DEBOUNCETIMEBASED</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA>
+                      <SHORT-NAME>REQUEST_BEFOREOS_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <ENTITYS>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswSE_Dem_MainFunction</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_BUFFER_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_RECORD_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_STATUS_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_OCC_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_OCCTIME_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_NVDATA_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/CAPTURE_OBD_DATA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_DATA_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_DEBOUNCETIMEBASED</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/REQUEST_BEFOREOS_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/ARPackage_Dem/EcuConfiuration/Dem_MainFunction</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                  </ENTITYS>
+                  <EVENTS>
+                    <BSW-TIMING-EVENT>
+                      <SHORT-NAME>BswTE_Dem_MainFunction</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/ARPackage_Dem/EcuConfiuration/Dem/BswInternalBehaviors_Dem/BswSE_Dem_MainFunction</STARTS-ON-EVENT-REF>
+                      <PERIOD>0.01</PERIOD>
+                    </BSW-TIMING-EVENT>
+                  </EVENTS>
+                  <DISTINGUISHED-PARTITIONS>
+                    <BSW-DISTINGUISHED-PARTITION>
+                      <SHORT-NAME>BswDistinguishedPartition_Dem</SHORT-NAME>
+                    </BSW-DISTINGUISHED-PARTITION>
+                  </DISTINGUISHED-PARTITIONS>
+                </BSW-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </BSW-MODULE-DESCRIPTION>
+            <BSW-MODULE-ENTRY>
+              <SHORT-NAME>Dem_MainFunction</SHORT-NAME>
+              <SERVICE-ID>55</SERVICE-ID>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES></AUTOSAR>

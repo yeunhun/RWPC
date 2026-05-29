@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  
+<AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Icu</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES>
+          <SHORT-NAME>Icu</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/TS_T40D13M1I0R0/Icu</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/TS_T40D13M1I0R0/IcuImplementation</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>IcuConfigSet_0</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2022-04-01T09:38:13Z" GID="IcuMaxChannel">4</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuMaxChannel</DEFINITION-REF>
+                  <VALUE>4</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="968cbcb9-8e2b-4fd5-9cdb-6882e7cf12e1">
+                  <SHORT-NAME>IcuChannel_BCAN_WakeUp</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuChannelId">0</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuResource">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuDefaultStartEdge">ICU_FALLING_EDGE</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuMeasurementMode">ICU_MODE_EDGE_COUNTER</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuWakeupCapability">0</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T09:40:56Z" GID="IcuResource">GPIO_6_5</SD>
+                        <SD T="2022-04-01T09:41:52Z" GID="IcuMeasurementMode">ICU_MODE_SIGNAL_EDGE_DETECT</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuChannelId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuResource</DEFINITION-REF>
+                      <VALUE>GPIO_6_5</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuDefaultStartEdge</DEFINITION-REF>
+                      <VALUE>ICU_FALLING_EDGE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuMeasurementMode</DEFINITION-REF>
+                      <VALUE>ICU_MODE_SIGNAL_EDGE_DETECT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuWakeupCapability</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="22695c50-9e8a-4c65-80a2-c13d10276211">
+                      <SHORT-NAME>IcuSignalEdgeDetection_BCAN_WakeUp</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                            <SD T="2022-04-01T09:42:47Z" GID="IcuSignalNotification">CheckWakeup_BCAN_WakeUp</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection/IcuSignalNotification</DEFINITION-REF>
+                          <VALUE>CheckWakeup_BCAN_WakeUp</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="dccd7100-7b5e-47f1-afd2-2dc05324eccc">
+                  <SHORT-NAME>IcuChannel_LCAN_WakeUp</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuChannelId">0</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuResource">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuDefaultStartEdge">ICU_FALLING_EDGE</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuMeasurementMode">ICU_MODE_EDGE_COUNTER</SD>
+                        <SD T="2022-04-01T09:40:08Z" GID="IcuWakeupCapability">0</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T09:40:44Z" GID="IcuChannelId">1</SD>
+                        <SD T="2022-04-01T09:41:12Z" GID="IcuResource">GPIO_7_1</SD>
+                        <SD T="2022-04-01T09:41:54Z" GID="IcuMeasurementMode">ICU_MODE_SIGNAL_EDGE_DETECT</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuChannelId</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuResource</DEFINITION-REF>
+                      <VALUE>GPIO_7_1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuDefaultStartEdge</DEFINITION-REF>
+                      <VALUE>ICU_FALLING_EDGE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuMeasurementMode</DEFINITION-REF>
+                      <VALUE>ICU_MODE_SIGNAL_EDGE_DETECT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuWakeupCapability</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="2fbdd74a-13ac-4204-9c3c-1914f63c5dbc">
+                      <SHORT-NAME>IcuSignalEdgeDetection_LCAN_WakeUp</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                            <SD T="2022-04-01T09:43:06Z" GID="IcuSignalNotification">CheckWakeup_LCAN_WakeUp</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection/IcuSignalNotification</DEFINITION-REF>
+                          <VALUE>CheckWakeup_LCAN_WakeUp</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="1700a47e-d1ff-458b-923a-76aaf71ef96e">
+                  <SHORT-NAME>IcuChannel_NFC_INTERRUPT</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuChannelId">0</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuResource">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuDefaultStartEdge">ICU_FALLING_EDGE</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuMeasurementMode">ICU_MODE_EDGE_COUNTER</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuWakeupCapability">0</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T09:40:45Z" GID="IcuChannelId">2</SD>
+                        <SD T="2022-04-01T09:41:23Z" GID="IcuResource">GPIO_2_1</SD>
+                        <SD T="2022-04-01T09:41:27Z" GID="IcuDefaultStartEdge">ICU_RISING_EDGE</SD>
+                        <SD T="2022-04-01T09:41:55Z" GID="IcuMeasurementMode">ICU_MODE_SIGNAL_EDGE_DETECT</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuChannelId</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuResource</DEFINITION-REF>
+                      <VALUE>GPIO_2_1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuDefaultStartEdge</DEFINITION-REF>
+                      <VALUE>ICU_RISING_EDGE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuMeasurementMode</DEFINITION-REF>
+                      <VALUE>ICU_MODE_SIGNAL_EDGE_DETECT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuWakeupCapability</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="5ceb7bb5-50b4-49af-8a52-ec66505a0aaf">
+                      <SHORT-NAME>IcuSignalEdgeDetection_NFC_INTERRUPT</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                            <SD T="2022-04-01T09:43:23Z" GID="IcuSignalNotification">IcuSignalEdgeDetection_NFC_INTERRUPT_Cbk</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection/IcuSignalNotification</DEFINITION-REF>
+                          <VALUE>IcuSignalEdgeDetection_NFC_INTERRUPT_Cbk</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="04d5101d-43b4-43ed-ad0b-daf193ee28da">
+                  <SHORT-NAME>IcuChannel_P9450_INTB</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuChannelId">0</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuResource">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuDefaultStartEdge">ICU_FALLING_EDGE</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuMeasurementMode">ICU_MODE_EDGE_COUNTER</SD>
+                        <SD T="2022-04-01T09:40:09Z" GID="IcuWakeupCapability">0</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T09:40:45Z" GID="IcuChannelId">3</SD>
+                        <SD T="2022-04-01T09:41:41Z" GID="IcuResource">GPIO_18_1</SD>
+                        <SD T="2022-04-01T09:41:56Z" GID="IcuMeasurementMode">ICU_MODE_SIGNAL_EDGE_DETECT</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuChannelId</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuResource</DEFINITION-REF>
+                      <VALUE>GPIO_18_1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuDefaultStartEdge</DEFINITION-REF>
+                      <VALUE>ICU_FALLING_EDGE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuMeasurementMode</DEFINITION-REF>
+                      <VALUE>ICU_MODE_SIGNAL_EDGE_DETECT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuWakeupCapability</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="b7d88f8f-a8e6-492b-b9d5-766f08e48332">
+                      <SHORT-NAME>IcuSignalEdgeDetection_P9450_INTB</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                            <SD T="2022-04-01T09:43:41Z" GID="IcuSignalNotification">IcuSignalEdgeDetection_P9450_INTB_Cbk</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D13M1I0R0/Icu/IcuConfigSet/IcuChannel/IcuSignalEdgeDetection/IcuSignalNotification</DEFINITION-REF>
+                          <VALUE>IcuSignalEdgeDetection_P9450_INTB_Cbk</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>IcuGeneral</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2019-06-04T13:41:56Z" GID="IcuErrorCalloutFunction">Det_ReportError</SD>
+                    <SD T="2022-04-01T16:32:32Z" GID="IcuIncludeFile">Det.h,Rte_IoHwAb.h,LowPower_Callout.h</SD>
+                    <SD T="2019-11-15T17:22:25Z" GID="IcuDevErrorDetect">1</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuErrorCalloutFunction</DEFINITION-REF>
+                  <VALUE>Det_ReportError</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuIndex</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuReportWakeupSource</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuIncludeFile</DEFINITION-REF>
+                  <VALUE>Det.h</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuDevErrorDetect</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuIncludeFile</DEFINITION-REF>
+                  <VALUE>Rte_IoHwAb.h</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuGeneral/IcuIncludeFile</DEFINITION-REF>
+                  <VALUE>LowPower_Callout.h</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>IcuOptionalApis</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuChannelGroupApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuDeInitApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuDisableNotiApiCapableWakeup</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuDisableWakeupApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuEdgeCountApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuEdgeDetectApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuEnableNotiApiCapableWakeup</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuEnableWakeupApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuGetDutyCycleValuesApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuGetInputLevelApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuGetInputStateApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuGetTimeElapsedApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuGetVersionInfoApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuSafetyFunctionApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuSetModeApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuSetPrescalerApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuSignalMeasurementApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuTimestampApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuWakeupAcceptanceInSetMode</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Icu/IcuOptionalApis/IcuWakeupFunctionalityApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="f94c213d-62c3-4e6f-914c-6ce9eb3cafdf">
+              <SHORT-NAME>IcuDemEventParameterRefs</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2019-08-28T11:40:14Z" GID="ICU_E_HARDWARE_ERROR">/Dem/Dem/DemConfigSet/ICU_E_HARDWARE_ERROR</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Icu/IcuDemEventParameterRefs</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/TS_T40D13M1I0R0/Icu/IcuDemEventParameterRefs/ICU_E_HARDWARE_ERROR</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/Dem/Dem/DemConfigSet/ICU_E_HARDWARE_ERROR</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES></AUTOSAR>

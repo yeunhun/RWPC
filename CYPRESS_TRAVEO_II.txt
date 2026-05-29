@@ -1,0 +1,430 @@
+-------------------------------------------------------------------------------------
+Project : WPC(10W) + NFC
+MCU : Infineon CYPRESS TRAVEO II
+WPC : IDT ()
+NFC : ST (3916) -> Datasheet : Datasheet\ST25R3911B(NFC)ST25R3911B.pdf
+CAN : 
+Compiler : mobilgeneStudio_2022a_Patch2
+-------------------------------------------------------------------------------------
+20260414
+1) RG3 PE RWPC
+ + LP Task 수행 중 채터링 증가(50ms -> 150ms)
+ + CAN Wake up & Local Wake up을 OR 조건에서 And 조건으로 변경
+ + 버전 정보(95560-T1900)
+  - SW : 1.40 -> 1.50(1.40.51 -> 1.50.51)
+  - BCAN : 1.0 -> 1.2
+  - SUB : 43.21.01.53(C.00.14)
+  - 플랫폼SW버전 : 19.10.00.05 -> 20.12.00.00
+  - 플랫폼HW버전 : 02.00.00.00
+
+20250331
+1) RG3 PE RWPC
+ + HU_USM_E_14 메시지 추가(신호처리 하지 않음)
+ + NonSleepCollectedEachEcuDataIdentifier_0xED90 진단 구현
+ + Safety Session 요청시 긍정응답 수정
+ + 버전 정보(95560-T1900)
+  - SW : 1.40(1.40.50 -> 1.40.51)
+  - BCAN : 1.0
+  - SUB : 43.21.01.53(C.00.14)
+  - 플랫폼SW버전 : 19.10.00.05
+  - 플랫폼HW버전 : 02.00.00.00
+
+20240627
+1) RG3 PE RWPC
+ + 겔럭시S24 기종 EPP 모드 진입 시 WPID False로 인해 인증 실패해서 15W로 충전 안되는 현상 개선
+ + 버전 정보
+  - SW : 1.30 -> 1.40(1.30.50 -> 1.40.50)
+  - BCAN : 1.0
+  - SUB : 43.21.01.52(C.00.13) -> 43.21.01.53(C.00.14)
+  - PV : 19.10.00.04 -> 19.10.00.05
+  - PHV : 02.00.00.00
+
+20240604
+1) RG3 PE RWPC
+ + 겔럭시S24 기종 EPP 모드에서 전압 변동 시 FOD 빠지는 현상 정식펌웨어 적용(케이스 장착)
+ + 버전 정보
+  - SW : 1.20 -> 1.30(1.T1.55 ->1.30.50)
+  - BCAN : 1.0
+  - SUB : 43.21.01.49(C.00.09) ->  43.21.01.52(C.00.13)
+  - PV : 19.10.00.03 -> 19.10.00.04 
+  - PHV : 02.00.00.00
+
+20240529
+1) RG3 PE RWPC
+ + 겔럭시S24 기종 EPP 모드에서 전압 변동 시 FOD 빠지는 현상 2차 튜닝(케이스 장착)
+ + 버전 정보
+  - SW : 1.20(1.T0.54 ->1.T1.55)
+  - BCAN : 1.0
+  - SUB : 43.21.01.47(C.00.08) ->  43.21.01.49(C.00.09)
+  - PV : 19.10.00.03
+  - PHV : 02.00.00.00
+
+20240528
+1) RG3 PE RWPC
+ + 겔럭시S24 기종 EPP 모드에서 FOD 빠지는 현상 튜닝(케이스 장착)
+ + 버전 정보
+  - SW : 1.20(1.20.51 ->1.T0.54)
+  - BCAN : 1.0
+  - SUB : 43.21.01.42(C.00.05) -> 43.21.01.47(C.00.08) 
+  - PV : 19.10.00.03
+  - PHV : 02.00.00.00
+
+20240426
+1) RG3 PE RWPC
+ + 겔럭시S24 기종 EPP 모드에서 완충 시 Green 인디케이터 미점등 되는 현상 수정
+ + 버전 정보
+  - SW : 1.20(1.20.50 -> 1.20.51)
+  - BCAN : 1.0
+  - SUB : 43.21.01.42(C.00.05)
+  - PV : 19.10.00.02 -> 19.10.00.03
+  - PHV : 02.00.00.00
+
+20240423
+1) RG3 PE RWPC
+ + 겔럭시 S24 충전 FOD 튜닝 펌웨어(Official FW)
+ + 버전 정보
+  - SW : 1.10 -> 1.20(1.10.51 -> 1.20.50)
+  - BCAN : 1.0
+  - SUB : 43.21.01.41(C.00.04) -> 43.21.01.42(C.00.05)
+  - PV : 19.10.00.01 -> 19.10.00.02
+  - PHV : 02.00.00.00
+
+20240412
+1) RG3 PE RWPC
+ + 겔럭시S24 기종 FOD 튜닝 된 펌웨어 적용
+ + 버전 정보
+  - SW : 1.10 : (1.10.50 -> 1.10.51)
+  - BCAN : 1.0
+  - SUB :  43.23.01.33(C.00.03) -> 43.21.01.41(C.00.04)
+  - PV : 19.10.00.01
+  - PHV : 02.00.00.00
+
+20231124
+1) RG3 PE RWPC
+ + 소프트웨어 플랫폼 버전 변경
+  - 19.10.00.00 -> 19.10.00.01
+ + 충전IC 버전 변경(p9450_wpcTx_RG3_PE_V4323p0133_stop_20231124.hex)
+  - 43.21.01.33(C.00.02) -> 43.23.01.33(C.00.03)
+ + 소프트웨어 내부 버전 유지
+  - 1.10.50 -> 1.10.50
+ + 버전 정보
+  - SW : 1.10                  : (1.10.50 -> 1.10.50)
+  - BCAN : 1.0
+  - SUB : 43.23.01.33(C.00.03) : (43.21.01.33(C.00.02) -> 43.23.01.33(C.00.03)
+  - PV : 19.10.00.01           : (19.10.00.00 -> 19.10.00.01)
+  - PHV : 02.00.00.00
+
+20231123
+1) RG3 PE RWPC
+ + ES95486-02 REV16 스펙에 따른 ENG_EngSta 조건 명확화
+  - Cranking/Stalled 상태에서 리프로그램 세션 요청 시 부정응답하는 현상 개선
+ + 버전 정보
+  - SW : 1.00 -> 1.10(1.00.52 -> 1.10.50)
+  - BCAN : 1.0
+  - SUB : 43.21.01.33(C.00.02)
+  - PV : 19.10.00.00
+  - PHV : 02.00.00.00
+
+20231117
+1) RG3 PE RWPC
+ + 충전 IC 변경(휴대폰 방치알림 미표출 현상 수정2차)
+  - 충전 IC 리셋 후 RUN MODE -> STOP MODE -> SCAN MODE 하면 첫번째 코일 0번 코일에서만 디지털 핑이 출력되고 나머지 코일에서
+    디지털 핑 출력 되지 않은 현상 수정
+ + 버전 정보
+  - SW : 1.00(1.00.51 -> 1.00.52)
+  - BCAN : 1.0
+  - SUB : 43.21.01.32(C.00.01) - > 43.21.01.33(C.00.02)
+  - PV : 19.10.00.00
+  - PHV : 02.00.00.00
+
+20231111
+1) RG3 PE RWPC
+ + 충전 IC 변경(후석 휴대폰 방치알림 미표출)
+  - 충전 IC 초기 리셋 후 STOP 명령 받았을때 SCAN 명령 출력 되지 않은 현상 수정 
+ + 버전 정보
+  - SW : 1.00(1.00.50 -> 1.00.51)
+  - BCAN : 1.0
+  - SUB : 43.21.01.30(C.00.00) - > 43.21.01.32(C.00.01)
+  - PV : 19.10.00.00
+  - PHV : 02.00.00.00
+
+20231024
+1) RG3 PE RWPC
+ + Configration Lock 적용 
+ + 충전 IC 버전 리드 하도록 수정
+ + I2C 멀티 리드 API 추가
+ + 충전 IC 변경
+  - 겔럭시워치 거치시 EPT 코드 0x17 수신 시 충전 IC TX Restart
+  - 휴대폰 거치 미거치 반복 시 배터리 표시창에 충전/충전미진입 반복 되는 현상 개선
+  - STOP MODE -> RUN MODE 반복시 충전 IC 먹통되는 현상 개선
+ + 버전 정보
+  - SW : D.00 -> 1.00(D.00.13 -> 1.00.50)
+  - BCAN : 1.0
+  - SUB : 43.21.01.25(A.00.21) -> 43.21.01.30(C.00.00)
+  - PV : 19.10.00.00
+  - PHV : 01.00.00.00 -> 02.00.00.00
+
+20230907
+1) RG3 PE RWPC
+ + 충전 IC 버전 리드 하도록 수정
+ + I2C 멀티 리드 API 추가
+ + 애니메이션 AutoBrightLevel 레벨 2~4 단계시 인디케이터 테이블 수정
+ - 테이블 내 0, 1, 2 값이 많아 인디케이터가 3->0->1->2->3->0->1->2->3..... 처럼 동작함
+ + DetentOut 시 FadeIn/FadeOut 되지 않고, 3->0->1->2->3->0->1->2->3.... 동작하는 현상 수정
+ - FadeIn/FadeOut 로직이 적용되어 있지 않아 적용함
+ + Type2 에서 FOD Error 중 -> Type1 으로 변경 시 Amber 인디케이터 비정상 적으로 깜빡이는 현상 수정
+ - Function_LEDErrorBlink내 WPCIndCmdState_ErrorFadeIn/ErrorFadeOut 시 kWPCAnimation_Type_2 조건 추가
+ + 겔럭시 워치 충전 후 다른 휴대폰 거치시 충전 안되는 현상 수정
+ - RT_TX_alert_alarm(0x02,0xA4) 레지스터 리드 시 0x11이 읽히면 충전 IC 리셋 로직 추가(기존 0x0B, 0x07 레지스터 삭제)
+ + 버전 정보
+  - SW : D.00(D.00.12 -> D.00.13)
+  - BCAN : 1.0
+  - SUB : A.00.21
+  - PV : 19.10.00.00
+  - PHV : 02.00.00.00
+
+
+20230828
+1) RG3 PE RWPC
+ + 동작전압 및 저/고전압 CAN 통신 개시 전압 ADC 값 수정
+  - Vol Critical Lower : 1219 -> 1234(6.8V) 수정을 통해 6.8V 금지, 7V 재개
+  - Vol Critical Upper : 3567 -> 3563(18.2V) 수정을 통해 18.2V 금지, 18V 재개
+  - hysteresis : 50 -> 40(0.2V)
+  - 9V : 1710 -> 1683
+  - 16V : 3126 -> 3111
+ + 조명 평가 Fail 항목 수정
+ - AutoBrightLevel91 단계 이상 시 어두워지는 현상 수정
+ + 버전 정보
+  - SW : D.00(D.00.10 -> D.00.12)
+  - BCAN : 1.0
+  - SUB : A.00.21
+  - PV : 19.10.00.00
+  - PHV : 02.00.00.00
+
+20230826
+1) RG3 PE RWPC
+ + 충전 IC 소손 방지 펌웨어 적용(Define USE_OVER_VOLTAGE_CHARGE_IC_PROTECT 참조)
+ + 완충표시 안됨 수정
+ + 충전 IC 자동 업데이트 간헐적으로 안되는 현상 수정
+ - RE_Input_10ms_Process 내 if(WPC_Initialize() == On) 조건 추가
+ - RE_Output_10ms_Process 내 if(WPC_Initialize() == On) 조건 추가
+ + OTA 업데이트 후 이전 버전과 현재 버전이 다를경우 충전 IC 업데이트 하도록 로직 수정
+  - USE_CHARGE_IC_AUTO_REPROGRAMMING_DEF 참고
+ + 아이폰 12 이상 시리즈 휴대폰 방치 알림 및 FOD 시 60초 유지하도록 로직 수정
+  - 기존 : 방치알림 및 FOD 시 아이폰이 400ms 내 SS를 보내지 않을 경우 Stop->Scan 명령 송신함(만약 연속으로 3번 못받을 경우 3번만 Stop -> Scan 명령 송출)
+  - 변경 : 방치알림 및 FOD 시 아이폰이 100ms 내 SS를 보내지 않을 경우 Stop->Scan 명령 송신함(만약 연속으로 100ms 내 못받을 경우 계속 Stop -> Scan 명령 송출)
+ + 충전 IC 변경
+  - 디지털핑 전압 : 5V -> 6.5V
+  - BPP FOD Offset(L0:4400,L1:4600,:3620)
+ + define IS_WCT_CHARGING : (GetX(kb_TX_State) == (u8)TX_PHASE_POWETRANSFER)
+ + st25r3916CheckForReceivedInterrupts 함수내 while(platformGpioIsHigh()) 인터럽트 hight 유지 시 CAN 먹통 되는 현상
+ -  5회 -> 10회 이상 cnt 증가시 MCU Reset
+ + iPhone 12이상 시리즈 휴대폰 방치알림 60초 유지 로직 적용
+ + WDG Off
+ + 아이폰 기종 FOD 60초 유지 안되는 현상 수정
+ - else if(Timer_IPHONEFODCheck.time >= Time_ms(100)) -> if(Timer_IPHONEFODCheck.time >= Time_ms(100))
+ + 인디케이터 Type2 (Green & Amber) AutobrightLevel별 각 Duty값 수정
+ + 버전 정보
+  - SW : C.00 -> D.00(C.00.10 -> D.00.10)
+  - BCAN : 0.9 -> 1.0
+  - SUB : A.00.14 -> A.00.21
+  - PV : 18.09.18.00 -> 19.10.00.00
+  - PHV : 02.00.00.00
+
+20230609
+1) JX1 PE RWPC
+ + 충전 중 FOD 발생 시 핸드폰 거치 위치 비정상 적으로 놓고 제거 시 60초간 FOD 유지 하는 현상 수정
+  - FOD Sleep Mode(0x55) 발생 시 RI_Rx_Present 레지스터 리드 시 0x03이 오면 핸드폰 이있고, 0x01이 오면 핸드폰이 없는 것으로 판단함
+  - 0x01 값이 1초 동안 유지 시 b_FODSleepModeClear = On 으로 셋팅하고, 1초 후 Off 로 떨어뜨림
+ + BCAN, LCAN NO_COM 상태 후 RequestSleep() 호출 -> 제어기 LowPower 모드 진입 -> LCAN 에 의해서 BDC NM 메시지(Alive) 전송
+    -> BCAN 에 CGW NM 메시지(Alive) -> BCAN Drv Door Open 신호 수신 시 stateNFC : DeActivated -> Activated 상태로 변경 시 캔 먹통되는 현상 개선
+  - RequestSleep() 호출 -> 제어기 LowPower 모드 진입 시 GPT Stop 삭제 하고 EcuM_H2LTransition_Callout_App 에서 GTP Stop
+  - LCAN 에 의해서 BDC NM 메시지(Alive) 전송 시 Wake-up 되면 GPT Start
+ + Guest(Type1로 설정) -> ProfileOne(Tyep2로 설정) 시 RWPC와 싱크 맞지 않은 현상 수정
+  - init 함수 내 tSTATE* ret_state; -> tSTATE* ret_state = NULL;로 수정 
+ + 버전 정보
+  - SW : B.00 -> C.00(B.00.11 -> C.00.10)
+  - BCAN : 0.9
+  - SUB : A.00.14
+
+20230419
+1) JX1 PE RWPC
+ + B1621-01, B1621-02, B1621-03 DTC 발생 시 연속으로 발생하도록 수정
+ + 실차평가 문제점 반영(App_Mode.c, WPCInputControlFunction.c : aging_counter_func)
+  - 문제점 : B-CAN Bus Off 발생 후 IGN 카운터 10회 후 L-CAN Bus Off 발생 시 
+               IGN 카운터 20 회시 L-CAN Bus Off 만 클리어됨
+  - 개선 : B-CAN Bus Off 발생 후 IGN 카운터 10회 후 L-CAN Bus Off 발생 시 
+             IGN 카운터 20 회시 B-CAN Bus Off 클리어 -> IGN 카운터 10회 시 L-CAN Bus Off 클리어
+ + FOD 시 StandbyMode로 돌아가지 않은 현상 수정
+ + FOD 시 폰제거 레지스터 값 확인
+ - RI_Rx_Present[2] = {0x02u, 0xA6u}; -> RI_Rx_Present[2] = {0x0Bu, 0x69u};
+ + 버전 정보
+  - SW : B.00(B.00.10 -> B.00.11)
+  - BCAN : 0.9
+  - SUB : A.00.11 -> A.00.14
+
+20230329
+1) JX1 PE RWPC
+ + CAN DB 0.8 -> 0.9로 포팅
+ + B1621-00 -> B1621-01, B1621-02, B1621-03 으로 분류하여 DTC 표출
+ + 강제구동 명령 시 인디케이터 3개 동시에 켜짐
+ + 버전 정보
+  - SW : A.03 -> B.00(A.03.10 -> B.00.10)
+  - BCAN : 0.7 -> 0.9
+
+20230206
+1) JX1 PE RWPC
+ + 버전 정보
+  - SW : A.00 -> A.01(A.00.22 -> A.01.11)
+  - BCAN : 0.7
+  - SUB : A.00.11(충전 IC 변경)
+  - PV : 15.07.00.00 -> 13.07.00.00
+  - PHV : 01.00.00.00 -> 02.00.00.00
+
+20230202
+1) JX1 PE RWPC
+ + 신뢰성평가용 EVB 보드 충전상태시 TxStatus 값이 0x11(Dec 17) 이 아닌 0x31(Dec 49) 가 Read 되어 
+    TxState 값만 보고 충전 진입하도록 수정
+ + 버전 정보
+  - SW : A.00 -> A.01(A.00.22 -> A.01.1T)
+  - BCAN : 0.7
+  - SUB : A.00.10 -> A.00.11
+  - PV : 15.07.00.00 -> 13.07.00.00
+  - PHV : 01.00.00.00 -> 02.00.00.00
+---> 롤백: 이력관리를 위해 작성
+
+20230117
+1) JX1 PE RWPC
+ + RE_WDBI_Factory_SerialNumber_0x12A3 rub_SerialNO -> Data로 변경하여 Write 될 수 있도록 변경
+ + RE_WDBI_ManufacturingDate_0x12A4 rub_MDate -> Data로 변경하여 Write 될 수 있도록 변경
+ + RE_InputOutputRecordLocalIdentifier_0xBE02 7, 8번째 byte 0.01968 -> 0.04882로 변경
+    - 계산식 : ADC = (Vin * 1024)/5V
+                 Vin = (ADC * 5V) / 1024
+ + 애니메이션 인디케이터 USM 로직 변경 및 제어로직 적용(TSCR-292)
+   - SCR-220331-010 로직 적용
+ + 애니메이션 인디케이터 FadeIn/FadeOut 제어 로직 적용(TSCR-561)
+   - FadeInOut_function 함수 내 Led_Level 변수에 Duty 값을 저장 하고 50단계로 나눈 값을 led_level_start_value 변수에 저장한다.
+   - FadeIn : 만약 led_level_start_value_tmp 가 2 이고, led_level이 100이면 led_level이 led_level_start_value_tmp 보다 클때 까지 계속 더한다.
+   - FadeOut : 만약 led_level이 100이고 led_level_start_value_tmp 가 2 이면, led_level이 led_level_start_value_tmp 보다 작을때 까지 계속 뺀다. 
+ + 버전 정보
+  - S/W : A.00 -> A.01(A.00.22 -> A.01.10)
+  - H/W : A.00
+  - BCAN : 0.7
+  - SUB : A.00.10
+  - PV : 13.07.00.00(신규)
+  - PHV : 02.00.00.00(신규)
+
+20230111
+1) JX1 PE RWPC
+ + Sleep 조건 변경
+  - Slpwup_10ms_Task 내 Timeout 시 Slpwup_modeRequestPort_ComMMode_FULL_COM(); 주석으로 인해 FullCom 요청 하지 않아
+    Alive 하지 않음
+  - WPC_SleepMode_Control 내 Wakeup 조건 만족시 Slpwup_modeRequestPort_ComMMode_FULL_COM(); 요청하도록 로직 수정
+ + 버전 정보
+  - S/W : A.00(A.00.21 -> A.00.22)
+  - H/W : A.00
+  - BCAN : 0.5 -> 0.7
+  - SUB : A.00.10
+
+20230111
+1) RG3 PE
+ + Sleep 조건 변경
+  - Slpwup_10ms_Task 내 Timeout 시 Slpwup_modeRequestPort_ComMMode_FULL_COM(); 주석으로 인해 FullCom 요청 하지 않아
+    Alive 하지 않음
+  - WPC_SleepMode_Control 내 Wakeup 조건 만족시 Slpwup_modeRequestPort_ComMMode_FULL_COM(); 요청하도록 로직 수정
+ + 버전 정보
+  - S/W : A.00(A.00.11)
+  - H/W : A.00
+  - BCAN : 0.7
+  - SUB : A.00.10
+
+20221209
+1) RG3 PE RWPC
+ + CAN 0.7(22-08-01) 버전 DB 포팅
+ + v0.7_USM_CmdWPCIndSta추가 버전 DB 포팅
+ + 애니메이션 IND 컨트롤 함수 구현(Type 2 신호 미수신으로 확인 필요 및 Error IND Sync가 맞지 않음)
+ + F197 : System Name 추가, F1A0, F195 삭제(TSCR-143)
+ + WPC 플랫폼 버전 출력을 위한 F17F, F17D DID 추가 (TSCR-238)
+ + AutoBrightStat 2~90단계 : 1~33.33% 출력, 91~200단계 : 100% 출력
+ + Engine Stop 내연기관 Hev 일원화
+ + OTA 제어기 ES Spec 리프로그램 만족 하도록 수정
+ + RXSWIN Length 값 DCM 설정 256 -> 320로 변경
+ + 0x85 DTCSetting Off 시 5초 후 On으로 천이 되지 않아 DTC 발생 되지 않은 문제점 수정
+ + 애니메이션 IND 싱크 맞춤. 단, Error는 맞지 않음
+ + TNM133 - Ring Message Delay after Alive message 통신 평가 Fail 개선
+  - SleepAck 후 RemodeWakeup 시 즉시 SleepInd 송출하는 문제 개선
+  - AppMode_WakeupEventValidated 함수내 AppMode_GddWakeupEvent 발생 시 FULL_COM 요청을 하지만 Skip 되는 현상으로 인해
+    AppMode_EcuModeSwitched 함수내 /* Condition when ECU state changed from SLEEP to RUN */ 구문내 AppMode_GddWakeupEvent 발생 시 FULL_COM 요청 추가
+ + RG3 PE 품번 추가 
+ + 버전 정보
+  - S/W : A.00(A.00.10)
+  - H/W : A.00
+  - BCAN : 0.7
+  - SUB : A.00.10
+
+20220930
+1) JX1 PE RWPC
+ + OTA Ready 적용
+ + 리프로그램 세션 진입 시 Engine Stop && IGN On 상태 체크 후 세션 진입
+ + 버전 정보
+  - S/W : A.00(A.00.21)
+  - H/W : A.00
+  - BCAN : 0.5
+  - SUB : A.00.10
+
+20220928
+1)JX1 PE RWPC
+ + p9450_wpcTx_3_Coil_stop.hex(0927) 적용
+ + DTC Clear(UDS,IGN)적용
+ + DTC Control Setting 적용
+ + AppModeInitComplite DTS_Status ON 적용
+ + EcuM_L2HTransition_Callout_App HSM_Wakeup 적용(IGN 짝수 OFF시 암전류 스펙아웃 문제점)
+ + CAN 통신 금지전압 적용
+  - 저전압 : 6.8V~7V,
+  - 고전압 : 18.2V~18V
+ + JX1 PE RWPC Proto 납품 펌웨어
+ + 버전 정보
+  - S/W : A.00(A.00.20)
+  - H/W : A.00
+  - BCAN : 0.5
+  - SUB : A.00.10
+
+20220923
+1)JX1 PE RWPC
+ + 3코일 Analog Read Input Direct 설정
+ + MCU Interral Error DTC 확인(I2C, TempSensor, FAN)
+ + RWPC CAN DB 포팅 : 20220418_STD_DB_CAR_2021_HS_B2_v22.03.01_ALL
+ + 신규 IND 사양 적용(Detent Out + Auto Bright)
+ + 3코일 충전 IC 펌웨어 적용 시 고속 충전 진입 시 FOD로 충전 끊김(재배포 필요)
+
+2022.09.06
+1)MQ4 PE
+ + B-CAN Bus Off 후 ReadDTCInformation 요청시 pos 확인
+ + B1621 I2C 에러 후  ReadDTCInformation pos 확인
+ + L-CAN Bus Off 후 ReadDTCInformation 요청시 nrc로 설정 확인 필요
+ + 써미스터 변경으로 인한 신규 테이블 적용
+  - 가변저항 및 온도 측정기로 실측 필요
+
+2022.08.23
+1)MQ4 PE
+ + kb_DTCWPCInternalError error 나오지 않도록 수정
+ + APP_Mode.c 파일내 AppMode_WakeupEventValidated 함수 수정(BSW 설정)
+  - Sleepmode -> Wakeup 시 callback 함수
+ + APP_Mode.c 파일내 AppMode_EcuModeSwitched 함수 수정(BSW 설정)
+  - AppMode_WakeupEventValidated Callback 후 실행됨 
+ + NFC Card Detecting 및 Data Exchange(TP 통신) 확인 완료
+ + Sleepmode -> Timer_PowerOn, Timer_SleepWait 조건 추가
+ + APP_Mode.c -> AppMode_InitCompleted -> 초기화 함수 등록, NFC Option(일부 BCan, LCan) Read 적용
+ + Vbat_sw_en 핀 Read 로직 적용
+ 
+2022.08.22
+1)MQ4 PE
+ + e_ka4_pe_wpc_v200_20220815 펌웨어로 포팅 완료
+ + kb_DTCWPCInternalError error가 나고있어 NFC 데이터가 재대로 나가지 않으므로 error 나지 않도록 수정필요
+
+2022.08.22
+1)MQ4 PE
+ + NFC Detecting 및 Data Exchange 완료
+  - e_ka4_pe_wpc_v200_20220623_nfc_test 펌웨어
+  - Data Exchange 후 TP 메세지 수정 필요
+  - e_ka4_pe_wpc_v200_20220815 펌웨어로 포팅 필요

@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AppSwComponent_Dcm</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>SwComponentType</SHORT-NAME>
+          <ELEMENTS>
+            <SWC-IMPLEMENTATION>
+              <SHORT-NAME>App_Dcm_Implementation</SHORT-NAME>
+              <CODE-DESCRIPTORS>
+                <CODE>
+                  <SHORT-NAME>Default</SHORT-NAME>
+                  <ARTIFACT-DESCRIPTORS>
+                    <AUTOSAR-ENGINEERING-OBJECT />
+                  </ARTIFACT-DESCRIPTORS>
+                </CODE>
+              </CODE-DESCRIPTORS>
+              <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService</BEHAVIOR-REF>
+            </SWC-IMPLEMENTATION>
+            <APPLICATION-SW-COMPONENT-TYPE>
+              <SHORT-NAME>SWC_DiagnosticService</SHORT-NAME>
+              <PORTS>
+                <P-PORT-PROTOTYPE UUID="7f564ae2-4fee-4ad6-b07f-5e1c7d0f5190">
+                  <SHORT-NAME>CallbackDCMRequestServices</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMRequestServices/StopProtocol</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMRequestServices/StartProtocol</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMRequestServices</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="0fd8df29-44dc-49d0-9458-a5a8ed7fd518">
+                  <SHORT-NAME>DCM_Services</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/GetActiveProtocol</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/GetSecurityLevel</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/ResetToDefaultSession</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/GetSesCtrlType</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="ea76169b-1037-4809-a1db-04095cbf5f41">
+                  <SHORT-NAME>DataServices_DIDRange_DID_0100h_0110h</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DataServices_DIDRange_DIDs_0100h_0110h/WriteDidData</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DataServices_DIDRange_DIDs_0100h_0110h/IsDidAvailable</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DataServices_DIDRange_DIDs_0100h_0110h/ReadDidData</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/DataServices_DIDRange_DIDs_0100h_0110h</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="014f02ea-3e5c-45e3-9236-82789686f6dd">
+                  <SHORT-NAME>ServiceRequestSupplierNotification_DcmDslServiceRequestSupplierNotification0</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/ServiceRequestNotification/Indication</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/ServiceRequestNotification/Confirmation</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/ServiceRequestNotification</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="768d29ab-c96b-4c7a-9db9-a2ee27e0db5b">
+                  <SHORT-NAME>modeNotificationPort_SessionControl</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <MODE-SWITCH-RECEIVER-COM-SPEC>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmDiagnosticSessionControl/DcmDiagnosticSessionControl</MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </MODE-SWITCH-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/ARPackage_Dcm/ModeSwitchInterface/DcmDiagnosticSessionControl</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="5d807d53-05a9-43e9-83ec-692ebc264dbd">
+                  <SHORT-NAME>modeNotificationPort_ApplicationUpdated</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <MODE-SWITCH-RECEIVER-COM-SPEC>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmApplicationUpdated/DcmApplicationUpdated</MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </MODE-SWITCH-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/ARPackage_Dcm/ModeSwitchInterface/DcmApplicationUpdated</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="ddc8d659-4a40-4b17-874f-bfc234533c83">
+                  <SHORT-NAME>DcmControlDTCSetting</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <MODE-SWITCH-RECEIVER-COM-SPEC>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmControlDTCSetting/DcmControlDTCSetting</MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </MODE-SWITCH-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/ARPackage_Dcm/ModeSwitchInterface/DcmControlDTCSetting</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="942977f6-2b25-4ffd-a43b-97e1a22d5e53">
+                  <SHORT-NAME>DcmModeRapidPowerShutDown</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <MODE-SWITCH-RECEIVER-COM-SPEC>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmModeRapidPowerShutDown/DcmModeRapidPowerShutDown</MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </MODE-SWITCH-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/ARPackage_Dcm/ModeSwitchInterface/DcmModeRapidPowerShutDown</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="1e94d800-357b-4137-810d-42910928c493">
+                  <SHORT-NAME>SecurityAccess_L9</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/SecurityAccess_L9/CompareKey</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/SecurityAccess_L9/GetSeed</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/SecurityAccess_L9</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="da6e7a7f-e8f9-4c97-b79b-e52223959510">
+                  <SHORT-NAME>HaeAdvSeedKey_L9</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmHash/HashStart</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmHash/HashUpdate</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmHash/HashFinish</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Csm/ClientServerInterfaces/CsmHash</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="5bd746f9-1a00-492a-ab46-8135c263b3f8">
+                  <SHORT-NAME>HaePseudoRandomSeed_L9</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomSeed/RandomSeedStart</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomSeed/RandomSeedUpdate</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomSeed/RandomSeedFinish</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Csm/ClientServerInterfaces/CsmRandomSeed</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="88737b6f-4ccc-4fec-a79c-f8bbccf88a47">
+                  <SHORT-NAME>HaePseudoRandomGenerate_L9</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomGenerate/RandomGenerate</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Csm/ClientServerInterfaces/CsmRandomGenerate</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="2eb3a2d6-55ca-44a7-b8be-be79495aaa00">
+                  <SHORT-NAME>CallbackDCMPresentDate</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMPresentDate/GetPresentDate</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMPresentDate</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="bce214b8-d141-4411-a27a-48d1d511028b">
+                  <SHORT-NAME>DcmCommunicationControl_0</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <MODE-SWITCH-RECEIVER-COM-SPEC>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmCommunicationControl_0/DcmCommunicationControl_0</MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </MODE-SWITCH-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/ARPackage_Dcm/ModeSwitchInterface/DcmCommunicationControl_0</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="adf8feb3-bab8-4a13-884a-17cdb19728a0">
+                  <SHORT-NAME>DcmCommunicationControl_1</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <MODE-SWITCH-RECEIVER-COM-SPEC>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmCommunicationControl_1/DcmCommunicationControl_1</MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </MODE-SWITCH-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/ARPackage_Dcm/ModeSwitchInterface/DcmCommunicationControl_1</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="8edc56d0-a6f8-4776-b7d2-b7441e669e6f">
+                  <SHORT-NAME>HaeHsmPseudoRandomGenerate_L9</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomGenerate/RandomGenerate</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Csm/ClientServerInterfaces/CsmRandomGenerate</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="40dfd085-4c8c-4098-a12a-5d37ecd1c25a">
+                  <SHORT-NAME>P_SessionNotify</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/AppSwComponent_Dcm/diag_interface/IF_SessionNotify/SR</DATA-ELEMENT-REF>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/AppSwComponent_Dcm/diag_interface/IF_SessionNotify</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="2e12fdc0-5ae9-43dd-8b36-419ae84b2e93">
+                  <SHORT-NAME>R_ECU_Reset</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AppSwComponent_Dcm/diag_interface/IF_ECU_Reset/CS</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AppSwComponent_Dcm/diag_interface/IF_ECU_Reset</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="a5b1ff7f-b478-45cd-a6cb-23cb257348d7">
+                  <SHORT-NAME>R_Start_WPCDiagState</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ClientServerInterface/IF_Start_WPCDiagState/CS</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/ClientServerInterface/IF_Start_WPCDiagState</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="1e9d8783-3662-45ff-8c8f-54939c641747">
+                  <SHORT-NAME>RoutineServices_RID_B194h_HSMConfigLockSecureDebug</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B194h_HSMConfigLockSecureDebug/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B194h_HSMConfigLockSecureDebug</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="3b39dffe-0129-4367-b13e-ac9d28485c31">
+                  <SHORT-NAME>RoutineServices_RID_B199h_HSMSecureBootEnable</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B199h_HSMSecureBootEnable/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B199h_HSMSecureBootEnable</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="42085dcf-5aa8-4f86-8b2a-df441d80f874">
+                  <SHORT-NAME>RoutineServices_RID_B19Ah_HSMFTDDisable</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Ah_HSMFTDDisable/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Ah_HSMFTDDisable</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="c81c5d60-b14b-42e3-98c8-31f814ec2461">
+                  <SHORT-NAME>RoutineServices_RID_B19Bh_HSMSecureDebugEnable</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Bh_HSMSecureDebugEnable/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Bh_HSMSecureDebugEnable</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="a3cad44a-77ba-431d-8f3e-a06ee6e6daef">
+                  <SHORT-NAME>RoutineServices_RID_B19Ch_HSMConfigurationLockEnable</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Ch_HSMConfigurationLockEnable/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Ch_HSMConfigurationLockEnable</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="3277e4a0-ac11-4eb8-983f-b9331bad4047">
+                  <SHORT-NAME>RoutineServices_RID_B19Dh_HSMChallengeRequest</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Dh_HSMChallengeRequest/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Dh_HSMChallengeRequest</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="182ef36b-9371-4048-bd8d-8b7f7d89eaa7">
+                  <SHORT-NAME>RoutineServices_RID_B19Eh_HSMResponseData</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Eh_HSMResponseData/Start</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Eh_HSMResponseData</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="59b93f7e-86bc-439d-8455-af89ca946d2e">
+                  <SHORT-NAME>InternalBehaviors_DiagnosticService</SHORT-NAME>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmApplicationUpdated</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <EVENTS>
+                    <OPERATION-INVOKED-EVENT UUID="4877189d-1544-41e7-b124-66fa23e81d1e">
+                      <SHORT-NAME>OIE_CallbackDCMRequestServices_StopProtocol</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/CallbackDCMRequestServices_StopProtocol</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/CallbackDCMRequestServices</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMRequestServices/StopProtocol</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="c0ce24e1-4443-408d-9fc4-f6c8cb142bce">
+                      <SHORT-NAME>OIE_CallbackDCMRequestServices_StartProtocol</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/CallbackDCMRequestServices_StartProtocol</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/CallbackDCMRequestServices</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMRequestServices/StartProtocol</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="71b89526-4300-4713-9f3f-24e6e2b82aaf">
+                      <SHORT-NAME>OIE_ServiceRequestSupplierNotification_Indication</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/ServiceRequestSupplierNotification_Indication</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/ServiceRequestSupplierNotification_DcmDslServiceRequestSupplierNotification0</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/ServiceRequestNotification/Indication</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="36ce317e-7787-4396-b65c-b66dc5764edb">
+                      <SHORT-NAME>OIE_ServiceRequestSupplierNotification_Confirmation</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/ServiceRequestSupplierNotification_Confirmation</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/ServiceRequestSupplierNotification_DcmDslServiceRequestSupplierNotification0</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/ServiceRequestNotification/Confirmation</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <SWC-MODE-SWITCH-EVENT UUID="39b160bf-875c-437c-8367-aca2853c0e78">
+                      <SHORT-NAME>SMSE_Entry_DiagnosticSessionControlNotification_modeNotificationPort_SessionControl_DcmDiagnosticSessionControl_DCM_DEFAULT_SESSION</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/DiagnosticSessionControlNotification</START-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_SessionControl</CONTEXT-PORT-REF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmDiagnosticSessionControl/DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                          <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_DEFAULT_SESSION</TARGET-MODE-DECLARATION-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </SWC-MODE-SWITCH-EVENT>
+                    <SWC-MODE-SWITCH-EVENT UUID="650ea827-64da-4d55-8789-2ab70b110928">
+                      <SHORT-NAME>SMSE_Entry_DiagnosticSessionControlNotification_modeNotificationPort_SessionControl_DcmDiagnosticSessionControl_DCM_EXTENDED_DIAGNOSTIC_SESSION</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/DiagnosticSessionControlNotification</START-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_SessionControl</CONTEXT-PORT-REF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmDiagnosticSessionControl/DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                          <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_EXTENDED_DIAGNOSTIC_SESSION</TARGET-MODE-DECLARATION-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </SWC-MODE-SWITCH-EVENT>
+                    <SWC-MODE-SWITCH-EVENT UUID="94c0d85b-0cd9-4000-ad6f-07a9c620f213">
+                      <SHORT-NAME>SMSE_ApplicationUpdatedIndication_modeNotificationPort_ApplicationUpdated_DcmApplicationUpdated_APP_UPDATED</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/ApplicationUpdatedIndication</START-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_ApplicationUpdated</CONTEXT-PORT-REF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmApplicationUpdated/DcmApplicationUpdated</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                          <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated/APP_UPDATED</TARGET-MODE-DECLARATION-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </SWC-MODE-SWITCH-EVENT>
+                    <SWC-MODE-SWITCH-EVENT UUID="ba88282e-a6cf-4e1c-8f86-65cea6bc9870">
+                      <SHORT-NAME>SMSE_ApplicationUpdatedIndication_modeNotificationPort_ApplicationUpdated_DcmApplicationUpdated_APP_NOT_UPDATED</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/ApplicationUpdatedIndication</START-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_ApplicationUpdated</CONTEXT-PORT-REF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmApplicationUpdated/DcmApplicationUpdated</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                          <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated/APP_NOT_UPDATED</TARGET-MODE-DECLARATION-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </SWC-MODE-SWITCH-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="d1098fae-1f21-4755-9bdb-f96c2e94fe49">
+                      <SHORT-NAME>OIE_L9_CompareKey</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/L9_CompareKey</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/SecurityAccess_L9</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/SecurityAccess_L9/CompareKey</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="da2fab4c-c8ef-4f1f-8343-fb886f5818b2">
+                      <SHORT-NAME>OIE_L9_GetSeed</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/L9_GetSeed</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/SecurityAccess_L9</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/SecurityAccess_L9/GetSeed</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="b5856d25-6143-43b0-9b9f-5ebf99405bd9">
+                      <SHORT-NAME>OIE_CallbackDCMPresentDate_GetPresentDate</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/CallbackDCMPresentDate_GetPresentDate</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/CallbackDCMPresentDate</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/CallbackDCMPresentDate/GetPresentDate</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="c41fe176-381a-43c9-9210-d523ebd683dc">
+                      <SHORT-NAME>OIE_RE_RID_B194h_HSMConfigLockSecureDebug_Start_RoutineServices_RID_B194h_HSMConfigLockSecureDebug_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B194h_HSMConfigLockSecureDebug_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B194h_HSMConfigLockSecureDebug</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B194h_HSMConfigLockSecureDebug/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="ede78148-d6b9-4235-93f4-c3031ed702d3">
+                      <SHORT-NAME>OIE_RE_RID_B199h_HSMSecureBootEnable_Start_RoutineServices_RID_B199h_HSMSecureBootEnable_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B199h_HSMSecureBootEnable_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B199h_HSMSecureBootEnable</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B199h_HSMSecureBootEnable/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="e5766593-c340-4a9c-8dee-6cb343d864dc">
+                      <SHORT-NAME>OIE_RE_RID_B19Ah_HSMFTDDisable_Start_RoutineServices_RID_B19Ah_HSMFTDDisable_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B19Ah_HSMFTDDisable_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B19Ah_HSMFTDDisable</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Ah_HSMFTDDisable/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="47699986-9d20-4676-9e3b-c55e8ee23597">
+                      <SHORT-NAME>OIE_RE_RID_B19Bh_HSMSecureDebugEnable_Start_RoutineServices_RID_B19Bh_HSMSecureDebugEnable_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B19Bh_HSMSecureDebugEnable_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B19Bh_HSMSecureDebugEnable</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Bh_HSMSecureDebugEnable/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="74501cd4-e7d4-4900-8426-3c53fe657024">
+                      <SHORT-NAME>OIE_RE_RID_B19Ch_HSMConfigurationLockEnable_Start_RoutineServices_RID_B19Ch_HSMConfigurationLockEnable_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B19Ch_HSMConfigurationLockEnable_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B19Ch_HSMConfigurationLockEnable</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Ch_HSMConfigurationLockEnable/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="d06266c0-d619-473a-9172-fc6e82ae8197">
+                      <SHORT-NAME>OIE_RE_RID_B19Dh_HSMChallengeRequest_Start_RoutineServices_RID_B19Dh_HSMChallengeRequest_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B19Dh_HSMChallengeRequest_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B19Dh_HSMChallengeRequest</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Dh_HSMChallengeRequest/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="4f0523a2-99c1-459f-b02a-11fab7646c95">
+                      <SHORT-NAME>OIE_RE_RID_B19Eh_HSMResponseData_Start_RoutineServices_RID_B19Eh_HSMResponseData_Start</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/InternalBehaviors_DiagnosticService/RE_RID_B19Eh_HSMResponseData_Start</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/RoutineServices_RID_B19Eh_HSMResponseData</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/RoutineServices_RID_B19Eh_HSMResponseData/Start</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                  </EVENTS>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="a8944014-bb28-495e-86c4-9c0657653b0f">
+                      <SHORT-NAME>CallbackDCMRequestServices_StopProtocol</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>AppDcm_StopProtocol</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="b2651508-2b23-469d-94bc-bad357eda471">
+                      <SHORT-NAME>CallbackDCMRequestServices_StartProtocol</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>AppDcm_StartProtocol</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="96b6eb70-4e64-4b31-af26-c6e7966837b5">
+                      <SHORT-NAME>DO_NOT_REMOVE</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SERVER-CALL-POINTS>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="4f857bdf-ad85-4a8a-9212-37b528f52bd5">
+                          <SHORT-NAME>SSCP_GetActiveProtocol</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DCM_Services</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/GetActiveProtocol</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="23bbafd8-7537-431b-8e9d-842f0092a080">
+                          <SHORT-NAME>SSCP_GetSecurityLevel</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DCM_Services</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/GetSecurityLevel</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="8352029e-953d-46a8-85fa-95bad2fa4e2a">
+                          <SHORT-NAME>SSCP_ResetToDefaultSession</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DCM_Services</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/ResetToDefaultSession</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="b6252136-1ec9-4cf3-8816-6942917de92d">
+                          <SHORT-NAME>SSCP_GetSesCtrlType</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DCM_Services</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/ClientServerInterfaces/DCMServices/GetSesCtrlType</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                      </SERVER-CALL-POINTS>
+                      <SYMBOL>AppDcm_Runnable</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="5e42f804-ceed-48cf-b292-a6beb5a1ec4d">
+                      <SHORT-NAME>ServiceRequestSupplierNotification_Indication</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>ServiceRequestSupplierNotification_Indication</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="4119bdef-4e95-496a-81fb-67be7fb5c5b4">
+                      <SHORT-NAME>ServiceRequestSupplierNotification_Confirmation</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SERVER-CALL-POINTS>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="fbb26952-3593-475c-973a-167b5809f92f">
+                          <SHORT-NAME>SSCP_ServiceRequestSupplierNotification_Confirmation_R_Start_WPCDiagState_CS</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/R_Start_WPCDiagState</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ClientServerInterface/IF_Start_WPCDiagState/CS</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                      </SERVER-CALL-POINTS>
+                      <SYMBOL>ServiceRequestSupplierNotification_Confirmation</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="981231e1-f3c8-4290-accb-0b60101b64a5">
+                      <SHORT-NAME>DiagnosticSessionControlNotification</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="30a110ee-e205-433a-a991-e195e0fb5582">
+                          <SHORT-NAME>DSP_DiagnosticSessionControlNotification_P_SessionNotify_SR</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/P_SessionNotify</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/AppSwComponent_Dcm/diag_interface/IF_SessionNotify/SR</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                          <SCOPE>COMMUNICATION-INTER-ECU</SCOPE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <MODE-ACCESS-POINTS>
+                        <MODE-ACCESS-POINT>
+                          <IDENT UUID="05c26106-9d7d-4360-b41a-414c492220d7">
+                            <SHORT-NAME>MRAP_DiagnosticSessionControlNotification_modeNotificationPort_SessionControl_DcmDiagnosticSessionControl</SHORT-NAME>
+                          </IDENT>
+                          <MODE-GROUP-IREF>
+                            <R-MODE-GROUP-IN-ATOMIC-SWC-INSTANCE-REF>
+                              <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_SessionControl</CONTEXT-R-PORT-REF>
+                              <TARGET-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmDiagnosticSessionControl/DcmDiagnosticSessionControl</TARGET-MODE-GROUP-REF>
+                            </R-MODE-GROUP-IN-ATOMIC-SWC-INSTANCE-REF>
+                          </MODE-GROUP-IREF>
+                        </MODE-ACCESS-POINT>
+                      </MODE-ACCESS-POINTS>
+                      <SYMBOL>AppDcm_DiagnosticSessionControlNotification</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="794deefd-7222-42fd-9e1b-89da42b34eb0">
+                      <SHORT-NAME>ApplicationUpdatedIndication</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <MODE-ACCESS-POINTS>
+                        <MODE-ACCESS-POINT>
+                          <IDENT UUID="286982ba-3992-4f9a-81d8-856baa7fed03">
+                            <SHORT-NAME>MRAP_ApplicationUpdatedIndication_modeNotificationPort_ApplicationUpdated_DcmApplicationUpdated</SHORT-NAME>
+                          </IDENT>
+                          <MODE-GROUP-IREF>
+                            <R-MODE-GROUP-IN-ATOMIC-SWC-INSTANCE-REF>
+                              <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_ApplicationUpdated</CONTEXT-R-PORT-REF>
+                              <TARGET-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/ARPackage_Dcm/ModeSwitchInterface/DcmApplicationUpdated/DcmApplicationUpdated</TARGET-MODE-GROUP-REF>
+                            </R-MODE-GROUP-IN-ATOMIC-SWC-INSTANCE-REF>
+                          </MODE-GROUP-IREF>
+                        </MODE-ACCESS-POINT>
+                      </MODE-ACCESS-POINTS>
+                      <SYMBOL>ApplicationUpdatedIndication</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="05edf3dd-1785-4135-9287-8bb5ce5df68d">
+                      <SHORT-NAME>L9_CompareKey</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SERVER-CALL-POINTS>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="953d89d4-1326-4666-bc8c-6d12d5952f29">
+                          <SHORT-NAME>SSCP_HaeAdvSeedKeyStart_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaeAdvSeedKey_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmHash/HashStart</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="d8af3bd6-ab30-4d8e-9a1c-c2b73e297836">
+                          <SHORT-NAME>SSCP_HaeAdvSeedKeyUpdate_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaeAdvSeedKey_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmHash/HashUpdate</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="d6425d30-1f05-4fdf-aa81-dca68ac263a5">
+                          <SHORT-NAME>SSCP_HaeAdvSeedKeyFinish_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaeAdvSeedKey_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmHash/HashFinish</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                      </SERVER-CALL-POINTS>
+                      <SYMBOL>AppDcm_CompareKey_L9</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="a6d9c64d-05a5-45e9-abc9-9b90521570d5">
+                      <SHORT-NAME>L9_GetSeed</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SERVER-CALL-POINTS>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="f6450140-1e97-4dd7-9185-a5be502871c0">
+                          <SHORT-NAME>SSCP_HaePseudoRandomSeedStart_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaePseudoRandomSeed_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomSeed/RandomSeedStart</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="2d41eb74-5867-4511-ba20-2e99c99327ba">
+                          <SHORT-NAME>SSCP_HaePseudoRandomSeedUpdate_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaePseudoRandomSeed_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomSeed/RandomSeedUpdate</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="612873d2-8490-4750-8299-a74a39fcf5c0">
+                          <SHORT-NAME>SSCP_HaePseudoRandomSeedFinish_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaePseudoRandomSeed_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomSeed/RandomSeedFinish</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="bc198c15-1b20-4504-8722-42e0a599981f">
+                          <SHORT-NAME>SSCP_HaePseudoRandomGenerate_L9</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaePseudoRandomGenerate_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomGenerate/RandomGenerate</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="d77c83f8-c7f9-4e42-bcdb-6d935cb89fc7">
+                          <SHORT-NAME>SSCP_L9_GetSeed_HaeHsmPseudoRandomGenerate_L9_RandomGenerate</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/HaeHsmPseudoRandomGenerate_L9</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Csm/ClientServerInterfaces/CsmRandomGenerate/RandomGenerate</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                      </SERVER-CALL-POINTS>
+                      <SYMBOL>AppDcm_GetSeed_L9</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="2bb5e44b-9e0e-474a-836e-9affd7c8fd34">
+                      <SHORT-NAME>CallbackDCMPresentDate_GetPresentDate</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>AppDcm_GetPresentDate</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="d05b63a0-9ca9-41e4-a0df-8d44ad750ca4">
+                      <SHORT-NAME>RE_RID_B194h_HSMConfigLockSecureDebug_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B194h_HSMConfigLockSecureDebug_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="dcba5c97-977b-452c-927b-ab14a6d8c2e8">
+                      <SHORT-NAME>RE_RID_B199h_HSMSecureBootEnable_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B199h_HSMSecureBootEnable_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="6611470a-47ce-4da1-899b-c00eaef701e7">
+                      <SHORT-NAME>RE_RID_B19Ah_HSMFTDDisable_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B19Ah_HSMFTDDisable_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="227d56b0-7c57-4184-8fb6-7d5038d9bbbf">
+                      <SHORT-NAME>RE_RID_B19Bh_HSMSecureDebugEnable_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B19Bh_HSMSecureDebugEnable_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="5839a21f-1f09-429b-a917-d16960db0b27">
+                      <SHORT-NAME>RE_RID_B19Ch_HSMConfigurationLockEnable_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B19Ch_HSMConfigurationLockEnable_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="ef9eec6e-ba62-4f2f-aac0-1f809175d68d">
+                      <SHORT-NAME>RE_RID_B19Dh_HSMChallengeRequest_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B19Dh_HSMChallengeRequest_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="c71094c3-f5ab-4c7e-bef0-1e90597c4935">
+                      <SHORT-NAME>RE_RID_B19Eh_HSMResponseData_Start</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <SYMBOL>RID_B19Eh_HSMResponseData_Start</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SERVICE-DEPENDENCYS>
+                    <SWC-SERVICE-DEPENDENCY UUID="16cc7cf5-160b-498f-9cf0-86033fc93ec4">
+                      <SHORT-NAME>SwcServiceDependency0</SHORT-NAME>
+                      <ASSIGNED-PORTS>
+                        <ROLE-BASED-PORT-ASSIGNMENT>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_SessionControl</PORT-PROTOTYPE-REF>
+                          <ROLE>Custom</ROLE>
+                        </ROLE-BASED-PORT-ASSIGNMENT>
+                        <ROLE-BASED-PORT-ASSIGNMENT>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/modeNotificationPort_ApplicationUpdated</PORT-PROTOTYPE-REF>
+                          <ROLE>Custom</ROLE>
+                        </ROLE-BASED-PORT-ASSIGNMENT>
+                        <ROLE-BASED-PORT-ASSIGNMENT>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DcmControlDTCSetting</PORT-PROTOTYPE-REF>
+                          <ROLE>Custom</ROLE>
+                        </ROLE-BASED-PORT-ASSIGNMENT>
+                        <ROLE-BASED-PORT-ASSIGNMENT>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DcmModeRapidPowerShutDown</PORT-PROTOTYPE-REF>
+                          <ROLE>Custom</ROLE>
+                        </ROLE-BASED-PORT-ASSIGNMENT>
+                        <ROLE-BASED-PORT-ASSIGNMENT>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DcmCommunicationControl_0</PORT-PROTOTYPE-REF>
+                          <ROLE>Custom</ROLE>
+                        </ROLE-BASED-PORT-ASSIGNMENT>
+                        <ROLE-BASED-PORT-ASSIGNMENT>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/DcmCommunicationControl_1</PORT-PROTOTYPE-REF>
+                          <ROLE>Custom</ROLE>
+                        </ROLE-BASED-PORT-ASSIGNMENT>
+                      </ASSIGNED-PORTS>
+                      <SERVICE-NEEDS>
+                        <BSW-MGR-NEEDS UUID="47376b44-d7b7-43d5-b4e7-87cd2ef48ed8">
+                          <SHORT-NAME>BswMgrNeeds</SHORT-NAME>
+                        </BSW-MGR-NEEDS>
+                      </SERVICE-NEEDS>
+                    </SWC-SERVICE-DEPENDENCY>
+                  </SERVICE-DEPENDENCYS>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="2066a40e-27d1-4267-9832-c432b40cedeb">
+          <SHORT-NAME>diag_interface</SHORT-NAME>
+          <ELEMENTS>
+            <SENDER-RECEIVER-INTERFACE UUID="b2905d39-d58e-4519-9417-344409e08eb8">
+              <SHORT-NAME>IF_SessionNotify</SHORT-NAME>
+              <DATA-ELEMENTS>
+                <VARIABLE-DATA-PROTOTYPE UUID="48d8f4a5-2ac0-434a-aa0a-8b2769d6f6ef">
+                  <SHORT-NAME>SR</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+              </DATA-ELEMENTS>
+            </SENDER-RECEIVER-INTERFACE>
+            <CLIENT-SERVER-INTERFACE UUID="c6ce41d6-8757-4a7c-a76b-dd2b1b82b845">
+              <SHORT-NAME>IF_ECU_Reset</SHORT-NAME>
+              <OPERATIONS>
+                <CLIENT-SERVER-OPERATION UUID="f97f5e83-a758-4a3f-8c9e-a83483b03c2e">
+                  <SHORT-NAME>CS</SHORT-NAME>
+                  <POSSIBLE-ERROR-REFS>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/AppSwComponent_Dcm/diag_interface/IF_ECU_Reset/Response_Fail</POSSIBLE-ERROR-REF>
+                    <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/AppSwComponent_Dcm/diag_interface/IF_ECU_Reset/Response_Success</POSSIBLE-ERROR-REF>
+                  </POSSIBLE-ERROR-REFS>
+                </CLIENT-SERVER-OPERATION>
+              </OPERATIONS>
+              <POSSIBLE-ERRORS>
+                <APPLICATION-ERROR UUID="9d315c53-77c2-4ee4-9e63-215d4809de5d">
+                  <SHORT-NAME>Response_Fail</SHORT-NAME>
+                  <ERROR-CODE>1</ERROR-CODE>
+                </APPLICATION-ERROR>
+                <APPLICATION-ERROR UUID="cfec5ed0-786d-49a4-86cf-f9cdc7a2510d">
+                  <SHORT-NAME>Response_Success</SHORT-NAME>
+                  <ERROR-CODE>2</ERROR-CODE>
+                </APPLICATION-ERROR>
+              </POSSIBLE-ERRORS>
+            </CLIENT-SERVER-INTERFACE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

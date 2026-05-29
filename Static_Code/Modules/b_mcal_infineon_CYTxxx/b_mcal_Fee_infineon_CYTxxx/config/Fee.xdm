@@ -1,0 +1,592 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd" >
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <a:a name="DESC" value="EN: Autosar module."/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Fee" type="AR-ELEMENT" value="MODULE-DEF">
+            <a:a name="UUID" value="625e7dfb-6ec8-469e-a7fb-4f6120221d88"/>
+            <a:a name="DESC" value="EN: Configuration of the Fee (Flash EEPROM Emulation) module."/>
+            <v:ctr type="MODULE-DEF">
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                <ad:ADMIN-DATA>
+                  <ad:DOC-REVISIONS>
+                    <ad:DOC-REVISION>
+                      <ad:REVISION-LABEL>4.2.2</ad:REVISION-LABEL>
+                      <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      <ad:DATE>2014-10-31</ad:DATE>
+                    </ad:DOC-REVISION>
+                  </ad:DOC-REVISIONS>
+                </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="UPPER-MULTIPLICITY" value="1"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                <a:a name="LABEL" value="Config Variant"/>
+                <a:a name="UUID" value="fe9d4e47-634d-4133-9674-7b60f8d7e538"/>
+                <a:da name="DEFAULT" value="VariantPreCompile"/>
+                <a:da name="RANGE" value="VariantPreCompile"/>
+              </v:var>
+              <v:lst name="FeeBlockConfiguration" type="MAP">
+                <v:ctr name="FeeBlockConfiguration" type="IDENTIFIABLE">
+                  <a:a name="UUID" value="e3b91087-cc00-4df2-9b4c-eb01fadd709a"/>
+                  <a:a name="DESC" value="EN: Configuration of block specific parameters for the Flash EEPROM Emulation module."/>
+                  <v:var name="FeeBlockNumber" type="INTEGER">
+                    <a:a name="UUID" value="b32472d0-0024-4a74-bcae-96f7b61385f7"/>
+                    <a:a name="DESC" value="EN: Block identifier (handle)."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                     <a:da name="INVALID" type="XPath">
+                       <a:tst expr="text:uniq(../../*/FeeBlockNumber,.)" false="The resource input id has to be unique!"/>
+                       <a:tst expr="(. > 65534)" true="Number of FeeBlockNumber is too big." />
+                       <a:tst expr="(1 > .)" true="One FeeBlockNumber must exist." />
+                     </a:da>
+                    <a:da name="DEFAULT" type="XPath" expr="num:i(count(../../*))"/>
+                  </v:var>
+                  <v:var name="FeeBlockSize" type="INTEGER">
+                    <a:a name="UUID" value="02ec9179-9b7a-44aa-9657-132a012bea4f"/>
+                    <a:a name="DESC" value="EN: Size of a logical block in bytes."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr=". &gt;=1"
+                          false=" FeeBlockSize exceeds the maximum "/>
+                      <a:tst expr="((../FeeSelectConfigEx) = 'false') and (. &gt;=(num:i(../../../FeeGeneral/FeeBlockMaxSize)+1))" 
+                          true="FeeBlockSize exceeds the maximum."/>/>
+                      <a:tst expr="((../FeeSelectConfigEx) = 'true') and (. &gt;=(num:i(../../../FeeGeneral/FeeUseConfig/ConfigEx/FeeBlockMaxSizeEx)+1))" 
+                          true="FeeBlockSize exceeds the maximum."/>/>
+                    </a:da>
+                    <a:da name="DEFAULT" value="1"/>
+                  </v:var>
+                  <v:var name="FeeImmediateData" type="BOOLEAN">
+                    <a:a name="UUID" value="11de4bb6-2ccd-42d2-b65e-afadcaf6628b"/>
+                    <a:a name="DESC" value="EN: Marker for high priority data."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:da name="DEFAULT" value="true"/>
+                  </v:var>
+                  <v:var name="FeeNumberOfWriteCycles" type="INTEGER">
+                    <a:a name="UUID" value="b738ea66-e71d-4b51-81be-1848d2d63760"/>
+                    <a:a name="DESC" value="EN: Number of write cycles required for this block."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:da name="INVALID" type="Range">
+                      <a:tst expr="&lt;=4294967295"/>
+                      <a:tst expr="&gt;=0"/>
+                    </a:da>
+                    <a:da name="DEFAULT" value="0"/>
+                    <a:da name="EDITABLE" value="false"/>
+                  </v:var>
+                  <v:ref name="FeeDeviceIndex" type="SYMBOLIC-NAME-REFERENCE">
+                    <a:a name="UUID" value="47e1f29f-1cd6-427b-8309-0aba91849894"/>
+                    <a:a name="DESC" value="EN: Device index (handle)."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                    <a:da name="REF" 
+                          value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Fls/FlsGeneral"/>
+                  </v:ref>
+                  <v:var name="FeeSelectConfigEx" type="BOOLEAN">
+                    <a:a name="UUID" value="DC7A3A11-731F-427b-8304-23991D5ED2BF"/>
+                    <a:a name="DESC" value="EN: Marker for high priority data."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:da name="DEFAULT" value="false"/>
+                  </v:var>
+                  
+                </v:ctr>
+              </v:lst>
+              <v:ctr name="FeeGeneral" type="IDENTIFIABLE">
+                <a:a name="UUID" value="f1f718ab-e0f5-4472-8d03-bf1255db94d6"/>
+                <a:a name="DESC" value="EN: Container for general parameters. These parameters are not specific to a block."/>
+                <v:var name="FeeDevErrorDetect" type="BOOLEAN">
+                  <a:a name="UUID" value="83e029c3-6a9b-46e6-b845-c825ad6f1275"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable and disable development error detection."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="FeeNvmJobEndNotification" type="FUNCTION-NAME">
+                  <a:a name="UUID" value="65d16773-5308-46e5-b426-8f022a40015e"/>
+                  <a:a name="DESC" value="EN: Mapped to the job end notification routine provided by the upper layer module (NvM_JobEndNotification)."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ENABLE" value="true"/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="NvM_JobEndNotification"/>
+                  <a:a name="EDITABLE" value="false" />
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the FeeNvmJobEndNotification. Must be valid C function name."/>
+                  </a:da>
+                </v:var>
+                <v:var name="FeeNvmJobErrorNotification" type="FUNCTION-NAME">
+                  <a:a name="UUID" value="2c31a258-8abb-4712-a871-22ade7cb9bfb"/>
+                  <a:a name="DESC" value="EN: Mapped to the job error notification routine provided by the upper layer module (NvM_JobErrorNotification)."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="ENABLE" value="true"/>
+                  <a:da name="DEFAULT" value="NvM_JobErrorNotification"/>
+                  <a:a name="EDITABLE" value="false" />
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the FeeNvmJobErrorNotification. Must be valid C function name."/>
+                  </a:da>
+                </v:var>
+                <v:var name="FeeInitiallyEraseEmptySectors" type="BOOLEAN">
+                  <a:a name="UUID" value="D7F5772D-8CA7-435d-A977-1B296B922A23"/>
+                  <a:a name="DESC" value="EN: FeeInitiallyEraseEmptySectors switch to enable and disable the erace sector when Fee_Init."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="CYPRESS"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="FeeUnmatchedBlockCheck" type="BOOLEAN">
+                  <a:a name="UUID" value="D7F5772D-8CA7-435d-A977-1B296B122A23"/>
+                  <a:a name="DESC" value="EN: FeeUnmatchedBlockCheck switch to enable and disable the ability of changing the configuration of blocks."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="CYPRESS"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="FeeBchkOffBlock" type="BOOLEAN">
+                  <a:a name="UUID" value="D7F5792D-8CAA-435B-A9C7-1B2D6B122A23"/>
+                  <a:a name="DESC" value="EN: FeeBchkOffBlock switch to enable and disable the execution of block blank check."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="CYPRESS"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="false"/>
+                  <a:da name="VISIBLE" value="false"/>
+                </v:var>
+                <v:var name="FeeBchkOffSector" type="BOOLEAN">
+                  <a:a name="UUID" value="D7F5792D-8CAA-435B-A9C7-1B2D6B155A23"/>
+                  <a:a name="DESC" value="EN: FeeBchkOffSector switch to enable and disable the execution of sector blank check."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="CYPRESS"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="false"/>
+                  <a:da name="VISIBLE" value="false"/>
+                </v:var>
+                <v:var name="FeePollingMode" type="BOOLEAN">
+                  <a:a name="UUID" value="ffa92a11-f964-424b-a1d8-61559057fcd2"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable and disable the polling mode for this module."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                  <a:da name="READONLY" value="true"/>
+                </v:var>
+                <v:var name="FeeSetModeSupported" type="BOOLEAN">
+                  <a:a name="UUID" value="2c68d82b-1e80-40c8-8c92-0a598a55513f"/>
+                  <a:a name="DESC" value="EN: Compiler switch to enable/disable the &apos;SetMode&apos; functionality of the FEE module."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="FeeVersionInfoApi" type="BOOLEAN">
+                  <a:a name="UUID" value="963d4291-a69b-47b6-8808-9e56f1f293f7"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable / disable the API to read out the modules version information."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="FeeSetCycleModeApi" type="BOOLEAN">
+                  <a:a name="UUID" value="12AA4BB2-349F-4761-87CA-E67327DCB0B1"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable / disable the API for the  cycle mode setting."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var> 
+                <v:var name="FeeBlankCheckApi" type="BOOLEAN">
+                  <a:a name="UUID" value="12AA4CB2-359F-4711-87CB-E77327DAB0B1"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable / disable the API for the  blank check setting."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="true"/>
+                  <a:da name="VISIBLE" value="false"/>
+                </v:var> 
+                <v:var name="FeeClearApi" type="BOOLEAN">
+                  <a:a name="UUID" value="C0FEABAC-8962-4b61-B45C-632459E7EC67"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable / disable the API for the entire area erase."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>                
+                <v:var name="FeeGetRemainingPagesApi" type="BOOLEAN">
+                  <a:a name="UUID" value="93F997D3-441B-4bb6-8846-5CF4A7BB6593"/>
+                  <a:a name="DESC" value="EN: Pre-processor switch to enable / disable the API to get the number of remaining pages."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>                  
+                <v:var name="FeeCleanupAndEraseApi" type="BOOLEAN">
+                  <a:a name="UUID" value="73A5C315-E6B9-472f-9689-26F014C523D2"/>
+                  <a:a name="DESC" value="EN: Preprocessor switch to enable / disable the API in order to reuse the sector."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>                 
+                <v:var name="FeeVirtualPageSize" type="INTEGER">
+                  <a:a name="UUID" value="494447a2-20d4-43b6-af80-bcc669dc54b5"/>
+                  <a:a name="DESC" value="EN: The size in bytes to which logical blocks shall be aligned."/>
+                  <a:a name="DEFAULT_RADIX" value="DEC" />
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="ENABLE" value="true" />
+                  <a:da name="EDITABLE" value="false" />
+                  <a:da name="DEFAULT" value="4"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=255"/>
+                    <a:tst expr="&gt;=0"/>
+                  </a:da>
+                </v:var>
+                <v:var name="FeeBlockMaxSize" type="INTEGER">
+                  <a:a name="UUID" value="494447a2-20d4-43b6-af80-bcc669dc5415"/>
+                  <a:a name="DESC" value="EN: The size in bytes to which logical blocks maximum size."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=3072"/>
+                    <a:tst expr="&gt;=1"/>
+                  </a:da>
+                  <a:da name="DEFAULT" value="32"/>
+                </v:var>
+                <v:var name="FeeDefaultCycleMode" type="ENUMERATION">
+                  <a:a name="UUID" value="B5188FFD-B283-43c0-8C44-BC87DAE31588"/>
+                  <a:a name="DESC" value="EN: parameter for setting the FEE and the FLS  timeout monitoring operation mode.&lt;br/&gt; MEMIF_MODE_SLOW : wait cycle time of MainFunction is FeeMainFunctionPeriod.&lt;br/&gt; MEMIF_MODE_FAST : no wait cycle time for MainFunction "/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="MEMIF_MODE_SLOW"/>
+                  <a:da name="RANGE">
+                    <a:v>MEMIF_MODE_SLOW</a:v>
+                    <a:v>MEMIF_MODE_FAST</a:v>
+                  </a:da>
+                </v:var>
+                <v:var name="FeeMainFunctionPeriod" type="FLOAT">
+                  <a:a name="UUID" value="494447a2-20d4-43b6-af80-bcc669dc5455"/>
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt; FeeMainFunctionPeriod;br/&gt;
+                                    The value of "FeeMainFunctionPeriod for FEE" and "FlsCallCycle for FLS"should be set the same.&lt;br/&gt;
+                                    Example: &lt;br/&gt;
+                                    In case of &lt;br/&gt;
+                                             FeeMainFunctionPeriod = 10 (msec)&lt;br/&gt;
+                                             FlsCallCycle = 0.01 (sec)&lt;/html&gt;
+                    </a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=1000"/>
+                    <a:tst expr="&gt;=0.01"/>
+                  </a:da>
+                  <a:da name="DEFAULT" value="1"/>
+                </v:var>
+                <v:var name="FeeErrorCalloutFunction"  type="FUNCTION-NAME">
+                  <a:a name="UUID" value="EFAB4502-928D-4492-8C80-46615AED0F68"/>
+                  <a:a name="DESC">
+                    <a:v>EN:  &lt;html&gt;Error callout function. Syntax:&lt;br/&gt; void ErrorCalloutHandler (uint16 ModuleId, uint8 InstanceId, uint8 ApiId, uint8 ErrorId)&lt;br/&gt; &lt;br/&gt; The error callout function is called on every error. The ASIL level of this function limits the ASIL level of the Fls driver.</a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the FeeErrorCalloutFunction. Must be valid C function name."/>
+                  </a:da>
+                  <a:da name="DEFAULT" value="ErrorCalloutHandler"/>
+                </v:var>  
+                <v:var name="FeeWorkFlashRelativeEndAddress" type="INTEGER">
+                  <a:a name="UUID" value="B5150C7A-140B-4c1c-9131-BF374543BB73"/>
+                  <a:a name="DESC" value="EN: Relative end address of the Flash domain"/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="DEFAULT_RADIX" value="HEX" />
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&gt;=8192" false="Smaller than the work flash area."/>
+                    <a:tst expr="&lt;=num:i(num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.size&apos;)) + num:hextoint(ecu:get(&apos;MEMORY.WFLASH_SM_SBM.size&apos;)))" false="Bigger than the work flash area." />
+                  </a:da>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="(node:value(/AUTOSAR/TOP-LEVEL-PACKAGES/Fee/ELEMENTS/Fee/FeeGeneral/FeeWorkFlashRelativeEndAddress) mod num:hextoint(ecu:get(&apos;MEMORY.WFLASH_SM_SBM.SECTOR.SIZE&apos;))) = 0" false="address does not match with the beginning of any sector." />
+                  </a:da>
+                  <a:da name="DEFAULT" type="XPath" expr="num:i(num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.size&apos;)) + num:hextoint(ecu:get(&apos;MEMORY.WFLASH_SM_SBM.size&apos;)))" />
+                </v:var>
+                <v:var name="FeeResourceLargeSectorTotalSize" type="INTEGER">
+                  <a:a name="UUID" value="B5150B7A-140B-4A1c-9131-BF364543B373"/>
+                  <a:a name="DESC" value="EN: Large sector total size from resource."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="VISIBLE" value="false"/>
+                  <a:da name="DEFAULT" type="XPath" expr="num:i(num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.size&apos;)))" />
+                </v:var>
+                <v:var name="FeeResourceSmallSectorTotalSize" type="INTEGER">
+                  <a:a name="UUID" value="B5150A7A-140B-4A5c-9131-B7364543C373"/>
+                  <a:a name="DESC" value="EN: Small sector total size from resource."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="VISIBLE" value="false"/>
+                  <a:da name="DEFAULT" type="XPath" expr="num:i(num:hextoint(ecu:get(&apos;MEMORY.WFLASH_SM_SBM.size&apos;)))" />
+                </v:var>
+              <v:ctr name="FeeUseConfig" type="IDENTIFIABLE">
+                <a:a name="UUID" value="FFB883C5-9D93-4eda-A907-382C2CD10761"/>
+                <a:a name="DESC" value="EN: Setting the sector information"/>
+                <v:ctr name="Config" type="IDENTIFIABLE">
+                  <a:a name="UUID" value="9cccb045-21ac-4f6b-8cf2-af8c4eb8c90f"/>
+                  <a:a name="DESC" value="EN: Setting the sector information (start address, number of sectors, effective data size)"/>
+                  <v:var name="FeeSectorStartAddress" type="INTEGER">
+                    <a:a name="UUID" value="B5140C7A-140A-4c1c-9031-BF384543BB73"/>
+                    <a:a name="DESC" value="EN: Top addressing of the Flash domain"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="DEFAULT_RADIX" value="HEX" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="(node:value(/AUTOSAR/TOP-LEVEL-PACKAGES/Fee/ELEMENTS/Fee/FeeGeneral/FeeUseConfig/Config/FeeSectorStartAddress) mod (2 * num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.SECTOR.SIZE&apos;)))) = 0" false="Set sector head address that does not match with the beginning of any sector." />
+                      <a:tst expr=".&gt;=num:hextoint('0x00000000')" false="Smaller than the head address of the minimum sector setting sector head address death."/>
+                      <a:tst expr="(.&lt;=num:i(num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.size&apos;)) + num:hextoint(ecu:get(&apos;MEMORY.WFLASH_SM_SBM.size&apos;))) - num:i(4 * num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.SECTOR.SIZE&apos;))))" false="Greater than the start address of the largest sector setting sector head address death." />
+                    </a:da>
+                    <a:da name="DEFAULT" type="XPath" expr="num:hextoint('0x00000000')" />
+                  </v:var>
+                  <v:var name="FeeValidDataSize" type="INTEGER">
+                    <a:a name="UUID" value="19566BF8-E8F1-4f52-B458-6150E19A3F4C"/>
+                    <a:a name="DESC" value="EN: It specifies the total size of the valid data to be handled in one sector"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=4032"/>
+                        <a:tst expr="&gt;=512"/>
+                      </a:da>
+                    <a:da name="DEFAULT" value="512"/>
+                    <a:da name="VISIBLE" value="false"/>
+                  </v:var>
+                </v:ctr>
+                <v:ctr name="ConfigEx" type="IDENTIFIABLE">
+                  <a:a name="UUID" value="96332fbe-0456-404d-a900-269f1407440a"/>
+                  <a:a name="DESC" value="EN: Setting the sector information (start address, number of sectors, effective data size)"/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <v:var name="FeeSectorStartAddressEx" type="INTEGER">
+                    <a:a name="UUID" value="FCB2272F-A660-4f02-B4EA-B81791D8C9E9"/>
+                    <a:a name="DESC" value="EN: Top addressing of the Flash domain"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="DEFAULT_RADIX" value="HEX" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="(node:value(/AUTOSAR/TOP-LEVEL-PACKAGES/Fee/ELEMENTS/Fee/FeeGeneral/FeeUseConfig/ConfigEx/FeeSectorStartAddressEx) mod (2 * num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.SECTOR.SIZE&apos;)))) = 0" false="Set sector head address that does not match with the beginning of any sector." />
+                      <a:tst expr=".&gt;=num:hextoint('0x00000000')" false="Smaller than the head address of the minimum sector setting sector head address death."/>
+                      <a:tst expr="(.&lt;=num:i(num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.size&apos;)) + num:hextoint(ecu:get(&apos;MEMORY.WFLASH_SM_SBM.size&apos;))) - num:i(4 * num:hextoint(ecu:get(&apos;MEMORY.WFLASH_LG_SBM.SECTOR.SIZE&apos;))))" false="Greater than the start address of the largest sector setting sector head address death." />
+                    </a:da>
+                    <a:da name="DEFAULT" type="XPath" expr="num:hextoint('0x00000000')" />
+                  </v:var>
+                  <v:var name="FeeBlockMaxSizeEx" type="INTEGER">
+                          <a:a name="UUID" value="494447a2-20d4-43b6-af80-bcc6789c5415"/>
+                          <a:a name="DESC" value="EN: The size in bytes to which logical blocks maximum size."/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="Cypress"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:da name="INVALID" type="Range">
+                            <a:tst expr="&lt;=3072"/>
+                            <a:tst expr="&gt;=1"/>
+                          </a:da>
+                          <a:da name="DEFAULT" value="32"/>
+                  </v:var>
+                  <v:var name="FeeValidDataSizeEx" type="INTEGER">
+                    <a:a name="UUID" value="B12F0B89-75B5-4f4f-BE73-07D925BF8A18"/>
+                    <a:a name="DESC" value="EN: It specifies the total size of the valid data to be handled in one sector"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=4032"/>
+                        <a:tst expr="&gt;=512"/>
+                      </a:da>
+                    <a:da name="DEFAULT" value="512"/>
+                    <a:da name="VISIBLE" value="false"/>
+                  </v:var>
+                </v:ctr>
+                </v:ctr>
+                <v:lst name="FeeIncludeFile">
+                  <v:var name="FeeIncludeFile" type="STRING">
+                    <a:a name="UUID" value="1270CB77-27E2-4847-ADA9-463F7CEA83D7"/>
+                    <a:a name="DESC" value="EN: A file that shall be included by Fee_Cfg.h. Any application specific symbol that is used by the Fee configuration (e.g. Error callout function) should be included by configuring this parameter."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:da name="DEFAULT" value="ErrorCalloutHandler.h" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:match(normalize-space(.),'^[_0-9a-zA-Z]+\.h$')" false="Invalid name of the FeeIncludeFile. Must be a filename with extension .h."/>
+                      <a:tst expr="text:uniq(../*, .)"  false="FeeIncludeFile must be unique."/>
+                    </a:da>
+                  </v:var>
+                </v:lst>
+              </v:ctr>
+              
+              <v:ctr name="FeePublishedInformation" type="IDENTIFIABLE">
+                <a:a name="UUID" value="82684635-c958-442c-a97f-c6c23e183dfc"/>
+                <a:a name="DESC" value="EN: Additional published parameters not covered by CommonPublishedInformation container."/>
+                <v:var name="FeeInstanceId" type="INTEGER_LABEL">
+                  <a:a name="UUID" value="68e729e1-c2b9-472a-b860-ce1c5de0aef6"/>
+                  <a:a name="DESC" value="EN: Management overhead per page in bytes."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PublishedInformation">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="0"/>
+                  <a:da name="VISIBLE" value="false"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=0"/>
+                    <a:tst expr="&gt;=0"/>
+                  </a:da>                  
+                </v:var>
+                <v:var name="FeeBlockOverhead" type="INTEGER">
+                  <a:a name="UUID" value="457592a0-ab0c-419d-a40f-5cea911de587"/>
+                  <a:a name="DESC" value="EN: Management overhead per logical block in bytes."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="EDITABLE" value="false"/>
+                  <a:da name="DEFAULT" value="20"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=65535"/>
+                    <a:tst expr="&gt;=20"/>
+                  </a:da>
+                </v:var>
+                <v:var name="FeePageOverhead" type="INTEGER">
+                  <a:a name="UUID" value="8536ead9-0145-4459-959f-ce865b60b804"/>
+                  <a:a name="DESC" value="EN: Management overhead per page in bytes."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="EDITABLE" value="false"/>
+                  <a:da name="DEFAULT" value="16"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=65535"/>
+                    <a:tst expr="&gt;=0"/>
+                  </a:da>
+                </v:var>
+              </v:ctr>
+              <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/EcucDefs/Fee"/>
+            </v:ctr>
+          </d:chc>
+          <d:chc name="FEE_EcuParameterDefinition" type="AR-ELEMENT" value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="UUID" value="39a0a559-3c5d-46d6-b814-25e624c6ec72"/>
+              <a:a name="DESC" value="EN: Autosar module parameter definition."/>
+              <a:a name="DEF"  value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Fee"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

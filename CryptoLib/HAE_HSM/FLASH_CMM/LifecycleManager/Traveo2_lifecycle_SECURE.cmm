@@ -1,0 +1,104 @@
+local &filePath
+entry &filePath
+
+WinCLEAR
+
+goSub parsePath
+goSub sysInit
+goSub writeSram
+goSub runSystem
+goSub setWindow
+
+ENDDO
+
+parsePath:
+(
+	&filePath=STRing.SCANAndExtract(STRing.UPpeR("&filePath"),"PATH=","")
+    IF !OS.FILE("&filePath")
+	(
+		DIALOG.FILE *
+		ENTRY &filePath
+	)
+	return
+)
+
+writeSram:
+(
+	Data.LOAD.auto "&filePath"
+	; DO NOT RESET
+	return
+)
+
+runSystem:
+(
+	WAIT !STATE.RUN()
+	return
+)
+
+sysInit:
+(
+	IF SYStem.INSTANCE()!=1.
+	(
+	  PRINT %ERROR "This script must be called from MASTER GUI!"
+	  ENDDO
+	)
+
+	RESet
+	SYStem.RESet
+	SYStem.CPU CYT2B98CA-CM0+
+	SYStem.CONFIG CORE 1. 1.
+	SYStem.CONFIG SLAVE OFF
+	IF COMBIPROBE()||UTRACE()
+	(
+	  SYStem.CONFIG.CONNECTOR MIPI20T
+	)
+	SYStem.Option DUALPORT ON
+	(
+	  ; assert reset line and do another debugger based reset
+	  ; -> M0+ should stop in BootROM/Supervisory Flash
+	  SYStem.Option EnReset ON
+	  SYStem.Option WaitIDCODE ON
+	  SYStem.Option CoreSightRESet ON
+	)
+	SYStem.MemAccess DAP
+	SYStem.JtagClock 10MHz
+	Trace.DISable
+	SYStem.Up
+	return 
+)
+
+setWindow:
+(
+	WinCLEAR
+	Mode.Hll
+	B::
+
+	TOOLBAR   ON
+	STATUSBAR ON
+	FramePOS 2.4286 5.1667 188. 51.
+	WinPAGE.RESet
+
+	WinPAGE.Create P000
+	WinCLEAR
+
+	WinPOS 94.429 23.25 64. 16. 0. 0. W010 ICONIC
+	SYStem.state
+
+	WinPOS 58.143 5.9167 45. 39. 16. 1. W007
+	data.dump 0x0800d000 /ascii /spotlight
+
+	WinPOS 109.0 5.8333 71. 37. 16. 1. W000
+	WinTABS 10. 10. 25.
+	List.auto
+
+	WinPOS 0.14286 0.25 32. 2. 16. 1. W009
+	Data.dump (0x0800d400) /DIALOG
+
+	WinPOS 0.28571 9.5 32. 2. 16. 1. W001
+	Data.dump (0x0800d404) /DIALOG
+
+
+	WinPAGE.select P000
+
+	return
+)

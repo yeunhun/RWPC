@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Pwm</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES>
+          <SHORT-NAME>Pwm</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/TS_T40D13M1I0R0/Pwm</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/TS_T40D13M1I0R0/PwmImplementation</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>PwmChannelConfigSet_0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="621d8816-fa0a-487a-b6f0-09e65f34e2f7">
+                  <SHORT-NAME>PwmChannel_AMBER_IND_OUT</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmAlignment">PWM_LEFT_ALIGNED</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmChannelId">0</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmTimer">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmDutycycleDefault">16384</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmPeriodDefault">0.00001</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmPolarity">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmIdleState">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmStartAtInit">1</SD>
+                        <SD T="2022-04-01T11:17:20Z" GID="PwmDebugMode">PWM_DEBUG_MODE_CONTINUE</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T11:19:10Z" GID="PwmChannelClass">PWM_VARIABLE_PERIOD</SD>
+                        <SD T="2022-04-01T11:19:43Z" GID="PwmTimer">TCPWM_0_44</SD>
+                        <SD T="2022-04-01T11:20:52Z" GID="PwmPeriodDefault">0.005</SD>
+                        <SD T="2022-09-19T20:31:23Z" GID="PwmPolarity">PWM_HIGH</SD>
+                        <SD T="2022-04-01T11:21:55Z" GID="PwmStartAtInit">0</SD>
+                        <SD T="2022-04-01T11:22:47Z" GID="PwmMcuClockReferencePoint">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS44</SD>
+                        <SD T="2022-04-04T18:00:42Z" GID="PwmSetOutputEnable" />
+                        <SD T="2022-09-19T20:31:05Z" GID="PwmDebugMode">PWM_DEBUG_MODE_HALT</SD>
+                        <SD T="2022-09-19T20:31:07Z" GID="PwmOutputAtInitSelect">HIGH</SD>
+                        <SD T="2022-09-19T20:31:25Z" GID="PwmIdleState">PWM_LOW</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmAlignment</DEFINITION-REF>
+                      <VALUE>PWM_LEFT_ALIGNED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmTimer</DEFINITION-REF>
+                      <VALUE>TCPWM_0_44</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDutycycleDefault</DEFINITION-REF>
+                      <VALUE>16384</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPeriodDefault</DEFINITION-REF>
+                      <VALUE>0.005</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPolarity</DEFINITION-REF>
+                      <VALUE>PWM_HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmIdleState</DEFINITION-REF>
+                      <VALUE>PWM_LOW</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmStartAtInit</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDebugMode</DEFINITION-REF>
+                      <VALUE>PWM_DEBUG_MODE_HALT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelClass</DEFINITION-REF>
+                      <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmOutputAtInitSelect</DEFINITION-REF>
+                      <VALUE>HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmMcuClockReferencePoint</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS44</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="c2686a83-74fa-4310-8c78-5840ad32d8c5">
+                  <SHORT-NAME>PwmChannel_GREEN_IND_OUT1</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmAlignment">PWM_LEFT_ALIGNED</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmChannelId">0</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmTimer">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmDutycycleDefault">16384</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmPeriodDefault">0.00001</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmPolarity">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmIdleState">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmStartAtInit">1</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmDebugMode">PWM_DEBUG_MODE_CONTINUE</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T11:19:13Z" GID="PwmChannelClass">PWM_VARIABLE_PERIOD</SD>
+                        <SD T="2022-04-01T11:19:23Z" GID="PwmChannelId">1</SD>
+                        <SD T="2022-04-01T11:19:51Z" GID="PwmTimer">TCPWM_0_45</SD>
+                        <SD T="2022-04-01T11:20:56Z" GID="PwmPeriodDefault">0.005</SD>
+                        <SD T="2022-04-01T11:21:19Z" GID="PwmPolarity">PWM_HIGH</SD>
+                        <SD T="2022-04-01T11:21:56Z" GID="PwmStartAtInit">0</SD>
+                        <SD T="2022-04-01T11:23:05Z" GID="PwmMcuClockReferencePoint">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS45</SD>
+                        <SD T="2022-04-04T18:00:43Z" GID="PwmSetOutputEnable" />
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmAlignment</DEFINITION-REF>
+                      <VALUE>PWM_LEFT_ALIGNED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelId</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmTimer</DEFINITION-REF>
+                      <VALUE>TCPWM_0_45</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDutycycleDefault</DEFINITION-REF>
+                      <VALUE>16384</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPeriodDefault</DEFINITION-REF>
+                      <VALUE>0.005</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPolarity</DEFINITION-REF>
+                      <VALUE>PWM_HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmIdleState</DEFINITION-REF>
+                      <VALUE>PWM_LOW</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmStartAtInit</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDebugMode</DEFINITION-REF>
+                      <VALUE>PWM_DEBUG_MODE_CONTINUE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelClass</DEFINITION-REF>
+                      <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmMcuClockReferencePoint</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS45</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="381a2ffd-8db8-4bc8-89a4-dae43b54deae">
+                  <SHORT-NAME>PwmChannel_GREEN_IND_OUT2</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmAlignment">PWM_LEFT_ALIGNED</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmChannelId">0</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmTimer">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmDutycycleDefault">16384</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmPeriodDefault">0.00001</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmPolarity">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmIdleState">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmStartAtInit">1</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmDebugMode">PWM_DEBUG_MODE_CONTINUE</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T11:19:15Z" GID="PwmChannelClass">PWM_VARIABLE_PERIOD</SD>
+                        <SD T="2022-04-01T11:19:23Z" GID="PwmChannelId">2</SD>
+                        <SD T="2022-04-01T11:20:24Z" GID="PwmTimer">TCPWM_0_54</SD>
+                        <SD T="2022-04-01T11:21:00Z" GID="PwmPeriodDefault">0.005</SD>
+                        <SD T="2022-04-01T11:21:20Z" GID="PwmPolarity">PWM_HIGH</SD>
+                        <SD T="2022-04-01T11:21:57Z" GID="PwmStartAtInit">0</SD>
+                        <SD T="2022-04-01T11:23:12Z" GID="PwmMcuClockReferencePoint">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS54</SD>
+                        <SD T="2022-04-04T18:00:44Z" GID="PwmSetOutputEnable" />
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmAlignment</DEFINITION-REF>
+                      <VALUE>PWM_LEFT_ALIGNED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelId</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmTimer</DEFINITION-REF>
+                      <VALUE>TCPWM_0_54</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDutycycleDefault</DEFINITION-REF>
+                      <VALUE>16384</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPeriodDefault</DEFINITION-REF>
+                      <VALUE>0.005</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPolarity</DEFINITION-REF>
+                      <VALUE>PWM_HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmIdleState</DEFINITION-REF>
+                      <VALUE>PWM_LOW</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmStartAtInit</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDebugMode</DEFINITION-REF>
+                      <VALUE>PWM_DEBUG_MODE_CONTINUE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelClass</DEFINITION-REF>
+                      <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmMcuClockReferencePoint</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS54</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="45955af4-6bc8-4316-b6f9-9a97750d37ee">
+                  <SHORT-NAME>PwmChannel_GREEN_IND_OUT3</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmAlignment">PWM_LEFT_ALIGNED</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmChannelId">0</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmTimer">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmDutycycleDefault">16384</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmPeriodDefault">0.00001</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmPolarity">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmIdleState">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmStartAtInit">1</SD>
+                        <SD T="2022-04-01T11:17:24Z" GID="PwmDebugMode">PWM_DEBUG_MODE_CONTINUE</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T11:19:17Z" GID="PwmChannelClass">PWM_VARIABLE_PERIOD</SD>
+                        <SD T="2022-04-01T11:19:24Z" GID="PwmChannelId">3</SD>
+                        <SD T="2022-04-01T11:20:30Z" GID="PwmTimer">TCPWM_0_53</SD>
+                        <SD T="2022-04-01T11:21:06Z" GID="PwmPeriodDefault">0.005</SD>
+                        <SD T="2022-04-01T11:21:21Z" GID="PwmPolarity">PWM_HIGH</SD>
+                        <SD T="2022-04-01T11:21:58Z" GID="PwmStartAtInit">0</SD>
+                        <SD T="2022-04-01T11:23:20Z" GID="PwmMcuClockReferencePoint">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS53</SD>
+                        <SD T="2022-04-04T18:00:45Z" GID="PwmSetOutputEnable" />
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmAlignment</DEFINITION-REF>
+                      <VALUE>PWM_LEFT_ALIGNED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelId</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmTimer</DEFINITION-REF>
+                      <VALUE>TCPWM_0_53</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDutycycleDefault</DEFINITION-REF>
+                      <VALUE>16384</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPeriodDefault</DEFINITION-REF>
+                      <VALUE>0.005</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPolarity</DEFINITION-REF>
+                      <VALUE>PWM_HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmIdleState</DEFINITION-REF>
+                      <VALUE>PWM_LOW</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmStartAtInit</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDebugMode</DEFINITION-REF>
+                      <VALUE>PWM_DEBUG_MODE_CONTINUE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelClass</DEFINITION-REF>
+                      <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmMcuClockReferencePoint</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS53</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="1b82ff2c-974c-4da0-88d1-aa56fea49932">
+                  <SHORT-NAME>PwmChannel_FAN_OUT</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmAlignment">PWM_LEFT_ALIGNED</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmChannelId">0</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmTimer">TCPWM_0_0</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmDutycycleDefault">16384</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmPeriodDefault">0.00001</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmPolarity">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmIdleState">PWM_LOW</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmStartAtInit">1</SD>
+                        <SD T="2022-04-01T11:17:26Z" GID="PwmDebugMode">PWM_DEBUG_MODE_CONTINUE</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-04-01T11:19:19Z" GID="PwmChannelClass">PWM_VARIABLE_PERIOD</SD>
+                        <SD T="2022-04-01T11:19:25Z" GID="PwmChannelId">4</SD>
+                        <SD T="2022-04-01T11:20:36Z" GID="PwmTimer">TCPWM_0_48</SD>
+                        <SD T="2022-06-24T11:21:54Z" GID="PwmPeriodDefault">0.00004</SD>
+                        <SD T="2022-04-01T11:21:22Z" GID="PwmPolarity">PWM_HIGH</SD>
+                        <SD T="2022-04-01T11:21:59Z" GID="PwmStartAtInit">0</SD>
+                        <SD T="2022-04-01T11:23:28Z" GID="PwmMcuClockReferencePoint">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS48</SD>
+                        <SD T="2022-04-04T18:00:46Z" GID="PwmSetOutputEnable" />
+                        <SD T="2022-06-23T20:15:51Z" GID="PwmCompOutputAtInitSelect" />
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmAlignment</DEFINITION-REF>
+                      <VALUE>PWM_LEFT_ALIGNED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelId</DEFINITION-REF>
+                      <VALUE>4</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmTimer</DEFINITION-REF>
+                      <VALUE>TCPWM_0_48</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDutycycleDefault</DEFINITION-REF>
+                      <VALUE>16384</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPeriodDefault</DEFINITION-REF>
+                      <VALUE>0.00004</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmPolarity</DEFINITION-REF>
+                      <VALUE>PWM_HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmIdleState</DEFINITION-REF>
+                      <VALUE>PWM_LOW</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmStartAtInit</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmDebugMode</DEFINITION-REF>
+                      <VALUE>PWM_DEBUG_MODE_CONTINUE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmChannelClass</DEFINITION-REF>
+                      <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/TS_T40D13M1I0R0/Pwm/PwmChannelConfigSet/PwmChannel/PwmMcuClockReferencePoint</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/Mcu/Mcu/McuModuleConfiguration_0/McuClockSettingConfig_0/McuClockReferencePoint_TCPWM0_CLOCKS48</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>PwmConfigurationOfOptApiServices</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmDeInitApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmEnableDisableTriggerApi</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmGetOutputState</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetDutyCycle</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetOutputOffset</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetOutputState</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetOutputToIdle</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetPeriodAndDuty</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetPrescaler</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmSetTriggerDelay</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmStopGroup</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmConfigurationOfOptApiServices/PwmVersionInfoApi</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>PwmGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmDevErrorDetect</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmDutycycleUpdatedEndperiod</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmErrorCalloutFunction</DEFINITION-REF>
+                  <VALUE>Det_ReportError</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmIndex</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmNotificationSupported</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmPeriodUpdatedEndperiod</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/TS_T40D13M1I0R0/Pwm/PwmGeneral/PwmIncludeFile</DEFINITION-REF>
+                  <VALUE>Det.h</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

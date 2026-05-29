@@ -1,0 +1,51 @@
+
+              Traveo II FEE BSW Stub Sample Software Package V1.0.0
+              -------------------------------------------------------
+
+1. Description
+  This sample software package contains the BSW stub modules (MemMap)
+  that need to be referenced by Traveo II Family AUTOSAR 4.2 FEE.
+  MemMap stub modules have {Mip}_MemMap.h files to be referenced by each MCAL plugin.
+
+2. AUTOSAR Version
+  4.2.2
+
+3. Software Version
+  MemMap:   - (See "5. Notes")
+
+4. How to Install 
+  1) Execute "SampleSW-TVII-BSW_STUB-forEBtresos26_2_0_V1.0.0.exe".
+  2) Install BSW stub modules according to the indication in the installer.
+
+5. Notes
+ *  Supported EB tresos Version
+    These stub modules are corresponding to EB tresos V26.2.0.
+    If you try to install into the folder where incompatible EB tresos installation 
+    is present, the installer prevents installation with warning popup window.
+
+ *  Corresponding MemMap Stub File Version
+    The MemMap stub module has MemMap stub file version for each plugin instead of software version.
+    For MemMap stub file version, see the description at the beginning of the following 
+    header files. 
+     $(TRESOS_BASE)/plugins/MemMap_T40D13M0I0R0/include/{Mip}_MemMap.h
+
+    If you use this MemMap stub module, please be sure that MemMap stub file version is same as 
+    the "Corresponding {Mip}_MemMap.h Stub File Version" described in each plugin's release note.
+
+6. Contents to be Installed
+
+  [root]
+    |   
+    |   
+    \---plugins
+        +---MemMap_TS_T40D13M0I0R0
+            |   
+            +---include
+                    Fee_MemMap.h
+                    Fls_MemMap.h
+                    Module_MemMap.h.template
+
+-------------------------------------------------------------------------------
+Revision History
+-------------------------------------------------------------------------------
+1.0.0    Initial version.

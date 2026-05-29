@@ -1,0 +1,546 @@
+# -*- coding: UTF-8 -*-'
+from __builtin__ import True
+"""
+    SConstruct
+    
+    Tool-specific initialization for build process.
+
+    Copyright (c) 2021 HYUNDAI AUTOEVER Corp.
+
+/*******************************************************************************
+**                              Revision History                              **
+********************************************************************************
+** Revision   Date          By       Description
+********************************************************************************
+** 2.4.0      07-16-2020   TK Moon  Redmine #24740,22142,24681
+** 2.3.0      01-15-2020   TK Moon  Redmine #20976,#21544,#22140
+** 2.2.2      12-05-2019   TK Moon  Redmine #20531,#20532,#20540
+** 2.2.1      11-29-2019   TK Moon  Redmine #20350,#20377,#20408
+** 2.2.0      11-08-2019   TK Moon  Redmine #19116,#20005,#19513
+** 2.1.0      12-21-2018   TK Moon  Redmine #15255
+** 2.0.0      09-20-2018   TK Moon  Redmine #14159
+*******************************************************************************/
+"""
+import os  # Do not touch this line
+import cdt  # Do not touch this line
+import common  # Do not touch this line
+import sys
+import re
+import build  # For pyc creation
+import sort_scons
+from SCons.Script import COMMAND_LINE_TARGETS  # Do not touch this line
+from SCons.Script import SConscript  # Do not touch this line
+from SCons.Script import DefaultEnvironment  # Do not touch this line
+from SCons.Action import Action  # Do not touch this line
+from subprocess import Popen, PIPE
+
+pattern_list, gen_option_list = [], []
+compiler_license = {'ip':'', 'file':'', 'key':''}
+p_cnt = 0
+
+scons_major_ver = 2
+scons_minor_ver = 4
+scons_path_ver  = 4
+print ("AutoEver Toolset Version: {0}.{1}.{2}".format(scons_major_ver,scons_minor_ver,scons_path_ver))
+
+# to add PYTHON_HOME path in environment variable 'PATH'
+osEnv = os.environ
+tmp_list = osEnv['PATH'].split(';')
+if not osEnv['PYTHON_HOME'] in tmp_list:
+    tmp_list.extend([osEnv['PYTHON_HOME']])
+if not osEnv['PYTHON_HOME'] + "\\Scripts" in tmp_list:
+    tmp_list.extend([osEnv['PYTHON_HOME'] + "\\Scripts"])
+osEnv['PATH'] = ';'.join(tmp_list)
+
+osEnv['PATH'] = ''
+env = DefaultEnvironment(ENV=os.environ, tools=['gcc'])
+common.setting(env)
+
+env['ENV']['PATH'] = ''  # clear any PATH in env
+# get toolset python module path from sys.path
+env['CURRENT_PATH'] = env.Dir('#').path
+module_path = sys.path[0]
+env['PROJECT'] = cdt.get_project_name(env)
+env['BUILD_SCRIPT_DIR'] = os.path.relpath(module_path, env['CURRENT_PATH'])
+env['PLATFORM_DIR'] = os.path.relpath(module_path.split('\\Build')[0], env['CURRENT_PATH'])
+env['CONFIG_SCRIPT_DIR'] = os.path.relpath('Build', env['CURRENT_PATH'])
+env['LOG_DIR'] = os.path.relpath('.log', env['CURRENT_PATH'])
+env['CONFIGURATION_DIR'] = os.path.relpath('Configuration', env['CURRENT_PATH'])
+env['DEBUG_OUTPUT_DIR'] = os.path.relpath('.', env['CURRENT_PATH'])
+env['DEBUG_DIR'] = os.path.relpath('Debug', env['CURRENT_PATH'])
+env['DEBUG_FBL_DIR'] = os.path.relpath('Debug_FBL', env['CURRENT_PATH'])
+env['GEN_OUTPUT_DIR'] = os.path.relpath('Generated', env['CURRENT_PATH'])
+env['SCONS_LOG_FILE'] = os.path.join(env['LOG_DIR'], 'scons_log')
+env['SCONS_LOG_FLAG'] = False
+env['CPROJECT_SYNC'] = False
+env['COMPILE_RULE'] = COMMAND_LINE_TARGETS
+env['MATCH_PATTERN'] = ['lsl', 'ld', 'arxml', 'exe', 'bmd', 'epd', 'bat',
+                        'trxml', 'xml', 'xsl', 'orti', 'template']  # list for generation file match pattern
+env['BSW_OUTPUT_DIR'] = os.path.join(env['GEN_OUTPUT_DIR'], 'Bsw_Output')
+env['MCAL_OUTPUT_DIR'] = os.path.join(env['GEN_OUTPUT_DIR'], 'Mcal_Output')
+env['FBL_OUTPUT_DIR'] = os.path.join(env['GEN_OUTPUT_DIR'], 'FBL_Output')
+env['LIB_INSTALL_DIR'] = 'Library'
+env['LIBRARY_FILE'] = ''
+env['OVERRIDE_DIR'] = [  # always override with these folders first
+    os.path.join(env['PLATFORM_DIR'], 'Configuration'),
+    os.path.join(env['PLATFORM_DIR'], env['PLATFORM_DIR'], 'Static_Code'),
+    os.path.join(env['PLATFORM_DIR'], env['MCAL_OUTPUT_DIR']),
+    os.path.join(env['PLATFORM_DIR'], env['FBL_OUTPUT_DIR']),
+    os.path.join(env['PLATFORM_DIR'], env['BSW_OUTPUT_DIR']),
+]
+env['COMPILE_EXCLUDE'],env['RELEASE_EXCLUDE'],env['BUILD_EXCLUDE'] = [],[],[]
+env['OVERRIDE_COMPILE_DIR'] = []
+env['RELEASE_EXCEPTED_DIR'] = ['.svn', 'Debug','Debug_FBL', 'workspace', env['LOG_DIR']]
+env['RELEASE_EXCEPTED_FILE'] = ['.static_wa', '.dblite', '.cproject', '.project', '.log',
+                               '.AIS', 'InstallTools.bat', 'SCons.arxml', 'Build.bat', '.pydevproject',
+                               '.result', '_LibFileList.xml', 'SCons_FBL.arxml', '_']
+env['ARIAN_FOLDER'], env['OVERRIDE_RELEASE_DIR'] = [], []
+env['DEFAULT_CCFLAGS'], env['DEFAULT_CPPDEFS'], env['OBJECT_FILES'] = [], [], []
+env['LIBPATH'], env['LIBS'], env['LINKFLAGS'], env['LIB_DIR_LIST'], env['CSuffixes'] = [], [], [], [], []
+env['ARCHIVER_HOME'], env['LINKER_HOME'], env['RELEASE_DIR'] = [], [], '..'
+env['TRACE32'], env['CANOE'], env['INT_TEST_DIR'] = [], [], ''
+env['RECURSIVE_HEADER'] = False
+env['XSL_FBL'] = False
+env['POST_BUILD_CMD'] = []
+env['RELEASE_DIR_IN_REFERENCES'] = ['DB','Doc']
+
+if '--debug=explain' in sys.argv:
+    env['VERBOSE_MCAL'] = True
+else:
+    env['VERBOSE_MCAL'] = False
+my_dict = {}
+debug_lines = [str(['Configured Values'])]
+if any([x for x in env['COMPILE_RULE'] if re.search('fbl', x.lower())]):
+    if not os.path.exists(os.path.join(env['CONFIG_SCRIPT_DIR'], 'SCons_FBL.arxml')):
+        print("Ignoring unsupported command {0}".format(env['COMPILE_RULE'][0]))
+        sys.exit(0) 
+    else:
+        fbl_build = True
+        config_file = os.path.join(env['CONFIG_SCRIPT_DIR'], 'SCons_FBL.arxml')
+else:
+    fbl_build = False
+    config_file = os.path.join(env['CONFIG_SCRIPT_DIR'], 'SCons.arxml')
+
+cproject_file = os.path.join(env['CURRENT_PATH'], '.cproject')
+if any([x for x in env['COMPILE_RULE'] if x.startswith(('Build', 'Compile', 'Release', 'FBL'))]):
+    if os.path.isfile(cproject_file):
+        common.update_arxml_from_cproject(env, cproject_file)
+    
+if os.path.isfile(config_file):
+    my_dict = common.get_element_from_shortname(config_file, 'Ecud')
+    sort_scons.sort_action(config_file)
+else:
+    debug_lines.extend(["{0} file does not exists".format(config_file)])
+
+try:
+    for k in my_dict:
+        if k['def'].endswith('SCons/Build'):
+            for n in k['param']:
+                if n['val'] == None:
+                    continue
+                n['val'] = n['val'].replace("/", os.sep)
+                if n['path'].split('/')[-1].startswith('McuFamilyType'):
+                    env['MCU_TYPE'] = n['val']
+                    debug_lines.extend(["\tMcuFamilyType is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('IntTestDirectory'):
+                    env['INT_TEST_DIR'] = n['val']
+                    debug_lines.extend(["\tIntTestDirectory dir is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('Trace32Path'):
+                    env['TRACE32'].append(n['val'])
+                    debug_lines.extend(["\tTrace32Path dir is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('CANoePath'):
+                    env['CANOE'].append(n['val'])
+                    debug_lines.extend(["\tCANoePath dir is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('ReleaseDir'):
+                    env['RELEASE_DIR'] = n['val']
+                    debug_lines.extend(["\tReleaseDir is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('DebugMode'):
+                    env['SCONS_LOG_FLAG'] = bool(int(n['val']))
+                    debug_lines.extend(["\tDebugMode is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('CopyToCProject'):
+                    env['CPROJECT_SYNC'] = bool(int(n['val']))
+                    debug_lines.extend(["\t.cproject sync is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('ArianFolder'):
+                    f_str = [''.join(x.split()) for x in n['val'].split('\n') if ''.join(x.split()) != '']
+                    env['ARIAN_FOLDER'].extend(f_str)
+                    debug_lines.extend(["\tArianFolder is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('FBLFolder'):
+                    f_str = [''.join(x.split()) for x in n['val'].split('\n') if ''.join(x.split()) != ''][0]
+                    env['OVERRIDE_DIR'].remove(os.path.join(env['PLATFORM_DIR'], env['FBL_OUTPUT_DIR']))
+                    env['FBL_OUTPUT_DIR'] = env['FBL_OUTPUT_DIR'].replace(env['GEN_OUTPUT_DIR'], f_str)
+                    env['OVERRIDE_DIR'].append(os.path.join(env['PLATFORM_DIR'], env['FBL_OUTPUT_DIR']))
+                    env['DEBUG_FBL_DIR'] = os.path.join(env['CURRENT_PATH'], f_str, 'Debug_FBL')
+                    if fbl_build:
+                        env['LIB_INSTALL_DIR'] = os.path.join(f_str, env['LIB_INSTALL_DIR'])
+                    debug_lines.extend(["\tFBL Folder is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('EnvOptions'):
+                    f_str = [''.join(x.split()) for x in n['val'].split(',') if ''.join(x.split()) != '']
+                    for val in f_str:
+                        env_str = val.split('=')
+                        if any([c for c in env_str if c == '']):
+                            continue # ignore empty string value
+                        if len(env_str) == 3:
+                            env[env_str[0]][env_str[1]] = env_str[2]
+                            debug_lines.extend(["\tEnvOptions is env[{0}][{1}] \= {2}".format(env_str[0], env_str[1], env_str[2])])
+                        elif len(env_str) == 2:
+                            env[env_str[0]] = env_str[1]
+                            debug_lines.extend(["\tEnvOptions is env[{0}] \= {1}".format(env_str[0], env_str[1])])
+                        else:
+                            continue # ignore non supported type
+                elif n['path'].split('/')[-1].startswith('PostBuildCommand'):
+                    env['POST_BUILD_CMD'] = [''.join(x.strip()) for x in n['val'].split('\n') if ''.join(x.strip()) != '']
+        elif k['def'].endswith('SCons/Build/Compile'):
+            for n in k['param']:
+                if n['val'] == None:
+                    continue
+                n['val'] = n['val'].replace("/", os.sep)
+                f_str = [x for x in n['val'].split(',') if x != '']
+                if n['path'].split('/')[-1].startswith('CompilerType'):
+                    env['COMPILER_TYPE'] = n['val']
+                    debug_lines.extend(["\tCompilerType is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('CompilerPath'):
+                    env['COMPILER_HOME'] = n['val']
+                    debug_lines.extend(["\tCompilerPath is {0}".format(n['val'])])
+                    env.Append(ENV={'PATH': env['ENV']['PATH'] + ';' + os.path.dirname(n['val'])})
+                elif n['path'].split('/')[-1].startswith('ArchivePath'):
+                    env['ARCHIVER_HOME'] = n['val']
+                    debug_lines.extend(["\tArchivePath is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('LinkerPath'):
+                    env['LINKER_HOME'] = n['val']
+                    debug_lines.extend(["\tLinkerPath is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('RecursiveHeaderPath'):
+                    env['RECURSIVE_HEADER'] = bool(int(n['val']))
+                    debug_lines.extend(["\RecursiveHeaderPath is set to {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('ObjectFiles'):
+                    env['OBJECT_FILES'].extend([n['val']])
+                    debug_lines.extend(["\tObjectFiles is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('LibraryDirectory'):
+                    env['LIBPATH'].extend([n['val']])
+                    debug_lines.extend(["\tLibraryDirectory is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('LibraryFiles'):
+                    env['LIBS'].extend([n['val']])
+                    debug_lines.extend(["\tLibraryFiles is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('LinkDiscriptFile'):
+                    env['LINKSCRIPT'] = n['val']
+                    debug_lines.extend(["\tLinkDiscriptFile is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('LinkOption'):
+                    env['LINKFLAGS'].extend(f_str)
+                    debug_lines.extend(["\tLinkOption is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('DefaultCompileOption'):
+                    env['DEFAULT_CCFLAGS'] += f_str
+                    debug_lines.extend(["\tDefaultCompileOption is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('DefaultDefineOption'):
+                    env['DEFAULT_CPPDEFS'] += f_str
+                    debug_lines.extend(["\tDefaultDefineOption is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('CSuffixes'):
+                    env['CSuffixes'] += f_str
+                    debug_lines.extend(["\tCSuffixes is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('ReleaseExceptedDirectory'):
+                    env['LIB_DIR_LIST'] += f_str
+                    debug_lines.extend(["\tCSuffixes is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('ReleaseExceptedFile'):
+                    env['RELEASE_EXCEPTED_FILE'] += f_str
+                    debug_lines.extend(["\tReleaseExceptedFile is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('OverrideFolders'):
+                    f_str = [''.join(x.split()) for x in n['val'].split(',') if ''.join(x.split()) != '']
+                    env['OVERRIDE_COMPILE_DIR'].extend(f_str)
+                    debug_lines.extend(["\tOverrideCompileFolders are {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('CompilerLicense'):
+                    for s in f_str:
+                        if s.split('=')[0] == 'file':
+                            compiler_license['file'] = s.split('=')[-1]
+                            debug_lines.extend(["\tCompilerLicense File is {0}".format(compiler_license['file'])])
+                        elif s.split('=')[0] == 'ip':
+                            compiler_license['ip'] = s.split('=')[-1]
+                            debug_lines.extend(["\tCompilerLicense IP is {0}".format(compiler_license['ip'])])
+                        elif s.split('=')[0] == 'key':
+                            compiler_license['key'] = s.split('=')[-1]
+                            debug_lines.extend(["\tCompilerLicense Key is {0}".format(compiler_license['key'])])
+        elif k['def'].endswith('SCons/Build/Compile/CompileCmdChoice/Compile'):
+            for n in k['param']:
+                if n['val'] == None:
+                    continue
+                n['val'] = n['val'].replace("/", os.sep)
+                env['COMPILE_EXCLUDE'].extend([n['val']])
+        elif k['def'].endswith('SCons/Build/Compile/CompileCmdChoice/Release'):
+            for n in k['param']:
+                if n['val'] == None:
+                    continue
+                n['val'] = n['val'].replace("/", os.sep)
+                env['RELEASE_EXCLUDE'].extend([n['val']])
+        elif k['def'].endswith('SCons/Build/Compile/CompileCmdChoice/Build'):
+            for n in k['param']:
+                if n['val'] == None:
+                    continue
+                n['val'] = n['val'].replace("/", os.sep)
+                env['BUILD_EXCLUDE'].extend([n['val']])
+        elif k['def'].endswith('SCons/Build/Compile/Pattern'):
+            c_type = ''
+            config_list = [n['val'] for n in k['param'] if n['path'].split('/')[-1].startswith('PatternType')]
+            if config_list != []:
+                c_type = config_list[0]
+                pattern_list.append({c_type:{'is_int':'', 'c_opt': [], 'int_path':[], 'd_opt': [], 's_path':[]}})
+                debug_lines.extend(["\tCompilePatternType is {0}".format(c_type)])
+            if c_type != '':
+                for n in k['param']:
+                    if n['val'] == None:
+                        continue
+                    n['val'] = n['val'].replace("/", os.sep)
+                    f_str = [''.join(x.split()) for x in n['val'].split(',') if ''.join(x.split()) != '']
+                    if n['path'].split('/')[-1].startswith('CompileOption'):
+                        pattern_list[p_cnt][c_type]['c_opt'] += f_str
+                        debug_lines.extend(["\t\tCompileOption is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('DefineOption'):
+                        pattern_list[p_cnt][c_type]['d_opt'] += f_str
+                        debug_lines.extend(["\t\tDefineOption is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('SourcePath'):
+                        pattern_list[p_cnt][c_type]['s_path'] += f_str
+                        debug_lines.extend(["\t\tSourcePath is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('InternalLibPath'):
+                        pattern_list[p_cnt][c_type]['int_path'] += f_str
+                        debug_lines.extend(["\t\tInternalLibPath is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('IsInternalFile'):
+                        pattern_list[p_cnt][c_type]['is_int'] = n['val']
+                        debug_lines.extend(["\t\tIsInternalFile is {0}".format(f_str)])
+                p_cnt += 1  # increase for next match 
+        elif k['def'].endswith('SCons/Build/Generation'):
+            for n in k['param']:
+                if n['val'] == None:
+                    continue
+                n['val'] = n['val'].replace("/", os.sep)
+                if n['path'].split('/')[-1].startswith('McalGeneratorPath'):
+                    env['MCAL_GEN_HOME'] = n['val']
+                    env.Append(ENV={'PATH': env['ENV']['PATH'] + ';' + os.path.dirname(n['val'])})
+                    debug_lines.extend(["\tMcalGeneratorPath is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('JavaHomePath'):
+                    env['JAVA_HOME'] = os.path.normpath(n['val'].split('\\jre\\')[0])
+                    # JAVA_HOME path = parent folder of jre
+                    env.Append(ENV={'JAVA_HOME': env['JAVA_HOME']})
+                    env.Append(ENV={'PATH': env['ENV']['PATH'] + ';' + os.path.dirname(n['val'])})
+                    debug_lines.extend(["\tJavaHomePath is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('TransformerGeneratorPath'):
+                    env['TRANSFORMER'] = n['val']
+                    debug_lines.extend(["\tTransformerGeneratorPath is {0}".format(n['val'])])
+                elif n['path'].split('/')[-1].startswith('OverrideFolders'):
+                    f_str = [''.join(x.split()) for x in n['val'].split(',') if ''.join(x.split()) != '']
+                    env['OVERRIDE_DIR'].extend(f_str)
+                    debug_lines.extend(["\tOverrideFolders is {0}".format(f_str)])
+                elif n['path'].split('/')[-1].startswith('ExternalGeneratorRootPath'):
+                    env['ENV']['EXTERNAL_GENERATOR_ROOT_PATH'] = n['val']
+                    debug_lines.extend(["\ExternalGeneratorRootPath is {0}".format(n['val'])])
+        elif k['def'].endswith('SCons/Build/Generation/Module'):
+            m_dict, m_name = {}, ''
+            config_list = [n['val'] for n in k['param'] if n['path'].split('/')[-1].startswith('ModuleName')]
+            if config_list != []:
+                if config_list[0] == 'Other':
+                    m_name = k['name']
+                else:
+                    m_name = config_list[0]
+                m_dict = {m_name:{'used':'', 'tar':[], 'tsrc':[], 'src':[], 'inc':[],
+                                  'def':[], 'flag':[{'k':'', 'v':''}],
+                                  'isMcal':'', 'mdt':'', 'mdd':'', 'ar44': bool(int(0)),
+                                  'postfix':'', 'opts':[], 'gen_ext':''}}
+                gen_option_list.append(m_dict)
+                debug_lines.extend(["\tModuleName is {0}".format(m_name)])
+            if m_name != '':
+                for n in k['param']:
+                    if n['val'] == None:
+                        continue
+                    n['val'] = n['val'].replace("/", os.sep)
+                    f_str = [''.join(x.split()) for x in n['val'].split(',') if ''.join(x.split()) != '']
+                    if n['path'].split('/')[-1].startswith('Used') and m_dict:
+                        gen_option_list[-1][m_name]['used'] = bool(int(n['val']))
+                        debug_lines.extend(["\t\tUsed is {0}".format(str(n['val']))])
+                    elif n['path'].split('/')[-1].startswith('AUTOSAR44') and m_dict:
+                        gen_option_list[-1][m_name]['ar44'] = bool(int(n['val']))
+                        debug_lines.extend(["\t\tAUTOSAR44 is {0}".format(str(n['val']))])
+                    elif n['path'].split('/')[-1].startswith('ExpectedFilesList') and m_dict:
+                        gen_option_list[-1][m_name]['tar'] += f_str
+                        debug_lines.extend(["\t\tExpectedFilesList is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('InputFilesList') and m_dict:
+                        gen_option_list[-1][m_name]['src'] += f_str
+                    elif n['path'].split('/')[-1].startswith('TestInputFilesList') and m_dict:
+                        gen_option_list[-1][m_name]['tsrc'] += f_str
+                        debug_lines.extend(["\t\tTestInputFilesList is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('IsMCAL') and m_dict:
+                        gen_option_list[-1][m_name]['isMcal'] = bool(int(n['val']))
+                        debug_lines.extend(["\t\tIsMCAL is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('BswDefines') and m_dict:
+                        gen_option_list[-1][m_name]['def'] += f_str
+                        debug_lines.extend(["\t\tBswDefines is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('BswIncludePath') and m_dict:
+                        gen_option_list[-1][m_name]['inc'] += f_str
+                        debug_lines.extend(["\t\tBswIncludePath is {0}".format(f_str)])
+                    elif n['path'].split('/')[-1].startswith('BswFlags') and m_dict:
+                        for i, f in enumerate(f_str):
+                            gen_option_list[-1][m_name]['flag'][i]['k'] = f.split('=')[0]
+                            if re.search('XSL', f.split('=')[0]):
+                                env['XSL_FBL'] = True
+                            gen_option_list[-1][m_name]['flag'][i]['v'] = f.split('=')[1]
+                            debug_lines.extend(["\t\tBswFlags is {0} = {1}".format(f.split('=')[0], f.split('=')[1])])
+                    elif n['path'].split('/')[-1].startswith('McalDefineTarget') and m_dict:
+                        gen_option_list[-1][m_name]['mdt'] = n['val']
+                        debug_lines.extend(["\t\tMcalDefineTarget is {0}".format(n['val'])])
+                    elif n['path'].split('/')[-1].startswith('McalDefineDerivate') and m_dict:
+                        gen_option_list[-1][m_name]['mdd'] = n['val']
+                        debug_lines.extend(["\t\tMcalDefineDerivate is {0}".format(n['val'])])
+                    elif n['path'].split('/')[-1].startswith('MCAL_GeneratorPostfix') and m_dict:
+                        gen_option_list[-1][m_name]['postfix'] += f_str[0]
+                        debug_lines.extend(["\t\tMCAL_GeneratorPostfix is {0}".format(f_str[0])])
+                    elif n['path'].split('/')[-1].startswith('GeneratorName') and m_dict:
+                        gen_option_list[-1][m_name]['gen_ext'] = n['val']
+                        debug_lines.extend(["\t\tGenerator file name is {0}".format(n['val'])])
+                    elif n['path'].split('/')[-1].startswith('ModuleOptions'):
+                        gen_option_list[-1][m_name]['opts'] = [x for x in n['val'].split('\n') if x != '']
+                        debug_lines.extend(["\t\tModuleOptions is {0}".format(n['val'])])
+           
+    if env['SCONS_LOG_FLAG'] == True and len(debug_lines) > 1:
+        common.print_to_log(env, debug_lines)
+        
+    my_tools = ['release','timestamp']
+    
+    # set generator tools
+    if not any([x for x in env['COMPILE_RULE'] if x.lower().startswith('compile')]):
+        #21544: xsl FBL generation if xsl BswDef is given
+        if fbl_build and env['XSL_FBL']:
+            my_tools.append('autronfbl')
+        else:
+            my_tools.append('autronbsw')
+        
+        # set MCAL generator type and tool 
+        gen_dict = {}
+        if not fbl_build: 
+            if env['MCU_TYPE'].lower().startswith('rh850f1'):
+                env['MCAL_GEN_TYPE'] = 'rh850mcal'
+                my_tools.append('renesasos')
+            elif env['MCU_TYPE'].lower().startswith(('tc','tda','spc58','s32','s6j3','bcm8910','mpc560','cyt2b')):
+                if env['MCU_TYPE'].lower().startswith('bcm8910'):
+                    env['MCAL_GEN_TYPE'] = 'c4kmcal'
+                else:
+                    env['MCAL_GEN_TYPE'] = 'tresosmcal'
+                gen_dict = {'MCALGENERATOR': env['MCAL_GEN_HOME']}
+                if env['MCU_TYPE'].lower().startswith('mpc560'):
+                    my_tools.append('freescaleos')
+            else:
+                print ("Selected MCU type {0} is not supported, Please check your settings".format(env['MCU_TYPE']))
+                sys.exit(-1)
+    
+            my_tools.append((env['MCAL_GEN_TYPE'], gen_dict))
+        
+    # set compiler type and tool
+    compiler_dict = {'CC': env['COMPILER_HOME'], 'AR' : env['ARCHIVER_HOME'], 'LINK' : env['LINKER_HOME']}
+    if env['COMPILER_TYPE'].lower().startswith(('armgcc', 'multiide', 'tasking', 'ti')):
+        my_tools.append((env['COMPILER_TYPE'], compiler_dict))
+    else:
+        print ("CompilerType {0} is not supported, Please check your settings".format(env['COMPILER_TYPE']))
+        sys.exit(-1)
+    
+    # for T32 downloading and testing automation process
+    if env['TRACE32']:  # setup T32 if path is not empty
+        my_tools.append(('trace32', {'TRACE32': env['TRACE32']}))
+    if env['CANOE']:  # setup CANoe if path is not empty
+        my_tools.append('canoe')
+    
+    for tool in [_f for _f in my_tools if _f]:  # Filter out null tools from the list 
+        if isinstance(tool, list) or isinstance(tool, tuple): 
+            toolname = tool[0] 
+            toolargs = tool[1]  # should be a dict of kw args 
+            tool = env.Tool(toolname, toolpath=[os.path.join(env['BUILD_SCRIPT_DIR'], 'site_tools')], **toolargs) 
+        else: 
+            env.Tool(tool, toolpath=[os.path.join(env['BUILD_SCRIPT_DIR'], 'site_tools')]) 
+
+    if fbl_build:
+        env['BSW_OUTPUT_DIR'] = env['FBL_OUTPUT_DIR']
+        env['DEBUG_DIR'] = env['DEBUG_FBL_DIR']
+        env['MCAL_OUTPUT_DIR'] = ''
+    env['LIB_OUTPUT_DIR'] = env['DEBUG_DIR']
+    env['ENTRYPOINT'] = 'Reset_Handler'
+    env['PATTERN_LIST'] = pattern_list
+    env['GENERATION_LIST'] = gen_option_list
+    if env['COMPILER_TYPE'] == 'multiide':
+        env['ENV']['GHS_LMHOST'] = compiler_license['ip']
+        env['ENV']['LICENSE_FILE_DIR'] = compiler_license['file']
+    elif env['COMPILER_TYPE'] == 'tasking':
+        env['ENV']['TSK_LICENSE_SERVER'] = compiler_license['ip']
+        env['ENV']['LM_LICENSE_FILE'] = compiler_license['file']
+        env['ENV']['TSK_LICENSE_KEY'] = compiler_license['key']
+    if fbl_build:
+        env['PROJECT'] = env['PROJECT'] + '_FBL'
+    
+    init_build, generated, pre_build, binary, post_build = None, None, None, None, None
+    export_list = ['env', 'init_build', 'generated', 'pre_build', 'binary', 'post_build']
+    
+    initSCript = os.path.join(env['CONFIG_SCRIPT_DIR'], 'init_build.py')
+    if os.path.exists(initSCript):
+        init_build = SConscript(initSCript, exports=export_list)
+
+    if not any([c for c in env['COMPILE_RULE'] if c.lower().startswith(('compile', 'release', 'debug'))]):
+        yml_path = os.path.join('Build\\','input_files.yml')
+        if os.path.exists(yml_path):
+            os.remove(yml_path)
+        generateScript = os.path.join(env['BUILD_SCRIPT_DIR'], 'generate.py')
+        generated = SConscript(generateScript, exports=export_list)
+        export_list.append('generated')
+    
+    postGenerateSCript = os.path.join(env['CONFIG_SCRIPT_DIR'], 'pre_build.py')
+    if os.path.exists(postGenerateSCript):
+        pre_build = SConscript(postGenerateSCript, exports=export_list)
+        
+    if not any([c for c in env['COMPILE_RULE'] if c.lower().startswith(('generate'))]):
+        if os.path.isfile(cproject_file) and env['CPROJECT_SYNC'] == True:
+            # update .cproject from configuration before compile rule
+            common.update_cproject(env, cproject_file)
+            
+        compileScript = os.path.join(env['BUILD_SCRIPT_DIR'], 'compile.py')
+        binary = SConscript(compileScript, exports=export_list)
+    
+        postCompileSCript = os.path.join(env['CONFIG_SCRIPT_DIR'], 'post_build.py')
+        if os.path.exists(postCompileSCript):
+            post_build = SConscript(postCompileSCript, exports=export_list)
+        #22140: post build command
+        def _do_post_cmd_action(target, source, env):
+            for cmd in env['POST_BUILD_CMD']:
+                for p in Popen(cmd, shell=True, stdout=PIPE).stdout.readlines():
+                    print(p)
+        if not env['POST_BUILD_CMD'] == []:
+            post_cmd = env.Command(
+                action=Action(_do_post_cmd_action, lambda *x: 'Executing post user command'),
+                target=[os.path.join(env.Dir('#').abspath, env['DEBUG_DIR'], 'post_command')],
+                source=[binary]
+            )
+            env.Depends(post_cmd, binary)
+            env.Alias('Build',post_cmd)
+            env.Alias('Compile',post_cmd)
+    # execute only when 'release' or 'debug' in env['COMPILE_RULE']
+    if any([c for c in env['COMPILE_RULE'] if c.lower().startswith(('release', 'debug'))]):
+        if any([c for c in env['COMPILE_RULE'] if c.lower().startswith('debug')]):
+            env['RELEASE_DIR'] = env['RELEASE_DIR'] + '_Debug'
+        (target, source) = cdt.CdtProject().get_release_targets(env)  # get all files for release
+        rel = env.InstallAs(target, source)  # copy all files into RELEASE_DIR
+        if not env['LIBRARY_FILE'] == '':
+            rel += env.InstallAs(
+                os.path.join(env['RELEASE_DIR'], env['LIB_INSTALL_DIR'], os.path.basename(env['LIBRARY_FILE'])),
+                env['LIBRARY_FILE'])  # copy library file into RELEASE_DIR
+        release = env.Default(rel)
+        if fbl_build:
+            fbl_str = 'FBL'
+            env['PROJECT_FILES'] += ['SCons_FBL.arxml']
+        else:
+            fbl_str = ''
+            env['PROJECT_FILES'] += ['SCons.arxml']
+        re = env.Release(target=[], source=env['PROJECT_FILES'])  # change PROJECT_FILES in RELEASE_DIR
+        env.Alias('Debug' + fbl_str, re + rel)
+        env.Clean('Debug' + fbl_str, env['RELEASE_DIR'])
+        env.Alias('Release' + fbl_str, re + rel)
+        env.Clean('Release' + fbl_str, env['RELEASE_DIR'])
+
+except Exception as e:
+    try:
+        err_msg = "{0}: Error in line {1}, {2} ".format(e.filename, e.lineno, e.msg)
+    except:
+        err_msg = e.message
+        pass 
+    print ("Please check your settings", e, err_msg)
+    sys.exit(-1)
+    
+    

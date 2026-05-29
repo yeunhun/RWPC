@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-1-1.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <ELEMENTS>
+        <COMPOSITION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>CSWC_RootComposition</SHORT-NAME>
+          <COMPONENTS>
+            <SW-COMPONENT-PROTOTYPE UUID="dcada3dd-6104-4a5c-9f7b-1e8e6967579a">
+              <SHORT-NAME>SWC_DiagnosticService</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="06e99a56-28b5-4da6-9eb5-15ba56322e70">
+              <SHORT-NAME>SWC_WdgMTest</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/App_WdgM/SWC_WdgMTest</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="eee44075-025e-4054-8e50-79e9ad837623">
+              <SHORT-NAME>SWC_DiagnosticMonitor</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="4afc0b85-714e-4717-ba64-a2fcefa6756a">
+              <SHORT-NAME>SWC_AppMode</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="20e84cdb-9761-4477-9b0b-9ef0a780ded6">
+              <SHORT-NAME>SWC_NvM</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/app_nvm/SWC_NvM</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="6dbaa5fb-e2c7-4334-836a-064f05a39a13">
+              <SHORT-NAME>SWC_Input</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/app_io/SWC_Input</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="05f9e177-029e-42e9-b7eb-41f53f0bd1c6">
+              <SHORT-NAME>SWC_Output</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/app_io/SWC_Output</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="4eaacaba-962b-42a6-a57a-a9280cd30c8c">
+              <SHORT-NAME>SWC_Task</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/app_task/SWC_Task</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="6f684564-a5a1-4cd5-91a2-914de95d84c3">
+              <SHORT-NAME>CDD_NFCIC</SHORT-NAME>
+              <TYPE-TREF DEST="COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE">/cdd_nfcic/CDD_NFCIC</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="ab75cf06-0a50-4c84-a35e-e188c92ab814">
+              <SHORT-NAME>SWC_WPC_Process</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/app_io/SWC_WPC_Process</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="bd7ddfae-ff49-49d8-a842-758b4df9a419">
+              <SHORT-NAME>CDD_SLPWUP</SHORT-NAME>
+              <TYPE-TREF DEST="COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE">/cdd_slpwup/CDD_SLPWUP</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="5bf98b5a-c24e-45de-98c0-ae834aa5a9d5">
+              <SHORT-NAME>CDD_WPCIC</SHORT-NAME>
+              <TYPE-TREF DEST="COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE">/cdd_wpcic/CDD_WPCIC</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="e63450ed-b246-421c-b4d3-816703808ac7">
+              <SHORT-NAME>SWC_P9450Update_Process</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/app_io/SWC_P9450Update_Process</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="e5e133b9-ee7f-4e03-b11a-b54e0d46f758">
+              <SHORT-NAME>CDD_UDS</SHORT-NAME>
+              <TYPE-TREF DEST="COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE">/cdd_uds/CDD_UDS</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+          </COMPONENTS>
+          <CONNECTORS>
+            <ASSEMBLY-SW-CONNECTOR UUID="ccc709c3-87a1-4dc8-ab4a-5f12831b4357">
+              <SHORT-NAME>P_BCANBusStateOfSWC_AppModeToR_BCANBusStateOfSWC_Input</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_BCANBusState</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Input</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_Input/R_BCANBusState</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="bfcc3188-0476-4954-acb8-1d4f8285302a">
+              <SHORT-NAME>P_LCANBusStateOfSWC_AppModeToR_LCANBusStateOfSWC_Input</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_LCANBusState</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Input</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_Input/R_LCANBusState</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="f50500f5-2dfd-4c23-92fa-e2a68703eb44">
+              <SHORT-NAME>P_RE_Input_10msOfSWC_TaskToR_RE_Input_10msOfSWC_Input</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Task</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_task/SWC_Task/P_RE_Input_10ms</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Input</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_Input/R_RE_Input_10ms</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="ad2704df-abcd-4baf-aa0e-e4ecda956756">
+              <SHORT-NAME>P_RE_Output_10msOfSWC_TaskToR_RE_Output_10msOfSWC_Output</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Task</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_task/SWC_Task/P_RE_Output_10ms</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Output</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_Output/R_RE_Output_10ms</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="300817f3-11e3-4e6c-b8ee-36fa0c20917c">
+              <SHORT-NAME>P_RE_P9450_Update_5msOfSWC_TaskToR_RE_P9450_Update_Process_5msOfSWC_P9450Update_Process</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Task</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_task/SWC_Task/P_RE_P9450_Update_5ms</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_P9450Update_Process</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_P9450Update_Process/R_RE_P9450_Update_Process_5ms</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="c5f88ada-cb80-40a7-bd5d-6ae0edaaed07">
+              <SHORT-NAME>P_RE_WPC_Process_10msOfSWC_TaskToR_RE_WPC_Process_10msOfSWC_WPC_Process</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Task</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_task/SWC_Task/P_RE_WPC_Process_10ms</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_WPC_Process</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_WPC_Process/R_RE_WPC_Process_10ms</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="628e7673-b006-4811-b39b-046f2caf5430">
+              <SHORT-NAME>P_Slpwup_ComMNoti_BCANOfSWC_AppModeToR_Slpwup_ComMNoti_BCANOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_ComMNoti_BCAN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_ComMNoti_BCAN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="910faa33-f664-4880-a3b6-34fdd5b2ca81">
+              <SHORT-NAME>P_Slpwup_ComMNoti_LCANOfSWC_AppModeToR_Slpwup_ComMNoti_LCANOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_ComMNoti_LCAN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_ComMNoti_LCAN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="7f4bdb2e-b323-4193-942c-b2370d0d5521">
+              <SHORT-NAME>P_Slpwup_EcuM_StateRequestOfSWC_AppModeToR_Slpwup_EcuM_StateRequestOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_EcuM_StateRequest</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_EcuM_StateRequest</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="3cd2546e-7536-4f6e-8c4b-852fd546cacc">
+              <SHORT-NAME>P_Slpwup_EcuModeOfSWC_AppModeToR_Slpwup_EcuModeOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_EcuMode</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_EcuMode</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="58485156-ae58-4935-8c91-74c17c7cee5a">
+              <SHORT-NAME>P_Slpwup_FullComM_BCANOfSWC_AppModeToR_Slpwup_FullComM_BCANOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_FullComM_BCAN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_FullComM_BCAN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="40eb8061-34af-4bf8-b97e-ef362de2bab6">
+              <SHORT-NAME>P_Slpwup_FullComM_LCANOfSWC_AppModeToR_Slpwup_FullComM_LCANOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_FullComM_LCAN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_FullComM_LCAN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="a21d51fc-55c2-475e-afce-dadca5be452d">
+              <SHORT-NAME>P_Slpwup_NvMJobFinishedOfSWC_NvMToR_Slpwup_NvMJobFinishedOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_NvM</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_nvm/SWC_NvM/P_Slpwup_NvMJobFinished</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_NvMJobFinished</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="337fe803-49bc-45a8-bf56-1fb1b0f7d2f8">
+              <SHORT-NAME>P_Slpwup_RequestMode_BCANOfSWC_AppModeToR_Slpwup_RequestMode_BCANOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_RequestMode_BCAN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_RequestMode_BCAN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="deb3a7b7-8700-4bfa-8b69-3e3741089cf5">
+              <SHORT-NAME>P_Slpwup_RequestMode_LCANOfSWC_AppModeToR_Slpwup_RequestMode_LCANOfCDD_SLPWUP</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_AppMode</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppMode/ApplicationSwComponentTypes/SWC_AppMode/P_Slpwup_RequestMode_LCAN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/CDD_SLPWUP</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_slpwup/CDD_SLPWUP/R_Slpwup_RequestMode_LCAN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="e34496a7-c418-4db7-bda3-430145edd0d6">
+              <SHORT-NAME>Trg_interface_5ms_NP3OfSWC_TaskToR_Trg_Interface_5ms_NP3OfSWC_WPC_Process</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Task</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_task/SWC_Task/Trg_interface_5ms_NP3</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_WPC_Process</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/app_io/SWC_WPC_Process/R_Trg_Interface_5ms_NP3</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="475393c6-491b-450c-9bdb-804adbf46ec7">
+              <SHORT-NAME>P_Start_WPCDiagStateOfSWC_OutputToR_Start_WPCDiagStateOfSWC_DiagnosticService</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_Output</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/app_io/SWC_Output/P_Start_WPCDiagState</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/AUTOSAR/CSWC_RootComposition/SWC_DiagnosticService</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dcm/SwComponentType/SWC_DiagnosticService/R_Start_WPCDiagState</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+          </CONNECTORS>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

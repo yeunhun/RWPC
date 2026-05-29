@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="4ee50668-c528-4c36-adcb-6bd41ff8770b">
+      <SHORT-NAME>Svc_CanTp</SHORT-NAME>
+      <ELEMENTS>
+        <IMPLEMENTATION-DATA-TYPE>
+          <SHORT-NAME>CanTp_PduIdType</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE>
+          <SHORT-NAME>CanTp_TPParameterType</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/Svc_CanTp/CompuMethod_TPParameterType</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>CanTp_ChangeParameter</SHORT-NAME>
+          <IS-SERVICE>true</IS-SERVICE>
+          <SERVICE-KIND>ANY-STANDARDIZED</SERVICE-KIND>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <SHORT-NAME>ChangeParameter</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE>
+                  <SHORT-NAME>id</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/Svc_CanTp/CanTp_PduIdType</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="0cf00e3a-ff92-4e36-a9fc-f39ebf4440bc">
+                  <SHORT-NAME>parameter</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/Svc_CanTp/CanTp_TPParameterType</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="0bea24f8-09fc-47ba-b7c6-9785d1fcc929">
+                  <SHORT-NAME>value</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint16</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+              <POSSIBLE-ERROR-REFS>
+                <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/Svc_CanTp/CanTp_ChangeParameter/E_NOT_OK</POSSIBLE-ERROR-REF>
+              </POSSIBLE-ERROR-REFS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+          <POSSIBLE-ERRORS>
+            <APPLICATION-ERROR>
+              <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+              <ERROR-CODE>1</ERROR-CODE>
+            </APPLICATION-ERROR>
+          </POSSIBLE-ERRORS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>CanTp_ReadParameter</SHORT-NAME>
+          <IS-SERVICE>true</IS-SERVICE>
+          <SERVICE-KIND>ANY-STANDARDIZED</SERVICE-KIND>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <SHORT-NAME>ReadParameter</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="c776ffa0-82c0-4395-9609-0dbfecb093b9">
+                  <SHORT-NAME>id</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/Svc_CanTp/CanTp_PduIdType</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="1e0a4b25-b6b8-4349-bbfc-cb08352574a5">
+                  <SHORT-NAME>parameter</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/Svc_CanTp/CanTp_TPParameterType</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="4df1dc55-a3fe-4e7c-a0d9-fc637e64a229">
+                  <SHORT-NAME>value</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint16</TYPE-TREF>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+              <POSSIBLE-ERROR-REFS>
+                <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/Svc_CanTp/CanTp_ReadParameter/E_NOT_OK</POSSIBLE-ERROR-REF>
+              </POSSIBLE-ERROR-REFS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+          <POSSIBLE-ERRORS>
+            <APPLICATION-ERROR>
+              <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+              <ERROR-CODE>1</ERROR-CODE>
+            </APPLICATION-ERROR>
+          </POSSIBLE-ERRORS>
+        </CLIENT-SERVER-INTERFACE>
+        <SERVICE-SW-COMPONENT-TYPE>
+          <SHORT-NAME>CanTp</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>ChangeParameter</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Svc_CanTp/CanTp_ChangeParameter/ChangeParameter</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Svc_CanTp/CanTp_ChangeParameter</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>ReadParameter</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Svc_CanTp/CanTp_ReadParameter/ReadParameter</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Svc_CanTp/CanTp_ReadParameter</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>SwcIB_CanTp</SHORT-NAME>
+              <EVENTS>
+                <OPERATION-INVOKED-EVENT>
+                  <SHORT-NAME>OIE_ChangeParameter</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Svc_CanTp/CanTp/SwcIB_CanTp/ChangeParameter</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/Svc_CanTp/CanTp/ChangeParameter</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Svc_CanTp/CanTp_ChangeParameter/ChangeParameter</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="c42766c3-759f-4fcc-b844-06c99ed0df27">
+                  <SHORT-NAME>OIE_ReadParameter</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Svc_CanTp/CanTp/SwcIB_CanTp/ReadParameter</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/Svc_CanTp/CanTp/ReadParameter</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Svc_CanTp/CanTp_ReadParameter/ReadParameter</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>ChangeParameter</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <ARGUMENTS>
+                    <RUNNABLE-ENTITY-ARGUMENT>
+                      <SYMBOL>id</SYMBOL>
+                    </RUNNABLE-ENTITY-ARGUMENT>
+                    <RUNNABLE-ENTITY-ARGUMENT>
+                      <SYMBOL>parameter</SYMBOL>
+                    </RUNNABLE-ENTITY-ARGUMENT>
+                    <RUNNABLE-ENTITY-ARGUMENT>
+                      <SYMBOL>value</SYMBOL>
+                    </RUNNABLE-ENTITY-ARGUMENT>
+                  </ARGUMENTS>
+                  <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>CanTp_ChangeParameter</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="fca2f90d-fb84-480b-ad58-29baf9ddded9">
+                  <SHORT-NAME>ReadParameter</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <ARGUMENTS>
+                    <RUNNABLE-ENTITY-ARGUMENT>
+                      <SYMBOL>id</SYMBOL>
+                    </RUNNABLE-ENTITY-ARGUMENT>
+                    <RUNNABLE-ENTITY-ARGUMENT>
+                      <SYMBOL>parameter</SYMBOL>
+                    </RUNNABLE-ENTITY-ARGUMENT>
+                    <RUNNABLE-ENTITY-ARGUMENT>
+                      <SYMBOL>value</SYMBOL>
+                    </RUNNABLE-ENTITY-ARGUMENT>
+                  </ARGUMENTS>
+                  <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>CanTp_ReadParameter</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </SERVICE-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>SwcImplementation_Cantp</SHORT-NAME>
+          <SWC-BSW-MAPPING-REF DEST="SWC-BSW-MAPPING">/Bsw_CanTp/SwcBswMapping_CanTp</SWC-BSW-MAPPING-REF>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/Svc_CanTp/CanTp/SwcIB_CanTp</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <COMPU-METHOD UUID="ac9a27a9-1fbc-4fde-a288-4b16d226c8c5">
+          <SHORT-NAME>CompuMethod_TPParameterType</SHORT-NAME>
+          <CATEGORY>SCALE_LINEAR_AND_TEXTTABLE</CATEGORY>
+          <COMPU-INTERNAL-TO-PHYS>
+            <COMPU-SCALES>
+              <COMPU-SCALE>
+                <SHORT-LABEL>TP_BS</SHORT-LABEL>
+                <SYMBOL>TP_BS</SYMBOL>
+                <LOWER-LIMIT>1</LOWER-LIMIT>
+                <UPPER-LIMIT>1</UPPER-LIMIT>
+                <COMPU-INVERSE-VALUE>
+                  <VT>TP_BS</VT>
+                </COMPU-INVERSE-VALUE>
+              </COMPU-SCALE>
+              <COMPU-SCALE>
+                <SHORT-LABEL>TP_STMIN</SHORT-LABEL>
+                <SYMBOL>TP_STMIN</SYMBOL>
+                <LOWER-LIMIT>0</LOWER-LIMIT>
+                <UPPER-LIMIT>0</UPPER-LIMIT>
+                <COMPU-INVERSE-VALUE>
+                  <VT>TP_STMIN</VT>
+                </COMPU-INVERSE-VALUE>
+              </COMPU-SCALE>
+            </COMPU-SCALES>
+          </COMPU-INTERNAL-TO-PHYS>
+        </COMPU-METHOD>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

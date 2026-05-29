@@ -1,0 +1,3436 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: UWB_RL UWB_RR UWB_INT DHR DHL UWB_BLE BDC UWB_FL ROA WPC Devtool UWB_TRNK UWB_FR
+
+
+BO_ 16 WPC_01: 8 WPC
+ SG_ C_WPC_NFCDetection : 7|2@0+ (1,0) [0|2] ""  BDC,Devtool
+ SG_ C_WPC_NFCReset : 3|1@0+ (1,0) [0|0] ""  BDC
+
+BO_ 17 BDC_01: 8 BDC
+ SG_ C_WlightOnCmd : 7|2@0+ (1,0) [0|3] ""  DHL,DHR
+ SG_ C_WPCNFCcmd : 5|3@0+ (1,0) [0|7] ""  WPC
+ SG_ C_DRNFCcmd : 2|3@0+ (1,0) [0|7] ""  DHL,DHR
+ SG_ C_BDCWPCNFCCmd : 15|2@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCDHLNFCCmd : 13|2@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHRNFCCmd : 11|2@0+ (1,0) [0|0] ""  DHR
+ SG_ C_DRV_DRHdlLedOnSta : 63|2@0+ (1,0) [0|0] ""  DHL
+ SG_ C_AST_DRHdlLedOnSta : 61|2@0+ (1,0) [0|0] ""  DHR
+
+BO_ 18 BDC_02: 8 BDC
+ SG_ C_DK_IDSet : 7|4@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_DK_IDDel : 3|4@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_OwnerDeviceSearchingReq : 15|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_TimeSync_REQ : 23|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BLE_Connection_CMD : 31|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDC_DecryptFB1 : 63|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDC_DecryptFB2 : 61|2@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 19 BDC_03: 8 BDC
+ SG_ C_BDCLocalRN_Target : 7|4@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_BDCLocalRN_TRCode : 3|4@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_BDCLocalRN_CMD : 15|4@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_BDCLocalRndNum : 23|48@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 20 BDC_04: 8 BDC
+ SG_ C_UWB_Ranging_CMD : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 21 BDC_05: 8 BDC
+ SG_ C_Warn_DrvDrSwSta : 7|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Warn_AsstDrSwSta : 5|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Warn_RrLftDrSwSta : 3|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Warn_RrRtDrSwSta : 1|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Trunk_TrnkTlgtSwSta : 15|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_SMK_TrmnlMngrSta : 13|5@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_SunRoofOptionSta : 23|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Window_DrvrSdWdwSta_BCM : 21|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Window_AsstSdWdwSta_BCM : 19|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Window_RrLftWdwSta_BCM : 17|2@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_Window_RrRtWdwSta_BCM : 31|2@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 31 BDC_20: 8 BDC
+ SG_ BDCToBLEEncryptData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 32 DHL_01: 8 DHL
+ SG_ C_DHLNFCDetected : 5|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHLWlightStatus : 4|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHL_NFCReset : 3|1@0+ (1,0) [0|0] ""  BDC
+
+BO_ 33 BDC_21: 8 BDC
+ SG_ BDCToBLEEncryptData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 34 BDC_22: 8 BDC
+ SG_ BDCToBLEEncryptData3 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 35 BDC_23: 8 BDC
+ SG_ BDCToBLEEncryptData4 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 36 BDC_24: 8 BDC
+ SG_ BDCToBLEEncryptData5 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 37 BDC_25: 8 BDC
+ SG_ BDCToBLEEncryptData6 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 38 BDC_26: 8 BDC
+ SG_ BDCToUWBEncryptData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 39 BDC_27: 8 BDC
+ SG_ BDCToUWBEncryptData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 40 BDC_28: 8 BDC
+ SG_ BDCToUWBEncryptData3 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 41 BDC_29: 8 BDC
+ SG_ BDCToUWBEncryptData4 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 47 BDC_30: 8 BDC
+ SG_ BDCToUWBEncryptData5 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 48 DHR_01: 8 DHR
+ SG_ C_DHRNFCDetected : 5|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHRWlightStatus : 4|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHR_NFCReset : 3|1@0+ (1,0) [0|0] ""  BDC
+
+BO_ 49 BDC_31: 8 BDC
+ SG_ BDCToUWBEncryptData6 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 96 BLE_1: 8 UWB_BLE
+ SG_ C_BLENewDevicePairingResult : 23|2@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLE_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC
+
+BO_ 111 BLE_20: 8 UWB_BLE
+ SG_ BLEToBDCEncryptData1 : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 112 BLE_2: 8 UWB_BLE
+ SG_ C_Time_Sync1 : 7|64@0+ (1,0) [0|0] ""  BDC,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 113 BLE_21: 8 UWB_BLE
+ SG_ BLEToBDCEncryptData2 : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 114 BLE_22: 8 UWB_BLE
+ SG_ BLEToBDCEncryptData3 : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 115 BLE_23: 8 UWB_BLE
+ SG_ BLEToBDCEncryptData4 : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 116 BLE_24: 8 UWB_BLE
+ SG_ BLEToBDCEncryptData5 : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 117 BLE_25: 8 UWB_BLE
+ SG_ BLEToBDCEncryptData6 : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 128 BLE_3: 8 UWB_BLE
+ SG_ C_Time_Sync2 : 7|64@0+ (1,0) [0|0] ""  BDC,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 203 ROA_01: 8 ROA
+ SG_ Radar_ROA_Part_NO1 : 7|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Part_NO2 : 3|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Part_NO3 : 15|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_Part_NO4 : 23|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_Part_NO5 : 31|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Part_NO6 : 27|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Part_NO7 : 39|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_HW_Ver_Major : 47|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_HW_Ver_Minor1 : 55|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_HW_Ver_Minor2 : 63|8@0+ (1,0) [0|255] ""  BDC
+
+BO_ 204 ROA_02: 8 ROA
+ SG_ Radar_ROA_Date_YY : 7|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_Date_MM : 15|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_Date_DD : 23|8@0+ (1,0) [0|255] ""  BDC
+ SG_ Radar_ROA_Serial_NO1 : 31|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO2 : 27|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO3 : 39|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO4 : 35|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO5 : 47|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO6 : 43|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO7 : 55|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO8 : 51|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO9 : 63|4@0+ (1,0) [0|15] ""  BDC
+ SG_ Radar_ROA_Serial_NO10 : 59|4@0+ (1,0) [0|15] ""  BDC
+
+BO_ 209 UWB_MASTER_01: 8 UWB_BLE
+ SG_ C_UWB_MASTER_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC
+
+BO_ 210 UWB_MASTER_04: 8 UWB_BLE
+ SG_ C_UWB_MASTER_To_BDCFOBRSDResul : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 211 UWB_MASTER_05: 8 UWB_BLE
+ SG_ C_UWB_MCU_OTA_Cmd : 7|4@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 212 UWB_MASTER_06: 8 UWB_BLE
+ SG_ C_UWB_IC_OTA_Cmd : 15|4@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 213 UWB_MASTER_07: 8 UWB_BLE
+ SG_ C_UWB_MCU_Download_Data : 7|64@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 214 UWB_MASTER_08: 8 UWB_BLE
+ SG_ C_UWB_IC_Download_Data : 7|64@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 224 UWB_INT_01: 8 UWB_INT
+ SG_ C_UWB_INT_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 225 UWB_INT_04: 8 UWB_INT
+ SG_ C_UWB_INT_To_BDCFOBRSDResult : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 226 UWB_INT_05: 8 UWB_INT
+ SG_ C_UWB_INT_MCU_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_INT_MCU_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_INT_MCU_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 227 UWB_INT_06: 8 UWB_INT
+ SG_ C_UWB_INT_IC_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_INT_IC_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_INT_IC_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 234 UWB_INT_02: 8 UWB_INT
+ SG_ C_UWB_INT_To_MasterEncData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 235 UWB_INT_03: 8 UWB_INT
+ SG_ C_UWB_INT_To_MasterEncData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 256 BDC_10: 8 BDC
+ SG_ C_BDC_Status : 7|3@0+ (1,0) [0|7] ""  DHL,DHR,UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK,WPC
+ SG_ C_DigitalKey_Enable : 4|2@0+ (1,0) [0|3] ""  DHL,DHR,UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_DeviceOnWPC : 2|2@0+ (1,0) [0|0] ""  Devtool,WPC
+ SG_ C_FobFoundWlcmArea : 15|2@0+ (1,0) [0|3] ""  DHL,DHR
+ SG_ C_PuddleLpOnReq : 13|2@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ C_OwnerKey_Reg_Status : 23|2@0+ (1,0) [0|0] ""  DHL,DHR,UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_SharedKey_Reg_Status : 21|2@0+ (1,0) [0|0] ""  DHL,DHR,UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_CardKey_Enable : 19|2@0+ (1,0) [0|3] ""  DHL,DHR
+
+BO_ 257 BDC_11: 8 BDC
+ SG_ Radar_ROA_SnsrRunReq : 7|3@0+ (1,0) [0|7] ""  ROA
+ SG_ Radar_ROA_DiaReq : 4|3@0+ (1,0) [0|7] ""  ROA
+
+BO_ 272 WPC_10: 8 WPC
+ SG_ C_WPC_Status : 7|3@0+ (1,0) [0|7] ""  BDC,Devtool
+ SG_ C_WPCNFC_Option : 15|2@0+ (1,0) [0|3] ""  BDC
+
+BO_ 277 BLE_11: 8 UWB_BLE
+ SG_ C_ConnectedDeviceInfo : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BTAddIRK_Update : 15|16@0+ (1,0) [0|0] ""  BDC
+ SG_ C_ADV_State : 31|1@0+ (1,0) [0|0] ""  BDC
+ SG_ C_NewDeviceConnetStatus : 29|2@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLE_Option : 27|4@0+ (1,0) [0|0] ""  BDC
+
+BO_ 288 DHL_10: 8 DHL
+ SG_ C_DHL_Status : 7|3@0+ (1,0) [0|7] ""  BDC
+ SG_ C_DHLToggleDetected : 4|1@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLUnlockDetected : 3|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHLLockDetected : 2|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHLPhnDetected : 1|2@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLDiagnostics : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHL_RainState : 23|1@0+ (1,0) [0|0] ""  BDC
+
+BO_ 304 DHR_10: 8 DHR
+ SG_ C_DHR_Status : 7|3@0+ (1,0) [0|7] ""  BDC
+ SG_ C_DHRToggleDetected : 4|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHRUnlockDetected : 3|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHRLockDetected : 2|1@0+ (1,0) [0|1] ""  BDC
+ SG_ C_DHRPhnDetected : 1|2@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRDiagnostics : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHR_RainState : 23|1@0+ (1,0) [0|1] ""  BDC
+
+BO_ 320 BLE_10: 8 UWB_BLE
+ SG_ C_BLE_RSSI1 : 7|16@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLE_RSSI2 : 23|16@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLE_RSSI3 : 39|16@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLE_RSSI4 : 55|16@0+ (1,0) [0|0] ""  BDC
+
+BO_ 357 ROA_10: 8 ROA
+ SG_ Radar_ROA_SW_Ver_Major : 7|7@0+ (1,0) [0|127] ""  BDC
+ SG_ Radar_ROA_SW_Ver_Minor1 : 15|7@0+ (1,0) [0|127] ""  BDC
+ SG_ Radar_ROA_SW_Ver_Minor2 : 23|7@0+ (1,0) [0|127] ""  BDC
+ SG_ Radar_ROA_ClassStat : 31|3@0+ (1,0) [0|7] ""  BDC
+ SG_ Radar_ROA_SnSrStat : 28|3@0+ (1,0) [0|7] ""  BDC
+ SG_ Radar_ROA_DetInfo : 39|3@0+ (1,0) [0|7] ""  BDC
+ SG_ Radar_ROA_SnSrBlckgeErrStat : 35|2@0+ (1,0) [0|3] ""  BDC
+ SG_ Radar_ROA_SnSrErrStat : 33|2@0+ (1,0) [0|3] ""  BDC
+
+BO_ 368 UWB_FR_10: 8 UWB_FR
+ SG_ C_UWB_FR_Status1 : 7|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FR_DTC : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FR_Option : 59|2@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 369 UWB_FR_11: 8 UWB_FR
+ SG_ C_UWB_FR_HW_Ver_Major : 7|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FR_HW_Ver_Minor : 15|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FR_SW_Unit4_Ver_Major : 23|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FR_SW_Unit4_Ver_Minor : 31|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FR_SW_Unit5_Ver_Major : 39|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FR_SW_Unit5_Ver_Minor : 47|8@0+ (1,0) [0|7] ""  UWB_BLE
+
+BO_ 370 UWB_FL_02: 8 UWB_FL
+ SG_ C_UWB_FL_To_MaseterEncData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 371 UWB_FL_03: 8 UWB_FL
+ SG_ C_UWB_FL_To_MasterEncData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 372 UWB_FL_04: 8 UWB_FL
+ SG_ C_UWB_FL_To_BDCFOBRSDResult : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 373 UWB_FL_05: 8 UWB_FL
+ SG_ C_UWB_FL_MCU_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FL_MCU_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FL_MCU_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 374 UWB_FL_06: 8 UWB_FL
+ SG_ C_UWB_FL_IC_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FL_IC_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FL_IC_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 375 UWB_FL_01: 8 UWB_FL
+ SG_ C_UWB_FL_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 376 UWB_FL_10: 8 UWB_FL
+ SG_ C_UWB_FL_Status1 : 7|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_FL_DTC : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FL_Option : 59|2@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 377 UWB_FL_11: 8 UWB_FL
+ SG_ C_UWB_FL_HW_Ver_Major : 7|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FL_HW_Ver_Minor : 15|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FL_SW_Unit4_Ver_Major : 23|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FL_SW_Unit4_Ver_Minor : 31|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FL_SW_Unit5_Ver_Major : 39|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_FL_SW_Unit5_Ver_Minor : 47|8@0+ (1,0) [0|7] ""  UWB_BLE
+
+BO_ 384 UWB_INT_10: 8 UWB_INT
+ SG_ C_UWB_INT_Status1 : 7|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_INT_DTC : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_INT_Option : 59|2@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 385 UWB_INT_11: 8 UWB_INT
+ SG_ C_UWB_INT_HW_Ver_Major : 7|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_INT_HW_Ver_Minor : 15|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_INT_SW_Unit4_Ver_Major : 23|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_INT_SW_Unit4_Ver_Minor : 31|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_INT_SW_Unit5_Ver_Major : 39|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_INT_SW_Unit5_Ver_Minor : 47|8@0+ (1,0) [0|7] ""  UWB_BLE
+
+BO_ 386 UWB_FR_02: 8 UWB_FR
+ SG_ C_UWB_FR_To_MasterEncData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 387 UWB_FR_01: 8 UWB_FR
+ SG_ C_UWB_FR_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 388 UWB_FR_04: 8 UWB_FR
+ SG_ C_UWB_FR_To_BDCFOBRSDResult : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 389 UWB_FR_05: 8 UWB_FR
+ SG_ C_UWB_FR_MCU_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FR_MCU_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FR_MCU_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 390 UWB_FR_06: 8 UWB_FR
+ SG_ C_UWB_FR_IC_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FR_IC_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_FR_IC_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 391 UWB_FR_03: 8 UWB_FR
+ SG_ C_UWB_FR_To_MasterEncData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 392 UWB_MASTER_10: 8 UWB_BLE
+ SG_ C_UWB_MASTER_Status1 : 7|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC
+ SG_ C_UWB_MASTER_Option : 59|2@0+ (1,0) [0|0] ""  BDC
+
+BO_ 393 UWB_MASTER_11: 8 UWB_BLE
+ SG_ C_UWB_Master_DK_ConnStat : 7|2@0+ (1,0) [0|0] ""  BDC
+ SG_ C_UWB_Mst_DK_LocalizationStat : 5|2@0+ (1,0) [0|0] ""  BDC
+
+BO_ 394 UWB_MASTER_12: 8 UWB_BLE
+ SG_ C_UWB_Mst_EncryptedResult1Val : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 395 UWB_MASTER_13: 8 UWB_BLE
+ SG_ C_UWB_Mst_EncryptedResult2Val : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 396 UWB_MASTER_14: 8 UWB_BLE
+ SG_ C_UWB_Master2BDC_RndNum : 15|48@0+ (1,0) [0|0] ""  BDC
+
+BO_ 397 UWB_MASTER_15: 8 UWB_BLE
+ SG_ C_UWB_Master_LocalRN_Target : 7|4@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_UWB_Master_LocalRN_TRCode : 3|4@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_UWB_Master_LocalRN_CMD : 15|4@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ C_UWB_Master_LocalRndNum : 23|48@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 398 UWB_MASTER_16: 8 UWB_BLE
+ SG_ UWB_Master_ToUWBEncryptData1 : 7|64@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 399 UWB_MASTER_17: 8 UWB_BLE
+ SG_ UWB_Master_ToUWBEncryptData2 : 7|64@0+ (1,0) [0|0] ""  UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 400 UWB_RL_10: 8 UWB_RL
+ SG_ C_UWB_RL_Status1 : 7|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RL_DTC : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RL_Option : 59|2@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 401 UWB_RL_11: 8 UWB_RL
+ SG_ C_UWB_RL_HW_Ver_Major : 7|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RL_HW_Ver_Minor : 15|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RL_SW_Unit4_Ver_Major : 23|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RL_SW_Unit4_Ver_Minor : 31|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RL_SW_Unit5_Ver_Major : 39|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RL_SW_Unit5_Ver_Minor : 47|8@0+ (1,0) [0|7] ""  UWB_BLE
+
+BO_ 405 UWB_RR_10: 8 UWB_RR
+ SG_ C_UWB_RR_Status1 : 7|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_RR_DTC : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RR_Option : 59|2@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 406 UWB_RR_11: 8 UWB_RR
+ SG_ C_UWB_RR_HW_Ver_Major : 7|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RR_HW_Ver_Minor : 15|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RR_SW_Unit4_Ver_Major : 23|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RR_SW_Unit4_Ver_Minor : 31|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RR_SW_Unit5_Ver_Major : 39|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_RR_SW_Unit5_Ver_Minor : 47|8@0+ (1,0) [0|7] ""  UWB_BLE
+
+BO_ 410 UWB_TRNK_10: 8 UWB_TRNK
+ SG_ C_UWB_TRUNK_Status2 : 3|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRUNK_Status3 : 15|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRUNK_Status4 : 11|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRUNK_Status5 : 23|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRUNK_Status6 : 19|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRUNK_Status7 : 31|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRUNK_Status8 : 27|4@0+ (1,0) [0|7] ""  BDC,UWB_BLE
+ SG_ C_UWB_TRNK_DTC : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_TRUNK_Option : 59|2@0+ (1,0) [0|3] ""  BDC,UWB_BLE
+
+BO_ 411 UWB_TRNK_11: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_HW_Ver_Major : 7|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_TRNK_HW_Ver_Minor : 15|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_TRNK_SW_Unit4_Ver_Major : 23|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_TRNK_SW_Unit4_Ver_Minor : 31|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_TRNK_SW_Unit5_Ver_Major : 39|8@0+ (1,0) [0|7] ""  UWB_BLE
+ SG_ C_UWB_TRNK_SW_Unit5_Ver_Minor : 47|8@0+ (1,0) [0|7] ""  UWB_BLE
+
+BO_ 450 UWB_RL_02: 8 UWB_RL
+ SG_ C_UWB_RL_To_MasterEncData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 451 UWB_RL_03: 8 UWB_RL
+ SG_ C_UWB_RL_To_MasterEncData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 452 UWB_RL_04: 8 UWB_RL
+ SG_ C_UWB_RL_To_BDCFOBRSDResult : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 453 UWB_RL_05: 8 UWB_RL
+ SG_ C_UWB_RL_MCU_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RL_MCU_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RL_MCU_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 454 UWB_RL_06: 8 UWB_RL
+ SG_ C_UWB_RL_IC_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RL_IC_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RL_IC_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 455 UWB_RL_01: 8 UWB_RL
+ SG_ C_UWB_RL_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 482 UWB_RR_02: 8 UWB_RR
+ SG_ C_UWB_RR_To_MasterEncData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 483 UWB_RR_03: 8 UWB_RR
+ SG_ C_UWB_RR_To_MasterEncData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 484 UWB_RR_04: 8 UWB_RR
+ SG_ C_UWB_RR_To_BDCFOBRSDResult : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 485 UWB_RR_05: 8 UWB_RR
+ SG_ C_UWB_RR_MCU_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RR_MCU_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RR_MCU_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 486 UWB_RR_06: 8 UWB_RR
+ SG_ C_UWB_RR_IC_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RR_IC_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_RR_IC_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 487 UWB_RR_01: 8 UWB_RR
+ SG_ C_UWB_RR_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 498 UWB_TRNK_02: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_To_MasterEncData1 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 499 UWB_TRNK_03: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_To_MasterEncData2 : 7|64@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 500 UWB_TRNK_04: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_To_BDCFOBRSDResult : 7|64@0+ (1,0) [0|0] ""  BDC
+
+BO_ 501 UWB_TRNK_05: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_MCU_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_TRNK_MCU_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_TRNK_MCU_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 502 UWB_TRNK_06: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_IC_Bootloader : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_TRNK_IC_Flash_Erase : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_UWB_TRNK_IC_CRC32 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 503 UWB_TRNK_01: 8 UWB_TRNK
+ SG_ C_UWB_TRNK_Decrypt_FB : 63|4@0+ (1,0) [0|0] ""  BDC,UWB_BLE
+
+BO_ 768 TP_BDC_C_BLE: 8 BDC
+ SG_ C_BDCBLETpByte0Data : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte1Data : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte2Data : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte3Data : 31|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte4Data : 39|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte5Data : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte6Data : 55|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ C_BDCBLETpByte7Data : 63|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 770 TP_BDC_C_DHL: 8 BDC
+ SG_ C_BDCDHLTpByte0Data : 7|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte1Data : 15|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte2Data : 23|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte3Data : 31|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte4Data : 39|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte5Data : 47|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte6Data : 55|8@0+ (1,0) [0|0] ""  DHL
+ SG_ C_BDCDHLTpByte7Data : 63|8@0+ (1,0) [0|0] ""  DHL
+
+BO_ 772 TP_BDC_C_DHR: 8 BDC
+ SG_ C_BDCDHRTpByte0Data : 7|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte1Data : 15|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte2Data : 23|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte3Data : 31|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte4Data : 39|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte5Data : 47|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte6Data : 55|8@0+ (1,0) [0|0] ""  DHR
+ SG_ C_BDCDHRTpByte7Data : 63|8@0+ (1,0) [0|0] ""  DHR
+
+BO_ 778 TP_BDC_C_WPC: 8 BDC
+ SG_ C_BDCWPCTpByte0Data : 7|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte1Data : 15|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte2Data : 23|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte3Data : 31|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte4Data : 39|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte5Data : 47|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte6Data : 55|8@0+ (1,0) [0|0] ""  WPC
+ SG_ C_BDCWPCTpByte7Data : 63|8@0+ (1,0) [0|0] ""  WPC
+
+BO_ 780 TP_BLE_C_BDC: 8 UWB_BLE
+ SG_ C_BLEBDCTpByte0Data : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte1Data : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte2Data : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte3Data : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte4Data : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte5Data : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte6Data : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_BLEBDCTpByte7Data : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 784 TP_DHL_C_BDC: 8 DHL
+ SG_ C_DHLBDCTpByte0Data : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte1Data : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte2Data : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte3Data : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte4Data : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte5Data : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte6Data : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHLBDCTpByte7Data : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 786 TP_DHR_C_BDC: 8 DHR
+ SG_ C_DHRBDCTpByte0Data : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte1Data : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte2Data : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte3Data : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte4Data : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte5Data : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte6Data : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ C_DHRBDCTpByte7Data : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 792 TP_WPC_C_BDC: 8 WPC
+ SG_ C_WPCBDCTpByte0Data : 7|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte1Data : 15|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte2Data : 23|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte3Data : 31|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte4Data : 39|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte5Data : 47|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte6Data : 55|8@0+ (1,0) [0|0] ""  BDC,Devtool
+ SG_ C_WPCBDCTpByte7Data : 63|8@0+ (1,0) [0|0] ""  BDC,Devtool
+
+BO_ 800 DevBLEDvp1: 8 Devtool
+ SG_ DevToolBLEDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ DevToolBLEDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 816 DevDHDvp1: 8 Devtool
+ SG_ DevToolDHDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  DHL,DHR
+ SG_ DevToolDHDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  DHL,DHR
+
+BO_ 832 DevUWBDvp1: 8 Devtool
+ SG_ DevToolUWBDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+ SG_ DevToolUWBDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  UWB_BLE,UWB_FL,UWB_FR,UWB_INT,UWB_RL,UWB_RR,UWB_TRNK
+
+BO_ 864 DHLDvp1: 8 DHL
+ SG_ DHLDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHLDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 865 DHRDvp1: 8 DHR
+ SG_ DHRDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ DHRDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 870 UWBFRDvp1: 8 UWB_FR
+ SG_ UWBFRDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFRDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 871 UWBFLDvp1: 8 UWB_FL
+ SG_ UWBFLDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBFLDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 872 UWBRRDvp1: 8 UWB_RR
+ SG_ UWBRRDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRRDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 873 UWBRLDvp1: 8 UWB_RL
+ SG_ UWBRLDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBRLDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 877 UWBTRNKDvp1: 8 UWB_TRNK
+ SG_ UWBTRNKDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBTRNKDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 884 UWB_BLEDvp1: 8 UWB_BLE
+ SG_ UWB_BLEDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWB_BLEDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 885 UWBINTDvp1: 8 UWB_INT
+ SG_ UWBINTDvp1DataByte0 : 7|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte1 : 15|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte2 : 23|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte3 : 31|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte4 : 39|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte5 : 47|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte6 : 55|8@0+ (1,0) [0|0] ""  Devtool
+ SG_ UWBINTDvp1DataByte7 : 63|8@0+ (1,0) [0|0] ""  Devtool
+
+BO_ 1024 NM_BDC: 8 BDC
+ SG_ Destination_BDC : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_BDC : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_BDC : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1054 NM_WPC: 8 WPC
+ SG_ Destination_WPC : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_WPC : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_WPC : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1097 NM_ROA: 8 ROA
+ SG_ Destination_ROA : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_ROA : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_ROA : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1120 NM_DHL: 8 DHL
+ SG_ Destination_DHL : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_DHL : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_DHL : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1121 NM_DHR: 8 DHR
+ SG_ Destination_DHR : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_DHR : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_DHR : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1123 NM_Devtool: 8 Devtool
+ SG_ Destination_Devtool : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_Devtool : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_Devtool : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,UWB_TRNK,UWB_FR
+
+BO_ 1126 NM_UWB_FR: 8 UWB_FR
+ SG_ Destination_UWB_FR : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK
+ SG_ NMSleepFlag_UWB_FR : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK
+ SG_ NMCommandCode_UWB_FR : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK
+
+BO_ 1127 NM_UWB_FL: 8 UWB_FL
+ SG_ Destination_UWB_FL : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_UWB_FL : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_UWB_FL : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1128 NM_UWB_RR: 8 UWB_RR
+ SG_ Destination_UWB_RR : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_UWB_RR : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_UWB_RR : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1129 NM_UWB_RL: 8 UWB_RL
+ SG_ Destination_UWB_RL : 7|8@0+ (1,0) [0|0] ""  UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_UWB_RL : 13|2@0+ (1,0) [0|0] ""  UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_UWB_RL : 10|3@0+ (1,0) [0|0] ""  UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1133 NM_UWB_TRNK: 8 UWB_TRNK
+ SG_ Destination_UWB_TRNK : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_FR
+ SG_ NMSleepFlag_UWB_TRNK : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_FR
+ SG_ NMCommandCode_UWB_TRNK : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_FR
+
+BO_ 1140 NM_UWB_BLE: 8 UWB_BLE
+ SG_ Destination_UWB_BLE : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_UWB_BLE : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_UWB_BLE : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,UWB_INT,DHR,DHL,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1141 NM_UWB_INT: 8 UWB_INT
+ SG_ Destination_UWB_INT : 7|8@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMSleepFlag_UWB_INT : 13|2@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+ SG_ NMCommandCode_UWB_INT : 10|3@0+ (1,0) [0|0] ""  UWB_RL,UWB_RR,DHR,DHL,UWB_BLE,BDC,UWB_FL,ROA,WPC,Devtool,UWB_TRNK,UWB_FR
+
+BO_ 1410 GstBDCUWB_BLE: 8 BDC
+ SG_ GstBDCUWB_BLEDataByte0 : 7|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte1 : 15|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte2 : 23|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte3 : 31|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte4 : 39|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte5 : 47|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte6 : 55|8@0+ (1,0) [0|0] ""  UWB_BLE
+ SG_ GstBDCUWB_BLEDataByte7 : 63|8@0+ (1,0) [0|0] ""  UWB_BLE
+
+BO_ 1418 UWB_BLEBDCGst: 8 UWB_BLE
+ SG_ UWB_BLEBDCGstDataByte0 : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte1 : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte2 : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte3 : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte4 : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte5 : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte6 : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ UWB_BLEBDCGstDataByte7 : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 1504 GstBDCROA: 8 BDC
+ SG_ GstBDCROADataByte0 : 7|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte1 : 15|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte2 : 23|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte3 : 31|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte4 : 39|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte5 : 47|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte6 : 55|8@0+ (1,0) [0|0] ""  ROA
+ SG_ GstBDCROADataByte7 : 63|8@0+ (1,0) [0|0] ""  ROA
+
+BO_ 1512 ROABDCGst: 8 ROA
+ SG_ ROABDCGstDataByte0 : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte1 : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte2 : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte3 : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte4 : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte5 : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte6 : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ ROABDCGstDataByte7 : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 1794 GstBDCDHL: 8 BDC
+ SG_ GstBDCDHLDataByte0 : 7|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte1 : 15|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte2 : 23|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte3 : 31|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte4 : 39|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte5 : 47|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte6 : 55|8@0+ (1,0) [0|0] ""  DHL
+ SG_ GstBDCDHLDataByte7 : 63|8@0+ (1,0) [0|0] ""  DHL
+
+BO_ 1802 DHLBDCGst: 8 DHL
+ SG_ DHLBDCGstDataByte0 : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte1 : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte2 : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte3 : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte4 : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte5 : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte6 : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHLBDCGstDataByte7 : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 1813 GstBDCDHR: 8 BDC
+ SG_ GstBDCDHRDataByte0 : 7|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte1 : 15|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte2 : 23|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte3 : 31|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte4 : 39|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte5 : 47|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte6 : 55|8@0+ (1,0) [0|0] ""  DHR
+ SG_ GstBDCDHRDataByte7 : 63|8@0+ (1,0) [0|0] ""  DHR
+
+BO_ 1821 DHRBDCGst: 8 DHR
+ SG_ DHRBDCGstDataByte0 : 7|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte1 : 15|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte2 : 23|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte3 : 31|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte4 : 39|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte5 : 47|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte6 : 55|8@0+ (1,0) [0|0] ""  BDC
+ SG_ DHRBDCGstDataByte7 : 63|8@0+ (1,0) [0|0] ""  BDC
+
+BO_ 2015 Gst_ALL: 8 BDC
+ SG_ FrmFormat : 7|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ SID : 15|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ REQ_RESPONSE : 23|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ GstALLByte3Data : 31|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ GstALLByte4Data : 39|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ GstALLByte5Data : 47|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ GstALLByte6Data : 55|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+ SG_ GstALLByte7Data : 63|8@0+ (1,0) [0|0] ""  DHL,DHR,ROA,UWB_BLE,WPC
+
+
+
+CM_ BO_ 16 "[EC] On Event and On Change";
+CM_ SG_ 16 C_WPC_NFCDetection "Indicate NFC Device is detected or not";
+CM_ SG_ 16 C_WPC_NFCReset "NFC Deselect Result";
+CM_ BO_ 17 "[EC] On Event and On Change";
+CM_ SG_ 17 C_WlightOnCmd "Welcom Light On command from BDC";
+CM_ SG_ 17 C_WPCNFCcmd "NFC Searchin Start/Stop command to WPC";
+CM_ SG_ 17 C_DRNFCcmd "NFC Searchin Start/Stop command to DHL,DHR";
+CM_ SG_ 17 C_BDCWPCNFCCmd "NFC Searchin Start/Stop command to WPC";
+CM_ SG_ 17 C_BDCDHLNFCCmd "NFC Searchin Start/Stop command to DHL";
+CM_ SG_ 17 C_BDCDHRNFCCmd "NFC Searchin Start/Stop command to DHR";
+CM_ SG_ 17 C_DRV_DRHdlLedOnSta "Driver Door Handle Led On Status";
+CM_ SG_ 17 C_AST_DRHdlLedOnSta "Assist Door Handle Led On Status";
+CM_ BO_ 18 "[EC] On Event and On Change";
+CM_ SG_ 18 C_DK_IDSet "BLE Module ID Setting";
+CM_ SG_ 18 C_DK_IDDel "BLE Module ID Delete";
+CM_ SG_ 18 C_OwnerDeviceSearchingReq "BLE Module Owner Pairing Start Cmd";
+CM_ SG_ 18 C_TimeSync_REQ "Timer Sync Reqeust";
+CM_ SG_ 18 C_BLE_Connection_CMD "BLE Module Conncetion Cmd";
+CM_ SG_ 18 C_BDC_DecryptFB1 "BLE Enc Data Decryption Feed Back";
+CM_ SG_ 18 C_BDC_DecryptFB2 "UWB Enc Data Decryption Feed Back";
+CM_ BO_ 19 "[EC] On Event and On Change";
+CM_ SG_ 19 C_BDCLocalRN_Target "Local Random Number Target Define";
+CM_ SG_ 19 C_BDCLocalRN_TRCode "Local Random Number TRCode";
+CM_ SG_ 19 C_BDCLocalRN_CMD "Local Random Number CMD";
+CM_ SG_ 19 C_BDCLocalRndNum "Random Number for Encyption to BDC Local CAN Modules";
+CM_ BO_ 20 "[EC] On Event and On Change";
+CM_ SG_ 20 C_UWB_Ranging_CMD "UWB Ranging CMD";
+CM_ BO_ 21 "[PE] Periodic and On Event";
+CM_ SG_ 21 C_Warn_DrvDrSwSta "DoorLock_DriverDoorSwitchStatus";
+CM_ SG_ 21 C_Warn_AsstDrSwSta "Warn_AssistDoorSwitchStatus";
+CM_ SG_ 21 C_Warn_RrLftDrSwSta "Warn_RearLeftDoorSwitchStatus";
+CM_ SG_ 21 C_Warn_RrRtDrSwSta "Warn_RearRightDoorSwitchStatus";
+CM_ SG_ 21 C_Trunk_TrnkTlgtSwSta "Trunk_TrunkTailgateSwitchStatus";
+CM_ SG_ 21 C_SMK_TrmnlMngrSta "Terminal Manager Status";
+CM_ SG_ 21 C_SunRoofOptionSta "Sunroof Option status";
+CM_ SG_ 21 C_Window_DrvrSdWdwSta_BCM "Window_DriverSideWindowStatus";
+CM_ SG_ 21 C_Window_AsstSdWdwSta_BCM "Window_AssistantSideWindowStatus";
+CM_ SG_ 21 C_Window_RrLftWdwSta_BCM "Window_RearLeftWindowStatus";
+CM_ SG_ 21 C_Window_RrRtWdwSta_BCM "Window_RearRightPowerWindowStatus";
+CM_ BO_ 31 "[EC] On Event and On Change";
+CM_ SG_ 31 BDCToBLEEncryptData1 "Encryption Data From BDC to BLE";
+CM_ BO_ 32 "[EC] On Event and On Change";
+CM_ SG_ 32 C_DHLNFCDetected "LH Door NFC Sensor Input";
+CM_ SG_ 32 C_DHLWlightStatus "LH Door Welcome Light Status";
+CM_ SG_ 32 C_DHL_NFCReset "LH Door NFC DeSelect Result";
+CM_ BO_ 33 "[EC] On Event and On Change";
+CM_ SG_ 33 BDCToBLEEncryptData2 "Encryption Data From BDC to BLE";
+CM_ BO_ 34 "[EC] On Event and On Change";
+CM_ SG_ 34 BDCToBLEEncryptData3 "Encryption Data From BDC to BLE";
+CM_ BO_ 35 "[EC] On Event and On Change";
+CM_ SG_ 35 BDCToBLEEncryptData4 "Encryption Data From BDC to BLE";
+CM_ BO_ 36 "[EC] On Event and On Change";
+CM_ SG_ 36 BDCToBLEEncryptData5 "Encryption Data From BDC to BLE";
+CM_ BO_ 37 "[EC] On Event and On Change";
+CM_ SG_ 37 BDCToBLEEncryptData6 "Encryption Data From BDC to BLE";
+CM_ BO_ 38 "[EC] On Event and On Change";
+CM_ SG_ 38 BDCToUWBEncryptData1 "Encryption Data From BDC to UWB ALL";
+CM_ BO_ 39 "[EC] On Event and On Change";
+CM_ SG_ 39 BDCToUWBEncryptData2 "Encryption Data From BDC to UWB ALL";
+CM_ BO_ 40 "[EC] On Event and On Change";
+CM_ SG_ 40 BDCToUWBEncryptData3 "Encryption Data From BDC to UWB ALL";
+CM_ BO_ 41 "[EC] On Event and On Change";
+CM_ SG_ 41 BDCToUWBEncryptData4 "Encryption Data From BDC to UWB ALL";
+CM_ BO_ 47 "[EC] On Event and On Change";
+CM_ SG_ 47 BDCToUWBEncryptData5 "Encryption Data From BDC to UWB ALL";
+CM_ BO_ 48 "[EC] On Event and On Change";
+CM_ SG_ 48 C_DHRNFCDetected "RH Door NFC Sensor Input";
+CM_ SG_ 48 C_DHRWlightStatus "RH Door Welcome Light Status";
+CM_ SG_ 48 C_DHR_NFCReset "NFC Deselect Result";
+CM_ BO_ 49 "[EC] On Event and On Change";
+CM_ SG_ 49 BDCToUWBEncryptData6 "Encryption Data From BDC to UWB ALL";
+CM_ BO_ 96 "[EC] On Event and On Change";
+CM_ SG_ 96 C_BLENewDevicePairingResult "BLE New Device Pairing Result";
+CM_ SG_ 96 C_BLE_Decrypt_FB "BLE Decryption Feed back";
+CM_ BO_ 111 "[EC] On Event and On Change";
+CM_ SG_ 111 BLEToBDCEncryptData1 "Encryption Data From BLE to BDC";
+CM_ BO_ 112 "[EC] On Event and On Change";
+CM_ SG_ 112 C_Time_Sync1 "Timer Sync Data";
+CM_ BO_ 113 "[EC] On Event and On Change";
+CM_ SG_ 113 BLEToBDCEncryptData2 "Encryption Data From BLE to BDC";
+CM_ BO_ 114 "[EC] On Event and On Change";
+CM_ SG_ 114 BLEToBDCEncryptData3 "Encryption Data From BLE to BDC";
+CM_ BO_ 115 "[EC] On Event and On Change";
+CM_ SG_ 115 BLEToBDCEncryptData4 "Encryption Data From BLE to BDC";
+CM_ BO_ 116 "[EC] On Event and On Change";
+CM_ SG_ 116 BLEToBDCEncryptData5 "Encryption Data From BLE to BDC";
+CM_ BO_ 117 "[EC] On Event and On Change";
+CM_ SG_ 117 BLEToBDCEncryptData6 "Encryption Data From BLE to BDC";
+CM_ BO_ 128 "[EC] On Event and On Change";
+CM_ SG_ 128 C_Time_Sync2 "Timer Sync Data";
+CM_ BO_ 203 "[EC] On Event and On Change";
+CM_ SG_ 203 Radar_ROA_Part_NO1 "ROA Part Number1";
+CM_ SG_ 203 Radar_ROA_Part_NO2 "ROA Part Number2";
+CM_ SG_ 203 Radar_ROA_Part_NO3 "ROA Part Number3";
+CM_ SG_ 203 Radar_ROA_Part_NO4 "ROA Part Number4";
+CM_ SG_ 203 Radar_ROA_Part_NO5 "ROA Part Number5";
+CM_ SG_ 203 Radar_ROA_Part_NO6 "ROA Part Number6";
+CM_ SG_ 203 Radar_ROA_Part_NO7 "ROA Part Number7";
+CM_ SG_ 203 Radar_ROA_HW_Ver_Major "Radar ROA HW Version Major";
+CM_ SG_ 203 Radar_ROA_HW_Ver_Minor1 "Radar ROA HW Version Minor1";
+CM_ SG_ 203 Radar_ROA_HW_Ver_Minor2 "Radar ROA HW Version Minor2";
+CM_ BO_ 204 "[EC] On Event and On Change";
+CM_ SG_ 204 Radar_ROA_Date_YY "ROA Manufacturing Date_Year";
+CM_ SG_ 204 Radar_ROA_Date_MM "ROA Manufacturing Date_Month";
+CM_ SG_ 204 Radar_ROA_Date_DD "ROA Manufacturing Date_Day";
+CM_ SG_ 204 Radar_ROA_Serial_NO1 "ROA Serial Number1";
+CM_ SG_ 204 Radar_ROA_Serial_NO2 "ROA Serial Number2";
+CM_ SG_ 204 Radar_ROA_Serial_NO3 "ROA Serial Number3";
+CM_ SG_ 204 Radar_ROA_Serial_NO4 "ROA Serial Number4";
+CM_ SG_ 204 Radar_ROA_Serial_NO5 "ROA Serial Number5";
+CM_ SG_ 204 Radar_ROA_Serial_NO6 "ROA Serial Number6";
+CM_ SG_ 204 Radar_ROA_Serial_NO7 "ROA Serial Number7";
+CM_ SG_ 204 Radar_ROA_Serial_NO8 "ROA Serial Number8";
+CM_ SG_ 204 Radar_ROA_Serial_NO9 "ROA Serial Number9";
+CM_ SG_ 204 Radar_ROA_Serial_NO10 "ROA Serial Number10";
+CM_ BO_ 209 "[EC] On Event and On Change";
+CM_ SG_ 209 C_UWB_MASTER_Decrypt_FB "UWB Master Decryption Feed Back";
+CM_ BO_ 210 "[EC] On Event and On Change";
+CM_ SG_ 210 C_UWB_MASTER_To_BDCFOBRSDResul "Distance result of UWB ranging";
+CM_ BO_ 211 "[EC] On Event and On Change";
+CM_ SG_ 211 C_UWB_MCU_OTA_Cmd "BDC Command for UWB_MCU OTA";
+CM_ BO_ 212 "[EC] On Event and On Change";
+CM_ SG_ 212 C_UWB_IC_OTA_Cmd "BDC Command for UWB ID OTA";
+CM_ BO_ 213 "[EC] On Event and On Change";
+CM_ SG_ 213 C_UWB_MCU_Download_Data "UWB MCU Download Data";
+CM_ BO_ 214 "[EC] On Event and On Change";
+CM_ SG_ 214 C_UWB_IC_Download_Data "UWB IC Download Data";
+CM_ BO_ 224 "[EC] On Event and On Change";
+CM_ SG_ 224 C_UWB_INT_Decrypt_FB "UWB INT Decryption Feed Back";
+CM_ BO_ 225 "[EC] On Event and On Change";
+CM_ SG_ 225 C_UWB_INT_To_BDCFOBRSDResult "Distance result of UWB ranging";
+CM_ BO_ 226 "[EC] On Event and On Change";
+CM_ SG_ 226 C_UWB_INT_MCU_Bootloader "UWB MCU_Bootloader";
+CM_ SG_ 226 C_UWB_INT_MCU_Flash_Erase "UWB_MCU_Flash_Erase";
+CM_ SG_ 226 C_UWB_INT_MCU_CRC32 "UWB_MCU_CRC32";
+CM_ BO_ 227 "[EC] On Event and On Change";
+CM_ SG_ 227 C_UWB_INT_IC_Bootloader "UWB_IC_Bootloader";
+CM_ SG_ 227 C_UWB_INT_IC_Flash_Erase "UWB_IC_Flash_Erase";
+CM_ SG_ 227 C_UWB_INT_IC_CRC32 "UWB_IC_CRC32";
+CM_ BO_ 234 "[EW] On Event and On Write";
+CM_ SG_ 234 C_UWB_INT_To_MasterEncData1 "Encryption Data From UWB_INT";
+CM_ BO_ 235 "[EW] On Event and On Write";
+CM_ SG_ 235 C_UWB_INT_To_MasterEncData2 "Encryption Data From UWB_INT";
+CM_ BO_ 256 "[PE] Periodic and On Event";
+CM_ SG_ 256 C_BDC_Status "BDC Processing Status";
+CM_ SG_ 256 C_DigitalKey_Enable "Digital Key function Enable/Disable by user";
+CM_ SG_ 256 C_DeviceOnWPC "Inform device on WPC";
+CM_ SG_ 256 C_FobFoundWlcmArea "This signal indicates that there is Fob around the welcome area.
+- to inform the door handle (Lock/Unlock touch sensor)";
+CM_ SG_ 256 C_PuddleLpOnReq "Puddlelap On request";
+CM_ SG_ 256 C_OwnerKey_Reg_Status "Owner Digital Key Register Status";
+CM_ SG_ 256 C_SharedKey_Reg_Status "Shared Digital Key Register Status";
+CM_ SG_ 256 C_CardKey_Enable "Card Key function Enable/Disable by user";
+CM_ BO_ 257 "[PE] Periodic and On Event";
+CM_ SG_ 257 Radar_ROA_SnsrRunReq "Sensor detection request";
+CM_ SG_ 257 Radar_ROA_DiaReq "Diagnosis/parameter request";
+CM_ BO_ 272 "[PE] Periodic and On Event";
+CM_ SG_ 272 C_WPC_Status "WPC Processing Status";
+CM_ SG_ 272 C_WPCNFC_Option "WPC NFC Option Applied Signal";
+CM_ BO_ 277 "[PE] Periodic and On Event";
+CM_ SG_ 277 C_ConnectedDeviceInfo "BLE Connected Deivces/ID";
+CM_ SG_ 277 C_BTAddIRK_Update "BTAddress IRK Update Signal";
+CM_ SG_ 277 C_ADV_State "BLE Advertising State";
+CM_ SG_ 277 C_NewDeviceConnetStatus "Not Paired Decice Connection Status";
+CM_ SG_ 277 C_BLE_Option "BLE Option Applied Signal";
+CM_ BO_ 288 "[PE] Periodic and On Event";
+CM_ SG_ 288 C_DHL_Status "LH Door Processing Status";
+CM_ SG_ 288 C_DHLToggleDetected "LH Door Toggle Sensor Input";
+CM_ SG_ 288 C_DHLUnlockDetected "LH Door Unlock Sensor Input";
+CM_ SG_ 288 C_DHLLockDetected "LH Door Lock Sensor Input";
+CM_ SG_ 288 C_DHLPhnDetected "DHL Phone Detected Signal";
+CM_ SG_ 288 C_DHLDiagnostics "LH Door NFC_Touch_Diag";
+CM_ SG_ 288 C_DHL_RainState "LH Rain Detect Status";
+CM_ BO_ 304 "[PE] Periodic and On Event";
+CM_ SG_ 304 C_DHR_Status "RH Door Processing Status";
+CM_ SG_ 304 C_DHRToggleDetected "RH Door Toggle Sensor Input";
+CM_ SG_ 304 C_DHRUnlockDetected "RH Door Unlock Sensor Input";
+CM_ SG_ 304 C_DHRLockDetected "RH Door Lock Sensor Input";
+CM_ SG_ 304 C_DHRPhnDetected "DHR Phone Detected Signal";
+CM_ SG_ 304 C_DHRDiagnostics "RH Door NFC_Touch_Diag";
+CM_ SG_ 304 C_DHR_RainState "RH Rain Detect Status";
+CM_ BO_ 320 "[PE] Periodic and On Event";
+CM_ SG_ 320 C_BLE_RSSI1 "BLE Connection1 RSSI";
+CM_ SG_ 320 C_BLE_RSSI2 "BLE Connection 2 RSSI";
+CM_ SG_ 320 C_BLE_RSSI3 "BLE Connection 3 RSSI";
+CM_ SG_ 320 C_BLE_RSSI4 "BLE Connection 4  RSSI";
+CM_ BO_ 357 "[PE] Periodic and On Event";
+CM_ SG_ 357 Radar_ROA_SW_Ver_Major "Radar ROA SW Version Major";
+CM_ SG_ 357 Radar_ROA_SW_Ver_Minor1 "Radar ROA SW Version Minor1";
+CM_ SG_ 357 Radar_ROA_SW_Ver_Minor2 "Radar ROA SW Version Minor2";
+CM_ SG_ 357 Radar_ROA_ClassStat "ROA Sensor Status for diagnosis";
+CM_ SG_ 357 Radar_ROA_SnSrStat "ROA Sensor Status";
+CM_ SG_ 357 Radar_ROA_DetInfo "ROA Detection info";
+CM_ SG_ 357 Radar_ROA_SnSrBlckgeErrStat "ROA Sensor Blockage Error";
+CM_ SG_ 357 Radar_ROA_SnSrErrStat "ROA Internal Error";
+CM_ BO_ 368 "[PE] Periodic and On Event";
+CM_ SG_ 368 C_UWB_FR_Status1 "UWB_FR Processing Status 1";
+CM_ SG_ 368 C_UWB_FR_Status2 "UWB_FR Processing Status 2";
+CM_ SG_ 368 C_UWB_FR_Status3 "UWB_FR Processing Status 3";
+CM_ SG_ 368 C_UWB_FR_Status4 "UWB_FR Processing Status 4";
+CM_ SG_ 368 C_UWB_FR_Status5 "UWB_FR Processing Status 5";
+CM_ SG_ 368 C_UWB_FR_Status6 "UWB_FR Processing Status 6";
+CM_ SG_ 368 C_UWB_FR_Status7 "UWB_FR Processing Status 7";
+CM_ SG_ 368 C_UWB_FR_Status8 "UWB_FR Processing Status 8";
+CM_ SG_ 368 C_UWB_FR_DTC "UWB FR DTC Data";
+CM_ SG_ 368 C_UWB_FR_Option "UWB FR Applied Signal";
+CM_ BO_ 369 "[P] Periodic";
+CM_ SG_ 369 C_UWB_FR_HW_Ver_Major "UWB FR HW Version Major";
+CM_ SG_ 369 C_UWB_FR_HW_Ver_Minor "UWB FR HW Version Minor";
+CM_ SG_ 369 C_UWB_FR_SW_Unit4_Ver_Major "UWB FR SW Unit4 Version Major";
+CM_ SG_ 369 C_UWB_FR_SW_Unit4_Ver_Minor "UWB FR SW Unit4 Version Minor";
+CM_ SG_ 369 C_UWB_FR_SW_Unit5_Ver_Major "UWB FR SW Unit5 Version Major";
+CM_ SG_ 369 C_UWB_FR_SW_Unit5_Ver_Minor "UWB FR SW Unit5 Version Minor";
+CM_ BO_ 370 "[EW] On Event and On Write";
+CM_ SG_ 370 C_UWB_FL_To_MaseterEncData1 "Encryption Data From UWB_FL";
+CM_ BO_ 371 "[EW] On Event and On Write";
+CM_ SG_ 371 C_UWB_FL_To_MasterEncData2 "Encryption Data From UWB_FL";
+CM_ BO_ 372 "[EC] On Event and On Change";
+CM_ SG_ 372 C_UWB_FL_To_BDCFOBRSDResult "Distance result of UWB ranging";
+CM_ BO_ 373 "[EC] On Event and On Change";
+CM_ SG_ 373 C_UWB_FL_MCU_Bootloader "UWB FL_MCU_Bootloader";
+CM_ SG_ 373 C_UWB_FL_MCU_Flash_Erase "UWB_FL_MCU_Flash_Erase";
+CM_ SG_ 373 C_UWB_FL_MCU_CRC32 "UWB_FL_MCU_CRC32";
+CM_ BO_ 374 "[EC] On Event and On Change";
+CM_ SG_ 374 C_UWB_FL_IC_Bootloader "UWB_FL_MCU_Bootloader";
+CM_ SG_ 374 C_UWB_FL_IC_Flash_Erase "UWB_FL_MCU_Flash_Erase";
+CM_ SG_ 374 C_UWB_FL_IC_CRC32 "UWB_FL_MCU_CRC32";
+CM_ BO_ 375 "[EC] On Event and On Change";
+CM_ SG_ 375 C_UWB_FL_Decrypt_FB "UWB FL Decryption Feed Back";
+CM_ BO_ 376 "[PE] Periodic and On Event";
+CM_ SG_ 376 C_UWB_FL_Status1 "UWB_FL Processing Status 1";
+CM_ SG_ 376 C_UWB_FL_Status2 "UWB_FL Processing Status 2";
+CM_ SG_ 376 C_UWB_FL_Status3 "UWB_FL Processing Status 3";
+CM_ SG_ 376 C_UWB_FL_Status4 "UWB_FL Processing Status 4";
+CM_ SG_ 376 C_UWB_FL_Status5 "UWB_FL Processing Status 5";
+CM_ SG_ 376 C_UWB_FL_Status6 "UWB_FL Processing Status 6";
+CM_ SG_ 376 C_UWB_FL_Status7 "UWB_FL Processing Status 7";
+CM_ SG_ 376 C_UWB_FL_Status8 "UWB_FL Processing Status 8";
+CM_ SG_ 376 C_UWB_FL_DTC "UWB FL DTC Data";
+CM_ SG_ 376 C_UWB_FL_Option "UWB FL Applied Signal";
+CM_ BO_ 377 "[P] Periodic";
+CM_ SG_ 377 C_UWB_FL_HW_Ver_Major "UWB FL HW Version Major";
+CM_ SG_ 377 C_UWB_FL_HW_Ver_Minor "UWB FL HW Version Minor";
+CM_ SG_ 377 C_UWB_FL_SW_Unit4_Ver_Major "UWB FL SW Unit4 Version Major";
+CM_ SG_ 377 C_UWB_FL_SW_Unit4_Ver_Minor "UWB FL SW Unit4 Version Minor";
+CM_ SG_ 377 C_UWB_FL_SW_Unit5_Ver_Major "UWB FL SW Unit5 Version Major";
+CM_ SG_ 377 C_UWB_FL_SW_Unit5_Ver_Minor "UWB FL SW Unit5 Version Minor";
+CM_ BO_ 384 "[PE] Periodic and On Event";
+CM_ SG_ 384 C_UWB_INT_Status1 "UWB_INT Processing Status 1";
+CM_ SG_ 384 C_UWB_INT_Status2 "UWB_INT Processing Status 2";
+CM_ SG_ 384 C_UWB_INT_Status3 "UWB_INT Processing Status 3";
+CM_ SG_ 384 C_UWB_INT_Status4 "UWB_INT Processing Status 4";
+CM_ SG_ 384 C_UWB_INT_Status5 "UWB_INT Processing Status 5";
+CM_ SG_ 384 C_UWB_INT_Status6 "UWB_INT Processing Status 6";
+CM_ SG_ 384 C_UWB_INT_Status7 "UWB_INT Processing Status 7";
+CM_ SG_ 384 C_UWB_INT_Status8 "UWB_INT Processing Status 8";
+CM_ SG_ 384 C_UWB_INT_DTC "UWB INT DTC Data";
+CM_ SG_ 384 C_UWB_INT_Option "UWB INT Applied Signal";
+CM_ BO_ 385 "[P] Periodic";
+CM_ SG_ 385 C_UWB_INT_HW_Ver_Major "UWB INT HW Version Major";
+CM_ SG_ 385 C_UWB_INT_HW_Ver_Minor "UWB INT HW Version Minor";
+CM_ SG_ 385 C_UWB_INT_SW_Unit4_Ver_Major "UWB INT SW Unit4 Version Major";
+CM_ SG_ 385 C_UWB_INT_SW_Unit4_Ver_Minor "UWB INT SW Unit4 Version Minor";
+CM_ SG_ 385 C_UWB_INT_SW_Unit5_Ver_Major "UWB INT SW Unit5 Version Major";
+CM_ SG_ 385 C_UWB_INT_SW_Unit5_Ver_Minor "UWB INT SW Unit5 Version Minor";
+CM_ BO_ 386 "[EW] On Event and On Write";
+CM_ SG_ 386 C_UWB_FR_To_MasterEncData1 "Encryption Data From UWB_FR";
+CM_ BO_ 387 "[EC] On Event and On Change";
+CM_ SG_ 387 C_UWB_FR_Decrypt_FB "UWB FR Decryption Feed Back";
+CM_ BO_ 388 "[EC] On Event and On Change";
+CM_ SG_ 388 C_UWB_FR_To_BDCFOBRSDResult "Distance result of UWB ranging";
+CM_ BO_ 389 "[EC] On Event and On Change";
+CM_ SG_ 389 C_UWB_FR_MCU_Bootloader "UWB MCU_Bootloader";
+CM_ SG_ 389 C_UWB_FR_MCU_Flash_Erase "UWB_MCU_Flash_Erase";
+CM_ SG_ 389 C_UWB_FR_MCU_CRC32 "UWB_MCU_CRC32";
+CM_ BO_ 390 "[EC] On Event and On Change";
+CM_ SG_ 390 C_UWB_FR_IC_Bootloader "UWB_IC_Bootloader";
+CM_ SG_ 390 C_UWB_FR_IC_Flash_Erase "UWB_IC_Flash_Erase";
+CM_ SG_ 390 C_UWB_FR_IC_CRC32 "UWB_IC_CRC32";
+CM_ BO_ 391 "[EW] On Event and On Write";
+CM_ SG_ 391 C_UWB_FR_To_MasterEncData2 "Encryption Data From UWB_FR";
+CM_ BO_ 392 "[PE] Periodic and On Event";
+CM_ SG_ 392 C_UWB_MASTER_Status1 "UWB_MASTER Processing Status 1";
+CM_ SG_ 392 C_UWB_MASTER_Status2 "UWB_MASTER Processing Status 2";
+CM_ SG_ 392 C_UWB_MASTER_Status3 "UWB_MASTER Processing Status 3";
+CM_ SG_ 392 C_UWB_MASTER_Status4 "UWB_MASTER Processing Status 4";
+CM_ SG_ 392 C_UWB_MASTER_Status5 "UWB_MASTER Processing Status 5";
+CM_ SG_ 392 C_UWB_MASTER_Status6 "UWB_MASTER Processing Status 6";
+CM_ SG_ 392 C_UWB_MASTER_Status7 "UWB_MASTER Processing Status 7";
+CM_ SG_ 392 C_UWB_MASTER_Status8 "UWB_MASTER Processing Status 8";
+CM_ SG_ 392 C_UWB_MASTER_Option "UWB INT1 Applied Signal";
+CM_ BO_ 393 "[PE] Periodic and On Event";
+CM_ SG_ 393 C_UWB_Master_DK_ConnStat "Digital key connection status";
+CM_ SG_ 393 C_UWB_Mst_DK_LocalizationStat "Digital key localization status";
+CM_ BO_ 394 "[PE] Periodic and On Event";
+CM_ SG_ 394 C_UWB_Mst_EncryptedResult1Val "Enrypted result of UWB_BLE Master";
+CM_ BO_ 395 "[PE] Periodic and On Event";
+CM_ SG_ 395 C_UWB_Mst_EncryptedResult2Val "Enrypted result of UWB_BLE Master";
+CM_ BO_ 396 "[PE] Periodic and On Event";
+CM_ SG_ 396 C_UWB_Master2BDC_RndNum "Random Number for EncryptedData1,2";
+CM_ BO_ 397 "[EC] On Event and On Change";
+CM_ SG_ 397 C_UWB_Master_LocalRN_Target "Local Random Number Target Define";
+CM_ SG_ 397 C_UWB_Master_LocalRN_TRCode "Local Random Number TRCode";
+CM_ SG_ 397 C_UWB_Master_LocalRN_CMD "Local Random Number CMD";
+CM_ SG_ 397 C_UWB_Master_LocalRndNum "Random Number for Encyption to IAU Local CAN Modules";
+CM_ BO_ 398 "[EC] On Event and On Change";
+CM_ SG_ 398 UWB_Master_ToUWBEncryptData1 "Encryption Data From UWB Master to UWB ALL";
+CM_ BO_ 399 "[EC] On Event and On Change";
+CM_ SG_ 399 UWB_Master_ToUWBEncryptData2 "Encryption Data From UWB Master to UWB ALL";
+CM_ BO_ 400 "[PE] Periodic and On Event";
+CM_ SG_ 400 C_UWB_RL_Status1 "UWB_RL Processing Status 1";
+CM_ SG_ 400 C_UWB_RL_Status2 "UWB_RL Processing Status 2";
+CM_ SG_ 400 C_UWB_RL_Status3 "UWB_RL Processing Status 3";
+CM_ SG_ 400 C_UWB_RL_Status4 "UWB_RL Processing Status 4";
+CM_ SG_ 400 C_UWB_RL_Status5 "UWB_RL Processing Status 5";
+CM_ SG_ 400 C_UWB_RL_Status6 "UWB_RL Processing Status 6";
+CM_ SG_ 400 C_UWB_RL_Status7 "UWB_RL Processing Status 7";
+CM_ SG_ 400 C_UWB_RL_Status8 "UWB_RL Processing Status 8";
+CM_ SG_ 400 C_UWB_RL_DTC "UWB RL DTC Data";
+CM_ SG_ 400 C_UWB_RL_Option "UWB RL Applied Signal";
+CM_ BO_ 401 "[P] Periodic";
+CM_ SG_ 401 C_UWB_RL_HW_Ver_Major "UWB RL HW Version Major";
+CM_ SG_ 401 C_UWB_RL_HW_Ver_Minor "UWB RL HW Version Minor";
+CM_ SG_ 401 C_UWB_RL_SW_Unit4_Ver_Major "UWB RL SW Unit4 Version Major";
+CM_ SG_ 401 C_UWB_RL_SW_Unit4_Ver_Minor "UWB RL SW Unit4 Version Minor";
+CM_ SG_ 401 C_UWB_RL_SW_Unit5_Ver_Major "UWB RL SW Unit5 Version Major";
+CM_ SG_ 401 C_UWB_RL_SW_Unit5_Ver_Minor "UWB RL SW Unit5 Version Minor";
+CM_ BO_ 405 "[PE] Periodic and On Event";
+CM_ SG_ 405 C_UWB_RR_Status1 "UWB_RR Processing Status 1";
+CM_ SG_ 405 C_UWB_RR_Status2 "UWB_RR Processing Status 2";
+CM_ SG_ 405 C_UWB_RR_Status3 "UWB_RR Processing Status 3";
+CM_ SG_ 405 C_UWB_RR_Status4 "UWB_RR Processing Status 4";
+CM_ SG_ 405 C_UWB_RR_Status5 "UWB_RR Processing Status 5";
+CM_ SG_ 405 C_UWB_RR_Status6 "UWB_RR Processing Status 6";
+CM_ SG_ 405 C_UWB_RR_Status7 "UWB_RR Processing Status 7";
+CM_ SG_ 405 C_UWB_RR_Status8 "UWB_RR Processing Status 8";
+CM_ SG_ 405 C_UWB_RR_DTC "UWB RR DTC Data";
+CM_ SG_ 405 C_UWB_RR_Option "UWB RR Applied Signal";
+CM_ BO_ 406 "[P] Periodic";
+CM_ SG_ 406 C_UWB_RR_HW_Ver_Major "UWB RR HW Version Major";
+CM_ SG_ 406 C_UWB_RR_HW_Ver_Minor "UWB RR HW Version Minor";
+CM_ SG_ 406 C_UWB_RR_SW_Unit4_Ver_Major "UWB RR SW Unit4 Version Major";
+CM_ SG_ 406 C_UWB_RR_SW_Unit4_Ver_Minor "UWB RR SW Unit4 Version Minor";
+CM_ SG_ 406 C_UWB_RR_SW_Unit5_Ver_Major "UWB RR SW Unit5 Version Major";
+CM_ SG_ 406 C_UWB_RR_SW_Unit5_Ver_Minor "UWB RR SW Unit5 Version Minor";
+CM_ BO_ 410 "[PE] Periodic and On Event";
+CM_ SG_ 410 C_UWB_TRUNK_Status2 "UWB_TRUNK Processing Status 2";
+CM_ SG_ 410 C_UWB_TRUNK_Status3 "UWB_TRUNK Processing Status 3";
+CM_ SG_ 410 C_UWB_TRUNK_Status4 "UWB_TRUNK Processing Status 4";
+CM_ SG_ 410 C_UWB_TRUNK_Status5 "UWB_TRUNK Processing Status 5";
+CM_ SG_ 410 C_UWB_TRUNK_Status6 "UWB_TRUNK Processing Status 6";
+CM_ SG_ 410 C_UWB_TRUNK_Status7 "UWB_TRUNK Processing Status 7";
+CM_ SG_ 410 C_UWB_TRUNK_Status8 "UWB_TRUNK Processing Status 8";
+CM_ SG_ 410 C_UWB_TRNK_DTC "UWB Trunk DTC Data";
+CM_ SG_ 410 C_UWB_TRUNK_Option "UWB TRUNK Applied Signal";
+CM_ BO_ 411 "[P] Periodic";
+CM_ SG_ 411 C_UWB_TRNK_HW_Ver_Major "UWB TRNK HW Version Major";
+CM_ SG_ 411 C_UWB_TRNK_HW_Ver_Minor "UWB TRNK HW Version Minor";
+CM_ SG_ 411 C_UWB_TRNK_SW_Unit4_Ver_Major "UWB TRNK SW Unit4 Version Major";
+CM_ SG_ 411 C_UWB_TRNK_SW_Unit4_Ver_Minor "UWB TRNK SW Unit4 Version Minor";
+CM_ SG_ 411 C_UWB_TRNK_SW_Unit5_Ver_Major "UWB TRNK SW Unit5 Version Major";
+CM_ SG_ 411 C_UWB_TRNK_SW_Unit5_Ver_Minor "UWB TRNK SW Unit5 Version Minor";
+CM_ BO_ 450 "[EW] On Event and On Write";
+CM_ SG_ 450 C_UWB_RL_To_MasterEncData1 "Encryption Data From UWB_RL";
+CM_ BO_ 451 "[EW] On Event and On Write";
+CM_ SG_ 451 C_UWB_RL_To_MasterEncData2 "Encryption Data From UWB_RL";
+CM_ BO_ 452 "[EC] On Event and On Change";
+CM_ SG_ 452 C_UWB_RL_To_BDCFOBRSDResult "Distance result of UWB ranging";
+CM_ BO_ 453 "[EC] On Event and On Change";
+CM_ SG_ 453 C_UWB_RL_MCU_Bootloader "UWB MCU_Bootloader";
+CM_ SG_ 453 C_UWB_RL_MCU_Flash_Erase "UWB_MCU_Flash_Erase";
+CM_ SG_ 453 C_UWB_RL_MCU_CRC32 "UWB_MCU_CRC32";
+CM_ BO_ 454 "[EC] On Event and On Change";
+CM_ SG_ 454 C_UWB_RL_IC_Bootloader "UWB_IC_Bootloader";
+CM_ SG_ 454 C_UWB_RL_IC_Flash_Erase "UWB_IC_Flash_Erase";
+CM_ SG_ 454 C_UWB_RL_IC_CRC32 "UWB_IC_CRC32";
+CM_ BO_ 455 "[EC] On Event and On Change";
+CM_ SG_ 455 C_UWB_RL_Decrypt_FB "UWB RL Decryption Feed Back";
+CM_ BO_ 482 "[EW] On Event and On Write";
+CM_ SG_ 482 C_UWB_RR_To_MasterEncData1 "Encryption Data From UWB_RR";
+CM_ BO_ 483 "[EW] On Event and On Write";
+CM_ SG_ 483 C_UWB_RR_To_MasterEncData2 "Encryption Data From UWB_RR";
+CM_ BO_ 484 "[EC] On Event and On Change";
+CM_ SG_ 484 C_UWB_RR_To_BDCFOBRSDResult "Distance result of UWB ranging";
+CM_ BO_ 485 "[EC] On Event and On Change";
+CM_ SG_ 485 C_UWB_RR_MCU_Bootloader "UWB MCU_Bootloader";
+CM_ SG_ 485 C_UWB_RR_MCU_Flash_Erase "UWB_MCU_Flash_Erase";
+CM_ SG_ 485 C_UWB_RR_MCU_CRC32 "UWB_MCU_CRC32";
+CM_ BO_ 486 "[EC] On Event and On Change";
+CM_ SG_ 486 C_UWB_RR_IC_Bootloader "UWB_IC_Bootloader";
+CM_ SG_ 486 C_UWB_RR_IC_Flash_Erase "UWB_IC_Flash_Erase";
+CM_ SG_ 486 C_UWB_RR_IC_CRC32 "UWB_IC_CRC32";
+CM_ BO_ 487 "[EC] On Event and On Change";
+CM_ SG_ 487 C_UWB_RR_Decrypt_FB "UWB RR Decryption Feed Back";
+CM_ BO_ 498 "[EW] On Event and On Write";
+CM_ SG_ 498 C_UWB_TRNK_To_MasterEncData1 "Encryption Data From UWB_TRNK";
+CM_ BO_ 499 "[EW] On Event and On Write";
+CM_ SG_ 499 C_UWB_TRNK_To_MasterEncData2 "Encryption Data From UWB_TRNK";
+CM_ BO_ 500 "[EC] On Event and On Change";
+CM_ SG_ 500 C_UWB_TRNK_To_BDCFOBRSDResult "Distance result of UWB ranging";
+CM_ BO_ 501 "[EC] On Event and On Change";
+CM_ SG_ 501 C_UWB_TRNK_MCU_Bootloader "UWB MCU_Bootloader";
+CM_ SG_ 501 C_UWB_TRNK_MCU_Flash_Erase "UWB_MCU_Flash_Erase";
+CM_ SG_ 501 C_UWB_TRNK_MCU_CRC32 "UWB_MCU_CRC32";
+CM_ BO_ 502 "[EC] On Event and On Change";
+CM_ SG_ 502 C_UWB_TRNK_IC_Bootloader "UWB_IC_Bootloader";
+CM_ SG_ 502 C_UWB_TRNK_IC_Flash_Erase "UWB_IC_Flash_Erase";
+CM_ SG_ 502 C_UWB_TRNK_IC_CRC32 "UWB_IC_CRC32";
+CM_ BO_ 503 "[EC] On Event and On Change";
+CM_ SG_ 503 C_UWB_TRNK_Decrypt_FB "UWB TRNK Decryption Feed Back";
+CM_ BO_ 768 "[TP] TP Message";
+CM_ SG_ 768 C_BDCBLETpByte0Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte1Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte2Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte3Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte4Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte5Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte6Data "TP  From BDC to BLE";
+CM_ SG_ 768 C_BDCBLETpByte7Data "TP  From BDC to BLE";
+CM_ BO_ 770 "[TP] TP Message";
+CM_ SG_ 770 C_BDCDHLTpByte0Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte1Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte2Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte3Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte4Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte5Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte6Data "TP  From BDC to DHL";
+CM_ SG_ 770 C_BDCDHLTpByte7Data "TP  From BDC to DHL";
+CM_ BO_ 772 "[TP] TP Message";
+CM_ SG_ 772 C_BDCDHRTpByte0Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte1Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte2Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte3Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte4Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte5Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte6Data "TP  From BDC to DHR";
+CM_ SG_ 772 C_BDCDHRTpByte7Data "TP  From BDC to DHR";
+CM_ BO_ 778 "[TP] TP Message";
+CM_ SG_ 778 C_BDCWPCTpByte0Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte1Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte2Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte3Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte4Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte5Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte6Data "TP From BDC to WPC";
+CM_ SG_ 778 C_BDCWPCTpByte7Data "TP From BDC to WPC";
+CM_ BO_ 780 "[TP] TP Message";
+CM_ SG_ 780 C_BLEBDCTpByte0Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte1Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte2Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte3Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte4Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte5Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte6Data "TP From BLE to BDC";
+CM_ SG_ 780 C_BLEBDCTpByte7Data "TP From BLE to BDC";
+CM_ BO_ 784 "[TP] TP Message";
+CM_ SG_ 784 C_DHLBDCTpByte0Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte1Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte2Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte3Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte4Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte5Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte6Data "TP From DHL to BDC";
+CM_ SG_ 784 C_DHLBDCTpByte7Data "TP From DHL to BDC";
+CM_ BO_ 786 "[TP] TP Message";
+CM_ SG_ 786 C_DHRBDCTpByte0Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte1Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte2Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte3Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte4Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte5Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte6Data "TP From DHL to BDC";
+CM_ SG_ 786 C_DHRBDCTpByte7Data "TP From DHL to BDC";
+CM_ BO_ 792 "[TP] TP Message";
+CM_ SG_ 792 C_WPCBDCTpByte0Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte1Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte2Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte3Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte4Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte5Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte6Data "TP From WPC to BDC";
+CM_ SG_ 792 C_WPCBDCTpByte7Data "TP From WPC to BDC";
+CM_ BO_ 800 "[EC] On Event and On Change";
+CM_ BO_ 816 "[EC] On Event and On Change";
+CM_ BO_ 832 "[EC] On Event and On Change";
+CM_ BO_ 864 "[EC] On Event and On Change";
+CM_ BO_ 865 "[EC] On Event and On Change";
+CM_ BO_ 870 "[EC] On Event and On Change";
+CM_ BO_ 871 "[EC] On Event and On Change";
+CM_ BO_ 872 "[EC] On Event and On Change";
+CM_ BO_ 873 "[EC] On Event and On Change";
+CM_ BO_ 877 "[EC] On Event and On Change";
+CM_ BO_ 884 "[EC] On Event and On Change";
+CM_ BO_ 885 "[EC] On Event and On Change";
+CM_ BO_ 1024 "NM Message";
+CM_ BO_ 1054 "NM Message";
+CM_ BO_ 1097 "NM Message";
+CM_ BO_ 1120 "NM Message";
+CM_ BO_ 1121 "NM Message";
+CM_ BO_ 1123 "NM Message";
+CM_ BO_ 1126 "NM Message";
+CM_ BO_ 1127 "NM Message";
+CM_ BO_ 1128 "NM Message";
+CM_ BO_ 1129 "NM Message";
+CM_ BO_ 1133 "NM Message";
+CM_ BO_ 1140 "NM Message";
+CM_ BO_ 1141 "NM Message";
+CM_ BO_ 1410 "[EW] On Event and On Write";
+CM_ BO_ 1418 "[EW] On Event and On Write";
+CM_ BO_ 1504 "[EW] On Event and On Write";
+CM_ SG_ 1504 GstBDCROADataByte0 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte1 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte2 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte3 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte4 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte5 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte6 "Diag MSG";
+CM_ SG_ 1504 GstBDCROADataByte7 "Diag MSG";
+CM_ BO_ 1512 "[EW] On Event and On Write";
+CM_ BO_ 1794 "[EW] On Event and On Write";
+CM_ BO_ 1802 "[EW] On Event and On Write";
+CM_ BO_ 1813 "[EW] On Event and On Write";
+CM_ BO_ 1821 "[EW] On Event and On Write";
+CM_ BO_ 2015 "[EW] On Event and On Write";
+BA_DEF_ SG_  "NWM-WakeupAllowed" ENUM  "<n.a.>";
+BA_DEF_ BO_  "NWM-Botschaft" ENUM  "No","Yes";
+BA_DEF_ BU_  "TpTxIdentifier" HEX 0 0;
+BA_DEF_ BU_  "TpRxIdentifier" HEX 0 0;
+BA_DEF_ BU_  "NWM-Knoten" ENUM  "No","Yes";
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BO_  "TpTxIndex" INT 0 255;
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GwSigLatencyTime" INT 0 65535;
+BA_DEF_ SG_  "GwSigMissingSourceType" ENUM  "Undef","OldValue","DefaultValue","InitialValue";
+BA_DEF_ SG_  "UndefinedValueRangeBegin" INT 0 0;
+BA_DEF_ SG_  "SignalCategory" HEX 10 15;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 65535;
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_ SG_  "NmNetworkRequest" ENUM  "No","Yes";
+BA_DEF_ SG_  "NmNetworkRequestHoldingTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 20 20;
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 0;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 3;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 500;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","not_used","not_used","not_used","NoMsgSendType";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 2000;
+BA_DEF_ BU_  "GenNodSleepTime" INT 1375 1650;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmCAN" INT 1 2;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 255;
+BA_DEF_  "GenNWMApBusSleep" STRING ;
+BA_DEF_  "GenNWMApCanNormal" STRING ;
+BA_DEF_  "GenNWMApCanOff" STRING ;
+BA_DEF_  "GenNWMApCanOn" STRING ;
+BA_DEF_  "GenNWMApCanSleep" STRING ;
+BA_DEF_  "GenNWMApCanWakeUp" STRING ;
+BA_DEF_  "GenNWMGotoMode_Awake" STRING ;
+BA_DEF_  "GenNWMGotoMode_BusSleep" STRING ;
+BA_DEF_  "GenNWMSleepTime" INT 1375 1650;
+BA_DEF_  "GenNWMTalkNM" STRING ;
+BA_DEF_  "GenEnvVarEndingDsp" STRING ;
+BA_DEF_  "GenEnvVarEndingSnd" STRING ;
+BA_DEF_  "GenEnvVarPrefix" STRING ;
+BA_DEF_  "VersionNumberInternal" INT 0 9999;
+BA_DEF_  "VersionNumber" INT 0 999999;
+BA_DEF_  "VersionWeek" INT 1 53;
+BA_DEF_  "VersionYear" INT 0 9999;
+BA_DEF_  "VersionMonth" INT 1 12;
+BA_DEF_  "VersionDay" INT 1 31;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "NmBaseAddress" HEX 0 2047;
+BA_DEF_  "NmMessageCount" INT 0 128;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "Baudrate" INT 100000 500000;
+BA_DEF_  "SamplePointMin" INT 55 85;
+BA_DEF_  "SamplePointMax" INT 50 85;
+BA_DEF_  "SyncJumpWidthMin" INT 1 4;
+BA_DEF_  "SyncJumpWidthMax" INT 1 8;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutMsg" HEX 0 2047;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 175 3500;
+BA_DEF_DEF_  "NWM-WakeupAllowed" "<n.a.>";
+BA_DEF_DEF_  "NWM-Botschaft" "No";
+BA_DEF_DEF_  "TpTxIdentifier" 0;
+BA_DEF_DEF_  "TpRxIdentifier" 0;
+BA_DEF_DEF_  "NWM-Knoten" "Yes";
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "TpTxIndex" 0;
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigEVName" "";
+BA_DEF_DEF_  "GwSigLatencyTime" 40;
+BA_DEF_DEF_  "GwSigMissingSourceType" "Undef";
+BA_DEF_DEF_  "UndefinedValueRangeBegin" 0;
+BA_DEF_DEF_  "SignalCategory" 12;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "NmNetworkRequest" "No";
+BA_DEF_DEF_  "NmNetworkRequestHoldingTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 20;
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 3;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 60;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenMsgCycleTime" 200;
+BA_DEF_DEF_  "GenNodSleepTime" 1500;
+BA_DEF_DEF_  "NodeLayerModules" "oseknm01.dll";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "NmNode" "Yes";
+BA_DEF_DEF_  "NmCAN" 1;
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "GenNWMApBusSleep" "ApplNmCanBusSleep()";
+BA_DEF_DEF_  "GenNWMApCanNormal" "ApplNmCanNormal()";
+BA_DEF_DEF_  "GenNWMApCanOff" "ApplCanOffline()";
+BA_DEF_DEF_  "GenNWMApCanOn" "ApplCanOnline()";
+BA_DEF_DEF_  "GenNWMApCanSleep" "ApplNmCanSleep()";
+BA_DEF_DEF_  "GenNWMApCanWakeUp" "ApplCanWakeUp()";
+BA_DEF_DEF_  "GenNWMGotoMode_Awake" "GotoMode_Awake()";
+BA_DEF_DEF_  "GenNWMGotoMode_BusSleep" "GotoMode_BusSleep()";
+BA_DEF_DEF_  "GenNWMSleepTime" 1500;
+BA_DEF_DEF_  "GenNWMTalkNM" "TalkNM()";
+BA_DEF_DEF_  "GenEnvVarEndingDsp" "Dsp_";
+BA_DEF_DEF_  "GenEnvVarEndingSnd" "_";
+BA_DEF_DEF_  "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_  "VersionNumberInternal" 0;
+BA_DEF_DEF_  "VersionNumber" 0;
+BA_DEF_DEF_  "VersionWeek" 1;
+BA_DEF_DEF_  "VersionYear" 0;
+BA_DEF_DEF_  "VersionMonth" 1;
+BA_DEF_DEF_  "VersionDay" 1;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "NmType" "Vector";
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "NmMessageCount" 128;
+BA_DEF_DEF_  "Manufacturer" "HMC";
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "SamplePointMin" 75;
+BA_DEF_DEF_  "SamplePointMax" 82;
+BA_DEF_DEF_  "SyncJumpWidthMin" 2;
+BA_DEF_DEF_  "SyncJumpWidthMax" 3;
+BA_DEF_DEF_REL_ "GenSigTimeoutMsg" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 700;
+BA_ "VersionNumberInternal" 0;
+BA_ "VersionNumber" 106;
+BA_ "VersionWeek" 1;
+BA_ "VersionYear" 1;
+BA_ "VersionMonth" 1;
+BA_ "VersionDay" 1;
+BA_ "NmStationAddress" BU_ UWB_RL 105;
+BA_ "NmStationAddress" BU_ UWB_RR 104;
+BA_ "NmStationAddress" BU_ UWB_INT 117;
+BA_ "NmStationAddress" BU_ DHR 97;
+BA_ "NmStationAddress" BU_ DHL 96;
+BA_ "NmStationAddress" BU_ UWB_BLE 116;
+BA_ "NmStationAddress" BU_ BDC 0;
+BA_ "NmStationAddress" BU_ UWB_FL 103;
+BA_ "NmStationAddress" BU_ ROA 73;
+BA_ "NmStationAddress" BU_ WPC 30;
+BA_ "NmStationAddress" BU_ Devtool 99;
+BA_ "NmStationAddress" BU_ UWB_TRNK 109;
+BA_ "NmStationAddress" BU_ UWB_FR 102;
+BA_ "GenMsgStartDelayTime" BO_ 16 0;
+BA_ "GenMsgCycleTimeFast" BO_ 16 40;
+BA_ "GenMsgCycleTime" BO_ 16 0;
+BA_ "GenMsgStartDelayTime" BO_ 17 0;
+BA_ "GenMsgCycleTimeFast" BO_ 17 40;
+BA_ "GenMsgCycleTime" BO_ 17 0;
+BA_ "GenMsgStartDelayTime" BO_ 18 0;
+BA_ "GenMsgCycleTimeFast" BO_ 18 40;
+BA_ "GenMsgCycleTime" BO_ 18 0;
+BA_ "GenMsgStartDelayTime" BO_ 19 0;
+BA_ "GenMsgCycleTimeFast" BO_ 19 40;
+BA_ "GenMsgCycleTime" BO_ 19 0;
+BA_ "GenMsgStartDelayTime" BO_ 20 0;
+BA_ "GenMsgCycleTimeFast" BO_ 20 40;
+BA_ "GenMsgCycleTime" BO_ 20 0;
+BA_ "GenMsgStartDelayTime" BO_ 21 0;
+BA_ "GenMsgCycleTimeFast" BO_ 21 40;
+BA_ "GenMsgSendType" BO_ 21 0;
+BA_ "GenMsgStartDelayTime" BO_ 31 0;
+BA_ "GenMsgCycleTimeFast" BO_ 31 40;
+BA_ "GenMsgCycleTime" BO_ 31 0;
+BA_ "GenMsgStartDelayTime" BO_ 32 0;
+BA_ "GenMsgCycleTimeFast" BO_ 32 40;
+BA_ "GenMsgCycleTime" BO_ 32 0;
+BA_ "GenMsgStartDelayTime" BO_ 33 0;
+BA_ "GenMsgCycleTimeFast" BO_ 33 40;
+BA_ "GenMsgCycleTime" BO_ 33 0;
+BA_ "GenMsgStartDelayTime" BO_ 34 0;
+BA_ "GenMsgCycleTimeFast" BO_ 34 40;
+BA_ "GenMsgCycleTime" BO_ 34 0;
+BA_ "GenMsgStartDelayTime" BO_ 35 0;
+BA_ "GenMsgCycleTimeFast" BO_ 35 40;
+BA_ "GenMsgCycleTime" BO_ 35 0;
+BA_ "GenMsgStartDelayTime" BO_ 36 0;
+BA_ "GenMsgCycleTimeFast" BO_ 36 40;
+BA_ "GenMsgCycleTime" BO_ 36 0;
+BA_ "GenMsgStartDelayTime" BO_ 37 0;
+BA_ "GenMsgCycleTimeFast" BO_ 37 40;
+BA_ "GenMsgCycleTime" BO_ 37 0;
+BA_ "GenMsgStartDelayTime" BO_ 38 0;
+BA_ "GenMsgCycleTimeFast" BO_ 38 40;
+BA_ "GenMsgCycleTime" BO_ 38 0;
+BA_ "GenMsgStartDelayTime" BO_ 39 0;
+BA_ "GenMsgCycleTimeFast" BO_ 39 40;
+BA_ "GenMsgCycleTime" BO_ 39 0;
+BA_ "GenMsgStartDelayTime" BO_ 40 0;
+BA_ "GenMsgCycleTimeFast" BO_ 40 40;
+BA_ "GenMsgCycleTime" BO_ 40 0;
+BA_ "GenMsgStartDelayTime" BO_ 41 0;
+BA_ "GenMsgCycleTimeFast" BO_ 41 40;
+BA_ "GenMsgCycleTime" BO_ 41 0;
+BA_ "GenMsgStartDelayTime" BO_ 47 0;
+BA_ "GenMsgCycleTimeFast" BO_ 47 40;
+BA_ "GenMsgCycleTime" BO_ 47 0;
+BA_ "GenMsgStartDelayTime" BO_ 48 0;
+BA_ "GenMsgCycleTimeFast" BO_ 48 40;
+BA_ "GenMsgCycleTime" BO_ 48 0;
+BA_ "GenMsgStartDelayTime" BO_ 49 0;
+BA_ "GenMsgCycleTimeFast" BO_ 49 40;
+BA_ "GenMsgCycleTime" BO_ 49 0;
+BA_ "GenMsgStartDelayTime" BO_ 96 0;
+BA_ "GenMsgCycleTimeFast" BO_ 96 40;
+BA_ "GenMsgCycleTime" BO_ 96 0;
+BA_ "GenMsgStartDelayTime" BO_ 111 0;
+BA_ "GenMsgCycleTimeFast" BO_ 111 40;
+BA_ "GenMsgCycleTime" BO_ 111 0;
+BA_ "GenMsgStartDelayTime" BO_ 112 0;
+BA_ "GenMsgCycleTimeFast" BO_ 112 40;
+BA_ "GenMsgCycleTime" BO_ 112 0;
+BA_ "GenMsgStartDelayTime" BO_ 113 0;
+BA_ "GenMsgCycleTimeFast" BO_ 113 40;
+BA_ "GenMsgCycleTime" BO_ 113 0;
+BA_ "GenMsgStartDelayTime" BO_ 114 0;
+BA_ "GenMsgCycleTimeFast" BO_ 114 40;
+BA_ "GenMsgCycleTime" BO_ 114 0;
+BA_ "GenMsgStartDelayTime" BO_ 115 0;
+BA_ "GenMsgCycleTimeFast" BO_ 115 40;
+BA_ "GenMsgCycleTime" BO_ 115 0;
+BA_ "GenMsgStartDelayTime" BO_ 116 0;
+BA_ "GenMsgCycleTimeFast" BO_ 116 40;
+BA_ "GenMsgCycleTime" BO_ 116 0;
+BA_ "GenMsgStartDelayTime" BO_ 117 0;
+BA_ "GenMsgCycleTimeFast" BO_ 117 40;
+BA_ "GenMsgCycleTime" BO_ 117 0;
+BA_ "GenMsgStartDelayTime" BO_ 128 0;
+BA_ "GenMsgCycleTimeFast" BO_ 128 40;
+BA_ "GenMsgCycleTime" BO_ 128 0;
+BA_ "GenMsgStartDelayTime" BO_ 203 0;
+BA_ "GenMsgCycleTimeFast" BO_ 203 40;
+BA_ "GenMsgCycleTime" BO_ 203 0;
+BA_ "GenMsgStartDelayTime" BO_ 204 0;
+BA_ "GenMsgCycleTimeFast" BO_ 204 40;
+BA_ "GenMsgCycleTime" BO_ 204 0;
+BA_ "GenMsgStartDelayTime" BO_ 209 0;
+BA_ "GenMsgCycleTimeFast" BO_ 209 40;
+BA_ "GenMsgCycleTime" BO_ 209 0;
+BA_ "GenMsgStartDelayTime" BO_ 210 0;
+BA_ "GenMsgCycleTimeFast" BO_ 210 40;
+BA_ "GenMsgCycleTime" BO_ 210 0;
+BA_ "GenMsgStartDelayTime" BO_ 211 0;
+BA_ "GenMsgCycleTimeFast" BO_ 211 40;
+BA_ "GenMsgCycleTime" BO_ 211 0;
+BA_ "GenMsgStartDelayTime" BO_ 212 0;
+BA_ "GenMsgCycleTimeFast" BO_ 212 40;
+BA_ "GenMsgCycleTime" BO_ 212 0;
+BA_ "GenMsgStartDelayTime" BO_ 213 0;
+BA_ "GenMsgCycleTimeFast" BO_ 213 40;
+BA_ "GenMsgCycleTime" BO_ 213 0;
+BA_ "GenMsgStartDelayTime" BO_ 214 0;
+BA_ "GenMsgCycleTimeFast" BO_ 214 40;
+BA_ "GenMsgCycleTime" BO_ 214 0;
+BA_ "GenMsgStartDelayTime" BO_ 224 0;
+BA_ "GenMsgCycleTimeFast" BO_ 224 40;
+BA_ "GenMsgCycleTime" BO_ 224 0;
+BA_ "GenMsgStartDelayTime" BO_ 225 0;
+BA_ "GenMsgCycleTimeFast" BO_ 225 40;
+BA_ "GenMsgCycleTime" BO_ 225 0;
+BA_ "GenMsgStartDelayTime" BO_ 226 0;
+BA_ "GenMsgCycleTimeFast" BO_ 226 40;
+BA_ "GenMsgCycleTime" BO_ 226 0;
+BA_ "GenMsgStartDelayTime" BO_ 227 0;
+BA_ "GenMsgCycleTimeFast" BO_ 227 40;
+BA_ "GenMsgCycleTime" BO_ 227 0;
+BA_ "GenMsgStartDelayTime" BO_ 234 0;
+BA_ "GenMsgCycleTimeFast" BO_ 234 40;
+BA_ "GenMsgCycleTime" BO_ 234 0;
+BA_ "GenMsgStartDelayTime" BO_ 235 0;
+BA_ "GenMsgCycleTimeFast" BO_ 235 40;
+BA_ "GenMsgCycleTime" BO_ 235 0;
+BA_ "GenMsgStartDelayTime" BO_ 256 20;
+BA_ "GenMsgCycleTimeFast" BO_ 256 40;
+BA_ "GenMsgSendType" BO_ 256 0;
+BA_ "GenMsgStartDelayTime" BO_ 257 40;
+BA_ "GenMsgCycleTimeFast" BO_ 257 40;
+BA_ "GenMsgSendType" BO_ 257 0;
+BA_ "GenMsgStartDelayTime" BO_ 272 0;
+BA_ "GenMsgCycleTimeFast" BO_ 272 40;
+BA_ "GenMsgSendType" BO_ 272 0;
+BA_ "GenMsgStartDelayTime" BO_ 277 0;
+BA_ "GenMsgCycleTimeFast" BO_ 277 40;
+BA_ "GenMsgSendType" BO_ 277 0;
+BA_ "GenMsgStartDelayTime" BO_ 288 0;
+BA_ "GenMsgCycleTimeFast" BO_ 288 40;
+BA_ "GenMsgSendType" BO_ 288 0;
+BA_ "GenMsgStartDelayTime" BO_ 304 0;
+BA_ "GenMsgCycleTimeFast" BO_ 304 40;
+BA_ "GenMsgSendType" BO_ 304 0;
+BA_ "GenMsgStartDelayTime" BO_ 320 20;
+BA_ "GenMsgCycleTimeFast" BO_ 320 40;
+BA_ "GenMsgSendType" BO_ 320 0;
+BA_ "GenMsgStartDelayTime" BO_ 357 0;
+BA_ "GenMsgCycleTimeFast" BO_ 357 40;
+BA_ "GenMsgSendType" BO_ 357 0;
+BA_ "GenMsgStartDelayTime" BO_ 368 0;
+BA_ "GenMsgCycleTimeFast" BO_ 368 40;
+BA_ "GenMsgSendType" BO_ 368 0;
+BA_ "GenMsgStartDelayTime" BO_ 369 20;
+BA_ "GenMsgNrOfRepetition" BO_ 369 0;
+BA_ "GenMsgCycleTimeFast" BO_ 369 0;
+BA_ "GenMsgSendType" BO_ 369 0;
+BA_ "GenMsgStartDelayTime" BO_ 370 0;
+BA_ "GenMsgCycleTimeFast" BO_ 370 40;
+BA_ "GenMsgCycleTime" BO_ 370 0;
+BA_ "GenMsgStartDelayTime" BO_ 371 0;
+BA_ "GenMsgCycleTimeFast" BO_ 371 40;
+BA_ "GenMsgCycleTime" BO_ 371 0;
+BA_ "GenMsgStartDelayTime" BO_ 372 0;
+BA_ "GenMsgCycleTimeFast" BO_ 372 40;
+BA_ "GenMsgCycleTime" BO_ 372 0;
+BA_ "GenMsgStartDelayTime" BO_ 373 0;
+BA_ "GenMsgCycleTimeFast" BO_ 373 40;
+BA_ "GenMsgCycleTime" BO_ 373 0;
+BA_ "GenMsgStartDelayTime" BO_ 374 0;
+BA_ "GenMsgCycleTimeFast" BO_ 374 40;
+BA_ "GenMsgCycleTime" BO_ 374 0;
+BA_ "GenMsgStartDelayTime" BO_ 375 0;
+BA_ "GenMsgCycleTimeFast" BO_ 375 40;
+BA_ "GenMsgCycleTime" BO_ 375 0;
+BA_ "GenMsgStartDelayTime" BO_ 376 0;
+BA_ "GenMsgCycleTimeFast" BO_ 376 40;
+BA_ "GenMsgSendType" BO_ 376 0;
+BA_ "GenMsgStartDelayTime" BO_ 377 20;
+BA_ "GenMsgNrOfRepetition" BO_ 377 0;
+BA_ "GenMsgCycleTimeFast" BO_ 377 0;
+BA_ "GenMsgSendType" BO_ 377 0;
+BA_ "GenMsgStartDelayTime" BO_ 384 0;
+BA_ "GenMsgCycleTimeFast" BO_ 384 40;
+BA_ "GenMsgSendType" BO_ 384 0;
+BA_ "GenMsgStartDelayTime" BO_ 385 20;
+BA_ "GenMsgNrOfRepetition" BO_ 385 0;
+BA_ "GenMsgCycleTimeFast" BO_ 385 0;
+BA_ "GenMsgSendType" BO_ 385 0;
+BA_ "GenMsgStartDelayTime" BO_ 386 0;
+BA_ "GenMsgCycleTimeFast" BO_ 386 40;
+BA_ "GenMsgCycleTime" BO_ 386 0;
+BA_ "GenMsgStartDelayTime" BO_ 387 0;
+BA_ "GenMsgCycleTimeFast" BO_ 387 40;
+BA_ "GenMsgCycleTime" BO_ 387 0;
+BA_ "GenMsgStartDelayTime" BO_ 388 0;
+BA_ "GenMsgCycleTimeFast" BO_ 388 40;
+BA_ "GenMsgCycleTime" BO_ 388 0;
+BA_ "GenMsgStartDelayTime" BO_ 389 0;
+BA_ "GenMsgCycleTimeFast" BO_ 389 40;
+BA_ "GenMsgCycleTime" BO_ 389 0;
+BA_ "GenMsgStartDelayTime" BO_ 390 0;
+BA_ "GenMsgCycleTimeFast" BO_ 390 40;
+BA_ "GenMsgCycleTime" BO_ 390 0;
+BA_ "GenMsgStartDelayTime" BO_ 391 0;
+BA_ "GenMsgCycleTimeFast" BO_ 391 40;
+BA_ "GenMsgCycleTime" BO_ 391 0;
+BA_ "GenMsgStartDelayTime" BO_ 392 40;
+BA_ "GenMsgCycleTimeFast" BO_ 392 40;
+BA_ "GenMsgSendType" BO_ 392 0;
+BA_ "GenMsgStartDelayTime" BO_ 393 60;
+BA_ "GenMsgCycleTimeFast" BO_ 393 40;
+BA_ "GenMsgSendType" BO_ 393 0;
+BA_ "GenMsgStartDelayTime" BO_ 394 80;
+BA_ "GenMsgCycleTimeFast" BO_ 394 40;
+BA_ "GenMsgSendType" BO_ 394 0;
+BA_ "GenMsgStartDelayTime" BO_ 395 100;
+BA_ "GenMsgCycleTimeFast" BO_ 395 40;
+BA_ "GenMsgSendType" BO_ 395 0;
+BA_ "GenMsgStartDelayTime" BO_ 396 120;
+BA_ "GenMsgCycleTimeFast" BO_ 396 40;
+BA_ "GenMsgSendType" BO_ 396 0;
+BA_ "GenMsgStartDelayTime" BO_ 397 0;
+BA_ "GenMsgCycleTimeFast" BO_ 397 40;
+BA_ "GenMsgCycleTime" BO_ 397 0;
+BA_ "GenMsgStartDelayTime" BO_ 398 0;
+BA_ "GenMsgCycleTimeFast" BO_ 398 40;
+BA_ "GenMsgCycleTime" BO_ 398 0;
+BA_ "GenMsgStartDelayTime" BO_ 399 0;
+BA_ "GenMsgCycleTimeFast" BO_ 399 40;
+BA_ "GenMsgCycleTime" BO_ 399 0;
+BA_ "GenMsgStartDelayTime" BO_ 400 0;
+BA_ "GenMsgCycleTimeFast" BO_ 400 40;
+BA_ "GenMsgSendType" BO_ 400 0;
+BA_ "GenMsgStartDelayTime" BO_ 401 20;
+BA_ "GenMsgNrOfRepetition" BO_ 401 0;
+BA_ "GenMsgCycleTimeFast" BO_ 401 0;
+BA_ "GenMsgSendType" BO_ 401 0;
+BA_ "GenMsgStartDelayTime" BO_ 405 0;
+BA_ "GenMsgCycleTimeFast" BO_ 405 40;
+BA_ "GenMsgSendType" BO_ 405 0;
+BA_ "GenMsgStartDelayTime" BO_ 406 20;
+BA_ "GenMsgNrOfRepetition" BO_ 406 0;
+BA_ "GenMsgCycleTimeFast" BO_ 406 0;
+BA_ "GenMsgSendType" BO_ 406 0;
+BA_ "GenMsgStartDelayTime" BO_ 410 0;
+BA_ "GenMsgCycleTimeFast" BO_ 410 40;
+BA_ "GenMsgSendType" BO_ 410 0;
+BA_ "GenMsgStartDelayTime" BO_ 411 20;
+BA_ "GenMsgNrOfRepetition" BO_ 411 0;
+BA_ "GenMsgCycleTimeFast" BO_ 411 0;
+BA_ "GenMsgSendType" BO_ 411 0;
+BA_ "GenMsgStartDelayTime" BO_ 450 0;
+BA_ "GenMsgCycleTimeFast" BO_ 450 40;
+BA_ "GenMsgCycleTime" BO_ 450 0;
+BA_ "GenMsgStartDelayTime" BO_ 451 0;
+BA_ "GenMsgCycleTimeFast" BO_ 451 40;
+BA_ "GenMsgCycleTime" BO_ 451 0;
+BA_ "GenMsgStartDelayTime" BO_ 452 0;
+BA_ "GenMsgCycleTimeFast" BO_ 452 40;
+BA_ "GenMsgCycleTime" BO_ 452 0;
+BA_ "GenMsgStartDelayTime" BO_ 453 0;
+BA_ "GenMsgCycleTimeFast" BO_ 453 40;
+BA_ "GenMsgCycleTime" BO_ 453 0;
+BA_ "GenMsgStartDelayTime" BO_ 454 0;
+BA_ "GenMsgCycleTimeFast" BO_ 454 40;
+BA_ "GenMsgCycleTime" BO_ 454 0;
+BA_ "GenMsgStartDelayTime" BO_ 455 0;
+BA_ "GenMsgCycleTimeFast" BO_ 455 40;
+BA_ "GenMsgCycleTime" BO_ 455 0;
+BA_ "GenMsgStartDelayTime" BO_ 482 0;
+BA_ "GenMsgCycleTimeFast" BO_ 482 40;
+BA_ "GenMsgCycleTime" BO_ 482 0;
+BA_ "GenMsgStartDelayTime" BO_ 483 0;
+BA_ "GenMsgCycleTimeFast" BO_ 483 40;
+BA_ "GenMsgCycleTime" BO_ 483 0;
+BA_ "GenMsgStartDelayTime" BO_ 484 0;
+BA_ "GenMsgCycleTimeFast" BO_ 484 40;
+BA_ "GenMsgCycleTime" BO_ 484 0;
+BA_ "GenMsgStartDelayTime" BO_ 485 0;
+BA_ "GenMsgCycleTimeFast" BO_ 485 40;
+BA_ "GenMsgCycleTime" BO_ 485 0;
+BA_ "GenMsgStartDelayTime" BO_ 486 0;
+BA_ "GenMsgCycleTimeFast" BO_ 486 40;
+BA_ "GenMsgCycleTime" BO_ 486 0;
+BA_ "GenMsgStartDelayTime" BO_ 487 0;
+BA_ "GenMsgCycleTimeFast" BO_ 487 40;
+BA_ "GenMsgCycleTime" BO_ 487 0;
+BA_ "GenMsgStartDelayTime" BO_ 498 0;
+BA_ "GenMsgCycleTimeFast" BO_ 498 40;
+BA_ "GenMsgCycleTime" BO_ 498 0;
+BA_ "GenMsgStartDelayTime" BO_ 499 0;
+BA_ "GenMsgCycleTimeFast" BO_ 499 40;
+BA_ "GenMsgCycleTime" BO_ 499 0;
+BA_ "GenMsgStartDelayTime" BO_ 500 0;
+BA_ "GenMsgCycleTimeFast" BO_ 500 40;
+BA_ "GenMsgCycleTime" BO_ 500 0;
+BA_ "GenMsgStartDelayTime" BO_ 501 0;
+BA_ "GenMsgCycleTimeFast" BO_ 501 40;
+BA_ "GenMsgCycleTime" BO_ 501 0;
+BA_ "GenMsgStartDelayTime" BO_ 502 0;
+BA_ "GenMsgCycleTimeFast" BO_ 502 40;
+BA_ "GenMsgCycleTime" BO_ 502 0;
+BA_ "GenMsgStartDelayTime" BO_ 503 0;
+BA_ "GenMsgCycleTimeFast" BO_ 503 40;
+BA_ "GenMsgCycleTime" BO_ 503 0;
+BA_ "GenMsgStartDelayTime" BO_ 768 0;
+BA_ "GenMsgCycleTimeFast" BO_ 768 40;
+BA_ "GenMsgStartDelayTime" BO_ 770 0;
+BA_ "GenMsgCycleTimeFast" BO_ 770 40;
+BA_ "GenMsgStartDelayTime" BO_ 772 0;
+BA_ "GenMsgCycleTimeFast" BO_ 772 40;
+BA_ "GenMsgStartDelayTime" BO_ 778 0;
+BA_ "GenMsgCycleTimeFast" BO_ 778 40;
+BA_ "GenMsgStartDelayTime" BO_ 780 0;
+BA_ "GenMsgCycleTimeFast" BO_ 780 40;
+BA_ "GenMsgStartDelayTime" BO_ 784 0;
+BA_ "GenMsgCycleTimeFast" BO_ 784 40;
+BA_ "GenMsgStartDelayTime" BO_ 786 0;
+BA_ "GenMsgCycleTimeFast" BO_ 786 40;
+BA_ "GenMsgStartDelayTime" BO_ 792 0;
+BA_ "GenMsgCycleTimeFast" BO_ 792 40;
+BA_ "GenMsgStartDelayTime" BO_ 800 0;
+BA_ "GenMsgCycleTimeFast" BO_ 800 40;
+BA_ "GenMsgCycleTime" BO_ 800 0;
+BA_ "GenMsgStartDelayTime" BO_ 816 0;
+BA_ "GenMsgCycleTimeFast" BO_ 816 40;
+BA_ "GenMsgCycleTime" BO_ 816 0;
+BA_ "GenMsgStartDelayTime" BO_ 832 0;
+BA_ "GenMsgCycleTimeFast" BO_ 832 40;
+BA_ "GenMsgCycleTime" BO_ 832 0;
+BA_ "GenMsgStartDelayTime" BO_ 864 0;
+BA_ "GenMsgCycleTimeFast" BO_ 864 40;
+BA_ "GenMsgCycleTime" BO_ 864 0;
+BA_ "GenMsgStartDelayTime" BO_ 865 0;
+BA_ "GenMsgCycleTimeFast" BO_ 865 40;
+BA_ "GenMsgCycleTime" BO_ 865 0;
+BA_ "GenMsgStartDelayTime" BO_ 870 0;
+BA_ "GenMsgCycleTimeFast" BO_ 870 40;
+BA_ "GenMsgCycleTime" BO_ 870 0;
+BA_ "GenMsgStartDelayTime" BO_ 871 0;
+BA_ "GenMsgCycleTimeFast" BO_ 871 40;
+BA_ "GenMsgCycleTime" BO_ 871 0;
+BA_ "GenMsgStartDelayTime" BO_ 872 0;
+BA_ "GenMsgCycleTimeFast" BO_ 872 40;
+BA_ "GenMsgCycleTime" BO_ 872 0;
+BA_ "GenMsgStartDelayTime" BO_ 873 0;
+BA_ "GenMsgCycleTimeFast" BO_ 873 40;
+BA_ "GenMsgCycleTime" BO_ 873 0;
+BA_ "GenMsgStartDelayTime" BO_ 877 0;
+BA_ "GenMsgCycleTimeFast" BO_ 877 40;
+BA_ "GenMsgCycleTime" BO_ 877 0;
+BA_ "GenMsgStartDelayTime" BO_ 884 0;
+BA_ "GenMsgCycleTimeFast" BO_ 884 40;
+BA_ "GenMsgCycleTime" BO_ 884 0;
+BA_ "GenMsgStartDelayTime" BO_ 885 0;
+BA_ "GenMsgCycleTimeFast" BO_ 885 40;
+BA_ "GenMsgCycleTime" BO_ 885 0;
+BA_ "NWM-Botschaft" BO_ 1024 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1024 40;
+BA_ "GenMsgILSupport" BO_ 1024 0;
+BA_ "NmMessage" BO_ 1024 1;
+BA_ "NWM-Botschaft" BO_ 1054 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1054 40;
+BA_ "GenMsgILSupport" BO_ 1054 0;
+BA_ "NmMessage" BO_ 1054 1;
+BA_ "NWM-Botschaft" BO_ 1097 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1097 40;
+BA_ "GenMsgILSupport" BO_ 1097 0;
+BA_ "NmMessage" BO_ 1097 1;
+BA_ "NWM-Botschaft" BO_ 1120 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1120 40;
+BA_ "GenMsgILSupport" BO_ 1120 0;
+BA_ "NmMessage" BO_ 1120 1;
+BA_ "NWM-Botschaft" BO_ 1121 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1121 40;
+BA_ "GenMsgILSupport" BO_ 1121 0;
+BA_ "NmMessage" BO_ 1121 1;
+BA_ "NWM-Botschaft" BO_ 1123 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1123 40;
+BA_ "GenMsgILSupport" BO_ 1123 0;
+BA_ "NmMessage" BO_ 1123 1;
+BA_ "NWM-Botschaft" BO_ 1126 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1126 40;
+BA_ "GenMsgILSupport" BO_ 1126 0;
+BA_ "NmMessage" BO_ 1126 1;
+BA_ "NWM-Botschaft" BO_ 1127 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1127 40;
+BA_ "GenMsgILSupport" BO_ 1127 0;
+BA_ "NmMessage" BO_ 1127 1;
+BA_ "NWM-Botschaft" BO_ 1128 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1128 40;
+BA_ "GenMsgILSupport" BO_ 1128 0;
+BA_ "NmMessage" BO_ 1128 1;
+BA_ "NWM-Botschaft" BO_ 1129 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1129 40;
+BA_ "GenMsgILSupport" BO_ 1129 0;
+BA_ "NmMessage" BO_ 1129 1;
+BA_ "NWM-Botschaft" BO_ 1133 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1133 40;
+BA_ "GenMsgILSupport" BO_ 1133 0;
+BA_ "NmMessage" BO_ 1133 1;
+BA_ "NWM-Botschaft" BO_ 1140 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1140 40;
+BA_ "GenMsgILSupport" BO_ 1140 0;
+BA_ "NmMessage" BO_ 1140 1;
+BA_ "NWM-Botschaft" BO_ 1141 1;
+BA_ "GenMsgCycleTimeFast" BO_ 1141 40;
+BA_ "GenMsgILSupport" BO_ 1141 0;
+BA_ "NmMessage" BO_ 1141 1;
+BA_ "GenMsgStartDelayTime" BO_ 1410 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1410 40;
+BA_ "GenMsgCycleTime" BO_ 1410 0;
+BA_ "GenMsgStartDelayTime" BO_ 1418 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1418 40;
+BA_ "GenMsgCycleTime" BO_ 1418 0;
+BA_ "GenMsgStartDelayTime" BO_ 1504 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1504 40;
+BA_ "GenMsgCycleTime" BO_ 1504 0;
+BA_ "GenMsgStartDelayTime" BO_ 1512 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1512 40;
+BA_ "GenMsgCycleTime" BO_ 1512 0;
+BA_ "GenMsgStartDelayTime" BO_ 1794 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1794 40;
+BA_ "GenMsgCycleTime" BO_ 1794 0;
+BA_ "GenMsgStartDelayTime" BO_ 1802 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1802 40;
+BA_ "GenMsgCycleTime" BO_ 1802 0;
+BA_ "GenMsgStartDelayTime" BO_ 1813 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1813 40;
+BA_ "GenMsgCycleTime" BO_ 1813 0;
+BA_ "GenMsgStartDelayTime" BO_ 1821 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1821 40;
+BA_ "GenMsgCycleTime" BO_ 1821 0;
+BA_ "GenMsgStartDelayTime" BO_ 2015 0;
+BA_ "GenMsgCycleTimeFast" BO_ 2015 40;
+BA_ "GenMsgCycleTime" BO_ 2015 0;
+BA_ "GenSigSendType" SG_ 16 C_WPC_NFCDetection 4;
+BA_ "GenSigSendType" SG_ 16 C_WPC_NFCReset 4;
+BA_ "GenSigSendType" SG_ 17 C_WlightOnCmd 4;
+BA_ "GenSigSendType" SG_ 17 C_WPCNFCcmd 4;
+BA_ "GenSigSendType" SG_ 17 C_DRNFCcmd 4;
+BA_ "GenSigSendType" SG_ 17 C_BDCWPCNFCCmd 4;
+BA_ "GenSigSendType" SG_ 17 C_BDCDHLNFCCmd 4;
+BA_ "GenSigSendType" SG_ 17 C_BDCDHRNFCCmd 4;
+BA_ "GenSigSendType" SG_ 17 C_DRV_DRHdlLedOnSta 4;
+BA_ "GenSigSendType" SG_ 17 C_AST_DRHdlLedOnSta 4;
+BA_ "GenSigSendType" SG_ 18 C_DK_IDSet 4;
+BA_ "GenSigSendType" SG_ 18 C_DK_IDDel 4;
+BA_ "GenSigSendType" SG_ 18 C_OwnerDeviceSearchingReq 4;
+BA_ "GenSigSendType" SG_ 18 C_TimeSync_REQ 4;
+BA_ "GenSigSendType" SG_ 18 C_BLE_Connection_CMD 4;
+BA_ "GenSigSendType" SG_ 18 C_BDC_DecryptFB1 4;
+BA_ "GenSigSendType" SG_ 18 C_BDC_DecryptFB2 4;
+BA_ "GenSigSendType" SG_ 19 C_BDCLocalRN_Target 4;
+BA_ "GenSigSendType" SG_ 19 C_BDCLocalRN_TRCode 4;
+BA_ "GenSigSendType" SG_ 19 C_BDCLocalRN_CMD 4;
+BA_ "GenSigSendType" SG_ 19 C_BDCLocalRndNum 4;
+BA_ "GenSigSendType" SG_ 20 C_UWB_Ranging_CMD 4;
+BA_ "GenSigSendType" SG_ 21 C_Warn_DrvDrSwSta 4;
+BA_ "GenSigSendType" SG_ 21 C_Warn_AsstDrSwSta 4;
+BA_ "GenSigSendType" SG_ 21 C_Warn_RrLftDrSwSta 4;
+BA_ "GenSigSendType" SG_ 21 C_Warn_RrRtDrSwSta 4;
+BA_ "GenSigSendType" SG_ 21 C_Trunk_TrnkTlgtSwSta 4;
+BA_ "GenSigSendType" SG_ 21 C_SMK_TrmnlMngrSta 4;
+BA_ "GenSigSendType" SG_ 21 C_SunRoofOptionSta 4;
+BA_ "GenSigSendType" SG_ 21 C_Window_DrvrSdWdwSta_BCM 4;
+BA_ "GenSigSendType" SG_ 21 C_Window_AsstSdWdwSta_BCM 4;
+BA_ "GenSigSendType" SG_ 21 C_Window_RrLftWdwSta_BCM 4;
+BA_ "GenSigSendType" SG_ 21 C_Window_RrRtWdwSta_BCM 4;
+BA_ "GenSigSendType" SG_ 31 BDCToBLEEncryptData1 4;
+BA_ "SignalCategory" SG_ 32 C_DHLNFCDetected 10;
+BA_ "GenSigSendType" SG_ 32 C_DHLNFCDetected 4;
+BA_ "SignalCategory" SG_ 32 C_DHLWlightStatus 10;
+BA_ "GenSigSendType" SG_ 32 C_DHLWlightStatus 4;
+BA_ "GenSigSendType" SG_ 32 C_DHL_NFCReset 4;
+BA_ "GenSigSendType" SG_ 33 BDCToBLEEncryptData2 4;
+BA_ "GenSigSendType" SG_ 34 BDCToBLEEncryptData3 4;
+BA_ "GenSigSendType" SG_ 35 BDCToBLEEncryptData4 4;
+BA_ "GenSigSendType" SG_ 36 BDCToBLEEncryptData5 4;
+BA_ "GenSigSendType" SG_ 37 BDCToBLEEncryptData6 4;
+BA_ "GenSigSendType" SG_ 38 BDCToUWBEncryptData1 4;
+BA_ "GenSigSendType" SG_ 39 BDCToUWBEncryptData2 4;
+BA_ "GenSigSendType" SG_ 40 BDCToUWBEncryptData3 4;
+BA_ "GenSigSendType" SG_ 41 BDCToUWBEncryptData4 4;
+BA_ "GenSigSendType" SG_ 47 BDCToUWBEncryptData5 4;
+BA_ "SignalCategory" SG_ 48 C_DHRNFCDetected 10;
+BA_ "GenSigSendType" SG_ 48 C_DHRNFCDetected 4;
+BA_ "SignalCategory" SG_ 48 C_DHRWlightStatus 10;
+BA_ "GenSigSendType" SG_ 48 C_DHRWlightStatus 4;
+BA_ "GenSigSendType" SG_ 48 C_DHR_NFCReset 4;
+BA_ "GenSigSendType" SG_ 49 BDCToUWBEncryptData6 4;
+BA_ "GenSigSendType" SG_ 96 C_BLENewDevicePairingResult 4;
+BA_ "GenSigSendType" SG_ 96 C_BLE_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 111 BLEToBDCEncryptData1 4;
+BA_ "SignalCategory" SG_ 112 C_Time_Sync1 10;
+BA_ "GenSigSendType" SG_ 112 C_Time_Sync1 4;
+BA_ "GenSigSendType" SG_ 113 BLEToBDCEncryptData2 4;
+BA_ "GenSigSendType" SG_ 114 BLEToBDCEncryptData3 4;
+BA_ "GenSigSendType" SG_ 115 BLEToBDCEncryptData4 4;
+BA_ "GenSigSendType" SG_ 116 BLEToBDCEncryptData5 4;
+BA_ "GenSigSendType" SG_ 117 BLEToBDCEncryptData6 4;
+BA_ "SignalCategory" SG_ 128 C_Time_Sync2 10;
+BA_ "GenSigSendType" SG_ 128 C_Time_Sync2 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO1 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO2 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO3 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO4 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO5 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO6 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_Part_NO7 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_HW_Ver_Major 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_HW_Ver_Minor1 4;
+BA_ "GenSigSendType" SG_ 203 Radar_ROA_HW_Ver_Minor2 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Date_YY 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Date_MM 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Date_DD 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO1 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO2 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO3 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO4 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO5 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO6 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO7 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO8 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO9 4;
+BA_ "GenSigSendType" SG_ 204 Radar_ROA_Serial_NO10 4;
+BA_ "GenSigSendType" SG_ 209 C_UWB_MASTER_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 210 C_UWB_MASTER_To_BDCFOBRSDResul 4;
+BA_ "GenSigSendType" SG_ 211 C_UWB_MCU_OTA_Cmd 4;
+BA_ "GenSigSendType" SG_ 212 C_UWB_IC_OTA_Cmd 4;
+BA_ "GenSigSendType" SG_ 213 C_UWB_MCU_Download_Data 4;
+BA_ "GenSigSendType" SG_ 214 C_UWB_IC_Download_Data 4;
+BA_ "GenSigSendType" SG_ 224 C_UWB_INT_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 225 C_UWB_INT_To_BDCFOBRSDResult 4;
+BA_ "GenSigSendType" SG_ 226 C_UWB_INT_MCU_Bootloader 4;
+BA_ "GenSigSendType" SG_ 226 C_UWB_INT_MCU_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 226 C_UWB_INT_MCU_CRC32 4;
+BA_ "GenSigSendType" SG_ 227 C_UWB_INT_IC_Bootloader 4;
+BA_ "GenSigSendType" SG_ 227 C_UWB_INT_IC_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 227 C_UWB_INT_IC_CRC32 4;
+BA_ "GenSigSendType" SG_ 256 C_BDC_Status 4;
+BA_ "GenSigSendType" SG_ 256 C_DigitalKey_Enable 4;
+BA_ "GenSigSendType" SG_ 256 C_DeviceOnWPC 4;
+BA_ "GenSigSendType" SG_ 256 C_FobFoundWlcmArea 4;
+BA_ "GenSigSendType" SG_ 256 C_PuddleLpOnReq 4;
+BA_ "GenSigSendType" SG_ 256 C_OwnerKey_Reg_Status 4;
+BA_ "GenSigSendType" SG_ 256 C_SharedKey_Reg_Status 4;
+BA_ "GenSigSendType" SG_ 256 C_CardKey_Enable 4;
+BA_ "GenSigSendType" SG_ 257 Radar_ROA_SnsrRunReq 4;
+BA_ "GenSigSendType" SG_ 257 Radar_ROA_DiaReq 4;
+BA_ "GenSigSendType" SG_ 272 C_WPC_Status 4;
+BA_ "GenSigSendType" SG_ 272 C_WPCNFC_Option 4;
+BA_ "GenSigSendType" SG_ 277 C_ConnectedDeviceInfo 4;
+BA_ "GenSigSendType" SG_ 277 C_BTAddIRK_Update 4;
+BA_ "GenSigSendType" SG_ 277 C_ADV_State 4;
+BA_ "GenSigSendType" SG_ 277 C_NewDeviceConnetStatus 4;
+BA_ "GenSigSendType" SG_ 277 C_BLE_Option 4;
+BA_ "GenSigSendType" SG_ 288 C_DHL_Status 4;
+BA_ "SignalCategory" SG_ 288 C_DHLToggleDetected 10;
+BA_ "GenSigSendType" SG_ 288 C_DHLToggleDetected 4;
+BA_ "SignalCategory" SG_ 288 C_DHLUnlockDetected 10;
+BA_ "GenSigSendType" SG_ 288 C_DHLUnlockDetected 4;
+BA_ "SignalCategory" SG_ 288 C_DHLLockDetected 10;
+BA_ "GenSigSendType" SG_ 288 C_DHLLockDetected 4;
+BA_ "GenSigSendType" SG_ 288 C_DHLPhnDetected 4;
+BA_ "GenSigSendType" SG_ 288 C_DHLDiagnostics 4;
+BA_ "SignalCategory" SG_ 288 C_DHL_RainState 10;
+BA_ "GenSigSendType" SG_ 288 C_DHL_RainState 4;
+BA_ "GenSigSendType" SG_ 304 C_DHR_Status 4;
+BA_ "SignalCategory" SG_ 304 C_DHRToggleDetected 10;
+BA_ "GenSigSendType" SG_ 304 C_DHRToggleDetected 4;
+BA_ "SignalCategory" SG_ 304 C_DHRUnlockDetected 10;
+BA_ "GenSigSendType" SG_ 304 C_DHRUnlockDetected 4;
+BA_ "SignalCategory" SG_ 304 C_DHRLockDetected 10;
+BA_ "GenSigSendType" SG_ 304 C_DHRLockDetected 4;
+BA_ "GenSigSendType" SG_ 304 C_DHRPhnDetected 4;
+BA_ "GenSigSendType" SG_ 304 C_DHRDiagnostics 4;
+BA_ "SignalCategory" SG_ 304 C_DHR_RainState 10;
+BA_ "GenSigSendType" SG_ 304 C_DHR_RainState 4;
+BA_ "GenSigSendType" SG_ 320 C_BLE_RSSI1 4;
+BA_ "GenSigSendType" SG_ 320 C_BLE_RSSI2 4;
+BA_ "GenSigSendType" SG_ 320 C_BLE_RSSI3 4;
+BA_ "GenSigSendType" SG_ 320 C_BLE_RSSI4 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_SW_Ver_Major 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_SW_Ver_Minor1 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_SW_Ver_Minor2 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_ClassStat 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_SnSrStat 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_DetInfo 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_SnSrBlckgeErrStat 4;
+BA_ "GenSigSendType" SG_ 357 Radar_ROA_SnSrErrStat 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status1 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status2 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status3 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status4 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status5 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status6 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status7 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Status8 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_DTC 4;
+BA_ "GenSigSendType" SG_ 368 C_UWB_FR_Option 4;
+BA_ "GenSigSendType" SG_ 372 C_UWB_FL_To_BDCFOBRSDResult 4;
+BA_ "GenSigSendType" SG_ 373 C_UWB_FL_MCU_Bootloader 4;
+BA_ "GenSigSendType" SG_ 373 C_UWB_FL_MCU_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 373 C_UWB_FL_MCU_CRC32 4;
+BA_ "GenSigSendType" SG_ 374 C_UWB_FL_IC_Bootloader 4;
+BA_ "GenSigSendType" SG_ 374 C_UWB_FL_IC_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 374 C_UWB_FL_IC_CRC32 4;
+BA_ "GenSigSendType" SG_ 375 C_UWB_FL_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status1 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status2 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status3 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status4 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status5 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status6 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status7 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Status8 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_DTC 4;
+BA_ "GenSigSendType" SG_ 376 C_UWB_FL_Option 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status1 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status2 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status3 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status4 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status5 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status6 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status7 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Status8 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_DTC 4;
+BA_ "GenSigSendType" SG_ 384 C_UWB_INT_Option 4;
+BA_ "GenSigSendType" SG_ 387 C_UWB_FR_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 388 C_UWB_FR_To_BDCFOBRSDResult 4;
+BA_ "GenSigSendType" SG_ 389 C_UWB_FR_MCU_Bootloader 4;
+BA_ "GenSigSendType" SG_ 389 C_UWB_FR_MCU_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 389 C_UWB_FR_MCU_CRC32 4;
+BA_ "GenSigSendType" SG_ 390 C_UWB_FR_IC_Bootloader 4;
+BA_ "GenSigSendType" SG_ 390 C_UWB_FR_IC_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 390 C_UWB_FR_IC_CRC32 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status1 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status2 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status3 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status4 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status5 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status6 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status7 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Status8 4;
+BA_ "GenSigSendType" SG_ 392 C_UWB_MASTER_Option 4;
+BA_ "GenSigSendType" SG_ 393 C_UWB_Master_DK_ConnStat 4;
+BA_ "GenSigSendType" SG_ 393 C_UWB_Mst_DK_LocalizationStat 4;
+BA_ "GenSigSendType" SG_ 394 C_UWB_Mst_EncryptedResult1Val 4;
+BA_ "GenSigSendType" SG_ 395 C_UWB_Mst_EncryptedResult2Val 4;
+BA_ "GenSigSendType" SG_ 396 C_UWB_Master2BDC_RndNum 4;
+BA_ "GenSigSendType" SG_ 397 C_UWB_Master_LocalRN_Target 4;
+BA_ "GenSigSendType" SG_ 397 C_UWB_Master_LocalRN_TRCode 4;
+BA_ "GenSigSendType" SG_ 397 C_UWB_Master_LocalRN_CMD 4;
+BA_ "GenSigSendType" SG_ 397 C_UWB_Master_LocalRndNum 4;
+BA_ "GenSigSendType" SG_ 398 UWB_Master_ToUWBEncryptData1 4;
+BA_ "GenSigSendType" SG_ 399 UWB_Master_ToUWBEncryptData2 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status1 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status2 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status3 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status4 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status5 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status6 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status7 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Status8 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_DTC 4;
+BA_ "GenSigSendType" SG_ 400 C_UWB_RL_Option 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status1 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status2 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status3 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status4 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status5 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status6 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status7 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Status8 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_DTC 4;
+BA_ "GenSigSendType" SG_ 405 C_UWB_RR_Option 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status2 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status3 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status4 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status5 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status6 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status7 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Status8 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRNK_DTC 4;
+BA_ "GenSigSendType" SG_ 410 C_UWB_TRUNK_Option 4;
+BA_ "GenSigSendType" SG_ 452 C_UWB_RL_To_BDCFOBRSDResult 4;
+BA_ "GenSigSendType" SG_ 453 C_UWB_RL_MCU_Bootloader 4;
+BA_ "GenSigSendType" SG_ 453 C_UWB_RL_MCU_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 453 C_UWB_RL_MCU_CRC32 4;
+BA_ "GenSigSendType" SG_ 454 C_UWB_RL_IC_Bootloader 4;
+BA_ "GenSigSendType" SG_ 454 C_UWB_RL_IC_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 454 C_UWB_RL_IC_CRC32 4;
+BA_ "GenSigSendType" SG_ 455 C_UWB_RL_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 484 C_UWB_RR_To_BDCFOBRSDResult 4;
+BA_ "GenSigSendType" SG_ 485 C_UWB_RR_MCU_Bootloader 4;
+BA_ "GenSigSendType" SG_ 485 C_UWB_RR_MCU_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 485 C_UWB_RR_MCU_CRC32 4;
+BA_ "GenSigSendType" SG_ 486 C_UWB_RR_IC_Bootloader 4;
+BA_ "GenSigSendType" SG_ 486 C_UWB_RR_IC_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 486 C_UWB_RR_IC_CRC32 4;
+BA_ "GenSigSendType" SG_ 487 C_UWB_RR_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 500 C_UWB_TRNK_To_BDCFOBRSDResult 4;
+BA_ "GenSigSendType" SG_ 501 C_UWB_TRNK_MCU_Bootloader 4;
+BA_ "GenSigSendType" SG_ 501 C_UWB_TRNK_MCU_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 501 C_UWB_TRNK_MCU_CRC32 4;
+BA_ "GenSigSendType" SG_ 502 C_UWB_TRNK_IC_Bootloader 4;
+BA_ "GenSigSendType" SG_ 502 C_UWB_TRNK_IC_Flash_Erase 4;
+BA_ "GenSigSendType" SG_ 502 C_UWB_TRNK_IC_CRC32 4;
+BA_ "GenSigSendType" SG_ 503 C_UWB_TRNK_Decrypt_FB 4;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte0Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte1Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte2Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte3Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte4Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte5Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte6Data 1;
+BA_ "GenSigSendType" SG_ 792 C_WPCBDCTpByte7Data 1;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 800 DevToolBLEDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 816 DevToolDHDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 832 DevToolUWBDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 864 DHLDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 865 DHRDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 870 UWBFRDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 871 UWBFLDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 872 UWBRRDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 873 UWBRLDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 877 UWBTRNKDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 884 UWB_BLEDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte0 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte1 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte2 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte3 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte4 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte5 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte6 4;
+BA_ "GenSigSendType" SG_ 885 UWBINTDvp1DataByte7 4;
+BA_ "GenSigSendType" SG_ 1410 GstBDCUWB_BLEDataByte7 2;
+BA_ "GenSigSendType" SG_ 1418 UWB_BLEBDCGstDataByte7 2;
+BA_ "GenSigSendType" SG_ 1504 GstBDCROADataByte7 2;
+BA_ "GenSigSendType" SG_ 1512 ROABDCGstDataByte7 2;
+BA_ "GenSigSendType" SG_ 1794 GstBDCDHLDataByte7 2;
+BA_ "GenSigSendType" SG_ 1802 DHLBDCGstDataByte7 2;
+BA_ "GenSigSendType" SG_ 1813 GstBDCDHRDataByte7 2;
+BA_ "GenSigSendType" SG_ 1821 DHRBDCGstDataByte7 2;
+BA_ "GenSigSendType" SG_ 2015 GstALLByte7Data 2;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 16 C_WPC_NFCDetection 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 16 C_WPC_NFCDetection 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 16 C_WPC_NFCReset 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 17 C_WlightOnCmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 17 C_WlightOnCmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 17 C_WPCNFCcmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 17 C_DRNFCcmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 17 C_DRNFCcmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 17 C_BDCWPCNFCCmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 17 C_BDCDHLNFCCmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 17 C_BDCDHRNFCCmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 17 C_DRV_DRHdlLedOnSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 17 C_AST_DRHdlLedOnSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_DK_IDSet 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_DK_IDDel 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_OwnerDeviceSearchingReq 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_TimeSync_REQ 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_BLE_Connection_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_BDC_DecryptFB1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 18 C_BDC_DecryptFB2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 19 C_BDCLocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 19 C_BDCLocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 19 C_BDCLocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 19 C_BDCLocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 20 C_UWB_Ranging_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Warn_DrvDrSwSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Warn_AsstDrSwSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Warn_RrLftDrSwSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Warn_RrRtDrSwSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Trunk_TrnkTlgtSwSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_SMK_TrmnlMngrSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_SunRoofOptionSta 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Window_DrvrSdWdwSta_BCM 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Window_AsstSdWdwSta_BCM 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Window_RrLftWdwSta_BCM 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 21 C_Window_RrRtWdwSta_BCM 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 31 BDCToBLEEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 32 C_DHLNFCDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 32 C_DHLWlightStatus 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 32 C_DHL_NFCReset 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 33 BDCToBLEEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 34 BDCToBLEEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 35 BDCToBLEEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 36 BDCToBLEEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 37 BDCToBLEEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 38 BDCToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 39 BDCToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 40 BDCToUWBEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 41 BDCToUWBEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 47 BDCToUWBEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 48 C_DHRNFCDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 48 C_DHRWlightStatus 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 48 C_DHR_NFCReset 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 49 BDCToUWBEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 96 C_BLENewDevicePairingResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 96 C_BLE_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 111 BLEToBDCEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 112 C_Time_Sync1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 113 BLEToBDCEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 114 BLEToBDCEncryptData3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 115 BLEToBDCEncryptData4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 116 BLEToBDCEncryptData5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 117 BLEToBDCEncryptData6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 128 C_Time_Sync2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_Part_NO7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_HW_Ver_Minor1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 203 Radar_ROA_HW_Ver_Minor2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Date_YY 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Date_MM 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Date_DD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO9 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 204 Radar_ROA_Serial_NO10 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 209 C_UWB_MASTER_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 210 C_UWB_MASTER_To_BDCFOBRSDResul 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 211 C_UWB_MCU_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 211 C_UWB_MCU_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 211 C_UWB_MCU_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 211 C_UWB_MCU_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 211 C_UWB_MCU_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 211 C_UWB_MCU_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 212 C_UWB_IC_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 212 C_UWB_IC_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 212 C_UWB_IC_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 212 C_UWB_IC_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 212 C_UWB_IC_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 212 C_UWB_IC_OTA_Cmd 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 213 C_UWB_MCU_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 213 C_UWB_MCU_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 213 C_UWB_MCU_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 213 C_UWB_MCU_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 213 C_UWB_MCU_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 213 C_UWB_MCU_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 214 C_UWB_IC_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 214 C_UWB_IC_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 214 C_UWB_IC_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 214 C_UWB_IC_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 214 C_UWB_IC_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 214 C_UWB_IC_Download_Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 224 C_UWB_INT_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 224 C_UWB_INT_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 225 C_UWB_INT_To_BDCFOBRSDResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 226 C_UWB_INT_MCU_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 226 C_UWB_INT_MCU_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 226 C_UWB_INT_MCU_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 227 C_UWB_INT_IC_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 227 C_UWB_INT_IC_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 227 C_UWB_INT_IC_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 234 C_UWB_INT_To_MasterEncData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 235 C_UWB_INT_To_MasterEncData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 256 C_BDC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 256 C_DigitalKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 256 C_DeviceOnWPC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 256 C_DeviceOnWPC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_FobFoundWlcmArea 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_FobFoundWlcmArea 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_PuddleLpOnReq 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_PuddleLpOnReq 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 256 C_OwnerKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 256 C_SharedKey_Reg_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 256 C_CardKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 256 C_CardKey_Enable 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 257 Radar_ROA_SnsrRunReq 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 257 Radar_ROA_DiaReq 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 272 C_WPC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 272 C_WPC_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 272 C_WPCNFC_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 277 C_ConnectedDeviceInfo 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 277 C_BTAddIRK_Update 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 277 C_ADV_State 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 277 C_NewDeviceConnetStatus 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 277 C_BLE_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHL_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHLToggleDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHLUnlockDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHLLockDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHLPhnDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHLDiagnostics 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 288 C_DHL_RainState 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHR_Status 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHRToggleDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHRUnlockDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHRLockDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHRPhnDetected 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHRDiagnostics 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 304 C_DHR_RainState 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 320 C_BLE_RSSI1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 320 C_BLE_RSSI2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 320 C_BLE_RSSI3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 320 C_BLE_RSSI4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_SW_Ver_Major 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_SW_Ver_Minor1 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_SW_Ver_Minor2 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_ClassStat 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_SnSrStat 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_DetInfo 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_SnSrBlckgeErrStat 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 357 Radar_ROA_SnSrErrStat 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_DTC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 368 C_UWB_FR_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 368 C_UWB_FR_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 369 C_UWB_FR_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 369 C_UWB_FR_HW_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 369 C_UWB_FR_SW_Unit4_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 369 C_UWB_FR_SW_Unit4_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 369 C_UWB_FR_SW_Unit5_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 369 C_UWB_FR_SW_Unit5_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 370 C_UWB_FL_To_MaseterEncData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 371 C_UWB_FL_To_MasterEncData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 372 C_UWB_FL_To_BDCFOBRSDResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 373 C_UWB_FL_MCU_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 373 C_UWB_FL_MCU_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 373 C_UWB_FL_MCU_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 374 C_UWB_FL_IC_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 374 C_UWB_FL_IC_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 374 C_UWB_FL_IC_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 375 C_UWB_FL_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 375 C_UWB_FL_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_DTC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 376 C_UWB_FL_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 376 C_UWB_FL_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 377 C_UWB_FL_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 377 C_UWB_FL_HW_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 377 C_UWB_FL_SW_Unit4_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 377 C_UWB_FL_SW_Unit4_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 377 C_UWB_FL_SW_Unit5_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 377 C_UWB_FL_SW_Unit5_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_DTC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 384 C_UWB_INT_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 384 C_UWB_INT_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 385 C_UWB_INT_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 385 C_UWB_INT_HW_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 385 C_UWB_INT_SW_Unit4_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 385 C_UWB_INT_SW_Unit4_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 385 C_UWB_INT_SW_Unit5_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 385 C_UWB_INT_SW_Unit5_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 386 C_UWB_FR_To_MasterEncData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 387 C_UWB_FR_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 387 C_UWB_FR_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 388 C_UWB_FR_To_BDCFOBRSDResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 389 C_UWB_FR_MCU_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 389 C_UWB_FR_MCU_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 389 C_UWB_FR_MCU_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 390 C_UWB_FR_IC_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 390 C_UWB_FR_IC_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 390 C_UWB_FR_IC_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 391 C_UWB_FR_To_MasterEncData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 392 C_UWB_MASTER_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 393 C_UWB_Master_DK_ConnStat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 393 C_UWB_Mst_DK_LocalizationStat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 394 C_UWB_Mst_EncryptedResult1Val 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 395 C_UWB_Mst_EncryptedResult2Val 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 396 C_UWB_Master2BDC_RndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 397 C_UWB_Master_LocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 397 C_UWB_Master_LocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 397 C_UWB_Master_LocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 397 C_UWB_Master_LocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 397 C_UWB_Master_LocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 397 C_UWB_Master_LocalRN_Target 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 397 C_UWB_Master_LocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 397 C_UWB_Master_LocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 397 C_UWB_Master_LocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 397 C_UWB_Master_LocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 397 C_UWB_Master_LocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 397 C_UWB_Master_LocalRN_TRCode 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 397 C_UWB_Master_LocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 397 C_UWB_Master_LocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 397 C_UWB_Master_LocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 397 C_UWB_Master_LocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 397 C_UWB_Master_LocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 397 C_UWB_Master_LocalRN_CMD 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 397 C_UWB_Master_LocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 397 C_UWB_Master_LocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 397 C_UWB_Master_LocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 397 C_UWB_Master_LocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 397 C_UWB_Master_LocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 397 C_UWB_Master_LocalRndNum 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 398 UWB_Master_ToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 398 UWB_Master_ToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 398 UWB_Master_ToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 398 UWB_Master_ToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 398 UWB_Master_ToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 398 UWB_Master_ToUWBEncryptData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 399 UWB_Master_ToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 399 UWB_Master_ToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 399 UWB_Master_ToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 399 UWB_Master_ToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 399 UWB_Master_ToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 399 UWB_Master_ToUWBEncryptData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_DTC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 400 C_UWB_RL_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 400 C_UWB_RL_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 401 C_UWB_RL_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 401 C_UWB_RL_HW_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 401 C_UWB_RL_SW_Unit4_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 401 C_UWB_RL_SW_Unit4_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 401 C_UWB_RL_SW_Unit5_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 401 C_UWB_RL_SW_Unit5_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_DTC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 405 C_UWB_RR_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 405 C_UWB_RR_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 406 C_UWB_RR_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 406 C_UWB_RR_HW_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 406 C_UWB_RR_SW_Unit4_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 406 C_UWB_RR_SW_Unit4_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 406 C_UWB_RR_SW_Unit5_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 406 C_UWB_RR_SW_Unit5_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Status8 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRNK_DTC 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 410 C_UWB_TRUNK_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 410 C_UWB_TRUNK_Option 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 411 C_UWB_TRNK_HW_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 411 C_UWB_TRNK_HW_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 411 C_UWB_TRNK_SW_Unit4_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 411 C_UWB_TRNK_SW_Unit4_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 411 C_UWB_TRNK_SW_Unit5_Ver_Major 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 411 C_UWB_TRNK_SW_Unit5_Ver_Minor 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 450 C_UWB_RL_To_MasterEncData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 451 C_UWB_RL_To_MasterEncData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 452 C_UWB_RL_To_BDCFOBRSDResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 453 C_UWB_RL_MCU_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 453 C_UWB_RL_MCU_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 453 C_UWB_RL_MCU_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 454 C_UWB_RL_IC_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 454 C_UWB_RL_IC_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 454 C_UWB_RL_IC_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 455 C_UWB_RL_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 455 C_UWB_RL_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 482 C_UWB_RR_To_MasterEncData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 483 C_UWB_RR_To_MasterEncData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 484 C_UWB_RR_To_BDCFOBRSDResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 485 C_UWB_RR_MCU_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 485 C_UWB_RR_MCU_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 485 C_UWB_RR_MCU_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 486 C_UWB_RR_IC_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 486 C_UWB_RR_IC_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 486 C_UWB_RR_IC_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 487 C_UWB_RR_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 487 C_UWB_RR_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 498 C_UWB_TRNK_To_MasterEncData1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 499 C_UWB_TRNK_To_MasterEncData2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 500 C_UWB_TRNK_To_BDCFOBRSDResult 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 501 C_UWB_TRNK_MCU_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 501 C_UWB_TRNK_MCU_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 501 C_UWB_TRNK_MCU_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 502 C_UWB_TRNK_IC_Bootloader 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 502 C_UWB_TRNK_IC_Flash_Erase 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 502 C_UWB_TRNK_IC_CRC32 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 503 C_UWB_TRNK_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 503 C_UWB_TRNK_Decrypt_FB 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 768 C_BDCBLETpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 770 C_BDCDHLTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 772 C_BDCDHRTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 778 C_BDCWPCTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 780 C_BLEBDCTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 784 C_DHLBDCTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 786 C_DHRBDCTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte0Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte1Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte2Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 792 C_WPCBDCTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 792 C_WPCBDCTpByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 800 DevToolBLEDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 816 DevToolDHDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 816 DevToolDHDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FL SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_FR SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_INT SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RL SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_RR SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_TRNK SG_ 832 DevToolUWBDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 864 DHLDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 865 DHRDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 870 UWBFRDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 871 UWBFLDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 872 UWBRRDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 873 UWBRLDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 877 UWBTRNKDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 884 UWB_BLEDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Devtool SG_ 885 UWBINTDvp1DataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 1410 GstBDCUWB_BLEDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1418 UWB_BLEBDCGstDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 1504 GstBDCROADataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1512 ROABDCGstDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 1794 GstBDCDHLDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1802 DHLBDCGstDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 1813 GstBDCDHRDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte0 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte1 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte2 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte3 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte4 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte5 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte6 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BDC SG_ 1821 DHRBDCGstDataByte7 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 FrmFormat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 FrmFormat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 FrmFormat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 FrmFormat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 FrmFormat 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 SID 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 SID 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 SID 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 SID 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 SID 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 REQ_RESPONSE 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 REQ_RESPONSE 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 REQ_RESPONSE 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 REQ_RESPONSE 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 REQ_RESPONSE 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 GstALLByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 GstALLByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 GstALLByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 GstALLByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 GstALLByte3Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 GstALLByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 GstALLByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 GstALLByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 GstALLByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 GstALLByte4Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 GstALLByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 GstALLByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 GstALLByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 GstALLByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 GstALLByte5Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 GstALLByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 GstALLByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 GstALLByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 GstALLByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 GstALLByte6Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHL SG_ 2015 GstALLByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ DHR SG_ 2015 GstALLByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ ROA SG_ 2015 GstALLByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ UWB_BLE SG_ 2015 GstALLByte7Data 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ WPC SG_ 2015 GstALLByte7Data 0;
+VAL_ 16 C_WPC_NFCDetection 0 "Off" 1 "Detected" 2 "Not Detected" ;
+VAL_ 16 C_WPC_NFCReset 0 "Default" 1 "Reset Complete" ;
+VAL_ 17 C_WlightOnCmd 0 "None" 1 "Off" 2 "On" 3 "Invalid" ;
+VAL_ 17 C_WPCNFCcmd 0 "None" 1 "NFC Searching On(HCE)" 2 "NFC Searching Off" 3 "NFC Searching On(Usim)" 4 "reserved" 5 "reserved" 6 "reserved" 7 "Invalid" ;
+VAL_ 17 C_DRNFCcmd 0 "None" 1 "NFC Searching On" 2 "NFC Searching Off" 3 "WPC NFC Select Request" 4 "reserved" 5 "reserved" 6 "reserved" 7 "Invalid" ;
+VAL_ 17 C_BDCWPCNFCCmd 0 "Default" 1 "WPC NFC Polling (Search)" 2 "WPC NFC Deselect (Stop)" 3 "Invalid" ;
+VAL_ 17 C_BDCDHLNFCCmd 0 "Default" 1 "NFC Polling (Search)" 2 "NFC Deselect (Stop)" 3 "Invalid" ;
+VAL_ 17 C_BDCDHRNFCCmd 0 "Default" 1 "NFC Polling (Search)" 2 "NFC Deselect (Stop)" 3 "Invalid" ;
+VAL_ 17 C_DRV_DRHdlLedOnSta 0 "Default" 1 "On" 2 "Off" 3 "Error Indicator" ;
+VAL_ 17 C_AST_DRHdlLedOnSta 0 "Default" 1 "On" 2 "Off" 3 "Error Indicator" ;
+VAL_ 18 C_DK_IDSet 0 "Default" 1 "DK#1" 2 "DK#2" 3 "DK#3" 4 "DK#4" 5 "DK#5" 6 "DK#6" 7 "DK#7" 8 "DK#8" 9 "New" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Invalid" ;
+VAL_ 18 C_DK_IDDel 0 "Default" 1 "DK#1" 2 "DK#2" 3 "DK#3" 4 "DK#4" 5 "DK#5" 6 "DK#6" 7 "DK#7" 8 "DK#8" 9 "New" 10 "ALL_Delete" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Invalid" ;
+VAL_ 18 C_OwnerDeviceSearchingReq 0 "Default" 1 "Searching_Start" 2 "Stop" 3 "Invalid" ;
+VAL_ 18 C_TimeSync_REQ 0 "Default" 1 "Request" 2 "Reserve" 3 "Invalid" ;
+VAL_ 18 C_BDC_DecryptFB1 0 "Default" 1 "Positive" 2 "Negative" 3 "Invalid" ;
+VAL_ 18 C_BDC_DecryptFB2 0 "Default" 1 "Positive" 2 "Negative" 3 "Invalid" ;
+VAL_ 21 C_Warn_DrvDrSwSta 0 "Close" 1 "Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Warn_AsstDrSwSta 0 "Close" 1 "Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Warn_RrLftDrSwSta 0 "Close" 1 "Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Warn_RrRtDrSwSta 0 "Close" 1 "Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Trunk_TrnkTlgtSwSta 0 "Close(Full Lock)" 1 "Open(Not Full Lock)" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_SMK_TrmnlMngrSta 0 "Off" 1 "OFF_TO_START" 2 "WAIT_ESCL_UNLOCK_ACC" 3 "ACC" 4 "ACC_SEARCH" 5 "ACC_TO_START" 6 "IGN" 7 "IGN_SEARCH" 8 "WAIT_ESCL_UNLOCK_OFF_TO_START" 9 "WAIT_ESCL_UNLOCK_START" 10 "WAIT_IGN1_ACC" 11 "WAIT_IGN1_ACC_SEARCH" 12 "WAIT_IGN1_ACC_TO_START" 13 "WAIT_IGN1_UNLOCK_OFF_TO_START" 14 "WAIT_IGN1_UNLOCK_START" 15 "START" 16 "ENGINE_RUNNING" 17 "Reserved" 18 "Reserved" 19 "Reserved" 20 "Reserved" 21 "Reserved" 22 "Reserved" 23 "Reserved" 24 "Reserved" 25 "Reserved" 26 "Reserved" 27 "Reserved" 28 "Reserved" 29 "Reserved" 30 "Not Used" 31 "Error Indicator" ;
+VAL_ 21 C_SunRoofOptionSta 0 "NONE" 1 "Sunroof applied" 2 "reserved" 3 "Invalid" ;
+VAL_ 21 C_Window_DrvrSdWdwSta_BCM 0 "Window Close" 1 "Window Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Window_AsstSdWdwSta_BCM 0 "Window Close" 1 "Window Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Window_RrLftWdwSta_BCM 0 "Window Close" 1 "Window Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 21 C_Window_RrRtWdwSta_BCM 0 "Window Close" 1 "Window Open" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 32 C_DHLNFCDetected 0 "Off" 1 "Detected" ;
+VAL_ 32 C_DHLWlightStatus 0 "Off" 1 "On" ;
+VAL_ 32 C_DHL_NFCReset 0 "Default" 1 "Reset Complete" ;
+VAL_ 48 C_DHRNFCDetected 0 "Off" 1 "Detected" ;
+VAL_ 48 C_DHRWlightStatus 0 "Off" 1 "On" ;
+VAL_ 48 C_DHR_NFCReset 0 "Default" 1 "Reset Complete" ;
+VAL_ 96 C_BLENewDevicePairingResult 0 "Default" 1 "BLE_Pairing_Complete" 2 "BLE_Pairing_Fail" 3 "Invalid" ;
+VAL_ 96 C_BLE_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 209 C_UWB_MASTER_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 211 C_UWB_MCU_OTA_Cmd 0 "Default" 1 "DownLoad_Request" 2 "Erase_Memory" 3 "CRC32_Verify_Rqeust" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Invalid" ;
+VAL_ 212 C_UWB_IC_OTA_Cmd 0 "Default" 1 "DownLoad_Request" 2 "Erase_Memory" 3 "CRC32_Verify_Rqeust" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Invalid" ;
+VAL_ 224 C_UWB_INT_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 226 C_UWB_INT_MCU_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 226 C_UWB_INT_MCU_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 226 C_UWB_INT_MCU_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 227 C_UWB_INT_IC_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 227 C_UWB_INT_IC_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 227 C_UWB_INT_IC_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 256 C_BDC_Status 0 "Idle" 1 "Process for WPC" 2 "Process for DHL" 3 "Process for DHR" 4 "Process for BLE_TRX" 5 "Process for DHRL" 6 "Process for DHRR" 7 "Process for UWB" ;
+VAL_ 256 C_DigitalKey_Enable 0 "None" 1 "Disable" 2 "Enable" 3 "Invaild" ;
+VAL_ 256 C_DeviceOnWPC 0 "Not key device" 1 "Phone key" 2 "Card key" 3 "Invaild" ;
+VAL_ 256 C_FobFoundWlcmArea 0 "Default (Off)" 1 "Fob Found" 2 "Reserved" 3 "Invalid" ;
+VAL_ 256 C_PuddleLpOnReq 0 "off" 1 "On" 2 "Not Used" 3 "Error Indicator" ;
+VAL_ 256 C_OwnerKey_Reg_Status 0 "Default (Unregistered)" 1 "Registered" 2 "Reserve" 3 "Invalid" ;
+VAL_ 256 C_SharedKey_Reg_Status 0 "Default (Unregistered)" 1 "Registered" 2 "Reserve" 3 "Invalid" ;
+VAL_ 256 C_CardKey_Enable 0 "None" 1 "Disable" 2 "Enable" 3 "Invaild" ;
+VAL_ 257 Radar_ROA_SnsrRunReq 0 "Default" 1 "Init" 2 "Start" 3 "Stop" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Error indicator" ;
+VAL_ 257 Radar_ROA_DiaReq 0 "Default" 1 "Diagnosis (system info)" 2 "Request of update (Refresh parameter)" 3 "Parameter req." 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Error indicator" ;
+VAL_ 272 C_WPC_Status 0 "Off" 1 "WPC Mode" 2 "NFC Scanning" 3 "NFC Communicating" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "invalid" ;
+VAL_ 272 C_WPCNFC_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reserved" 3 "invalid" ;
+VAL_ 277 C_ADV_State 0 "AdvertisingOff" 1 "AdvertisingOn" ;
+VAL_ 277 C_NewDeviceConnetStatus 0 "Default" 1 "Connected" 2 "Disconnected" 3 "Invalid" ;
+VAL_ 277 C_BLE_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 288 C_DHL_Status 0 "Idle" 1 "NFC_Comm" 2 "NFC_Comm Complete" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "invalid" ;
+VAL_ 288 C_DHLToggleDetected 0 "Off" 1 "Touch" ;
+VAL_ 288 C_DHLUnlockDetected 0 "Off" 1 "Unlock" ;
+VAL_ 288 C_DHLLockDetected 0 "Off" 1 "Lock" ;
+VAL_ 288 C_DHLPhnDetected 0 "Default" 1 "On" 2 "Off" 3 "Invalid" ;
+VAL_ 288 C_DHLDiagnostics 0 "No Error" 1 "DHS Internal Error" 2 "NFC Antenna Error" 4 "Overheating NFC" 8 "Overheating Lighting" 16 "Undervoltage" 32 "Overvoltage" 33 "0x21~0xFF:Reserved" 255 "0x21~0xFF:Reserved" ;
+VAL_ 288 C_DHL_RainState 0 "Off" 1 "Rain" ;
+VAL_ 304 C_DHR_Status 0 "Idle" 1 "NFC_Comm" 2 "NFC_Comm Complete" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "invalid" ;
+VAL_ 304 C_DHRToggleDetected 0 "Off" 1 "Touch" ;
+VAL_ 304 C_DHRUnlockDetected 0 "Off" 1 "Unlock" ;
+VAL_ 304 C_DHRLockDetected 0 "Off" 1 "Lock" ;
+VAL_ 304 C_DHRPhnDetected 0 "Default" 1 "On (Detected)" 2 "Off" 3 "Invalid" ;
+VAL_ 304 C_DHRDiagnostics 0 "No Error" 1 "DHS Internal Error" 2 "NFC Antenna Error" 4 "Overheating NFC" 8 "Overheating Lighting" 16 "Undervoltage" 32 "Overvoltage" 33 "0x21~0xFF:Reserved" 255 "0x21~0xFF:Reserved" ;
+VAL_ 304 C_DHR_RainState 0 "Off" 1 "Rain" ;
+VAL_ 357 Radar_ROA_ClassStat 0 "Default" 1 "Detect" 2 "Unknown" 3 "Empty" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Error indicator" ;
+VAL_ 357 Radar_ROA_SnSrStat 0 "Default" 1 "Ready" 2 "Run" 3 "Done" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Error indicator" ;
+VAL_ 357 Radar_ROA_DetInfo 0 "Default" 1 "Detect" 2 "Unknown" 3 "Empty" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Error indicator" ;
+VAL_ 357 Radar_ROA_SnSrBlckgeErrStat 0 "Default" 1 "Blckge_error" 2 "Reserved" 3 "Reserved" ;
+VAL_ 357 Radar_ROA_SnSrErrStat 0 "Default" 1 "Snsr_error" 2 "Reserved" 3 "Reserved" ;
+VAL_ 368 C_UWB_FR_DTC 0 "Default(Virgin)" 1 "Learned" 2 "Neutralized" 3 "invalid" ;
+VAL_ 368 C_UWB_FR_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 373 C_UWB_FL_MCU_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 373 C_UWB_FL_MCU_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 373 C_UWB_FL_MCU_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 374 C_UWB_FL_IC_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 374 C_UWB_FL_IC_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 374 C_UWB_FL_IC_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 375 C_UWB_FL_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 376 C_UWB_FL_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 384 C_UWB_INT_DTC 0 "Default(Virgin)" 1 "Learned" 2 "Neutralized" 3 "invalid" ;
+VAL_ 384 C_UWB_INT_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 387 C_UWB_FR_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 389 C_UWB_FR_MCU_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 389 C_UWB_FR_MCU_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 389 C_UWB_FR_MCU_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 390 C_UWB_FR_IC_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 390 C_UWB_FR_IC_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 390 C_UWB_FR_IC_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 392 C_UWB_MASTER_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 393 C_UWB_Master_DK_ConnStat 0 "Default" 1 "Connected" 2 "Not Connected" 3 "Invalid" ;
+VAL_ 393 C_UWB_Mst_DK_LocalizationStat 0 "Default" 1 "Localizing" 2 "Suspended" 3 "Invalid" ;
+VAL_ 400 C_UWB_RL_DTC 0 "Default(Virgin)" 1 "Learned" 2 "Neutralized" 3 "invalid" ;
+VAL_ 400 C_UWB_RL_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reserved" 3 "invalid" ;
+VAL_ 405 C_UWB_RR_DTC 0 "Default(Virgin)" 1 "Learned" 2 "Neutralized" 3 "invalid" ;
+VAL_ 405 C_UWB_RR_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 410 C_UWB_TRNK_DTC 0 "Default(Virgin)" 1 "Learned" 2 "Neutralized" 3 "invalid" ;
+VAL_ 410 C_UWB_TRUNK_Option 0 "Default(NotApplied)" 1 "Applied" 2 "Reseved" 3 "invalid" ;
+VAL_ 453 C_UWB_RL_MCU_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 453 C_UWB_RL_MCU_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 453 C_UWB_RL_MCU_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 454 C_UWB_RL_IC_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 454 C_UWB_RL_IC_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 454 C_UWB_RL_IC_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 455 C_UWB_RL_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 485 C_UWB_RR_MCU_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 485 C_UWB_RR_MCU_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 485 C_UWB_RR_MCU_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 486 C_UWB_RR_IC_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 486 C_UWB_RR_IC_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 486 C_UWB_RR_IC_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 487 C_UWB_RR_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 501 C_UWB_TRNK_MCU_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 501 C_UWB_TRNK_MCU_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 501 C_UWB_TRNK_MCU_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 502 C_UWB_TRNK_IC_Bootloader 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 502 C_UWB_TRNK_IC_Flash_Erase 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 502 C_UWB_TRNK_IC_CRC32 0 "Default" 1 "Success" 2 "Fail" 3 "0x3~0xFF:Invalid" 255 "0x3~0xFF:Invalid" ;
+VAL_ 503 C_UWB_TRNK_Decrypt_FB 0 "Default" 1 "Positive" 2 "Negative" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" 8 "Reserved" 9 "Reserved" 10 "Reserved" 11 "Reserved" 12 "Reserved" 13 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 1024 NMSleepFlag_BDC 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1024 NMCommandCode_BDC 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1054 NMSleepFlag_WPC 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1054 NMCommandCode_WPC 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1097 NMSleepFlag_ROA 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1097 NMCommandCode_ROA 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1120 NMSleepFlag_DHL 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1120 NMCommandCode_DHL 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1121 NMSleepFlag_DHR 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1121 NMCommandCode_DHR 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1123 NMSleepFlag_Devtool 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1123 NMCommandCode_Devtool 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1126 NMSleepFlag_UWB_FR 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1126 NMCommandCode_UWB_FR 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1127 NMSleepFlag_UWB_FL 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1127 NMCommandCode_UWB_FL 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1128 NMSleepFlag_UWB_RR 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1128 NMCommandCode_UWB_RR 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1129 NMSleepFlag_UWB_RL 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1129 NMCommandCode_UWB_RL 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1133 NMSleepFlag_UWB_TRNK 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1133 NMCommandCode_UWB_TRNK 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1140 NMSleepFlag_UWB_BLE 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1140 NMCommandCode_UWB_BLE 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+VAL_ 1141 NMSleepFlag_UWB_INT 0 "Alive" 1 "SleepInd" 3 "SleepAck" ;
+VAL_ 1141 NMCommandCode_UWB_INT 0 "None" 1 "Alive" 2 "Ring" 4 "Limphome" ;
+

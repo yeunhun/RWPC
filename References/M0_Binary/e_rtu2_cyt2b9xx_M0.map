@@ -1,0 +1,2015 @@
+Host OS:	Windows
+ELXR: Copyright (C) 1983-2016 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2017.1.4
+Build Directory: [Directory] COMP-VAL-WIN47:l:/compiler/release-branch-2017-1-comp/build/v2017.1-2017-04-09/win64-comp
+Revision: [VCInfo] http://toolsvc/branches/release-branch-2017-1-comp/src@589570 (built by auto-compiler)
+Revision Date: Mon Apr 10 12:24:55 2017
+
+Release Date: Mon Apr 10 09:00:05 2017
+
+
+
+
+Load Map Wed Aug 25 13:19:43 2021
+Image Summary
+
+  Section              Base      Size(hex)    Size(dec)  SecOffs
+  .intvec              10000000  00000080          128   0000200
+  .picbase             10000080  00000000            0   0000000
+  .text                10000080  00016b96        93078   0000280
+  .intercall           10016c16  00000000            0   0000000
+  .interfunc           10016c16  00000004            4   0016e16
+  .fixaddr             10016c1a  00000000            0   0000000
+  .fixtype             10016c1a  00000000            0   0000000
+  .secinfo             10016c1c  0000003c           60   0016e1c
+  .robase              10016c58  00000000            0   0000000
+  .rodata              10016c58  00000808         2056   0016e58
+  .ROM.syscall         10017460  00000004            4   0017660
+  .ROM.data            10017468  000006f4         1780   0017668
+  .ROM.tls.cond.data   10017b5c  00000000            0   0000000
+  .sram_base           08000800  00000000            0   0000000
+  .pidbase             08000800  00000000            0   0000000
+  .data                08000800  000006f4         1780   0017668
+  .tls.cond.data       08000ef4  00000000            0   0000000
+  .bss                 08000ef8  0000026c          620   0000000
+  .tls.cond.bss        08001164  00000000            0   0000000
+  .intvec_ram          08001200  00000080          128   0000000
+  .syscall             08001280  00000004            4   0017660
+  .heap                08001288  00000200          512   0000000
+  .stack               08001488  00000400         1024   0000000
+  .debug_info          00000000  0015c72e      1427246   0017d5c
+  .debug_abbrev        00000000  00004c07        19463   017448a
+  .debug_line          00000000  0003e867       256103   0179091
+  .debug_macinfo       00000000  0006268a       403082   01b78f8
+  .debug_frame         00000000  00005c88        23688   0219f82
+  .linfix              00000000  00000000            0   0000000
+  .gstackfix           00000000  00000000            0   0000000
+
+Load Map Wed Aug 25 13:19:43 2021
+Module Summary
+
+  Origin+Size    Section          Module
+10000080+001124  .text            cy_adc.o
+10016c58+000048  .rodata          cy_adc.o
+00000000+007325  .debug_info      cy_adc.o
+00000000+00019f  .debug_abbrev    cy_adc.o
+00000000+001770  .debug_line      cy_adc.o
+00000000+0020db  .debug_macinfo   cy_adc.o
+00000000+000438  .debug_frame     cy_adc.o
+100011a4+0010b0  .text            cy_canfd.o
+08000800+0000c0  .data            cy_canfd.o
+08000f00+000010  .bss             cy_canfd.o
+10016ca0+000054  .rodata          cy_canfd.o
+00007325+0093e4  .debug_info      cy_canfd.o
+0000019f+000184  .debug_abbrev    cy_canfd.o
+00001770+0017b2  .debug_line      cy_canfd.o
+000020db+001508  .debug_macinfo   cy_canfd.o
+00000438+0001e0  .debug_frame     cy_canfd.o
+10016cf4+00002c  .rodata          cy_crypto_config.o
+00010709+003928  .debug_info      cy_crypto_config.o
+00000323+00009e  .debug_abbrev    cy_crypto_config.o
+00002f22+001048  .debug_line      cy_crypto_config.o
+000035e3+001237  .debug_macinfo   cy_crypto_config.o
+10002254+000320  .text            cy_mdma.o
+00014031+003554  .debug_info      cy_mdma.o
+000003c1+000184  .debug_abbrev    cy_mdma.o
+00003f6a+001125  .debug_line      cy_mdma.o
+0000481a+000ca9  .debug_macinfo   cy_mdma.o
+00000618+000180  .debug_frame     cy_mdma.o
+10002574+0003cc  .text            cy_pdma.o
+00017585+003b80  .debug_info      cy_pdma.o
+00000545+000184  .debug_abbrev    cy_pdma.o
+0000508f+00113f  .debug_line      cy_pdma.o
+000054c3+000ca9  .debug_macinfo   cy_pdma.o
+00000798+0001e0  .debug_frame     cy_pdma.o
+10002940+000318  .text            cy_evtgen.o
+08000f10+000030  .bss             cy_evtgen.o
+0001b105+0028cd  .debug_info      cy_evtgen.o
+000006c9+0001ce  .debug_abbrev    cy_evtgen.o
+000061ce+001144  .debug_line      cy_evtgen.o
+0000616c+000cad  .debug_macinfo   cy_evtgen.o
+00000978+000108  .debug_frame     cy_evtgen.o
+10002c58+000200  .text            cy_gpio.o
+0001d9d2+00e7be  .debug_info      cy_gpio.o
+00000897+000198  .debug_abbrev    cy_gpio.o
+00007312+000fd5  .debug_line      cy_gpio.o
+00006e19+001041  .debug_macinfo   cy_gpio.o
+00000a80+0000c0  .debug_frame     cy_gpio.o
+10002e58+00009c  .text            cy_ipc_drv.o
+10016d20+000008  .rodata          cy_ipc_drv.o
+0002c190+001020  .debug_info      cy_ipc_drv.o
+00000a2f+0001a4  .debug_abbrev    cy_ipc_drv.o
+000082e7+001049  .debug_line      cy_ipc_drv.o
+00007e5a+000eed  .debug_macinfo   cy_ipc_drv.o
+00000b40+0000f0  .debug_frame     cy_ipc_drv.o
+10002ef4+000320  .text            cy_ipc_pipe.o
+08000f40+00006c  .bss             cy_ipc_pipe.o
+10016d28+000068  .rodata          cy_ipc_pipe.o
+0002d1b0+0057e9  .debug_info      cy_ipc_pipe.o
+00000bd3+0001e1  .debug_abbrev    cy_ipc_pipe.o
+00009330+0011f5  .debug_line      cy_ipc_pipe.o
+00008d47+001142  .debug_macinfo   cy_ipc_pipe.o
+00000c30+000168  .debug_frame     cy_ipc_pipe.o
+10003214+00024c  .text            cy_ipc_sema.o
+08000fac+00000c  .bss             cy_ipc_sema.o
+10016d90+000030  .rodata          cy_ipc_sema.o
+00032999+001b8a  .debug_info      cy_ipc_sema.o
+00000db4+0001b8  .debug_abbrev    cy_ipc_sema.o
+0000a525+0011c3  .debug_line      cy_ipc_sema.o
+00009e89+0010be  .debug_macinfo   cy_ipc_sema.o
+00000d98+000108  .debug_frame     cy_ipc_sema.o
+10003460+000510  .text            cy_lin.o
+10016dc0+000010  .rodata          cy_lin.o
+00034523+002fca  .debug_info      cy_lin.o
+00000f6c+000140  .debug_abbrev    cy_lin.o
+0000b6e8+0013a9  .debug_line      cy_lin.o
+0000af47+000d85  .debug_macinfo   cy_lin.o
+00000ea0+000240  .debug_frame     cy_lin.o
+10003970+000054  .text            cy_lvd.o
+000374ed+00a634  .debug_info      cy_lvd.o
+000010ac+00017e  .debug_abbrev    cy_lvd.o
+0000ca91+000fc8  .debug_line      cy_lvd.o
+0000bccc+002973  .debug_macinfo   cy_lvd.o
+000010e0+0000a8  .debug_frame     cy_lvd.o
+100039c4+000344  .text            cy_mcwdt.o
+10016dd0+000008  .rodata          cy_mcwdt.o
+00041b21+0028f4  .debug_info      cy_mcwdt.o
+0000122a+0001e1  .debug_abbrev    cy_mcwdt.o
+0000da59+001019  .debug_line      cy_mcwdt.o
+0000e63f+000e7e  .debug_macinfo   cy_mcwdt.o
+00001188+0000d8  .debug_frame     cy_mcwdt.o
+10003d08+00027a  .text            cy_mpu.o
+00044415+0014ab  .debug_info      cy_mpu.o
+0000140b+000131  .debug_abbrev    cy_mpu.o
+0000ea72+001208  .debug_line      cy_mpu.o
+0000f4bd+00101d  .debug_macinfo   cy_mpu.o
+00001260+000138  .debug_frame     cy_mpu.o
+10003f84+003704  .text            cy_prot.o
+10016dd8+00005c  .rodata          cy_prot.o
+000458c0+00721b  .debug_info      cy_prot.o
+0000153c+00014f  .debug_abbrev    cy_prot.o
+0000fc7a+001a52  .debug_line      cy_prot.o
+000104da+001331  .debug_macinfo   cy_prot.o
+00001398+0002e8  .debug_frame     cy_prot.o
+10007688+000232  .text            cy_scb_common.o
+0004cadb+007451  .debug_info      cy_scb_common.o
+0000168b+0001bf  .debug_abbrev    cy_scb_common.o
+000116cc+0011d2  .debug_line      cy_scb_common.o
+0001180b+001f99  .debug_macinfo   cy_scb_common.o
+00001680+000180  .debug_frame     cy_scb_common.o
+100078bc+000a50  .text            cy_scb_ezi2c.o
+10016e34+000076  .rodata          cy_scb_ezi2c.o
+00053f2c+0085a2  .debug_info      cy_scb_ezi2c.o
+0000184a+0001d2  .debug_abbrev    cy_scb_ezi2c.o
+0001289e+0015dc  .debug_line      cy_scb_ezi2c.o
+000137a4+00279a  .debug_macinfo   cy_scb_ezi2c.o
+00001800+000270  .debug_frame     cy_scb_ezi2c.o
+1000830c+001bdc  .text            cy_scb_i2c.o
+10016eac+000074  .rodata          cy_scb_i2c.o
+0005c4ce+009e81  .debug_info      cy_scb_i2c.o
+00001a1c+0001d2  .debug_abbrev    cy_scb_i2c.o
+00013e7a+001f44  .debug_line      cy_scb_i2c.o
+00015f3e+003cf5  .debug_macinfo   cy_scb_i2c.o
+00001a70+000450  .debug_frame     cy_scb_i2c.o
+10009ee8+000b90  .text            cy_scb_spi.o
+10016f20+000040  .rodata          cy_scb_spi.o
+0006634f+0084f7  .debug_info      cy_scb_spi.o
+00001bee+0001d2  .debug_abbrev    cy_scb_spi.o
+00015dbe+00158c  .debug_line      cy_scb_spi.o
+00019c33+0029c1  .debug_macinfo   cy_scb_spi.o
+00001ec0+0001c8  .debug_frame     cy_scb_spi.o
+1000aa78+001000  .text            cy_scb_uart.o
+10016f60+0000c1  .rodata          cy_scb_uart.o
+0006e846+008b4d  .debug_info      cy_scb_uart.o
+00001dc0+0001d2  .debug_abbrev    cy_scb_uart.o
+0001734a+001708  .debug_line      cy_scb_uart.o
+0001c5f4+002f1d  .debug_macinfo   cy_scb_uart.o
+00002088+000288  .debug_frame     cy_scb_uart.o
+1000ba78+00081c  .text            cy_smartio.o
+00077393+002f08  .debug_info      cy_smartio.o
+00001f92+000184  .debug_abbrev    cy_smartio.o
+00018a52+0014eb  .debug_line      cy_smartio.o
+0001f511+0013c6  .debug_macinfo   cy_smartio.o
+00002310+000360  .debug_frame     cy_smartio.o
+1000c294+0000b8  .text            cy_srom.o
+08000fb8+000010  .bss             cy_srom.o
+0007a29b+00782f  .debug_info      cy_srom.o
+00002116+000194  .debug_abbrev    cy_srom.o
+00019f3d+00105d  .debug_line      cy_srom.o
+000208d7+001088  .debug_macinfo   cy_srom.o
+00002670+0000a8  .debug_frame     cy_srom.o
+1000c34c+0001c0  .text            cy_sysflt.o
+00081aca+00239d  .debug_info      cy_sysflt.o
+000022aa+00016f  .debug_abbrev    cy_sysflt.o
+0001af9a+001208  .debug_line      cy_sysflt.o
+0002195f+000c2b  .debug_macinfo   cy_sysflt.o
+00002718+000288  .debug_frame     cy_sysflt.o
+1000c50c+0002bc  .text            cy_sysint.o
+08000fc8+000004  .bss             cy_sysint.o
+10017024+000004  .rodata          cy_sysint.o
+00083e67+009f47  .debug_info      cy_sysint.o
+00002419+0001cf  .debug_abbrev    cy_sysint.o
+0001c1a2+001182  .debug_line      cy_sysint.o
+0002258a+000ca8  .debug_macinfo   cy_sysint.o
+000029a0+000198  .debug_frame     cy_sysint.o
+1000c7c8+00017c  .text            cy_syslib.o
+08000fcc+000040  .bss             cy_syslib.o
+0008ddae+00a89f  .debug_info      cy_syslib.o
+000025e8+0001b0  .debug_abbrev    cy_syslib.o
+0001d324+001127  .debug_line      cy_syslib.o
+00023232+001145  .debug_macinfo   cy_syslib.o
+00002b38+000168  .debug_frame     cy_syslib.o
+1000c944+00001e  .text            cy_syslib_ghs.o
+00002798+000024  .debug_abbrev    cy_syslib_ghs.o
+0009864d+000193  .debug_info      cy_syslib_ghs.o
+0001e44b+0000cb  .debug_line      cy_syslib_ghs.o
+1000c964+000864  .text            cy_syspm.o
+0800100c+00000c  .bss             cy_syspm.o
+000987e0+0112cd  .debug_info      cy_syspm.o
+000027bc+0001d0  .debug_abbrev    cy_syspm.o
+0001e516+0016de  .debug_line      cy_syspm.o
+00024377+002d13  .debug_macinfo   cy_syspm.o
+00002ca0+000270  .debug_frame     cy_syspm.o
+1000d1c8+0000a4  .text            cy_sysreset.o
+10017028+000036  .rodata          cy_sysreset.o
+000a9aad+00a89c  .debug_info      cy_sysreset.o
+0000298c+0001c4  .debug_abbrev    cy_sysreset.o
+0001fbf4+001074  .debug_line      cy_sysreset.o
+0002708a+000fb8  .debug_macinfo   cy_sysreset.o
+00002f10+000108  .debug_frame     cy_sysreset.o
+1000d26c+000d48  .text            cy_sysrtc.o
+1001705e+00000c  .rodata          cy_sysrtc.o
+000b4349+003988  .debug_info      cy_sysrtc.o
+00002b50+0001b8  .debug_abbrev    cy_sysrtc.o
+00020c68+0018bb  .debug_line      cy_sysrtc.o
+00028042+001fe3  .debug_macinfo   cy_sysrtc.o
+00003018+0003d8  .debug_frame     cy_sysrtc.o
+1000dfb4+0001bc  .text            cy_systick.o
+08001018+000014  .bss             cy_systick.o
+000b7cd1+0068e0  .debug_info      cy_systick.o
+00002d08+0001a0  .debug_abbrev    cy_systick.o
+00022523+00114a  .debug_line      cy_systick.o
+0002a025+000e2f  .debug_macinfo   cy_systick.o
+000033f0+000228  .debug_frame     cy_systick.o
+1000e170+000100  .text            cy_syswdt.o
+000be5b1+00a106  .debug_info      cy_syswdt.o
+00002ea8+00016e  .debug_abbrev    cy_syswdt.o
+0002366d+00100b  .debug_line      cy_syswdt.o
+0002ae54+000cac  .debug_macinfo   cy_syswdt.o
+00003618+000138  .debug_frame     cy_syswdt.o
+1000e270+000084  .text            cy_tcpwm.o
+000c86b7+002c63  .debug_info      cy_tcpwm.o
+00003016+000159  .debug_abbrev    cy_tcpwm.o
+00024678+001041  .debug_line      cy_tcpwm.o
+0002bb00+000c07  .debug_macinfo   cy_tcpwm.o
+00003750+000198  .debug_frame     cy_tcpwm.o
+1000e2f4+000398  .text            cy_tcpwm_counter.o
+000cb31a+003a01  .debug_info      cy_tcpwm_counter.o
+0000316f+000175  .debug_abbrev    cy_tcpwm_counter.o
+000256b9+00130c  .debug_line      cy_tcpwm_counter.o
+0002c707+00102b  .debug_macinfo   cy_tcpwm_counter.o
+000038e8+0003c0  .debug_frame     cy_tcpwm_counter.o
+1000e68c+00047c  .text            cy_tcpwm_pwm.o
+000ced1b+00375c  .debug_info      cy_tcpwm_pwm.o
+000032e4+000175  .debug_abbrev    cy_tcpwm_pwm.o
+000269c5+0012bd  .debug_line      cy_tcpwm_pwm.o
+0002d732+001452  .debug_macinfo   cy_tcpwm_pwm.o
+00003ca8+000300  .debug_frame     cy_tcpwm_pwm.o
+1000eb08+00023c  .text            cy_tcpwm_quaddec.o
+000d2477+002ffd  .debug_info      cy_tcpwm_quaddec.o
+00003459+000175  .debug_abbrev    cy_tcpwm_quaddec.o
+00027c82+001132  .debug_line      cy_tcpwm_quaddec.o
+0002eb84+001134  .debug_macinfo   cy_tcpwm_quaddec.o
+00003fa8+0001c8  .debug_frame     cy_tcpwm_quaddec.o
+1000ed44+00027c  .text            cy_tcpwm_sr.o
+000d5474+003622  .debug_info      cy_tcpwm_sr.o
+000035ce+000175  .debug_abbrev    cy_tcpwm_sr.o
+00028db4+0011d5  .debug_line      cy_tcpwm_sr.o
+0002fcb8+0010c6  .debug_macinfo   cy_tcpwm_sr.o
+00004170+000270  .debug_frame     cy_tcpwm_sr.o
+1000efc0+0001dc  .text            cy_trigmux.o
+000d8a96+002077  .debug_info      cy_trigmux.o
+00003743+000139  .debug_abbrev    cy_trigmux.o
+00029f89+000fd9  .debug_line      cy_trigmux.o
+00030d7e+000cec  .debug_macinfo   cy_trigmux.o
+000043e0+0000d8  .debug_frame     cy_trigmux.o
+1000f19c+00018c  .text            cy_button.o
+0800102c+000074  .bss             cy_button.o
+000dab0d+003889  .debug_info      cy_button.o
+0000387c+0001b5  .debug_abbrev    cy_button.o
+0002af62+001a22  .debug_line      cy_button.o
+00031a6a+004a77  .debug_macinfo   cy_button.o
+000044b8+0000d8  .debug_frame     cy_button.o
+1000f328+000408  .text            cy_mw_flash.o
+080010a0+000015  .bss             cy_mw_flash.o
+1001706c+000126  .rodata          cy_mw_flash.o
+000de396+010938  .debug_info      cy_mw_flash.o
+00003a31+0001f0  .debug_abbrev    cy_mw_flash.o
+0002c984+001b69  .debug_line      cy_mw_flash.o
+000364e1+004c41  .debug_macinfo   cy_mw_flash.o
+00004590+000138  .debug_frame     cy_mw_flash.o
+1000f730+000124  .text            cy_semihosting.o
+080010b8+000008  .bss             cy_semihosting.o
+10017194+00004c  .rodata          cy_semihosting.o
+000eecce+00822d  .debug_info      cy_semihosting.o
+00003c21+000196  .debug_abbrev    cy_semihosting.o
+0002e4ed+001a10  .debug_line      cy_semihosting.o
+0003b122+004abe  .debug_macinfo   cy_semihosting.o
+000046c8+0000d8  .debug_frame     cy_semihosting.o
+1000f854+000310  .text            cy_sw_tmr.o
+080010c0+00005a  .bss             cy_sw_tmr.o
+000f6efb+001a91  .debug_info      cy_sw_tmr.o
+00003db7+000176  .debug_abbrev    cy_sw_tmr.o
+0002fefd+001bd0  .debug_line      cy_sw_tmr.o
+0003fbe0+004adf  .debug_macinfo   cy_sw_tmr.o
+000047a0+0001c8  .debug_frame     cy_sw_tmr.o
+1000fb64+0000ec  .text            startup_cm0plus.o
+00003f2d+000024  .debug_abbrev    startup_cm0plus.o
+000f898c+000431  .debug_info      startup_cm0plus.o
+00031acd+00029e  .debug_line      startup_cm0plus.o
+10000000+000080  .intvec          startup_cm0plus.o
+08001200+000080  .intvec_ram      startup_cm0plus.o
+1000fc50+000190  .text            startup.o
+100171e0+000008  .rodata          startup.o
+000f8dbd+0017ad  .debug_info      startup.o
+00003f51+000170  .debug_abbrev    startup.o
+00031d6b+001a9d  .debug_line      startup.o
+000446bf+004cc0  .debug_macinfo   startup.o
+00004968+000108  .debug_frame     startup.o
+1000fde0+000514  .text            cy_cpu.o
+000fa56a+007386  .debug_info      cy_cpu.o
+000040c1+000167  .debug_abbrev    cy_cpu.o
+00033808+00150d  .debug_line      cy_cpu.o
+0004937f+002065  .debug_macinfo   cy_cpu.o
+00004a70+0002b8  .debug_frame     cy_cpu.o
+100102f4+001110  .text            cy_cxpi.o
+001018f0+005884  .debug_info      cy_cxpi.o
+00004228+000175  .debug_abbrev    cy_cxpi.o
+00034d15+001c54  .debug_line      cy_cxpi.o
+0004b3e4+001b22  .debug_macinfo   cy_cxpi.o
+00004d28+000468  .debug_frame     cy_cxpi.o
+10011404+000afc  .text            cy_flash.o
+00107174+00dcd9  .debug_info      cy_flash.o
+0000439d+0001b4  .debug_abbrev    cy_flash.o
+00036969+00180d  .debug_line      cy_flash.o
+0004cf06+00241c  .debug_macinfo   cy_flash.o
+00005190+000270  .debug_frame     cy_flash.o
+10011f00+002084  .text            cy_sysclk.o
+0800111c+000024  .bss             cy_sysclk.o
+100171e8+0001d0  .rodata          cy_sysclk.o
+00114e4d+0189c6  .debug_info      cy_sysclk.o
+00004551+000205  .debug_abbrev    cy_sysclk.o
+00038176+002255  .debug_line      cy_sysclk.o
+0004f322+002abf  .debug_macinfo   cy_sysclk.o
+00005400+000540  .debug_frame     cy_sysclk.o
+10013f84+0001b4  .text            cy_interrupt_map.o
+080008c0+000600  .data            cy_interrupt_map.o
+100173b8+000020  .rodata          cy_interrupt_map.o
+0012d813+0066fe  .debug_info      cy_interrupt_map.o
+00004756+000160  .debug_abbrev    cy_interrupt_map.o
+0003a3cb+001121  .debug_line      cy_interrupt_map.o
+00051de1+006ea0  .debug_macinfo   cy_interrupt_map.o
+00005940+000168  .debug_frame     cy_interrupt_map.o
+10014138+000134  .text            main_cm0plus.o
+08000ec0+000034  .data            main_cm0plus.o
+08001140+000001  .bss             main_cm0plus.o
+100173d8+000068  .rodata          main_cm0plus.o
+00133f11+0131ca  .debug_info      main_cm0plus.o
+000048b6+0001a0  .debug_abbrev    main_cm0plus.o
+0003b4ec+001939  .debug_line      main_cm0plus.o
+00058c81+004b95  .debug_macinfo   main_cm0plus.o
+00005aa8+0000a8  .debug_frame     main_cm0plus.o
+1001426c+0003a0  .text            system_tviibe2m_cm0plus.o
+08001144+00001c  .bss             system_tviibe2m_cm0plus.o
+10017440+000018  .rodata          system_tviibe2m_cm0plus.o
+001470db+015653  .debug_info      system_tviibe2m_cm0plus.o
+00004a56+0001b1  .debug_abbrev    system_tviibe2m_cm0plus.o
+0003ce25+001a42  .debug_line      system_tviibe2m_cm0plus.o
+0005d816+004e74  .debug_macinfo   system_tviibe2m_cm0plus.o
+00005b50+000138  .debug_frame     system_tviibe2m_cm0plus.o
+1001460c+00002c  .text            libansi.a(ccstrncp.o)
+10014638+00037e  .text            libmath_sf.a(indsqrt.o)
+10017458+000008  .rodata          libmath_sf.a(indsqrt.o)
+100149b8+000254  .text            libmath_sf.a(indpow.o)
+10014c0c+0001fc  .text            libmath_sf.a(indlog.o)
+10014e08+0001e4  .text            libmath_sf.a(indexp2.o)
+10014fec+0001bc  .text            libmath_sf.a(indexp.o)
+100151a8+0000c4  .text            libmath_sf.a(indsqrtf.o)
+1001526c+000014  .text            libmath_sf.a(indedomnan.o)
+10015280+000012  .text            libmath_sf.a(inderanged.o)
+10015294+000010  .text            libmath_sf.a(indedomnanf.o)
+100152a4+0000a0  .text            libind_sf.a(inddtof.o)
+10015344+000068  .text            libind_sf.a(indftod.o)
+100153ac+00004c  .text            libind_sf.a(ind32tod.o)
+100153f8+00004a  .text            libind_sf.a(ind32tof.o)
+10015444+000094  .text            libind_sf.a(inddto32.o)
+100154d8+000060  .text            libind_sf.a(indfto32.o)
+10015538+00000e  .text            libind_sf.a(inddrsb.o)
+10015546+000100  .text            libind_sf.a(indfmul.o)
+10015648+000114  .text            libind_sf.a(indfadd.o)
+1001575c+000034  .text            libind_sf.a(indfcmp.o)
+10015790+00011c  .text            libind_sf.a(indfdiv.o)
+100158ac+0002e0  .text            libind_sf.a(indddiv.o)
+10015b8c+0001f4  .text            libind_sf.a(inddmul.o)
+10015d80+0002a8  .text            libind_sf.a(inddadd.o)
+10016028+000042  .text            libind_sf.a(inddcmp.o)
+1001606a+000036  .text            libstartup.a(ind_mset.o)
+100160a0+00002a  .text            libstartup.a(ind_mcpy.o)
+100160cc+0002b8  .text            libstartup.a(ind_crt0.o)
+10016384+00000c  .text            libsys.a(ind_errn.o)
+10016390+0000b0  .text            libsys.a(ind_crt1.o)
+10016440+000586  .text            libarch.a(ind64_udiv64.o)
+100169c6+0000b4  .text            libarch.a(ind64_mul64.o)
+10016a7a+000030  .text            libarch.a(indclz32.o)
+10016aaa+000036  .text            libarch.a(indmuluh.o)
+10016ae0+00000e  .text            libarch.a(indarchj.o)
+10016af0+00003c  .text            libarch.a(indarchi.o)
+10016c16+000002  .interfunc       libarch.a(indarch3.o)
+10016b2c+000028  .text            libarch.a(indarch1.o)
+10016b54+00002e  .text            libarch.a(ind64shrl.o)
+10016b84+00002c  .text            libansi.a(ccexit.o)
+10016bb0+00003c  .text            libsys.a(ind_exit.o)
+08001160+000004  .bss             libsys.a(ind_exit.o)
+10016bec+000024  .text            libsys.a(ind_call.o)
+10016c10+000006  .text            libsys.a(ind_lock.o)
+08001280+000004  .syscall         libsys.a(ind_dots.o)
+10016c18+000002  .interfunc       libarch.a(indarch5.o)
+10016c1c+00003c  .secinfo         <section info>
+08000ef8+000008  COMMON -> .bss   <commons>
+
+Load Map Wed Aug 25 13:19:43 2021
+Global Symbols (sorted numerically)
+
+                  00000000+000000 __atexit_cleanup_func
+                  00000000+000000 __cpp_exception_cleanup
+                  00000000+000000 __cpp_exception_init
+                  00000000+000000 __division_by_zero
+                  00000000+00000a __dtoi32r
+                  00000000+00000a __dtoi32rne
+                  00000000+00000c __dtou
+                  00000000+00000c __dtou32r
+                  00000000+00000c __dtou32rne
+                  00000000+00000a __ftoi
+                  00000000+00000a __ftoi32r
+                  00000000+00000a __ftoi32rne
+                  00000000+00000c __ftou32r
+                  00000000+00000c __ftou32rne
+                  00000000+000004 __gh_errno_ptr
+                  00000000+000006 __gh_get_errno
+                  00000000+000000 __gh_iob_init
+                  00000000+000014 __gh_shrl_64_64
+                  00000000+000002 __ghsThumbBLR1
+                  00000000+000016 __ghs_at_exit
+                  00000000+000000 __ghs_board_cache_sync
+                  00000000+000000 __ghs_board_devices_init
+                  00000000+000000 __ghs_checksum
+                  00000000+000000 __ghs_coverage_init
+                  00000000+000000 __ghs_cpp_exception_cleanup
+                  00000000+000000 __ghs_cpp_exception_init
+                  00000000+000000 __ghs_decompress
+                  00000000+000000 __ghs_manprf_init
+                  00000000+000000 __ghs_rambootcodeend
+                  00000000+000000 __ghs_rambootcodestart
+                  00000000+000000 __ghs_set_stack_chk_guard
+                  00000000+000020 __ghs_syscall64
+                  00000000+000000 __ghs_validate_ghtws
+                  00000000+000000 __ghssize_fixaddr
+                  00000000+000008 __itof
+                  00000000+00000c __smod_32_32
+                  00000000+000014 __umod10
+                  00000000+00000c __umod_32_32
+                  00000000+000000 _cleanup
+                  00000002+000000 __ghs_log_fee_level
+                  00000080+000000 __Vectors_Size
+                  08000800+000000 __ecc_init_sram_start_address
+                  08000800+000000 __ghs_ramstart
+ .pidbase         08000800+000000 __ghsbegin_pidbase
+ .data            08000800+0000c0 m_astcCanFDChannelDataLut..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .data            080008c0+000004 Cy_SysInt_SystemIrqUserTableRamPointer
+ .data            080008c4+0005fc Cy_SystemIrqUserTable
+ .data            08000ec0+000034 user_led_port_pin_cfg
+ .bss             08000ef8+000004 errno
+ .bss             08000efc+000004 environ
+ .bss             08000f00+000010 m_au16LastErrorCode..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .bss             08000f10+000004 mapUsed
+ .bss             08000f14+00002c evtgenContext..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cevtgen.5Ccy_evtgen.
+ .bss             08000f40+000001 cy_ipc_pipe_epForThisCpu..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_pipe.
+ .bss             08000f44+000048 cy_ipc_pipe_epCfgStatus..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_pipe.
+ .bss             08000f8c+000020 cy_ipc_pipe_callbackArray..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_pipe.
+ .bss             08000fac+000004 cy_semaIpcStruct..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_sema.
+ .bss             08000fb0+000008 cy_semaData.Cy_IPC_Sema_Init..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_sema..1
+ .bss             08000fb8+000010 g_scratch..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csrom.5Ccy_srom.
+ .bss             08000fcc+000004 cy_assertLine
+ .bss             08000fd0+000018 cy_assertFileName
+ .bss             08000fe8+000024 cy_faultFrame
+ .bss             0800100c+000004 currentRegisteredCallbacksNumber..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csyspm.5Ccy_syspm.
+ .bss             08001010+000004 callbackRoot..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csyspm.5Ccy_syspm.
+ .bss             08001014+000004 lastExecutedCallback.Cy_SysPm_ExecuteCallback..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csyspm.5Ccy_syspm..2
+ .bss             08001018+000014 Cy_SysTick_Callbacks..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csystick.5Ccy_systick.
+ .bss             0800102c+000001 m_u8NrOfButtons..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cbutton.5Ccy_button.
+ .bss             08001030+000004 m_pfnCallback..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cbutton.5Ccy_button.
+ .bss             08001034+00006c m_astcButtonCfgStatus..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cbutton.5Ccy_button.
+ .bss             080010a0+000001 g_completeFlag..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cflash.5Ccy_mw_flash.
+ .bss             080010a4+000010 g_sromContext..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cflash.5Ccy_mw_flash.
+ .bss             080010b4+000001 g_NB_ModeEnabled..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cflash.5Ccy_mw_flash.
+ .bss             080010b8+000004 m_pScbInstance..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csemihosting.5Ccy_semihosting.
+ .bss             080010bc+000004 m_pfnWatchdogCallout..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csemihosting.5Ccy_semihosting.
+ .bss             080010c0+000008 m_u64TickCountUs..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csw_timer.5Ccy_sw_tmr.
+ .bss             080010c8+000050 m_astcTimers..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csw_timer.5Ccy_sw_tmr.
+ .bss             08001118+000001 m_u8CallbackFunctionTrigger..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csw_timer.5Ccy_sw_tmr.
+ .bss             08001119+000001 u8PrevTrigger.Cy_SwTmr_Main..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csw_timer.5Ccy_sw_tmr..3
+ .bss             0800111c+000001 intFreqInitialized
+ .bss             0800111d+000001 clkCounting..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk.
+ .bss             0800111e+000001 preventCounting..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk.
+ .bss             08001120+000004 clk1Count1..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk.
+ .bss             08001124+000002 changedSourcePaths.Cy_SysClk_DeepSleepCallback..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk..6
+ .bss             08001128+000018 internalBaseFreqInfo
+ .bss             08001140+000001 __isThisBeingCalled_static_in_Cy_SysTick_DelayCoreCycle..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cmain_cm0plus.
+ .bss             08001144+000004 cy_delayFreqHz
+ .bss             08001148+000004 SystemCoreClock
+ .bss             0800114c+000004 cy_delayFreqKhz
+ .bss             08001150+000004 cy_Hfclk0FreqHz
+ .bss             08001154+000004 cy_PeriClkFreqHz
+ .bss             08001158+000001 cy_delayFreqMhz
+ .bss             0800115c+000004 cy_delay32kMs
+ .intvec_ram      08001200+000000 __ramVectors
+ .syscall         08001280+000004 __dotsyscall
+ .syscall         08001280+000004 __ghs_initial_dotsyscall
+ .stack           08001888+000000 __ghsend_stack
+                  08009fff+000000 __ecc_init_sram_end_address
+                  0800a000+000000 __ghs_ramend
+ .intvec          10000000+000080 __Vectors
+                  10000000+000000 __ghs_rombootcodestart
+                  10000000+000000 __ghs_romstart
+ .intvec          10000000+000080 __vector_table
+ .intvec          1000001c+000000 __vector_table_0x1c
+ .text            10000080+0000a2 Cy_Adc_Init
+ .intvec          10000080+000000 __Vectors_End
+ .picbase         10000080+000000 __ghsbegin_picbase
+ .text            10000122+00000e Cy_Adc_DeInit
+ .text            10000122+000000 __ghs_eofn_Cy_Adc_Init
+ .text            10000130+00000e Cy_Adc_GetPendingStatus
+ .text            10000130+000000 __ghs_eofn_Cy_Adc_DeInit
+ .text            1000013e+00000e Cy_Adc_GetWorkValidStatus
+ .text            1000013e+000000 __ghs_eofn_Cy_Adc_GetPendingStatus
+ .text            1000014c+00000e Cy_Adc_GetWorkRangeStatus
+ .text            1000014c+000000 __ghs_eofn_Cy_Adc_GetWorkValidStatus
+ .text            1000015a+00000e Cy_Adc_GetWorkRangeHiStatus
+ .text            1000015a+000000 __ghs_eofn_Cy_Adc_GetWorkRangeStatus
+ .text            10000168+00000e Cy_Adc_GetWorkPulseStatus
+ .text            10000168+000000 __ghs_eofn_Cy_Adc_GetWorkRangeHiStatus
+ .text            10000176+00000e Cy_Adc_GetResultValidStatus
+ .text            10000176+000000 __ghs_eofn_Cy_Adc_GetWorkPulseStatus
+ .text            10000184+00000e Cy_Adc_GetResultRangeHiStatus
+ .text            10000184+000000 __ghs_eofn_Cy_Adc_GetResultValidStatus
+ .text            10000192+0001d4 Cy_Adc_Channel_Init
+ .text            10000192+000000 __ghs_eofn_Cy_Adc_GetResultRangeHiStatus
+ .text            10000366+000054 Cy_Adc_Channel_DeInit
+ .text            10000366+000000 __ghs_eofn_Cy_Adc_Channel_Init
+ .text            100003ba+00000e Cy_Adc_Channel_Enable
+ .text            100003ba+000000 __ghs_eofn_Cy_Adc_Channel_DeInit
+ .text            100003c8+00000e Cy_Adc_Channel_Disable
+ .text            100003c8+000000 __ghs_eofn_Cy_Adc_Channel_Enable
+ .text            100003d6+00000e Cy_Adc_Channel_SoftwareTrigger
+ .text            100003d6+000000 __ghs_eofn_Cy_Adc_Channel_Disable
+ .text            100003e4+000070 Cy_Adc_Channel_GetResult
+ .text            100003e4+000000 __ghs_eofn_Cy_Adc_Channel_SoftwareTrigger
+ .text            10000454+000048 Cy_Adc_Channel_GetWorkingData
+ .text            10000454+000000 __ghs_eofn_Cy_Adc_Channel_GetResult
+ .text            1000049c+00005c Cy_Adc_Channel_GetGroupStatus
+ .text            1000049c+000000 __ghs_eofn_Cy_Adc_Channel_GetWorkingData
+ .text            100004f8+000088 Cy_Adc_Channel_SetInterruptMask
+ .text            100004f8+000000 __ghs_eofn_Cy_Adc_Channel_GetGroupStatus
+ .text            10000580+00004e Cy_Adc_Channel_GetInterruptMask
+ .text            10000580+000000 __ghs_eofn_Cy_Adc_Channel_SetInterruptMask
+ .text            100005ce+000088 Cy_Adc_Channel_ClearInterruptStatus
+ .text            100005ce+000000 __ghs_eofn_Cy_Adc_Channel_GetInterruptMask
+ .text            10000656+00004e Cy_Adc_Channel_GetInterruptStatus
+ .text            10000656+000000 __ghs_eofn_Cy_Adc_Channel_ClearInterruptStatus
+ .text            100006a4+00004e Cy_Adc_Channel_GetInterruptMaskedStatus
+ .text            100006a4+000000 __ghs_eofn_Cy_Adc_Channel_GetInterruptStatus
+ .text            100006f2+000026 Cy_Adc_Diag_Init
+ .text            100006f2+000000 __ghs_eofn_Cy_Adc_Channel_GetInterruptMaskedStatus
+ .text            10000718+000010 Cy_Adc_Diag_Enable
+ .text            10000718+000000 __ghs_eofn_Cy_Adc_Diag_Init
+ .text            10000728+00000e Cy_Adc_Diag_Disable
+ .text            10000728+000000 __ghs_eofn_Cy_Adc_Diag_Enable
+ .text            10000736+000012 Cy_Adc_TriggerCalibrationUpdate
+ .text            10000736+000000 __ghs_eofn_Cy_Adc_Diag_Disable
+ .text            10000748+000018 Cy_Adc_IsCalibrationUpdateDone
+ .text            10000748+000000 __ghs_eofn_Cy_Adc_TriggerCalibrationUpdate
+ .text            10000760+000048 Cy_Adc_SetDigitalCalibrationValue
+ .text            10000760+000000 __ghs_eofn_Cy_Adc_IsCalibrationUpdateDone
+ .text            100007a8+000000 __ghs_eofn_Cy_Adc_SetDigitalCalibrationValue
+ .text            100007bc+000030 Cy_Adc_GetDigitalCalibrationValue
+ .text            100007ec+000048 Cy_Adc_SetAltDigitalCalibrationValue
+ .text            100007ec+000000 __ghs_eofn_Cy_Adc_GetDigitalCalibrationValue
+ .text            10000834+000030 Cy_Adc_GetAltDigitalCalibrationValue
+ .text            10000834+000000 __ghs_eofn_Cy_Adc_SetAltDigitalCalibrationValue
+ .text            10000864+00003e Cy_Adc_SetAnalogCalibrationValue
+ .text            10000864+000000 __ghs_eofn_Cy_Adc_GetAltDigitalCalibrationValue
+ .text            100008a2+00002e Cy_Adc_GetAnalogCalibrationValue
+ .text            100008a2+000000 __ghs_eofn_Cy_Adc_SetAnalogCalibrationValue
+ .text            100008d0+00003e Cy_Adc_SetAltAnalogCalibrationValue
+ .text            100008d0+000000 __ghs_eofn_Cy_Adc_GetAnalogCalibrationValue
+ .text            1000090e+00002e Cy_Adc_GetAltAnalogCalibrationValue
+ .text            1000090e+000000 __ghs_eofn_Cy_Adc_SetAltAnalogCalibrationValue
+ .text            1000093c+000050 Cy_Adc_SetDebugFreezeMode
+ .text            1000093c+000000 __ghs_eofn_Cy_Adc_GetAltAnalogCalibrationValue
+ .text            1000098c+000136 Cy_Adc_SetGenericTriggerInput
+ .text            1000098c+000000 __ghs_eofn_Cy_Adc_SetDebugFreezeMode
+ .text            10000ac2+00009c Cy_Adc_SetGenericOutpuTrigger
+ .text            10000ac2+000000 __ghs_eofn_Cy_Adc_SetGenericTriggerInput
+ .text            10000b5e+000642 Cy_Adc_CalculateDieTemperature
+ .text            10000b5e+000000 __ghs_eofn_Cy_Adc_SetGenericOutpuTrigger
+ .text            100011a0+000000 __ghs_eofn_Cy_Adc_CalculateDieTemperature
+ .text            100011a4+000098 Cy_CANFD_GetMsgramOffset..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            1000123c+00002e Cy_CANFD_GetContext..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            1000126a+00003e Cy_CANFD_CalcRxBufAdrs..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            100012a8+00003e Cy_CANFD_CalcTxBufAdrs..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            100012e6+000064 Cy_CANFD_CalcRxFifoAdrs..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            1000134a+00001c Cy_CANFD_CalculateChannelIdx..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            10001366+000064 Cy_CANFD_ErrorHandling..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .text            100013ca+000084 Cy_CANFD_ExtractMsgFromRXBuffer
+ .text            1000144e+00029a Cy_CANFD_IrqHandler
+ .text            1000144e+000000 __ghs_eofn_Cy_CANFD_ExtractMsgFromRXBuffer
+ .text            100016e8+000890 Cy_CANFD_Init
+ .text            100016e8+000000 __ghs_eofn_Cy_CANFD_IrqHandler
+ .text            10001f78+0000fe Cy_CANFD_DeInit
+ .text            10001f78+000000 __ghs_eofn_Cy_CANFD_Init
+ .text            10002076+00015c Cy_CANFD_UpdateAndTransmitMsgBuffer
+ .text            10002076+000000 __ghs_eofn_Cy_CANFD_DeInit
+ .text            100021d2+00005a Cy_CANFD_GetTxBufferStatus
+ .text            100021d2+000000 __ghs_eofn_Cy_CANFD_UpdateAndTransmitMsgBuffer
+ .text            1000222c+00000e Cy_CANFD_ClockInit
+ .text            1000222c+000000 __ghs_eofn_Cy_CANFD_GetTxBufferStatus
+ .text            1000223a+000000 __ghs_eofn_Cy_CANFD_ClockInit
+ .text            10002254+000148 Cy_MDMA_Descr_Init
+ .text            1000239c+000026 Cy_MDMA_Descr_DeInit
+ .text            1000239c+000000 __ghs_eofn_Cy_MDMA_Descr_Init
+ .text            100023c2+000044 Cy_MDMA_Descr_SetTxfrWidth
+ .text            100023c2+000000 __ghs_eofn_Cy_MDMA_Descr_DeInit
+ .text            10002406+00007c Cy_MDMA_Chnl_Init
+ .text            10002406+000000 __ghs_eofn_Cy_MDMA_Descr_SetTxfrWidth
+ .text            10002482+000052 Cy_MDMA_Chnl_DeInit
+ .text            10002482+000000 __ghs_eofn_Cy_MDMA_Chnl_Init
+ .text            100024d4+000010 Cy_MDMA_Enable
+ .text            100024d4+000000 __ghs_eofn_Cy_MDMA_Chnl_DeInit
+ .text            100024e4+00000e Cy_MDMA_Disable
+ .text            100024e4+000000 __ghs_eofn_Cy_MDMA_Enable
+ .text            100024f2+00000a Cy_MDMA_GetActiveChnl
+ .text            100024f2+000000 __ghs_eofn_Cy_MDMA_Disable
+ .text            100024fc+000026 Cy_MDMA_Chnl_ClearInterrupt
+ .text            100024fc+000000 __ghs_eofn_Cy_MDMA_GetActiveChnl
+ .text            10002522+00004a Cy_MDMA_Descr_SetNxtDescr
+ .text            10002522+000000 __ghs_eofn_Cy_MDMA_Chnl_ClearInterrupt
+ .text            1000256c+000000 __ghs_eofn_Cy_MDMA_Descr_SetNxtDescr
+ .text            10002574+000176 Cy_PDMA_Descr_Init
+ .text            100026ea+00001e Cy_PDMA_Descr_DeInit
+ .text            100026ea+000000 __ghs_eofn_Cy_PDMA_Descr_Init
+ .text            10002708+000044 Cy_PDMA_Descr_SetTxfrWidth
+ .text            10002708+000000 __ghs_eofn_Cy_PDMA_Descr_DeInit
+ .text            1000274c+0000aa Cy_PDMA_Chnl_Init
+ .text            1000274c+000000 __ghs_eofn_Cy_PDMA_Descr_SetTxfrWidth
+ .text            100027f6+00004e Cy_PDMA_Chnl_DeInit
+ .text            100027f6+000000 __ghs_eofn_Cy_PDMA_Chnl_Init
+ .text            10002844+000010 Cy_PDMA_Enable
+ .text            10002844+000000 __ghs_eofn_Cy_PDMA_Chnl_DeInit
+ .text            10002854+00000e Cy_PDMA_Disable
+ .text            10002854+000000 __ghs_eofn_Cy_PDMA_Enable
+ .text            10002862+00000e Cy_PDMA_GetActiveChnl
+ .text            10002862+000000 __ghs_eofn_Cy_PDMA_Disable
+ .text            10002870+00000a Cy_PDMA_GetActiveSrcAddr
+ .text            10002870+000000 __ghs_eofn_Cy_PDMA_GetActiveChnl
+ .text            1000287a+00000a Cy_PDMA_GetActiveDstAddr
+ .text            1000287a+000000 __ghs_eofn_Cy_PDMA_GetActiveSrcAddr
+ .text            10002884+000022 Cy_PDMA_Chnl_ClearInterrupt
+ .text            10002884+000000 __ghs_eofn_Cy_PDMA_GetActiveDstAddr
+ .text            100028a6+000028 Cy_PDMA_Descr_SetNxtDescr
+ .text            100028a6+000000 __ghs_eofn_Cy_PDMA_Chnl_ClearInterrupt
+ .text            100028ce+000000 __ghs_eofn_Cy_PDMA_Descr_SetNxtDescr
+ .text            100028dc+000056 Cy_PDMA_CRC_Config
+ .text            10002932+00000e Cy_PDMA_GetCrcRemainderResult
+ .text            10002932+000000 __ghs_eofn_Cy_PDMA_CRC_Config
+ .text            10002940+0000e6 Cy_Evtgen_Initialize
+ .text            10002940+000000 __ghs_eofn_Cy_PDMA_GetCrcRemainderResult
+ .text            10002a26+000026 Cy_Evtgen_Deinitialize
+ .text            10002a26+000000 __ghs_eofn_Cy_Evtgen_Initialize
+ .text            10002a4c+00010c Cy_Evtgen_InitializeCompStruct
+ .text            10002a4c+000000 __ghs_eofn_Cy_Evtgen_Deinitialize
+ .text            10002b58+00003a Cy_Evtgen_DeinitializeCompStruct
+ .text            10002b58+000000 __ghs_eofn_Cy_Evtgen_InitializeCompStruct
+ .text            10002b92+0000b8 Cy_Evtgen_Interrupt
+ .text            10002b92+000000 __ghs_eofn_Cy_Evtgen_DeinitializeCompStruct
+ .text            10002c4a+000000 __ghs_eofn_Cy_Evtgen_Interrupt
+ .text            10002c58+0001a0 Cy_GPIO_Pin_Init
+ .text            10002df8+00004e Cy_GPIO_Port_Init
+ .text            10002df8+000000 __ghs_eofn_Cy_GPIO_Pin_Init
+ .text            10002e46+000000 __ghs_eofn_Cy_GPIO_Port_Init
+ .text            10002e58+000016 Cy_IPC_Drv_LockAcquire
+ .text            10002e6e+00002a Cy_IPC_Drv_LockRelease
+ .text            10002e6e+000000 __ghs_eofn_Cy_IPC_Drv_LockAcquire
+ .text            10002e98+000032 Cy_IPC_Drv_SendMsgWord
+ .text            10002e98+000000 __ghs_eofn_Cy_IPC_Drv_LockRelease
+ .text            10002eca+00001c Cy_IPC_Drv_ReadMsgWord
+ .text            10002eca+000000 __ghs_eofn_Cy_IPC_Drv_SendMsgWord
+ .text            10002ee6+000000 __ghs_eofn_Cy_IPC_Drv_ReadMsgWord
+ .text            10002ef4+00009a Cy_IPC_Pipe_Init
+ .text            10002f8e+0000a0 InitEndpoint..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_pipe.
+ .text            10002f8e+000000 __ghs_eofn_Cy_IPC_Pipe_Init
+ .text            1000302e+000096 Cy_IPC_Pipe_SendMessage
+ .text            100030c4+00001c Cy_IPC_Pipe_RegisterCallback
+ .text            100030c4+000000 __ghs_eofn_Cy_IPC_Pipe_SendMessage
+ .text            100030e0+000016 Cy_IPC_Pipe_RegisterCallbackRel
+ .text            100030e0+000000 __ghs_eofn_Cy_IPC_Pipe_RegisterCallback
+ .text            100030f6+000016 Cy_IPC_Pipe_Isr
+ .text            100030f6+000000 __ghs_eofn_Cy_IPC_Pipe_RegisterCallbackRel
+ .text            1000310c+000094 ExecCallback..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cipc.5Ccy_ipc_pipe.
+ .text            1000310c+000000 __ghs_eofn_Cy_IPC_Pipe_Isr
+ .text            100031a0+00001c Cy_IPC_Pipe_EndpointPause
+ .text            100031bc+00001c Cy_IPC_Pipe_EndpointResume
+ .text            100031bc+000000 __ghs_eofn_Cy_IPC_Pipe_EndpointPause
+ .text            100031d8+000000 __ghs_eofn_Cy_IPC_Pipe_EndpointResume
+ .text            10003214+0000cc Cy_IPC_Sema_Init
+ .text            100032e0+00008a Cy_IPC_Sema_Set
+ .text            100032e0+000000 __ghs_eofn_Cy_IPC_Sema_Init
+ .text            1000336a+000088 Cy_IPC_Sema_Clear
+ .text            1000336a+000000 __ghs_eofn_Cy_IPC_Sema_Set
+ .text            100033f2+000038 Cy_IPC_Sema_Status
+ .text            100033f2+000000 __ghs_eofn_Cy_IPC_Sema_Clear
+ .text            1000342a+00000c Cy_IPC_Sema_GetMaxSems
+ .text            1000342a+000000 __ghs_eofn_Cy_IPC_Sema_Status
+ .text            10003436+000000 __ghs_eofn_Cy_IPC_Sema_GetMaxSems
+ .text            10003460+000088 Lin_DeInit
+ .text            100034e8+0000e8 Lin_Init
+ .text            100034e8+000000 __ghs_eofn_Lin_DeInit
+ .text            100035d0+00006a Lin_ReadData
+ .text            100035d0+000000 __ghs_eofn_Lin_Init
+ .text            1000363a+00009a Lin_WriteData
+ .text            1000363a+000000 __ghs_eofn_Lin_ReadData
+ .text            100036d4+00001e Lin_Enable
+ .text            100036d4+000000 __ghs_eofn_Lin_WriteData
+ .text            100036f2+00001c Lin_Disable
+ .text            100036f2+000000 __ghs_eofn_Lin_Enable
+ .text            1000370e+000030 Lin_SetBreakWakeupFieldLength
+ .text            1000370e+000000 __ghs_eofn_Lin_Disable
+ .text            1000373e+000026 Lin_SetChecksumType
+ .text            1000373e+000000 __ghs_eofn_Lin_SetBreakWakeupFieldLength
+ .text            10003764+00002c Lin_SetDataLength
+ .text            10003764+000000 __ghs_eofn_Lin_SetChecksumType
+ .text            10003790+000000 __ghs_eofn_Lin_SetDataLength
+ .text            100037a4+000066 Lin_SetCmd
+ .text            1000380a+00006c Lin_SetHeader
+ .text            1000380a+000000 __ghs_eofn_Lin_SetCmd
+ .text            10003876+00003e Lin_GetHeader
+ .text            10003876+000000 __ghs_eofn_Lin_SetHeader
+ .text            100038b4+00001a Lin_SetInterruptMask
+ .text            100038b4+000000 __ghs_eofn_Lin_GetHeader
+ .text            100038ce+000020 Lin_GetInterruptMask
+ .text            100038ce+000000 __ghs_eofn_Lin_SetInterruptMask
+ .text            100038ee+000020 Lin_GetInterruptMaskedStatus
+ .text            100038ee+000000 __ghs_eofn_Lin_GetInterruptMask
+ .text            1000390e+000020 Lin_GetInterruptStatus
+ .text            1000390e+000000 __ghs_eofn_Lin_GetInterruptMaskedStatus
+ .text            1000392e+00001a Lin_ClearInterrupt
+ .text            1000392e+000000 __ghs_eofn_Lin_GetInterruptStatus
+ .text            10003948+00001e Lin_GetStatus
+ .text            10003948+000000 __ghs_eofn_Lin_ClearInterrupt
+ .text            10003966+000000 __ghs_eofn_Lin_GetStatus
+ .text            10003970+000048 Cy_LVD_DeepSleepCallback
+ .text            100039b8+000000 __ghs_eofn_Cy_LVD_DeepSleepCallback
+ .text            100039c4+0001ee Cy_MCWDT_Init
+ .text            10003bb2+0000c6 Cy_MCWDT_DeInit
+ .text            10003bb2+000000 __ghs_eofn_Cy_MCWDT_Init
+ .text            10003c78+000082 Cy_MCWDT_ClearWatchdog
+ .text            10003c78+000000 __ghs_eofn_Cy_MCWDT_DeInit
+ .text            10003cfa+000000 __ghs_eofn_Cy_MCWDT_ClearWatchdog
+ .text            10003d08+00010a Cy_MPU_Setup
+ .text            10003e12+000074 Cy_MPU_SetRegion
+ .text            10003e12+000000 __ghs_eofn_Cy_MPU_Setup
+ .text            10003e86+000066 Cy_MPU_GetRegion
+ .text            10003e86+000000 __ghs_eofn_Cy_MPU_SetRegion
+ .text            10003eec+00002a Cy_MPU_Enable
+ .text            10003eec+000000 __ghs_eofn_Cy_MPU_GetRegion
+ .text            10003f16+000020 Cy_MPU_Disable
+ .text            10003f16+000000 __ghs_eofn_Cy_MPU_Enable
+ .text            10003f36+000020 Cy_MPU_GetGlobalControlBits
+ .text            10003f36+000000 __ghs_eofn_Cy_MPU_Disable
+ .text            10003f56+00002c Cy_MPU_SetGlobalControlBits
+ .text            10003f56+000000 __ghs_eofn_Cy_MPU_GetGlobalControlBits
+ .text            10003f82+000000 __ghs_eofn_Cy_MPU_SetGlobalControlBits
+ .text            10003f84+000094 Cy_Prot_ConfigBusMaster
+ .text            10004018+000058 Cy_Prot_SetActivePC
+ .text            10004018+000000 __ghs_eofn_Cy_Prot_ConfigBusMaster
+ .text            10004070+000014 Cy_Prot_GetActivePC
+ .text            10004070+000000 __ghs_eofn_Cy_Prot_SetActivePC
+ .text            10004084+0000de Cy_Prot_ConfigMpuStruct
+ .text            10004084+000000 __ghs_eofn_Cy_Prot_GetActivePC
+ .text            10004162+000022 Cy_Prot_EnableMpuStruct
+ .text            10004162+000000 __ghs_eofn_Cy_Prot_ConfigMpuStruct
+ .text            10004184+000020 Cy_Prot_DisableMpuStruct
+ .text            10004184+000000 __ghs_eofn_Cy_Prot_EnableMpuStruct
+ .text            100041a4+0000d4 Cy_Prot_ConfigSmpuMasterStruct
+ .text            100041a4+000000 __ghs_eofn_Cy_Prot_DisableMpuStruct
+ .text            10004278+000144 Cy_Prot_ConfigSmpuSlaveStruct
+ .text            10004278+000000 __ghs_eofn_Cy_Prot_ConfigSmpuMasterStruct
+ .text            100043bc+000022 Cy_Prot_EnableSmpuMasterStruct
+ .text            100043bc+000000 __ghs_eofn_Cy_Prot_ConfigSmpuSlaveStruct
+ .text            100043de+000020 Cy_Prot_DisableSmpuMasterStruct
+ .text            100043de+000000 __ghs_eofn_Cy_Prot_EnableSmpuMasterStruct
+ .text            100043fe+000022 Cy_Prot_EnableSmpuSlaveStruct
+ .text            100043fe+000000 __ghs_eofn_Cy_Prot_DisableSmpuMasterStruct
+ .text            10004420+000020 Cy_Prot_DisableSmpuSlaveStruct
+ .text            10004420+000000 __ghs_eofn_Cy_Prot_EnableSmpuSlaveStruct
+ .text            10004440+000c34 Cy_Prot_ConfigPpuProgMasterStructAttr
+ .text            10004440+000000 __ghs_eofn_Cy_Prot_DisableSmpuSlaveStruct
+ .text            10005074+000c30 Cy_Prot_ConfigPpuProgSlaveStructAttr
+ .text            10005074+000000 __ghs_eofn_Cy_Prot_ConfigPpuProgMasterStructAttr
+ .text            10005ca4+000070 Cy_Prot_ConfigPpuProgSlaveStructReg
+ .text            10005ca4+000000 __ghs_eofn_Cy_Prot_ConfigPpuProgSlaveStructAttr
+ .text            10005d14+000022 Cy_Prot_EnablePpuProgMasterStruct
+ .text            10005d14+000000 __ghs_eofn_Cy_Prot_ConfigPpuProgSlaveStructReg
+ .text            10005d36+000020 Cy_Prot_DisablePpuProgMasterStruct
+ .text            10005d36+000000 __ghs_eofn_Cy_Prot_EnablePpuProgMasterStruct
+ .text            10005d56+000022 Cy_Prot_EnablePpuProgSlaveStruct
+ .text            10005d56+000000 __ghs_eofn_Cy_Prot_DisablePpuProgMasterStruct
+ .text            10005d78+000020 Cy_Prot_DisablePpuProgSlaveStruct
+ .text            10005d78+000000 __ghs_eofn_Cy_Prot_EnablePpuProgSlaveStruct
+ .text            10005d98+000c38 Cy_Prot_ConfigPpuFixedMasterStruct
+ .text            10005d98+000000 __ghs_eofn_Cy_Prot_DisablePpuProgSlaveStruct
+ .text            100069d0+000c30 Cy_Prot_ConfigPpuFixedSlaveStruct
+ .text            100069d0+000000 __ghs_eofn_Cy_Prot_ConfigPpuFixedMasterStruct
+ .text            10007600+000022 Cy_Prot_EnablePpuFixedMasterStruct
+ .text            10007600+000000 __ghs_eofn_Cy_Prot_ConfigPpuFixedSlaveStruct
+ .text            10007622+000020 Cy_Prot_DisablePpuFixedMasterStruct
+ .text            10007622+000000 __ghs_eofn_Cy_Prot_EnablePpuFixedMasterStruct
+ .text            10007642+000022 Cy_Prot_EnablePpuFixedSlaveStruct
+ .text            10007642+000000 __ghs_eofn_Cy_Prot_DisablePpuFixedMasterStruct
+ .text            10007664+000020 Cy_Prot_DisablePpuFixedSlaveStruct
+ .text            10007664+000000 __ghs_eofn_Cy_Prot_EnablePpuFixedSlaveStruct
+ .text            10007684+000000 __ghs_eofn_Cy_Prot_DisablePpuFixedSlaveStruct
+ .text            10007688+000050 Cy_SCB_ReadArrayNoCheck
+ .text            100076d8+000028 Cy_SCB_ReadArray
+ .text            100076d8+000000 __ghs_eofn_Cy_SCB_ReadArrayNoCheck
+ .text            10007700+00003c Cy_SCB_ReadArrayBlocking
+ .text            10007700+000000 __ghs_eofn_Cy_SCB_ReadArray
+ .text            1000773c+000030 Cy_SCB_Write
+ .text            1000773c+000000 __ghs_eofn_Cy_SCB_ReadArrayBlocking
+ .text            1000776c+000058 Cy_SCB_WriteArrayNoCheck
+ .text            1000776c+000000 __ghs_eofn_Cy_SCB_Write
+ .text            100077c4+000036 Cy_SCB_WriteArray
+ .text            100077c4+000000 __ghs_eofn_Cy_SCB_WriteArrayNoCheck
+ .text            100077fa+00003c Cy_SCB_WriteArrayBlocking
+ .text            100077fa+000000 __ghs_eofn_Cy_SCB_WriteArray
+ .text            10007836+000036 Cy_SCB_WriteString
+ .text            10007836+000000 __ghs_eofn_Cy_SCB_WriteArrayBlocking
+ .text            1000786c+000018 Cy_SCB_WriteDefaultArrayNoCheck
+ .text            1000786c+000000 __ghs_eofn_Cy_SCB_WriteString
+ .text            10007884+000036 Cy_SCB_WriteDefaultArray
+ .text            10007884+000000 __ghs_eofn_Cy_SCB_WriteDefaultArrayNoCheck
+ .text            100078ba+000000 __ghs_eofn_Cy_SCB_WriteDefaultArray
+ .text            100078bc+0001da Cy_SCB_EZI2C_Init
+ .text            10007a96+00005e Cy_SCB_EZI2C_DeInit
+ .text            10007a96+000000 __ghs_eofn_Cy_SCB_EZI2C_Init
+ .text            10007af4+000018 Cy_SCB_EZI2C_Disable
+ .text            10007af4+000000 __ghs_eofn_Cy_SCB_EZI2C_DeInit
+ .text            10007b0c+0000de Cy_EZI2C_DeepSleepCallback
+ .text            10007b0c+000000 __ghs_eofn_Cy_SCB_EZI2C_Disable
+ .text            10007bea+0000b6 Cy_EZI2C_HibernateCallback
+ .text            10007bea+000000 __ghs_eofn_Cy_EZI2C_DeepSleepCallback
+ .text            10007ca0+000026 Cy_SCB_EZI2C_GetActivity
+ .text            10007ca0+000000 __ghs_eofn_Cy_EZI2C_HibernateCallback
+ .text            10007cc6+000044 Cy_SCB_EZI2C_SetAddress1
+ .text            10007cc6+000000 __ghs_eofn_Cy_SCB_EZI2C_GetActivity
+ .text            10007d0a+00000e Cy_SCB_EZI2C_GetAddress1
+ .text            10007d0a+000000 __ghs_eofn_Cy_SCB_EZI2C_SetAddress1
+ .text            10007d18+00005c Cy_SCB_EZI2C_SetBuffer1
+ .text            10007d18+000000 __ghs_eofn_Cy_SCB_EZI2C_GetAddress1
+ .text            10007d74+000014 Cy_SCB_EZI2C_SetAddress2
+ .text            10007d74+000000 __ghs_eofn_Cy_SCB_EZI2C_SetBuffer1
+ .text            10007d88+00000e Cy_SCB_EZI2C_GetAddress2
+ .text            10007d88+000000 __ghs_eofn_Cy_SCB_EZI2C_SetAddress2
+ .text            10007d96+00005e Cy_SCB_EZI2C_SetBuffer2
+ .text            10007d96+000000 __ghs_eofn_Cy_SCB_EZI2C_GetAddress2
+ .text            10007df4+0000c4 Cy_SCB_EZI2C_Interrupt
+ .text            10007df4+000000 __ghs_eofn_Cy_SCB_EZI2C_SetBuffer2
+ .text            10007eb8+000032 HandleErrors..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            10007eb8+000000 __ghs_eofn_Cy_SCB_EZI2C_Interrupt
+ .text            10007eea+000140 HandleAddress..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            1000802a+000058 UpdateRxFifoLevel..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            10008082+000166 HandleDataReceive..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            100081e8+000038 HandleDataTransmit..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            10008220+0000a0 HandleStop..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            100082c0+000042 UpdateAddressMask..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_ezi2c.
+ .text            1000830c+000236 Cy_SCB_I2C_Init
+ .text            10008542+000062 Cy_SCB_I2C_DeInit
+ .text            10008542+000000 __ghs_eofn_Cy_SCB_I2C_Init
+ .text            100085a4+00001e Cy_SCB_I2C_Disable
+ .text            100085a4+000000 __ghs_eofn_Cy_SCB_I2C_DeInit
+ .text            100085c2+00012c Cy_I2C_DeepSleepCallback
+ .text            100085c2+000000 __ghs_eofn_Cy_SCB_I2C_Disable
+ .text            100086ee+000084 Cy_I2C_HibernateCallback
+ .text            100086ee+000000 __ghs_eofn_Cy_I2C_DeepSleepCallback
+ .text            10008772+0001b0 Cy_SCB_I2C_SetDataRate
+ .text            10008772+000000 __ghs_eofn_Cy_I2C_HibernateCallback
+ .text            10008922+000066 Cy_SCB_I2C_GetDataRate
+ .text            10008922+000000 __ghs_eofn_Cy_SCB_I2C_SetDataRate
+ .text            10008988+00000e Cy_SCB_I2C_SlaveGetStatus
+ .text            10008988+000000 __ghs_eofn_Cy_SCB_I2C_GetDataRate
+ .text            10008996+0000aa Cy_SCB_I2C_SlaveConfigReadBuf
+ .text            10008996+000000 __ghs_eofn_Cy_SCB_I2C_SlaveGetStatus
+ .text            10008a40+00003e Cy_SCB_I2C_SlaveAbortRead
+ .text            10008a40+000000 __ghs_eofn_Cy_SCB_I2C_SlaveConfigReadBuf
+ .text            10008a7e+00000e Cy_SCB_I2C_SlaveGetReadTransferCount
+ .text            10008a7e+000000 __ghs_eofn_Cy_SCB_I2C_SlaveAbortRead
+ .text            10008a8c+000020 Cy_SCB_I2C_SlaveClearReadStatus
+ .text            10008a8c+000000 __ghs_eofn_Cy_SCB_I2C_SlaveGetReadTransferCount
+ .text            10008aac+000060 Cy_SCB_I2C_SlaveConfigWriteBuf
+ .text            10008aac+000000 __ghs_eofn_Cy_SCB_I2C_SlaveClearReadStatus
+ .text            10008b0c+000038 Cy_SCB_I2C_SlaveAbortWrite
+ .text            10008b0c+000000 __ghs_eofn_Cy_SCB_I2C_SlaveConfigWriteBuf
+ .text            10008b44+00000e Cy_SCB_I2C_SlaveGetWriteTransferCount
+ .text            10008b44+000000 __ghs_eofn_Cy_SCB_I2C_SlaveAbortWrite
+ .text            10008b52+000020 Cy_SCB_I2C_SlaveClearWriteStatus
+ .text            10008b52+000000 __ghs_eofn_Cy_SCB_I2C_SlaveGetWriteTransferCount
+ .text            10008b72+00000e Cy_SCB_I2C_MasterGetStatus
+ .text            10008b72+000000 __ghs_eofn_Cy_SCB_I2C_SlaveClearWriteStatus
+ .text            10008b80+0001aa Cy_SCB_I2C_MasterRead
+ .text            10008b80+000000 __ghs_eofn_Cy_SCB_I2C_MasterGetStatus
+ .text            10008d2a+0000ac Cy_SCB_I2C_MasterAbortRead
+ .text            10008d2a+000000 __ghs_eofn_Cy_SCB_I2C_MasterRead
+ .text            10008dd6+000156 Cy_SCB_I2C_MasterWrite
+ .text            10008dd6+000000 __ghs_eofn_Cy_SCB_I2C_MasterAbortRead
+ .text            10008f2c+000086 Cy_SCB_I2C_MasterAbortWrite
+ .text            10008f2c+000000 __ghs_eofn_Cy_SCB_I2C_MasterWrite
+ .text            10008fb2+00000e Cy_SCB_I2C_MasterGetTransferCount
+ .text            10008fb2+000000 __ghs_eofn_Cy_SCB_I2C_MasterAbortWrite
+ .text            10008fc0+000100 Cy_SCB_I2C_MasterSendStart
+ .text            10008fc0+000000 __ghs_eofn_Cy_SCB_I2C_MasterGetTransferCount
+ .text            100090c0+0000de Cy_SCB_I2C_MasterSendReStart
+ .text            100090c0+000000 __ghs_eofn_Cy_SCB_I2C_MasterSendStart
+ .text            1000919e+000070 Cy_SCB_I2C_MasterSendStop
+ .text            1000919e+000000 __ghs_eofn_Cy_SCB_I2C_MasterSendReStart
+ .text            1000920e+0000be Cy_SCB_I2C_MasterReadByte
+ .text            1000920e+000000 __ghs_eofn_Cy_SCB_I2C_MasterSendStop
+ .text            100092cc+00007a Cy_SCB_I2C_MasterWriteByte
+ .text            100092cc+000000 __ghs_eofn_Cy_SCB_I2C_MasterReadByte
+ .text            10009346+000020 Cy_SCB_I2C_Interrupt
+ .text            10009346+000000 __ghs_eofn_Cy_SCB_I2C_MasterWriteByte
+ .text            10009366+0000d4 SlaveInterrupt..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009366+000000 __ghs_eofn_Cy_SCB_I2C_Interrupt
+ .text            1000943a+0001a0 SlaveHandleAddress..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            100095da+0000de SlaveHandleDataReceive..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            100096b8+00010e SlaveHandleDataTransmit..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            100097c6+000114 SlaveHandleStop..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            100098da+000106 MasterInterrupt..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            100099e0+000108 MasterHandleDataReceive..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009ae8+0000dc MasterHandleDataTransmit..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009bd4+000138 MasterHandleComplete..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009d0c+00004e MasterHandleStop..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009d5a+000028 WaitOneUnit..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009d82+000146 HandleStatus..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_i2c.
+ .text            10009ee8+00044a Cy_SCB_SPI_Init
+ .text            1000a332+000058 Cy_SCB_SPI_DeInit
+ .text            1000a332+000000 __ghs_eofn_Cy_SCB_SPI_Init
+ .text            1000a38a+00002e Cy_SCB_SPI_Disable
+ .text            1000a38a+000000 __ghs_eofn_Cy_SCB_SPI_DeInit
+ .text            1000a3b8+0000ec Cy_SPI_DeepSleepCallback
+ .text            1000a3b8+000000 __ghs_eofn_Cy_SCB_SPI_Disable
+ .text            1000a4a4+000096 Cy_SPI_HibernateCallback
+ .text            1000a4a4+000000 __ghs_eofn_Cy_SPI_DeepSleepCallback
+ .text            1000a53a+00021e Cy_SCB_SPI_Transfer
+ .text            1000a53a+000000 __ghs_eofn_Cy_SPI_HibernateCallback
+ .text            1000a758+00005e Cy_SCB_SPI_AbortTransfer
+ .text            1000a758+000000 __ghs_eofn_Cy_SCB_SPI_Transfer
+ .text            1000a7b6+00000e Cy_SCB_SPI_GetNumTransfered
+ .text            1000a7b6+000000 __ghs_eofn_Cy_SCB_SPI_AbortTransfer
+ .text            1000a7c4+00000e Cy_SCB_SPI_GetTransferStatus
+ .text            1000a7c4+000000 __ghs_eofn_Cy_SCB_SPI_GetNumTransfered
+ .text            1000a7d2+0000fe Cy_SCB_SPI_Interrupt
+ .text            1000a7d2+000000 __ghs_eofn_Cy_SCB_SPI_GetTransferStatus
+ .text            1000a8d0+0000cc HandleReceive..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_spi.
+ .text            1000a8d0+000000 __ghs_eofn_Cy_SCB_SPI_Interrupt
+ .text            1000a99c+0000bc HandleTransmit..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_spi.
+ .text            1000aa58+000016 DiscardArrayNoCheck..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_spi.
+ .text            1000aa78+000556 Cy_SCB_UART_Init
+ .text            1000afce+00006c Cy_SCB_UART_DeInit
+ .text            1000afce+000000 __ghs_eofn_Cy_SCB_UART_Init
+ .text            1000b03a+000024 Cy_SCB_UART_Disable
+ .text            1000b03a+000000 __ghs_eofn_Cy_SCB_UART_DeInit
+ .text            1000b05e+0000ac Cy_UART_DeepSleepCallback
+ .text            1000b05e+000000 __ghs_eofn_Cy_SCB_UART_Disable
+ .text            1000b10a+000018 Cy_UART_HibernateCallback
+ .text            1000b10a+000000 __ghs_eofn_Cy_UART_DeepSleepCallback
+ .text            1000b122+0000ea Cy_SCB_UART_StartRingBuffer
+ .text            1000b122+000000 __ghs_eofn_Cy_UART_HibernateCallback
+ .text            1000b20c+00001e Cy_SCB_UART_StopRingBuffer
+ .text            1000b20c+000000 __ghs_eofn_Cy_SCB_UART_StartRingBuffer
+ .text            1000b22a+000024 Cy_SCB_UART_GetNumInRingBuffer
+ .text            1000b22a+000000 __ghs_eofn_Cy_SCB_UART_StopRingBuffer
+ .text            1000b24e+00000e Cy_SCB_UART_ClearRingBuffer
+ .text            1000b24e+000000 __ghs_eofn_Cy_SCB_UART_GetNumInRingBuffer
+ .text            1000b25c+0002b2 Cy_SCB_UART_Receive
+ .text            1000b25c+000000 __ghs_eofn_Cy_SCB_UART_ClearRingBuffer
+ .text            1000b50e+000020 Cy_SCB_UART_AbortReceive
+ .text            1000b50e+000000 __ghs_eofn_Cy_SCB_UART_Receive
+ .text            1000b52e+00000e Cy_SCB_UART_GetNumReceived
+ .text            1000b52e+000000 __ghs_eofn_Cy_SCB_UART_AbortReceive
+ .text            1000b53c+00000e Cy_SCB_UART_GetReceiveStatus
+ .text            1000b53c+000000 __ghs_eofn_Cy_SCB_UART_GetNumReceived
+ .text            1000b54a+000104 Cy_SCB_UART_Transmit
+ .text            1000b54a+000000 __ghs_eofn_Cy_SCB_UART_GetReceiveStatus
+ .text            1000b64e+000000 __ghs_eofn_Cy_SCB_UART_Transmit
+ .text            1000b674+000030 Cy_SCB_UART_AbortTransmit
+ .text            1000b6a4+00000e Cy_SCB_UART_GetNumLeftToTransmit
+ .text            1000b6a4+000000 __ghs_eofn_Cy_SCB_UART_AbortTransmit
+ .text            1000b6b2+00000e Cy_SCB_UART_GetTransmitStatus
+ .text            1000b6b2+000000 __ghs_eofn_Cy_SCB_UART_GetNumLeftToTransmit
+ .text            1000b6c0+0000fe Cy_SCB_UART_Interrupt
+ .text            1000b6c0+000000 __ghs_eofn_Cy_SCB_UART_GetTransmitStatus
+ .text            1000b7be+0000ec HandleDataReceive..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_uart.
+ .text            1000b7be+000000 __ghs_eofn_Cy_SCB_UART_Interrupt
+ .text            1000b8aa+0000d6 HandleRingBuffer..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_uart.
+ .text            1000b980+0000f2 HandleDataTransmit..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Cscb.5Ccy_scb_uart.
+ .text            1000ba78+000200 Cy_SmartIO_Init
+ .text            1000bc78+000040 Cy_SmartIO_Deinit
+ .text            1000bc78+000000 __ghs_eofn_Cy_SmartIO_Init
+ .text            1000bcb8+000016 Cy_SmartIO_Enable
+ .text            1000bcb8+000000 __ghs_eofn_Cy_SmartIO_Deinit
+ .text            1000bcce+000016 Cy_SmartIO_Disable
+ .text            1000bcce+000000 __ghs_eofn_Cy_SmartIO_Enable
+ .text            1000bce4+00000e Cy_SmartIO_GetChBypass
+ .text            1000bce4+000000 __ghs_eofn_Cy_SmartIO_Disable
+ .text            1000bcf2+000024 Cy_SmartIO_SetChBypass
+ .text            1000bcf2+000000 __ghs_eofn_Cy_SmartIO_GetChBypass
+ .text            1000bd16+000012 Cy_SmartIO_GetClock
+ .text            1000bd16+000000 __ghs_eofn_Cy_SmartIO_SetChBypass
+ .text            1000bd28+000028 Cy_SmartIO_SetClock
+ .text            1000bd28+000000 __ghs_eofn_Cy_SmartIO_GetClock
+ .text            1000bd50+00000e Cy_SmartIO_GetIoSync
+ .text            1000bd50+000000 __ghs_eofn_Cy_SmartIO_SetClock
+ .text            1000bd5e+000024 Cy_SmartIO_SetIoSync
+ .text            1000bd5e+000000 __ghs_eofn_Cy_SmartIO_GetIoSync
+ .text            1000bd82+000012 Cy_SmartIO_GetChipSync
+ .text            1000bd82+000000 __ghs_eofn_Cy_SmartIO_SetIoSync
+ .text            1000bd94+000028 Cy_SmartIO_SetChipSync
+ .text            1000bd94+000000 __ghs_eofn_Cy_SmartIO_GetChipSync
+ .text            1000bdbc+000028 Cy_SmartIO_HoldOverride
+ .text            1000bdbc+000000 __ghs_eofn_Cy_SmartIO_SetChipSync
+ .text            1000bde4+00005e Cy_SmartIO_GetLutTr
+ .text            1000bde4+000000 __ghs_eofn_Cy_SmartIO_HoldOverride
+ .text            1000be42+0000dc Cy_SmartIO_SetLutTr
+ .text            1000be42+000000 __ghs_eofn_Cy_SmartIO_GetLutTr
+ .text            1000bf1e+00004e Cy_SmartIO_SetLutTrAll
+ .text            1000bf1e+000000 __ghs_eofn_Cy_SmartIO_SetLutTr
+ .text            1000bf6c+00001a Cy_SmartIO_GetLutOpcode
+ .text            1000bf6c+000000 __ghs_eofn_Cy_SmartIO_SetLutTrAll
+ .text            1000bf86+000000 __ghs_eofn_Cy_SmartIO_GetLutOpcode
+ .text            1000bfb0+000046 Cy_SmartIO_SetLutOpcode
+ .text            1000bff6+000016 Cy_SmartIO_GetLutMap
+ .text            1000bff6+000000 __ghs_eofn_Cy_SmartIO_SetLutOpcode
+ .text            1000c00c+00003e Cy_SmartIO_SetLutMap
+ .text            1000c00c+000000 __ghs_eofn_Cy_SmartIO_GetLutMap
+ .text            1000c04a+00004c Cy_SmartIO_GetDuTr
+ .text            1000c04a+000000 __ghs_eofn_Cy_SmartIO_SetLutMap
+ .text            1000c096+0000a2 Cy_SmartIO_SetDuTr
+ .text            1000c096+000000 __ghs_eofn_Cy_SmartIO_GetDuTr
+ .text            1000c138+000034 Cy_SmartIO_SetDuTrAll
+ .text            1000c138+000000 __ghs_eofn_Cy_SmartIO_SetDuTr
+ .text            1000c16c+00002e Cy_SmartIO_GetDuData
+ .text            1000c16c+000000 __ghs_eofn_Cy_SmartIO_SetDuTrAll
+ .text            1000c19a+00005c Cy_SmartIO_SetDuData
+ .text            1000c19a+000000 __ghs_eofn_Cy_SmartIO_GetDuData
+ .text            1000c1f6+000014 Cy_SmartIO_GetDuOpc
+ .text            1000c1f6+000000 __ghs_eofn_Cy_SmartIO_SetDuData
+ .text            1000c20a+000010 Cy_SmartIO_GetDuSize
+ .text            1000c20a+000000 __ghs_eofn_Cy_SmartIO_GetDuOpc
+ .text            1000c21a+000030 Cy_SmartIO_SetDuOperation
+ .text            1000c21a+000000 __ghs_eofn_Cy_SmartIO_GetDuSize
+ .text            1000c24a+00000e Cy_SmartIO_GetDataReg
+ .text            1000c24a+000000 __ghs_eofn_Cy_SmartIO_SetDuOperation
+ .text            1000c258+00001c Cy_SmartIO_SetDataReg
+ .text            1000c258+000000 __ghs_eofn_Cy_SmartIO_GetDataReg
+ .text            1000c274+000000 __ghs_eofn_Cy_SmartIO_SetDataReg
+ .text            1000c294+0000a6 Cy_Srom_CallApi
+ .text            1000c33a+000000 __ghs_eofn_Cy_Srom_CallApi
+ .text            1000c34c+000050 Cy_SysFlt_Init
+ .text            1000c39c+00000a Cy_SysFlt_ClearStatus
+ .text            1000c39c+000000 __ghs_eofn_Cy_SysFlt_Init
+ .text            1000c3a6+000018 Cy_SysFlt_GetErrorSource
+ .text            1000c3a6+000000 __ghs_eofn_Cy_SysFlt_ClearStatus
+ .text            1000c3be+00000a Cy_SysFlt_GetData0
+ .text            1000c3be+000000 __ghs_eofn_Cy_SysFlt_GetErrorSource
+ .text            1000c3c8+00000a Cy_SysFlt_GetData1
+ .text            1000c3c8+000000 __ghs_eofn_Cy_SysFlt_GetData0
+ .text            1000c3d2+00000a Cy_SysFlt_GetData2
+ .text            1000c3d2+000000 __ghs_eofn_Cy_SysFlt_GetData1
+ .text            1000c3dc+00000a Cy_SysFlt_GetData3
+ .text            1000c3dc+000000 __ghs_eofn_Cy_SysFlt_GetData2
+ .text            1000c3e6+00000a Cy_SysFlt_Pending0
+ .text            1000c3e6+000000 __ghs_eofn_Cy_SysFlt_GetData3
+ .text            1000c3f0+00000a Cy_SysFlt_Pending1
+ .text            1000c3f0+000000 __ghs_eofn_Cy_SysFlt_Pending0
+ .text            1000c3fa+00000a Cy_SysFlt_Pending2
+ .text            1000c3fa+000000 __ghs_eofn_Cy_SysFlt_Pending1
+ .text            1000c404+00000a Cy_SysFlt_Mask0
+ .text            1000c404+000000 __ghs_eofn_Cy_SysFlt_Pending2
+ .text            1000c40e+00000a Cy_SysFlt_Mask1
+ .text            1000c40e+000000 __ghs_eofn_Cy_SysFlt_Mask0
+ .text            1000c418+00000a Cy_SysFlt_Mask2
+ .text            1000c418+000000 __ghs_eofn_Cy_SysFlt_Mask1
+ .text            1000c422+000046 Cy_SysFlt_SetMaskByIdx
+ .text            1000c422+000000 __ghs_eofn_Cy_SysFlt_Mask2
+ .text            1000c468+000046 Cy_SysFlt_ClearMaskByIdx
+ .text            1000c468+000000 __ghs_eofn_Cy_SysFlt_SetMaskByIdx
+ .text            1000c4ae+000010 Cy_SysFlt_GetInterruptStatus
+ .text            1000c4ae+000000 __ghs_eofn_Cy_SysFlt_ClearMaskByIdx
+ .text            1000c4be+000012 Cy_SysFlt_ClearInterrupt
+ .text            1000c4be+000000 __ghs_eofn_Cy_SysFlt_GetInterruptStatus
+ .text            1000c4d0+000012 Cy_SysFlt_SetInterrupt
+ .text            1000c4d0+000000 __ghs_eofn_Cy_SysFlt_ClearInterrupt
+ .text            1000c4e2+000012 Cy_SysFlt_SetInterruptMask
+ .text            1000c4e2+000000 __ghs_eofn_Cy_SysFlt_SetInterrupt
+ .text            1000c4f4+00000c Cy_SysFlt_GetInterruptMask
+ .text            1000c4f4+000000 __ghs_eofn_Cy_SysFlt_SetInterruptMask
+ .text            1000c500+00000c Cy_SysFlt_GetInterruptStatusMasked
+ .text            1000c500+000000 __ghs_eofn_Cy_SysFlt_GetInterruptMask
+ .text            1000c50c+0000cc Cy_SysInt_Init
+ .text            1000c50c+000000 __ghs_eofn_Cy_SysFlt_GetInterruptStatusMasked
+ .text            1000c5d8+000048 Cy_SysInt_InitIRQ
+ .text            1000c5d8+000000 __ghs_eofn_Cy_SysInt_Init
+ .text            1000c620+00001c Cy_SysInt_SetVector
+ .text            1000c620+000000 __ghs_eofn_Cy_SysInt_InitIRQ
+ .text            1000c63c+00002a Cy_SysInt_GetVector
+ .text            1000c63c+000000 __ghs_eofn_Cy_SysInt_SetVector
+ .text            1000c666+00001a Cy_SysInt_SetSystemIrqVector
+ .text            1000c666+000000 __ghs_eofn_Cy_SysInt_GetVector
+ .text            1000c680+00001c Cy_SysInt_GetSystemIrqVector
+ .text            1000c680+000000 __ghs_eofn_Cy_SysInt_SetSystemIrqVector
+ .text            1000c69c+000016 Cy_SysInt_EnableIRQ
+ .text            1000c69c+000000 __ghs_eofn_Cy_SysInt_GetSystemIrqVector
+ .text            1000c6b2+00001c Cy_SysInt_DisableIRQ
+ .text            1000c6b2+000000 __ghs_eofn_Cy_SysInt_EnableIRQ
+ .text            1000c6ce+00007a Cy_SysInt_GetIntStatus
+ .text            1000c6ce+000000 __ghs_eofn_Cy_SysInt_DisableIRQ
+ .text            1000c748+00001c Cy_SysInt_SetIntSourceNMI
+ .text            1000c748+000000 __ghs_eofn_Cy_SysInt_GetIntStatus
+ .text            1000c764+000014 Cy_SysInt_GetIntSourceNMI
+ .text            1000c764+000000 __ghs_eofn_Cy_SysInt_SetIntSourceNMI
+ .text            1000c778+000000 __ghs_eofn_Cy_SysInt_GetIntSourceNMI
+ .text            1000c7c8+00002a Cy_SysLib_Delay
+ .text            1000c7f2+000012 Cy_SysLib_DelayUs
+ .text            1000c7f2+000000 __ghs_eofn_Cy_SysLib_Delay
+ .text            1000c804+000018 Cy_SysLib_Halt
+ .text            1000c804+000000 __ghs_eofn_Cy_SysLib_DelayUs
+ .text            1000c81c+00000a Cy_SysLib_ClearFlashCacheAndBuffer
+ .text            1000c81c+000000 __ghs_eofn_Cy_SysLib_Halt
+ .text            1000c826+00000c Cy_SysLib_GetUniqueId
+ .text            1000c826+000000 __ghs_eofn_Cy_SysLib_ClearFlashCacheAndBuffer
+ .text            1000c832+000038 Cy_SysLib_FaultHandler
+ .text            1000c832+000000 __ghs_eofn_Cy_SysLib_GetUniqueId
+ .text            1000c86a+000004 Cy_SysLib_ProcessingFault
+ .text            1000c86a+000000 __ghs_eofn_Cy_SysLib_FaultHandler
+ .text            1000c86e+00000c Cy_SysLib_SetWaitStates
+ .text            1000c86e+000000 __ghs_eofn_Cy_SysLib_ProcessingFault
+ .text            1000c87a+0000b0 Cy_SysLib_SetWaitStates_LP..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csyslib.5Ccy_syslib.
+ .text            1000c87a+000000 __ghs_eofn_Cy_SysLib_SetWaitStates
+ .text            1000c944+000010 Cy_SysLib_DelayCycles
+ .text            1000c954+000008 Cy_SysLib_EnterCriticalSection
+ .text            1000c95c+000006 Cy_SysLib_ExitCriticalSection
+ .text            1000c964+000080 Cy_SysPm_ReadStatus
+ .text            1000c9e4+000088 Cy_SysPm_Sleep
+ .text            1000c9e4+000000 __ghs_eofn_Cy_SysPm_ReadStatus
+ .text            1000ca6c+000088 Cy_SysPm_DeepSleep
+ .text            1000ca6c+000000 __ghs_eofn_Cy_SysPm_Sleep
+ .text            1000caf4+000082 Cy_SysPm_Hibernate
+ .text            1000caf4+000000 __ghs_eofn_Cy_SysPm_DeepSleep
+ .text            1000cb76+0000ac Cy_SysPm_EnterLpMode
+ .text            1000cb76+000000 __ghs_eofn_Cy_SysPm_Hibernate
+ .text            1000cc22+0000bc Cy_SysPm_ExitLpMode
+ .text            1000cc22+000000 __ghs_eofn_Cy_SysPm_EnterLpMode
+ .text            1000ccde+000030 Cy_SysPm_SleepOnExit
+ .text            1000ccde+000000 __ghs_eofn_Cy_SysPm_ExitLpMode
+ .text            1000cd0e+000048 Cy_SysPm_SetHibWakeupSource
+ .text            1000cd0e+000000 __ghs_eofn_Cy_SysPm_SleepOnExit
+ .text            1000cd56+00007c Cy_SysPm_ClearHibWakeupSource
+ .text            1000cd56+000000 __ghs_eofn_Cy_SysPm_SetHibWakeupSource
+ .text            1000cdd2+000032 Cy_SysPm_SimoBuckOutputIsEnabled
+ .text            1000cdd2+000000 __ghs_eofn_Cy_SysPm_ClearHibWakeupSource
+ .text            1000ce04+000054 Cy_SysPm_SwitchToSimoBuck
+ .text            1000ce04+000000 __ghs_eofn_Cy_SysPm_SimoBuckOutputIsEnabled
+ .text            1000ce58+000000 __ghs_eofn_Cy_SysPm_SwitchToSimoBuck
+ .text            1000cea8+00002c Cy_SysPm_SimoBuckSetVoltage1
+ .text            1000ced4+00002e Cy_SysPm_EnableVoltage2
+ .text            1000ced4+000000 __ghs_eofn_Cy_SysPm_SimoBuckSetVoltage1
+ .text            1000cf02+000032 Cy_SysPm_SimoBuckSetVoltage2
+ .text            1000cf02+000000 __ghs_eofn_Cy_SysPm_EnableVoltage2
+ .text            1000cf34+00002c Cy_SysPm_LdoSetVoltage
+ .text            1000cf34+000000 __ghs_eofn_Cy_SysPm_SimoBuckSetVoltage2
+ .text            1000cf60+000088 Cy_SysPm_RegisterCallback
+ .text            1000cf60+000000 __ghs_eofn_Cy_SysPm_LdoSetVoltage
+ .text            1000cfe8+00008c Cy_SysPm_UnregisterCallback
+ .text            1000cfe8+000000 __ghs_eofn_Cy_SysPm_RegisterCallback
+ .text            1000d074+0000a6 Cy_SysPm_ExecuteCallback
+ .text            1000d074+000000 __ghs_eofn_Cy_SysPm_UnregisterCallback
+ .text            1000d11a+000044 Cy_SysPm_IoFreeze
+ .text            1000d11a+000000 __ghs_eofn_Cy_SysPm_ExecuteCallback
+ .text            1000d15e+000034 Cy_SysPm_IoUnfreeze
+ .text            1000d15e+000000 __ghs_eofn_Cy_SysPm_IoFreeze
+ .text            1000d192+000000 __ghs_eofn_Cy_SysPm_IoUnfreeze
+ .text            1000d1c8+000008 Cy_SysReset_GetResetReason
+ .text            1000d1d0+000008 Cy_SysReset_GetNumHfclkResetCause
+ .text            1000d1d0+000000 __ghs_eofn_Cy_SysReset_GetResetReason
+ .text            1000d1d8+000016 Cy_SysReset_IsResetDueToHibWakeup
+ .text            1000d1d8+000000 __ghs_eofn_Cy_SysReset_GetNumHfclkResetCause
+ .text            1000d1ee+00001e Cy_SysReset_ClearAllResetReasons
+ .text            1000d1ee+000000 __ghs_eofn_Cy_SysReset_IsResetDueToHibWakeup
+ .text            1000d20c+000032 Cy_SysReset_SoftResetCM4
+ .text            1000d20c+000000 __ghs_eofn_Cy_SysReset_ClearAllResetReasons
+ .text            1000d23e+000000 __ghs_eofn_Cy_SysReset_SoftResetCM4
+ .text            1000d26c+00001c Cy_Rtc_Init
+ .text            1000d288+000018 Cy_Rtc_clock_source
+ .text            1000d288+000000 __ghs_eofn_Cy_Rtc_Init
+ .text            1000d2a0+00007c Cy_Rtc_SetDateAndTime
+ .text            1000d2a0+000000 __ghs_eofn_Cy_Rtc_clock_source
+ .text            1000d31c+000056 Cy_Rtc_GetDateAndTime
+ .text            1000d31c+000000 __ghs_eofn_Cy_Rtc_SetDateAndTime
+ .text            1000d372+00009a Cy_Rtc_SetAlarmDateAndTime
+ .text            1000d372+000000 __ghs_eofn_Cy_Rtc_GetDateAndTime
+ .text            1000d40c+00025c Cy_Rtc_GetAlarmDateAndTime
+ .text            1000d40c+000000 __ghs_eofn_Cy_Rtc_SetAlarmDateAndTime
+ .text            1000d668+000150 Cy_Rtc_SetDateAndTimeDirect
+ .text            1000d668+000000 __ghs_eofn_Cy_Rtc_GetAlarmDateAndTime
+ .text            1000d7b8+00013a Cy_Rtc_SetAlarmDateAndTimeDirect
+ .text            1000d7b8+000000 __ghs_eofn_Cy_Rtc_SetDateAndTimeDirect
+ .text            1000d8f2+0000d6 Cy_Rtc_SetHoursFormat
+ .text            1000d8f2+000000 __ghs_eofn_Cy_Rtc_SetAlarmDateAndTimeDirect
+ .text            1000d9c8+000016 Cy_Rtc_SelectFrequencyPrescaler
+ .text            1000d9c8+000000 __ghs_eofn_Cy_Rtc_SetHoursFormat
+ .text            1000d9de+00005a Cy_Rtc_ConvertDayOfWeek
+ .text            1000d9de+000000 __ghs_eofn_Cy_Rtc_SelectFrequencyPrescaler
+ .text            1000da38+00002c Cy_Rtc_IsLeapYear
+ .text            1000da38+000000 __ghs_eofn_Cy_Rtc_ConvertDayOfWeek
+ .text            1000da64+000024 Cy_Rtc_DaysInMonth
+ .text            1000da64+000000 __ghs_eofn_Cy_Rtc_IsLeapYear
+ .text            1000da88+00002e Cy_Rtc_SyncRegisters
+ .text            1000da88+000000 __ghs_eofn_Cy_Rtc_DaysInMonth
+ .text            1000dab6+000000 __ghs_eofn_Cy_Rtc_SyncRegisters
+ .text            1000dad8+00003c Cy_Rtc_WriteEnable
+ .text            1000db14+00000c Cy_Rtc_GetSyncStatus
+ .text            1000db14+000000 __ghs_eofn_Cy_Rtc_WriteEnable
+ .text            1000db20+00000c Cy_Rtc_GetHoursFormat
+ .text            1000db20+000000 __ghs_eofn_Cy_Rtc_GetSyncStatus
+ .text            1000db2c+000014 Cy_Rtc_IsExternalResetOccurred
+ .text            1000db2c+000000 __ghs_eofn_Cy_Rtc_GetHoursFormat
+ .text            1000db40+000032 Cy_Rtc_EnableDstTime
+ .text            1000db40+000000 __ghs_eofn_Cy_Rtc_IsExternalResetOccurred
+ .text            1000db72+000072 Cy_Rtc_SetNextDstTime
+ .text            1000db72+000000 __ghs_eofn_Cy_Rtc_EnableDstTime
+ .text            1000dbe4+00006e Cy_Rtc_GetDstStatus
+ .text            1000dbe4+000000 __ghs_eofn_Cy_Rtc_SetNextDstTime
+ .text            1000dc52+000004 Cy_Rtc_Alarm1Interrupt
+ .text            1000dc52+000000 __ghs_eofn_Cy_Rtc_GetDstStatus
+ .text            1000dc56+000004 Cy_Rtc_Alarm2Interrupt
+ .text            1000dc56+000000 __ghs_eofn_Cy_Rtc_Alarm1Interrupt
+ .text            1000dc5a+0000e2 Cy_Rtc_DstInterrupt
+ .text            1000dc5a+000000 __ghs_eofn_Cy_Rtc_Alarm2Interrupt
+ .text            1000dd3c+000004 Cy_Rtc_CenturyInterrupt
+ .text            1000dd3c+000000 __ghs_eofn_Cy_Rtc_DstInterrupt
+ .text            1000dd40+00000c Cy_Rtc_GetInterruptStatus
+ .text            1000dd40+000000 __ghs_eofn_Cy_Rtc_CenturyInterrupt
+ .text            1000dd4c+00000c Cy_Rtc_GetInterruptStatusMasked
+ .text            1000dd4c+000000 __ghs_eofn_Cy_Rtc_GetInterruptStatus
+ .text            1000dd58+000008 Cy_Rtc_GetInterruptMask
+ .text            1000dd58+000000 __ghs_eofn_Cy_Rtc_GetInterruptStatusMasked
+ .text            1000dd60+00000a Cy_Rtc_SetInterrupt
+ .text            1000dd60+000000 __ghs_eofn_Cy_Rtc_GetInterruptMask
+ .text            1000dd6a+00000e Cy_Rtc_ClearInterrupt
+ .text            1000dd6a+000000 __ghs_eofn_Cy_Rtc_SetInterrupt
+ .text            1000dd78+00000a Cy_Rtc_SetInterruptMask
+ .text            1000dd78+000000 __ghs_eofn_Cy_Rtc_ClearInterrupt
+ .text            1000dd82+00003a Cy_Rtc_Interrupt
+ .text            1000dd82+000000 __ghs_eofn_Cy_Rtc_SetInterruptMask
+ .text            1000ddbc+0000a4 Cy_Rtc_ConstructTimeDate..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csysrtc.5Ccy_sysrtc.
+ .text            1000ddbc+000000 __ghs_eofn_Cy_Rtc_Interrupt
+ .text            1000de60+0000ea Cy_Rtc_ConstructAlarmTimeDate..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csysrtc.5Ccy_sysrtc.
+ .text            1000df4a+00005c Cy_Rtc_RelativeToFixed..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csysrtc.5Ccy_sysrtc.
+ .text            1000dfb4+000040 Cy_SysTick_Init
+ .text            1000dff4+000014 Cy_SysTick_Enable
+ .text            1000dff4+000000 __ghs_eofn_Cy_SysTick_Init
+ .text            1000e008+000012 Cy_SysTick_Disable
+ .text            1000e008+000000 __ghs_eofn_Cy_SysTick_Enable
+ .text            1000e01a+000010 Cy_SysTick_EnableInterrupt
+ .text            1000e01a+000000 __ghs_eofn_Cy_SysTick_Disable
+ .text            1000e02a+00000e Cy_SysTick_DisableInterrupt
+ .text            1000e02a+000000 __ghs_eofn_Cy_SysTick_EnableInterrupt
+ .text            1000e038+00000e Cy_SysTick_SetReload
+ .text            1000e038+000000 __ghs_eofn_Cy_SysTick_DisableInterrupt
+ .text            1000e046+000018 Cy_SysTick_Set10msCalibration
+ .text            1000e046+000000 __ghs_eofn_Cy_SysTick_SetReload
+ .text            1000e05e+00000e Cy_SysTick_Get10msCalibration
+ .text            1000e05e+000000 __ghs_eofn_Cy_SysTick_Set10msCalibration
+ .text            1000e06c+000008 Cy_SysTick_GetReload
+ .text            1000e06c+000000 __ghs_eofn_Cy_SysTick_Get10msCalibration
+ .text            1000e074+000008 Cy_SysTick_GetValue
+ .text            1000e074+000000 __ghs_eofn_Cy_SysTick_GetReload
+ .text            1000e07c+000018 Cy_SysTick_SetCallback
+ .text            1000e07c+000000 __ghs_eofn_Cy_SysTick_GetValue
+ .text            1000e094+00000e Cy_SysTick_GetCallback
+ .text            1000e094+000000 __ghs_eofn_Cy_SysTick_SetCallback
+ .text            1000e0a2+000050 Cy_SysTick_SetClockSource
+ .text            1000e0a2+000000 __ghs_eofn_Cy_SysTick_GetCallback
+ .text            1000e0f2+00001a Cy_SysTick_GetClockSource
+ .text            1000e0f2+000000 __ghs_eofn_Cy_SysTick_SetClockSource
+ .text            1000e10c+00000e Cy_SysTick_GetCountFlag
+ .text            1000e10c+000000 __ghs_eofn_Cy_SysTick_GetClockSource
+ .text            1000e11a+00000a Cy_SysTick_Clear
+ .text            1000e11a+000000 __ghs_eofn_Cy_SysTick_GetCountFlag
+ .text            1000e124+000026 Cy_SysTick_ServiceCallbacks..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Csystick.5Ccy_systick.
+ .text            1000e124+000000 __ghs_eofn_Cy_SysTick_Clear
+ .text            1000e170+000042 Cy_WDT_Init
+ .text            1000e1b2+00001c Cy_WDT_Lock
+ .text            1000e1b2+000000 __ghs_eofn_Cy_WDT_Init
+ .text            1000e1ce+000030 Cy_WDT_Unlock
+ .text            1000e1ce+000000 __ghs_eofn_Cy_WDT_Lock
+ .text            1000e1fe+000016 Cy_WDT_Enable
+ .text            1000e1fe+000000 __ghs_eofn_Cy_WDT_Unlock
+ .text            1000e214+000016 Cy_WDT_Disable
+ .text            1000e214+000000 __ghs_eofn_Cy_WDT_Enable
+ .text            1000e22a+00001a Cy_WDT_ClearInterrupt
+ .text            1000e22a+000000 __ghs_eofn_Cy_WDT_Disable
+ .text            1000e244+000018 Cy_WDT_ClearWatchdog
+ .text            1000e244+000000 __ghs_eofn_Cy_WDT_ClearInterrupt
+ .text            1000e25c+000000 __ghs_eofn_Cy_WDT_ClearWatchdog
+ .text            1000e270+00000e Cy_Tcpwm_TriggerStart
+ .text            1000e27e+00000e Cy_Tcpwm_TriggerReloadOrIndex
+ .text            1000e27e+000000 __ghs_eofn_Cy_Tcpwm_TriggerStart
+ .text            1000e28c+00000e Cy_Tcpwm_TriggerStopOrKill
+ .text            1000e28c+000000 __ghs_eofn_Cy_Tcpwm_TriggerReloadOrIndex
+ .text            1000e29a+00000e Cy_Tcpwm_TriggerCapture0
+ .text            1000e29a+000000 __ghs_eofn_Cy_Tcpwm_TriggerStopOrKill
+ .text            1000e2a8+00000e Cy_Tcpwm_TriggerCapture1
+ .text            1000e2a8+000000 __ghs_eofn_Cy_Tcpwm_TriggerCapture0
+ .text            1000e2b6+00000a Cy_Tcpwm_GetInterruptStatus
+ .text            1000e2b6+000000 __ghs_eofn_Cy_Tcpwm_TriggerCapture1
+ .text            1000e2c0+00000a Cy_Tcpwm_ClearInterrupt
+ .text            1000e2c0+000000 __ghs_eofn_Cy_Tcpwm_GetInterruptStatus
+ .text            1000e2ca+00000c Cy_Tcpwm_SetInterrupt
+ .text            1000e2ca+000000 __ghs_eofn_Cy_Tcpwm_ClearInterrupt
+ .text            1000e2d6+00000a Cy_Tcpwm_SetInterruptMask
+ .text            1000e2d6+000000 __ghs_eofn_Cy_Tcpwm_SetInterrupt
+ .text            1000e2e0+00000a Cy_Tcpwm_GetInterruptMask
+ .text            1000e2e0+000000 __ghs_eofn_Cy_Tcpwm_SetInterruptMask
+ .text            1000e2ea+00000a Cy_Tcpwm_GetInterruptStatusMasked
+ .text            1000e2ea+000000 __ghs_eofn_Cy_Tcpwm_GetInterruptMask
+ .text            1000e2f4+0001b6 Cy_Tcpwm_Counter_Init
+ .text            1000e2f4+000000 __ghs_eofn_Cy_Tcpwm_GetInterruptStatusMasked
+ .text            1000e4aa+000042 Cy_Tcpwm_Counter_DeInit
+ .text            1000e4aa+000000 __ghs_eofn_Cy_Tcpwm_Counter_Init
+ .text            1000e4ec+000010 Cy_Tcpwm_Counter_Enable
+ .text            1000e4ec+000000 __ghs_eofn_Cy_Tcpwm_Counter_DeInit
+ .text            1000e4fc+00000e Cy_Tcpwm_Counter_Disable
+ .text            1000e4fc+000000 __ghs_eofn_Cy_Tcpwm_Counter_Enable
+ .text            1000e50a+00000a Cy_Tcpwm_Counter_GetStatus
+ .text            1000e50a+000000 __ghs_eofn_Cy_Tcpwm_Counter_Disable
+ .text            1000e514+00000a Cy_Tcpwm_Counter_GetCapture0
+ .text            1000e514+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetStatus
+ .text            1000e51e+00000a Cy_Tcpwm_Counter_GetCapture1
+ .text            1000e51e+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCapture0
+ .text            1000e528+00000a Cy_Tcpwm_Counter_GetCapture0Buf
+ .text            1000e528+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCapture1
+ .text            1000e532+00000a Cy_Tcpwm_Counter_GetCapture1Buf
+ .text            1000e532+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCapture0Buf
+ .text            1000e53c+00000a Cy_Tcpwm_Counter_SetCompare0
+ .text            1000e53c+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCapture1Buf
+ .text            1000e546+00000a Cy_Tcpwm_Counter_GetCompare0
+ .text            1000e546+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCompare0
+ .text            1000e550+00000a Cy_Tcpwm_Counter_SetCompare0_Buff
+ .text            1000e550+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCompare0
+ .text            1000e55a+00000a Cy_Tcpwm_Counter_GetCompare0_Buff
+ .text            1000e55a+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCompare0_Buff
+ .text            1000e564+00000a Cy_Tcpwm_Counter_SetCompare1
+ .text            1000e564+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCompare0_Buff
+ .text            1000e56e+00000a Cy_Tcpwm_Counter_GetCompare1
+ .text            1000e56e+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCompare1
+ .text            1000e578+00000a Cy_Tcpwm_Counter_SetCompare1_Buff
+ .text            1000e578+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCompare1
+ .text            1000e582+00000a Cy_Tcpwm_Counter_GetCompare1_Buff
+ .text            1000e582+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCompare1_Buff
+ .text            1000e58c+00001e Cy_Tcpwm_Counter_EnableCompare0Swap
+ .text            1000e58c+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCompare1_Buff
+ .text            1000e5aa+00001e Cy_Tcpwm_Counter_EnableCompare1Swap
+ .text            1000e5aa+000000 __ghs_eofn_Cy_Tcpwm_Counter_EnableCompare0Swap
+ .text            1000e5c8+00000a Cy_Tcpwm_Counter_SetCounter
+ .text            1000e5c8+000000 __ghs_eofn_Cy_Tcpwm_Counter_EnableCompare1Swap
+ .text            1000e5d2+00000a Cy_Tcpwm_Counter_GetCounter
+ .text            1000e5d2+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCounter
+ .text            1000e5dc+00000a Cy_Tcpwm_Counter_SetPeriod
+ .text            1000e5dc+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCounter
+ .text            1000e5e6+00000a Cy_Tcpwm_Counter_GetPeriod
+ .text            1000e5e6+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetPeriod
+ .text            1000e5f0+00000a Cy_Tcpwm_Counter_SetPeriod_Buff
+ .text            1000e5f0+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetPeriod
+ .text            1000e5fa+00000a Cy_Tcpwm_Counter_GetPeriod_Buff
+ .text            1000e5fa+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetPeriod_Buff
+ .text            1000e604+00000e Cy_Tcpwm_Counter_SetTC_IntrMask
+ .text            1000e604+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetPeriod_Buff
+ .text            1000e612+00000e Cy_Tcpwm_Counter_SetCC0_IntrMask
+ .text            1000e612+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetTC_IntrMask
+ .text            1000e620+00000e Cy_Tcpwm_Counter_SetCC1_IntrMask
+ .text            1000e620+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCC0_IntrMask
+ .text            1000e62e+00000e Cy_Tcpwm_Counter_GetTC_IntrMasked
+ .text            1000e62e+000000 __ghs_eofn_Cy_Tcpwm_Counter_SetCC1_IntrMask
+ .text            1000e63c+00000e Cy_Tcpwm_Counter_GetCC0_IntrMasked
+ .text            1000e63c+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetTC_IntrMasked
+ .text            1000e64a+00000e Cy_Tcpwm_Counter_GetCC1_IntrMasked
+ .text            1000e64a+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCC0_IntrMasked
+ .text            1000e658+000010 Cy_Tcpwm_Counter_ClearTC_Intr
+ .text            1000e658+000000 __ghs_eofn_Cy_Tcpwm_Counter_GetCC1_IntrMasked
+ .text            1000e668+000010 Cy_Tcpwm_Counter_ClearCC0_Intr
+ .text            1000e668+000000 __ghs_eofn_Cy_Tcpwm_Counter_ClearTC_Intr
+ .text            1000e678+000010 Cy_Tcpwm_Counter_ClearCC1_Intr
+ .text            1000e678+000000 __ghs_eofn_Cy_Tcpwm_Counter_ClearCC0_Intr
+ .text            1000e688+000000 __ghs_eofn_Cy_Tcpwm_Counter_ClearCC1_Intr
+ .text            1000e68c+0002a0 Cy_Tcpwm_Pwm_Init
+ .text            1000e92c+00003e Cy_Tcpwm_Pwm_DeInit
+ .text            1000e92c+000000 __ghs_eofn_Cy_Tcpwm_Pwm_Init
+ .text            1000e96a+000010 Cy_Tcpwm_Pwm_Enable
+ .text            1000e96a+000000 __ghs_eofn_Cy_Tcpwm_Pwm_DeInit
+ .text            1000e97a+00000e Cy_Tcpwm_Pwm_Disable
+ .text            1000e97a+000000 __ghs_eofn_Cy_Tcpwm_Pwm_Enable
+ .text            1000e988+00000a Cy_Tcpwm_Pwm_GetStatus
+ .text            1000e988+000000 __ghs_eofn_Cy_Tcpwm_Pwm_Disable
+ .text            1000e992+00000a Cy_Tcpwm_Pwm_SetCompare0
+ .text            1000e992+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetStatus
+ .text            1000e99c+00000a Cy_Tcpwm_Pwm_GetCompare0
+ .text            1000e99c+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetCompare0
+ .text            1000e9a6+00000a Cy_Tcpwm_Pwm_SetCompare0_Buff
+ .text            1000e9a6+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetCompare0
+ .text            1000e9b0+00000a Cy_Tcpwm_Pwm_GetCompare0_Buff
+ .text            1000e9b0+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetCompare0_Buff
+ .text            1000e9ba+00001e Cy_Tcpwm_Pwm_EnableCompare0Swap
+ .text            1000e9ba+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetCompare0_Buff
+ .text            1000e9d8+000008 Cy_Tcpwm_Pwm_SetCompare1
+ .text            1000e9d8+000000 __ghs_eofn_Cy_Tcpwm_Pwm_EnableCompare0Swap
+ .text            1000e9e0+00000a Cy_Tcpwm_Pwm_GetCompare1
+ .text            1000e9e0+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetCompare1
+ .text            1000e9ea+000008 Cy_Tcpwm_Pwm_SetCompare1_Buff
+ .text            1000e9ea+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetCompare1
+ .text            1000e9f2+00000a Cy_Tcpwm_Pwm_GetCompare1_Buff
+ .text            1000e9f2+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetCompare1_Buff
+ .text            1000e9fc+00000a Cy_Tcpwm_Pwm_EnableCompare1Swap
+ .text            1000e9fc+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetCompare1_Buff
+ .text            1000ea06+00000a Cy_Tcpwm_Pwm_SetCounter
+ .text            1000ea06+000000 __ghs_eofn_Cy_Tcpwm_Pwm_EnableCompare1Swap
+ .text            1000ea10+00000a Cy_Tcpwm_Pwm_GetCounter
+ .text            1000ea10+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetCounter
+ .text            1000ea1a+00000a Cy_Tcpwm_Pwm_SetPeriod
+ .text            1000ea1a+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetCounter
+ .text            1000ea24+00000a Cy_Tcpwm_Pwm_GetPeriod
+ .text            1000ea24+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetPeriod
+ .text            1000ea2e+00000a Cy_Tcpwm_Pwm_SetPeriodBuf
+ .text            1000ea2e+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetPeriod
+ .text            1000ea38+00000a Cy_Tcpwm_Pwm_GetPeriodBuf
+ .text            1000ea38+000000 __ghs_eofn_Cy_Tcpwm_Pwm_SetPeriodBuf
+ .text            1000ea42+00001e Cy_Tcpwm_Pwm_EnablePeriodSwap
+ .text            1000ea42+000000 __ghs_eofn_Cy_Tcpwm_Pwm_GetPeriodBuf
+ .text            1000ea60+000022 Cy_Tcpwm_Pwm_LeftAllign
+ .text            1000ea60+000000 __ghs_eofn_Cy_Tcpwm_Pwm_EnablePeriodSwap
+ .text            1000ea82+000022 Cy_Tcpwm_Pwm_RightAllign
+ .text            1000ea82+000000 __ghs_eofn_Cy_Tcpwm_Pwm_LeftAllign
+ .text            1000eaa4+000026 Cy_Tcpwm_Pwm_CentreAllign
+ .text            1000eaa4+000000 __ghs_eofn_Cy_Tcpwm_Pwm_RightAllign
+ .text            1000eaca+00000a Cy_Tcpwm_Pwm_LSFRConfig
+ .text            1000eaca+000000 __ghs_eofn_Cy_Tcpwm_Pwm_CentreAllign
+ .text            1000ead4+000000 __ghs_eofn_Cy_Tcpwm_Pwm_LSFRConfig
+ .text            1000eb08+000172 Cy_Tcpwm_QuadDec_Init
+ .text            1000ec7a+00003e Cy_Tcpwm_QuadDec_DeInit
+ .text            1000ec7a+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_Init
+ .text            1000ecb8+000010 Cy_Tcpwm_QuadDec_Enable
+ .text            1000ecb8+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_DeInit
+ .text            1000ecc8+00000e Cy_Tcpwm_QuadDec_Disable
+ .text            1000ecc8+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_Enable
+ .text            1000ecd6+00000a Cy_Tcpwm_QuadDec_GetStatus
+ .text            1000ecd6+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_Disable
+ .text            1000ece0+00000a Cy_Tcpwm_QuadDec_GetCapture0
+ .text            1000ece0+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetStatus
+ .text            1000ecea+00000a Cy_Tcpwm_QuadDec_GetCaptureBuf0
+ .text            1000ecea+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetCapture0
+ .text            1000ecf4+00000a Cy_Tcpwm_QuadDec_GetCapture1
+ .text            1000ecf4+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetCaptureBuf0
+ .text            1000ecfe+00000a Cy_Tcpwm_QuadDec_GetCaptureBuf1
+ .text            1000ecfe+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetCapture1
+ .text            1000ed08+00000a Cy_Tcpwm_QuadDec_SetCounter
+ .text            1000ed08+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetCaptureBuf1
+ .text            1000ed12+00000a Cy_Tcpwm_QuadDec_GetCounter
+ .text            1000ed12+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_SetCounter
+ .text            1000ed1c+00000a Cy_Tcpwm_QuadDec_GetPeriod
+ .text            1000ed1c+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetCounter
+ .text            1000ed26+00000a Cy_Tcpwm_QuadDec_GetPeriodBuf
+ .text            1000ed26+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetPeriod
+ .text            1000ed30+000000 __ghs_eofn_Cy_Tcpwm_QuadDec_GetPeriodBuf
+ .text            1000ed44+00015c Cy_Tcpwm_Sr_Init
+ .text            1000eea0+00003e Cy_Tcpwm_Sr_DeInit
+ .text            1000eea0+000000 __ghs_eofn_Cy_Tcpwm_Sr_Init
+ .text            1000eede+000010 Cy_Tcpwm_Sr_Enable
+ .text            1000eede+000000 __ghs_eofn_Cy_Tcpwm_Sr_DeInit
+ .text            1000eeee+00000e Cy_Tcpwm_Sr_Disable
+ .text            1000eeee+000000 __ghs_eofn_Cy_Tcpwm_Sr_Enable
+ .text            1000eefc+00000a Cy_Tcpwm_Sr_GetStatus
+ .text            1000eefc+000000 __ghs_eofn_Cy_Tcpwm_Sr_Disable
+ .text            1000ef06+00000a Cy_Tcpwm_Sr_GetCapture0
+ .text            1000ef06+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetStatus
+ .text            1000ef10+00000a Cy_Tcpwm_Sr_GetCapture0Buf
+ .text            1000ef10+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetCapture0
+ .text            1000ef1a+00000a Cy_Tcpwm_Sr_SetCompare0
+ .text            1000ef1a+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetCapture0Buf
+ .text            1000ef24+00000a Cy_Tcpwm_Sr_GetCompare0
+ .text            1000ef24+000000 __ghs_eofn_Cy_Tcpwm_Sr_SetCompare0
+ .text            1000ef2e+00000a Cy_Tcpwm_Sr_SetCompare0_Buff
+ .text            1000ef2e+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetCompare0
+ .text            1000ef38+00000a Cy_Tcpwm_Sr_GetCompare0_Buff
+ .text            1000ef38+000000 __ghs_eofn_Cy_Tcpwm_Sr_SetCompare0_Buff
+ .text            1000ef42+00001e Cy_Tcpwm_Sr_EnableCompare0Swap
+ .text            1000ef42+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetCompare0_Buff
+ .text            1000ef60+000008 Cy_Tcpwm_Sr_SetCompare1
+ .text            1000ef60+000000 __ghs_eofn_Cy_Tcpwm_Sr_EnableCompare0Swap
+ .text            1000ef68+00000a Cy_Tcpwm_Sr_GetCompare1
+ .text            1000ef68+000000 __ghs_eofn_Cy_Tcpwm_Sr_SetCompare1
+ .text            1000ef72+000008 Cy_Tcpwm_Sr_SetCompare1_Buff
+ .text            1000ef72+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetCompare1
+ .text            1000ef7a+00000a Cy_Tcpwm_Sr_GetCompare1_Buff
+ .text            1000ef7a+000000 __ghs_eofn_Cy_Tcpwm_Sr_SetCompare1_Buff
+ .text            1000ef84+00000a Cy_Tcpwm_Sr_SetShiftRegister
+ .text            1000ef84+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetCompare1_Buff
+ .text            1000ef8e+00000a Cy_Tcpwm_Sr_GetShiftRegister
+ .text            1000ef8e+000000 __ghs_eofn_Cy_Tcpwm_Sr_SetShiftRegister
+ .text            1000ef98+00000a Cy_Tcpwm_Sr_SetPeriod_Buff
+ .text            1000ef98+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetShiftRegister
+ .text            1000efa2+00000a Cy_Tcpwm_Sr_GetPeriod_Buff
+ .text            1000efa2+000000 __ghs_eofn_Cy_Tcpwm_Sr_SetPeriod_Buff
+ .text            1000efac+000000 __ghs_eofn_Cy_Tcpwm_Sr_GetPeriod_Buff
+ .text            1000efc0+000096 Cy_TrigMux_Connect
+ .text            1000f056+00008c Cy_TrigMux_Connect1To1
+ .text            1000f056+000000 __ghs_eofn_Cy_TrigMux_Connect
+ .text            1000f0e2+0000a8 Cy_TrigMux_SwTrigger
+ .text            1000f0e2+000000 __ghs_eofn_Cy_TrigMux_Connect1To1
+ .text            1000f18a+000000 __ghs_eofn_Cy_TrigMux_SwTrigger
+ .text            1000f19c+0000c6 Cy_Button_Init
+ .text            1000f262+000050 Cy_Button_GetCurrentState
+ .text            1000f262+000000 __ghs_eofn_Cy_Button_Init
+ .text            1000f2b2+00006c ScanTimerCallback..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cbutton.5Ccy_button.
+ .text            1000f2b2+000000 __ghs_eofn_Cy_Button_GetCurrentState
+ .text            1000f328+000086 Cy_irqSROMResponseIPC..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cflash.5Ccy_mw_flash.
+ .text            1000f3ae+000008 Cy_Is_SROM_API_Completed
+ .text            1000f3b6+000098 Cy_FlashInit
+ .text            1000f3b6+000000 __ghs_eofn_Cy_Is_SROM_API_Completed
+ .text            1000f44e+000072 Cy_FlashSectorErase
+ .text            1000f44e+000000 __ghs_eofn_Cy_FlashInit
+ .text            1000f4c0+000090 Cy_WorkFlashBlankCheck
+ .text            1000f4c0+000000 __ghs_eofn_Cy_FlashSectorErase
+ .text            1000f550+0000b2 Cy_FlashWriteWork
+ .text            1000f550+000000 __ghs_eofn_Cy_WorkFlashBlankCheck
+ .text            1000f602+000120 Cy_FlashWriteCode
+ .text            1000f602+000000 __ghs_eofn_Cy_FlashWriteWork
+ .text            1000f722+000000 __ghs_eofn_Cy_FlashWriteCode
+ .text            1000f730+000056 Cy_Semihosting_Init
+ .text            1000f786+000000 __ghs_eofn_Cy_Semihosting_Init
+ .text            1000f786+000094 write
+ .text            1000f81a+000000 __ghs_eofn_write
+ .text            1000f81a+000032 read
+ .text            1000f84c+000000 __ghs_eofn_read
+ .text            1000f854+00001e Cy_SwTmr_Init
+ .text            1000f872+000008 Cy_SwTmr_Disable
+ .text            1000f872+000000 __ghs_eofn_Cy_SwTmr_Init
+ .text            1000f87a+00003e Cy_SwTmr_Start
+ .text            1000f87a+000000 __ghs_eofn_Cy_SwTmr_Disable
+ .text            1000f8b8+00003e Cy_SwTmr_StartHighPrio
+ .text            1000f8b8+000000 __ghs_eofn_Cy_SwTmr_Start
+ .text            1000f8f6+000064 StartTimer..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csw_timer.5Ccy_sw_tmr.
+ .text            1000f8f6+000000 __ghs_eofn_Cy_SwTmr_StartHighPrio
+ .text            1000f95a+000038 Cy_SwTmr_Stop
+ .text            1000f992+000054 Cy_SwTmr_Main
+ .text            1000f992+000000 __ghs_eofn_Cy_SwTmr_Stop
+ .text            1000f9e6+00001a Cy_SwTmr_Remaining
+ .text            1000f9e6+000000 __ghs_eofn_Cy_SwTmr_Main
+ .text            1000fa00+000028 Cy_SwTmr_IsElapsed
+ .text            1000fa00+000000 __ghs_eofn_Cy_SwTmr_Remaining
+ .text            1000fa28+00003a Cy_SwTmr_Wait
+ .text            1000fa28+000000 __ghs_eofn_Cy_SwTmr_IsElapsed
+ .text            1000fa62+00000a Cy_SwTmr_GetTickCountUs
+ .text            1000fa62+000000 __ghs_eofn_Cy_SwTmr_Wait
+ .text            1000fa6c+000038 Cy_SwTmr_IsTimeSpanElapsed
+ .text            1000fa6c+000000 __ghs_eofn_Cy_SwTmr_GetTickCountUs
+ .text            1000faa4+0000aa CallbackFromSysTick..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csw_timer.5Ccy_sw_tmr.
+ .text            1000faa4+000000 __ghs_eofn_Cy_SwTmr_IsTimeSpanElapsed
+ .text            1000fb64+000008 Cy_SaveIRQ
+ .text            1000fb6c+000006 Cy_RestoreIRQ
+ .text            1000fb72+000000 Reset_Handler
+ .text            1000fb72+00005a _start
+ .text            1000fbe8+000004 Cy_u32StartupStackStartAddress
+ .text            1000fbec+000004 Cy_u32StartupStackEndAddress
+ .text            1000fc18+000000 NMI_Handler
+ .text            1000fc1c+000000 HardFault_Handler
+ .text            1000fc34+000000 SVC_Handler
+ .text            1000fc36+000000 PendSV_Handler
+ .text            1000fc38+000000 SysTick_Handler
+ .text            1000fc3a+000000 CpuUserInt8_Handler
+ .text            1000fc3c+000000 CpuUserInt9_Handler
+ .text            1000fc3e+000000 CpuUserInt10_Handler
+ .text            1000fc40+000000 CpuUserInt11_Handler
+ .text            1000fc42+000000 CpuUserInt12_Handler
+ .text            1000fc44+000000 CpuUserInt13_Handler
+ .text            1000fc46+000000 CpuUserInt14_Handler
+ .text            1000fc48+000000 CpuUserInt15_Handler
+ .text            1000fc50+000010 Startup_Init
+ .text            1000fc60+0000dc InitRamEcc..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cstartup.5Cstartup.
+ .text            1000fc60+000000 __ghs_eofn_Startup_Init
+ .text            1000fd3c+00001a InitRamEccClearArea..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cstartup.5Cstartup.
+ .text            1000fd56+000024 CopyVectorTable..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cstartup.5Cstartup.
+ .text            1000fd7a+00003c PrepareSystemCallInfrastructure..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cstartup.5Cstartup.
+ .text            1000fde0+000022 Cy_Cpu_Cm4PowerModeSet
+ .text            1000fe02+00001c Cy_Cpu_Cm4PowerModeGet
+ .text            1000fe02+000000 __ghs_eofn_Cy_Cpu_Cm4PowerModeSet
+ .text            1000fe1e+000048 Cy_Cpu_SramEccEnable
+ .text            1000fe1e+000000 __ghs_eofn_Cy_Cpu_Cm4PowerModeGet
+ .text            1000fe66+000048 Cy_Cpu_SramEccDisable
+ .text            1000fe66+000000 __ghs_eofn_Cy_Cpu_SramEccEnable
+ .text            1000feae+000048 Cy_Cpu_SramEccAutoCorrectionEnable
+ .text            1000feae+000000 __ghs_eofn_Cy_Cpu_SramEccDisable
+ .text            1000fef6+000048 Cy_Cpu_SramEccAutoCorrectionDisable
+ .text            1000fef6+000000 __ghs_eofn_Cy_Cpu_SramEccAutoCorrectionEnable
+ .text            1000ff3e+000048 Cy_Cpu_SramEccErrorInjEnable
+ .text            1000ff3e+000000 __ghs_eofn_Cy_Cpu_SramEccAutoCorrectionDisable
+ .text            1000ff86+000048 Cy_Cpu_SramEccErrorInjDisable
+ .text            1000ff86+000000 __ghs_eofn_Cy_Cpu_SramEccErrorInjEnable
+ .text            1000ffce+00001c Cy_Cpu_SramEccCheckEnable
+ .text            1000ffce+000000 __ghs_eofn_Cy_Cpu_SramEccErrorInjDisable
+ .text            1000ffea+00001c Cy_Cpu_SramEccCheckDisable
+ .text            1000ffea+000000 __ghs_eofn_Cy_Cpu_SramEccCheckEnable
+ .text            10010006+000060 Cy_Cpu_SramPowerModeSet
+ .text            10010006+000000 __ghs_eofn_Cy_Cpu_SramEccCheckDisable
+ .text            10010066+000040 Cy_Cpu_SramPowerModeGet
+ .text            10010066+000000 __ghs_eofn_Cy_Cpu_SramPowerModeSet
+ .text            100100a6+000000 __ghs_eofn_Cy_Cpu_SramPowerModeGet
+ .text            100100bc+00003c Cy_Cpu_SramWriteBufferStatus
+ .text            100100f8+0000c6 Cy_Cpu_SramWaitStateSet
+ .text            100100f8+000000 __ghs_eofn_Cy_Cpu_SramWriteBufferStatus
+ .text            100101be+000074 Cy_Cpu_SramWaitStateGet
+ .text            100101be+000000 __ghs_eofn_Cy_Cpu_SramWaitStateSet
+ .text            10010232+000016 Cy_Cpu_ErrorInjWordAddress
+ .text            10010232+000000 __ghs_eofn_Cy_Cpu_SramWaitStateGet
+ .text            10010248+000014 Cy_Cpu_EccParityForErrorInj
+ .text            10010248+000000 __ghs_eofn_Cy_Cpu_ErrorInjWordAddress
+ .text            1001025c+00000c Cy_Cpu_SramWoundingGet
+ .text            1001025c+000000 __ghs_eofn_Cy_Cpu_EccParityForErrorInj
+ .text            10010268+000008 Cy_Cpu_MainFlashWoundingGet
+ .text            10010268+000000 __ghs_eofn_Cy_Cpu_SramWoundingGet
+ .text            10010270+000008 Cy_Cpu_WorkFlashWoundingGet
+ .text            10010270+000000 __ghs_eofn_Cy_Cpu_MainFlashWoundingGet
+ .text            10010278+000010 Cy_Cpu_ProtectionStateGet
+ .text            10010278+000000 __ghs_eofn_Cy_Cpu_WorkFlashWoundingGet
+ .text            10010288+00002e Cy_Cpu_CoreClkDividerSet
+ .text            10010288+000000 __ghs_eofn_Cy_Cpu_ProtectionStateGet
+ .text            100102b6+000022 Cy_Cpu_CoreClkDividerGet
+ .text            100102b6+000000 __ghs_eofn_Cy_Cpu_CoreClkDividerSet
+ .text            100102d8+000000 __ghs_eofn_Cy_Cpu_CoreClkDividerGet
+ .text            100102f4+000064 Cy_CXPI_DeInit
+ .text            10010358+00028a Cy_CXPI_Init
+ .text            10010358+000000 __ghs_eofn_Cy_CXPI_DeInit
+ .text            100105e2+000018 Cy_CXPI_SetCmd
+ .text            100105e2+000000 __ghs_eofn_Cy_CXPI_Init
+ .text            100105fa+00001a Cy_CXPI_GetStatus
+ .text            100105fa+000000 __ghs_eofn_Cy_CXPI_SetCmd
+ .text            10010614+000024 Cy_CXPI_SetPID
+ .text            10010614+000000 __ghs_eofn_Cy_CXPI_GetStatus
+ .text            10010638+000032 Cy_CXPI_GetPID
+ .text            10010638+000000 __ghs_eofn_Cy_CXPI_SetPID
+ .text            1001066a+00009a Cy_CXPI_SetFI
+ .text            1001066a+000000 __ghs_eofn_Cy_CXPI_GetPID
+ .text            10010704+00004a Cy_CXPI_GetFI
+ .text            10010704+000000 __ghs_eofn_Cy_CXPI_SetFI
+ .text            1001074e+00001a Cy_CXPI_GetCRC
+ .text            1001074e+000000 __ghs_eofn_Cy_CXPI_GetFI
+ .text            10010768+00002a Cy_CXPI_SetTriggerLevelTxFIFO
+ .text            10010768+000000 __ghs_eofn_Cy_CXPI_GetCRC
+ .text            10010792+000030 Cy_CXPI_ClearTxFIFO
+ .text            10010792+000000 __ghs_eofn_Cy_CXPI_SetTriggerLevelTxFIFO
+ .text            100107c2+00001e Cy_CXPI_FreezeTxFIFO
+ .text            100107c2+000000 __ghs_eofn_Cy_CXPI_ClearTxFIFO
+ .text            100107e0+00001e Cy_CXPI_UnfreezeTxFIFO
+ .text            100107e0+000000 __ghs_eofn_Cy_CXPI_FreezeTxFIFO
+ .text            100107fe+000000 __ghs_eofn_Cy_CXPI_UnfreezeTxFIFO
+ .text            10010808+000032 Cy_CXPI_GetTxFIFOStatus
+ .text            1001083a+000026 Cy_CXPI_WriteTxFIFO
+ .text            1001083a+000000 __ghs_eofn_Cy_CXPI_GetTxFIFOStatus
+ .text            10010860+00002a Cy_CXPI_SetTriggerLevelRxFIFO
+ .text            10010860+000000 __ghs_eofn_Cy_CXPI_WriteTxFIFO
+ .text            1001088a+000034 Cy_CXPI_ClearRxFIFO
+ .text            1001088a+000000 __ghs_eofn_Cy_CXPI_SetTriggerLevelRxFIFO
+ .text            100108be+000020 Cy_CXPI_FreezeRxFIFO
+ .text            100108be+000000 __ghs_eofn_Cy_CXPI_ClearRxFIFO
+ .text            100108de+000020 Cy_CXPI_UnfreezeRxFIFO
+ .text            100108de+000000 __ghs_eofn_Cy_CXPI_FreezeRxFIFO
+ .text            100108fe+000032 Cy_CXPI_GetRxFIFOStatus
+ .text            100108fe+000000 __ghs_eofn_Cy_CXPI_UnfreezeRxFIFO
+ .text            10010930+00001c Cy_CXPI_ReadRxFIFO
+ .text            10010930+000000 __ghs_eofn_Cy_CXPI_GetRxFIFOStatus
+ .text            1001094c+00001c Cy_CXPI_SilentReadRxFIFO
+ .text            1001094c+000000 __ghs_eofn_Cy_CXPI_ReadRxFIFO
+ .text            10010968+00001a Cy_CXPI_SetInterruptMask
+ .text            10010968+000000 __ghs_eofn_Cy_CXPI_SilentReadRxFIFO
+ .text            10010982+00001c Cy_CXPI_GetInterruptMask
+ .text            10010982+000000 __ghs_eofn_Cy_CXPI_SetInterruptMask
+ .text            1001099e+00001c Cy_CXPI_GetInterruptMaskedStatus
+ .text            1001099e+000000 __ghs_eofn_Cy_CXPI_GetInterruptMask
+ .text            100109ba+00001c Cy_CXPI_GetInterruptStatus
+ .text            100109ba+000000 __ghs_eofn_Cy_CXPI_GetInterruptMaskedStatus
+ .text            100109d6+00001a Cy_CXPI_ClearInterrupt
+ .text            100109d6+000000 __ghs_eofn_Cy_CXPI_GetInterruptStatus
+ .text            100109f0+000052 Cy_CXPI_SendWakeupPulse
+ .text            100109f0+000000 __ghs_eofn_Cy_CXPI_ClearInterrupt
+ .text            10010a42+00001c Cy_CXPI_IFSWait
+ .text            10010a42+000000 __ghs_eofn_Cy_CXPI_SendWakeupPulse
+ .text            10010a5e+000026 Cy_CXPI_Enable
+ .text            10010a5e+000000 __ghs_eofn_Cy_CXPI_IFSWait
+ .text            10010a84+000024 Cy_CXPI_Disable
+ .text            10010a84+000000 __ghs_eofn_Cy_CXPI_Enable
+ .text            10010aa8+000082 Cy_CXPI_SetMode
+ .text            10010aa8+000000 __ghs_eofn_Cy_CXPI_Disable
+ .text            10010b2a+000032 Cy_CXPI_SendPTYPE
+ .text            10010b2a+000000 __ghs_eofn_Cy_CXPI_SetMode
+ .text            10010b5c+0001a8 Cy_CXPI_SendPID
+ .text            10010b5c+000000 __ghs_eofn_Cy_CXPI_SendPTYPE
+ .text            10010d04+0000b8 Cy_CXPI_SendResp
+ .text            10010d04+000000 __ghs_eofn_Cy_CXPI_SendPID
+ .text            10010dbc+000000 __ghs_eofn_Cy_CXPI_SendResp
+ .text            10010dec+000224 Cy_CXPI_Interrupt
+ .text            10011010+000168 HeaderReceptionOperation
+ .text            10011010+000000 __ghs_eofn_Cy_CXPI_Interrupt
+ .text            10011178+000142 TXRXCompletionOperation
+ .text            10011178+000000 __ghs_eofn_HeaderReceptionOperation
+ .text            100112ba+00006c TXHandler
+ .text            100112ba+000000 __ghs_eofn_TXRXCompletionOperation
+ .text            10011326+00004e RXHandler
+ .text            10011326+000000 __ghs_eofn_TXHandler
+ .text            10011374+00008a RXResponseDoneHandler
+ .text            10011374+000000 __ghs_eofn_RXHandler
+ .text            100113fe+000000 __ghs_eofn_RXResponseDoneHandler
+ .text            10011404+0000ca Cy_Flash_ProgramRow
+ .text            100114ce+0000c2 Cy_Flash_Checksum
+ .text            100114ce+000000 __ghs_eofn_Cy_Flash_ProgramRow
+ .text            10011590+000066 Cy_Flash_CalculateHash
+ .text            10011590+000000 __ghs_eofn_Cy_Flash_Checksum
+ .text            100115f6+000078 Cy_Flash_WorkBoundsCheck
+ .text            100115f6+000000 __ghs_eofn_Cy_Flash_CalculateHash
+ .text            1001166e+000042 Cy_Flash_IsWorkSmallSector
+ .text            1001166e+000000 __ghs_eofn_Cy_Flash_WorkBoundsCheck
+ .text            100116b0+0000b8 Cy_Flash_MainBoundsCheck
+ .text            100116b0+000000 __ghs_eofn_Cy_Flash_IsWorkSmallSector
+ .text            10011768+000042 Cy_Flash_IsMainSmallSector
+ .text            10011768+000000 __ghs_eofn_Cy_Flash_MainBoundsCheck
+ .text            100117aa+00002e Cy_Flash_SupervisoryBoundsCheck
+ .text            100117aa+000000 __ghs_eofn_Cy_Flash_IsMainSmallSector
+ .text            100117d8+000026 Cy_Flash_BoundsCheck
+ .text            100117d8+000000 __ghs_eofn_Cy_Flash_SupervisoryBoundsCheck
+ .text            100117fe+0000ec Cy_Flash_ProcessOpcode
+ .text            100117fe+000000 __ghs_eofn_Cy_Flash_BoundsCheck
+ .text            100118ea+000080 Cy_Flash_EraseAll
+ .text            100118ea+000000 __ghs_eofn_Cy_Flash_ProcessOpcode
+ .text            1001196a+000000 __ghs_eofn_Cy_Flash_EraseAll
+ .text            100119e0+0000c4 Cy_Flash_EraseSector
+ .text            10011aa4+000036 Cy_Flash_CheckFMStatus
+ .text            10011aa4+000000 __ghs_eofn_Cy_Flash_EraseSector
+ .text            10011ada+00003c Cy_Flash_ConfigureFMIntr
+ .text            10011ada+000000 __ghs_eofn_Cy_Flash_CheckFMStatus
+ .text            10011b16+000042 Cy_Flash_EraseSuspend
+ .text            10011b16+000000 __ghs_eofn_Cy_Flash_ConfigureFMIntr
+ .text            10011b58+000050 Cy_Flash_EraseResume
+ .text            10011b58+000000 __ghs_eofn_Cy_Flash_EraseSuspend
+ .text            10011ba8+0000d8 Cy_Flash_BlankCheck
+ .text            10011ba8+000000 __ghs_eofn_Cy_Flash_EraseResume
+ .text            10011c80+0001d2 Cy_Flashc_InjectECC
+ .text            10011c80+000000 __ghs_eofn_Cy_Flash_BlankCheck
+ .text            10011e52+00008e Cy_Flash_SendMsgWaitComplete..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Cflash.5Ccy_flash.
+ .text            10011e52+000000 __ghs_eofn_Cy_Flashc_InjectECC
+ .text            10011ee0+000010 Cy_Flash_GetDrvStatus
+ .text            10011ef0+000000 __ghs_eofn_Cy_Flash_GetDrvStatus
+ .text            10011f00+000488 Cy_SysClk_EcoConfigure
+ .text            10012388+000040 Cy_SysClk_EcoEnable
+ .text            10012388+000000 __ghs_eofn_Cy_SysClk_EcoConfigure
+ .text            100123c8+000030 Cy_SysClk_EcoPrescaleEnable
+ .text            100123c8+000000 __ghs_eofn_Cy_SysClk_EcoEnable
+ .text            100123f8+000030 Cy_SysClk_EcoPrescaleDisable
+ .text            100123f8+000000 __ghs_eofn_Cy_SysClk_EcoPrescaleEnable
+ .text            10012428+000078 Cy_SysClk_SetEcoPrescale
+ .text            10012428+000000 __ghs_eofn_Cy_SysClk_EcoPrescaleDisable
+ .text            100124a0+000026 Cy_SysClk_GetEcoPrescale
+ .text            100124a0+000000 __ghs_eofn_Cy_SysClk_SetEcoPrescale
+ .text            100124c6+000074 Cy_SysClk_ClkPathSetSource
+ .text            100124c6+000000 __ghs_eofn_Cy_SysClk_GetEcoPrescale
+ .text            1001253a+000000 __ghs_eofn_Cy_SysClk_ClkPathSetSource
+ .text            1001256c+00004a Cy_SysClk_ClkPathGetSource
+ .text            100125b6+000244 Cy_SysClk_FllConfigureStandard
+ .text            100125b6+000000 __ghs_eofn_Cy_SysClk_ClkPathGetSource
+ .text            100127fa+000172 Cy_SysClk_FllManualConfigure
+ .text            100127fa+000000 __ghs_eofn_Cy_SysClk_FllConfigureStandard
+ .text            1001296c+000080 Cy_SysClk_FllGetConfiguration
+ .text            1001296c+000000 __ghs_eofn_Cy_SysClk_FllManualConfigure
+ .text            100129ec+0000ae Cy_SysClk_FllEnable
+ .text            100129ec+000000 __ghs_eofn_Cy_SysClk_FllGetConfiguration
+ .text            10012a9a+000050 Cy_SysClk_FllDisableSequence
+ .text            10012a9a+000000 __ghs_eofn_Cy_SysClk_FllEnable
+ .text            10012aea+0001ea Cy_SysClk_PllConfigure
+ .text            10012aea+000000 __ghs_eofn_Cy_SysClk_FllDisableSequence
+ .text            10012cd4+0000f4 Cy_SysClk_PllManualConfigure
+ .text            10012cd4+000000 __ghs_eofn_Cy_SysClk_PllConfigure
+ .text            10012dc8+000050 Cy_SysClk_PllGetConfiguration
+ .text            10012dc8+000000 __ghs_eofn_Cy_SysClk_PllManualConfigure
+ .text            10012e18+00004c Cy_SysClk_PllEnable
+ .text            10012e18+000000 __ghs_eofn_Cy_SysClk_PllGetConfiguration
+ .text            10012e64+0001fe Cy_SysClk_StartClkMeasurementCounters
+ .text            10012e64+000000 __ghs_eofn_Cy_SysClk_PllEnable
+ .text            10013062+000076 Cy_SysClk_ClkMeasurementCountersGetFreq
+ .text            10013062+000000 __ghs_eofn_Cy_SysClk_StartClkMeasurementCounters
+ .text            100130d8+0000b0 Cy_SysClk_IloTrim
+ .text            100130d8+000000 __ghs_eofn_Cy_SysClk_ClkMeasurementCountersGetFreq
+ .text            10013188+00016c Cy_SysClk_DeepSleepCallback
+ .text            10013188+000000 __ghs_eofn_Cy_SysClk_IloTrim
+ .text            100132f4+00000c Cy_SysClk_HfClockConfigureCsv
+ .text            100132f4+000000 __ghs_eofn_Cy_SysClk_DeepSleepCallback
+ .text            10013300+00002a Cy_SysClk_InitGetFreqParams
+ .text            10013300+000000 __ghs_eofn_Cy_SysClk_HfClockConfigureCsv
+ .text            1001332a+000020 Cy_SysClk_GetImoFrequency
+ .text            1001332a+000000 __ghs_eofn_Cy_SysClk_InitGetFreqParams
+ .text            1001334a+000040 Cy_SysClk_GetEcoFrequency
+ .text            1001334a+000000 __ghs_eofn_Cy_SysClk_GetImoFrequency
+ .text            1001338a+000020 Cy_SysClk_GetExtFrequency
+ .text            1001338a+000000 __ghs_eofn_Cy_SysClk_GetEcoFrequency
+ .text            100133aa+000000 __ghs_eofn_Cy_SysClk_GetExtFrequency
+ .text            100133f8+000020 Cy_SysClk_GetIlo0Frequency
+ .text            10013418+000020 Cy_SysClk_GetIlo1Frequency
+ .text            10013418+000000 __ghs_eofn_Cy_SysClk_GetIlo0Frequency
+ .text            10013438+000020 Cy_SysClk_GetWcoFrequency
+ .text            10013438+000000 __ghs_eofn_Cy_SysClk_GetIlo1Frequency
+ .text            10013458+00003c Cy_SysClk_GetRefHfFrequency
+ .text            10013458+000000 __ghs_eofn_Cy_SysClk_GetWcoFrequency
+ .text            10013494+00007c Cy_SysClk_GetPathSourceFrequency
+ .text            10013494+000000 __ghs_eofn_Cy_SysClk_GetRefHfFrequency
+ .text            10013510+000012 Cy_SysClk_GetFllInputFrequency
+ .text            10013510+000000 __ghs_eofn_Cy_SysClk_GetPathSourceFrequency
+ .text            10013522+000024 Cy_SysClk_GetPllInputFrequency
+ .text            10013522+000000 __ghs_eofn_Cy_SysClk_GetFllInputFrequency
+ .text            10013546+000078 Cy_SysClk_GetFllOutputFrequency
+ .text            10013546+000000 __ghs_eofn_Cy_SysClk_GetPllInputFrequency
+ .text            100135be+0000ba Cy_SysClk_GetPllOutputFrequency
+ .text            100135be+000000 __ghs_eofn_Cy_SysClk_GetFllOutputFrequency
+ .text            10013678+000038 Cy_SysClk_GetPathFrequency
+ .text            10013678+000000 __ghs_eofn_Cy_SysClk_GetPllOutputFrequency
+ .text            100136b0+0000ee Cy_SysClk_GetHfClkFrequency
+ .text            100136b0+000000 __ghs_eofn_Cy_SysClk_GetPathFrequency
+ .text            1001379e+000010 Cy_SysClk_GetWDTClkFrequency
+ .text            1001379e+000000 __ghs_eofn_Cy_SysClk_GetHfClkFrequency
+ .text            100137ae+000040 Cy_SysClk_GetRTCClkFrequency
+ .text            100137ae+000000 __ghs_eofn_Cy_SysClk_GetWDTClkFrequency
+ .text            100137ee+000048 Cy_SysClk_GetEcoPrescaleFrequency
+ .text            100137ee+000000 __ghs_eofn_Cy_SysClk_GetRTCClkFrequency
+ .text            10013836+000050 Cy_SysClk_GetLfFrequency
+ .text            10013836+000000 __ghs_eofn_Cy_SysClk_GetEcoPrescaleFrequency
+ .text            10013886+000010 Cy_SysClk_GetMTWDTFrequency
+ .text            10013886+000000 __ghs_eofn_Cy_SysClk_GetLfFrequency
+ .text            10013896+0000c2 Cy_SysClk_GetTimerFrequency
+ .text            10013896+000000 __ghs_eofn_Cy_SysClk_GetMTWDTFrequency
+ .text            10013958+00003a Cy_SysClk_GetFastFrequency
+ .text            10013958+000000 __ghs_eofn_Cy_SysClk_GetTimerFrequency
+ .text            10013992+000038 Cy_SysClk_GetClkPeriFrequency
+ .text            10013992+000000 __ghs_eofn_Cy_SysClk_GetFastFrequency
+ .text            100139ca+000034 Cy_SysClk_GetClkSlowFrequency
+ .text            100139ca+000000 __ghs_eofn_Cy_SysClk_GetClkPeriFrequency
+ .text            100139fe+000010 Cy_SysClk_GetCoreFrequency
+ .text            100139fe+000000 __ghs_eofn_Cy_SysClk_GetClkSlowFrequency
+ .text            10013a0e+000092 Cy_SysClk_GetSystickFrequency
+ .text            10013a0e+000000 __ghs_eofn_Cy_SysClk_GetCoreFrequency
+ .text            10013aa0+000342 Cy_SysClk_PeriphGetFrequency
+ .text            10013aa0+000000 __ghs_eofn_Cy_SysClk_GetSystickFrequency
+ .text            10013de2+000194 Cy_SysClk_PeriphSetFracDividerAuto
+ .text            10013de2+000000 __ghs_eofn_Cy_SysClk_PeriphGetFrequency
+ .text            10013f76+000000 __ghs_eofn_Cy_SysClk_PeriphSetFracDividerAuto
+ .text            10013f84+000004 Cy_DefaultUserHandler
+ .text            10013f88+00002e CpuUserInt0_Handler
+ .text            10013f88+000000 __ghs_eofn_Cy_DefaultUserHandler
+ .text            10013fb6+00002c CpuUserInt1_Handler
+ .text            10013fb6+000000 __ghs_eofn_CpuUserInt0_Handler
+ .text            10013fe2+00002c CpuUserInt2_Handler
+ .text            10013fe2+000000 __ghs_eofn_CpuUserInt1_Handler
+ .text            1001400e+00002c CpuUserInt3_Handler
+ .text            1001400e+000000 __ghs_eofn_CpuUserInt2_Handler
+ .text            1001403a+00002c CpuUserInt4_Handler
+ .text            1001403a+000000 __ghs_eofn_CpuUserInt3_Handler
+ .text            10014066+00002c CpuUserInt5_Handler
+ .text            10014066+000000 __ghs_eofn_CpuUserInt4_Handler
+ .text            10014092+00002c CpuUserInt6_Handler
+ .text            10014092+000000 __ghs_eofn_CpuUserInt5_Handler
+ .text            100140be+00002c CpuUserInt7_Handler
+ .text            100140be+000000 __ghs_eofn_CpuUserInt6_Handler
+ .text            100140ea+000000 __ghs_eofn_CpuUserInt7_Handler
+ .text            10014138+0000f0 main
+ .text            10014228+000000 __ghs_eofn_main
+ .text            1001426c+000200 SystemInit
+ .text            1001446c+000080 SystemCoreClockUpdate
+ .text            1001446c+000000 __ghs_eofn_SystemInit
+ .text            100144ec+00000e Cy_SysGetApplCoreStatus
+ .text            100144ec+000000 __ghs_eofn_SystemCoreClockUpdate
+ .text            100144fa+00003c Cy_SysEnableApplCore
+ .text            100144fa+000000 __ghs_eofn_Cy_SysGetApplCoreStatus
+ .text            10014536+00001c Cy_SysDisableApplCore
+ .text            10014536+000000 __ghs_eofn_Cy_SysEnableApplCore
+ .text            10014552+000036 Cy_SysRetainApplCore
+ .text            10014552+000000 __ghs_eofn_Cy_SysDisableApplCore
+ .text            10014588+000020 Cy_SysResetApplCore
+ .text            10014588+000000 __ghs_eofn_Cy_SysRetainApplCore
+ .text            100145a8+000000 __ghs_eofn_Cy_SysResetApplCore
+ .text            1001460c+00002c __ghs_strncpy
+ .text            1001460c+00002c strncpy
+ .text            10014638+00037e sqrt
+ .text            100149b8+000238 pow
+ .text            10014c0c+0001a4 log
+ .text            10014e08+00018a exp2
+ .text            10014fec+00015a exp
+ .text            100151a8+0000bc sqrtf
+ .text            1001526c+00000e __gh_set_edom_return_nan
+ .text            10015280+000012 __gh_set_erange_return_d
+ .text            10015294+00000c __gh_set_edom_return_nanf
+ .text            100152a4+000098 __dtof
+ .text            10015344+000062 __ftod
+ .text            100153ac+000004 __utod
+ .text            100153b0+000008 __itod
+ .text            100153b8+000040 __x32tod
+ .text            100153f8+000004 __utof
+ .text            100153fc+000046 __x32tof
+ .text            10015444+00000a __dtoi
+ .text            10015452+000082 d32..trg.2Fthumb.2Fobjs.2Flibs.2Flibind_sf.2Finddto32.
+ .text            100154d8+00000c __ftou
+ .text            100154e4+000054 f32..trg.2Fthumb.2Fobjs.2Flibs.2Flibind_sf.2Findfto32.
+ .text            10015538+00000e __drsb
+ .text            10015546+000100 __fmul
+ .text            10015648+000006 __fsub
+ .text            1001564e+00010a __fadd
+ .text            1001575c+000034 __fcmp
+ .text            10015790+000118 __fdiv
+ .text            100158ac+0002ca __ddiv
+ .text            10015b8c+0001e0 __dmul
+ .text            10015d80+00000a __dsub
+ .text            10015d8a+000290 __dadd
+ .text            10016028+000042 __dcmp
+ .text            1001606a+000036 memset
+ .text            100160a0+00002a memcpy
+ .text            100160cc+00025a __ghs_ind_crt0
+ .text            10016384+000006 __gh_set_errno
+ .text            10016390+00008c __ghs_ind_crt1
+ .text            10016440+000020 __gh_udiv64
+ .text            10016460+000566 __gh_udiv64_core
+ .text            100169c6+0000b4 __gh_mul64
+ .text            10016a7a+000030 __CLZ32
+ .text            10016aaa+000036 __MULUH
+ .text            10016ae0+00000e __udiv10
+ .text            10016af0+000038 __udiv_32_32
+ .text            10016b2c+000028 __sdiv_32_32
+ .text            10016b54+00002e __gh_shrl_64_32
+ .text            10016b84+000022 exit
+ .text            10016bb0+000034 _Exit
+ .text            10016bb0+000034 _exit
+ .text            10016bec+00001e __ghs_syscall
+ .text            10016c10+000002 __ghsLock
+ .text            10016c12+000002 __ghsUnlock
+ .text            10016c14+000002 __gh_lock_init
+ .interfunc       10016c16+000002 __ghsThumbBLR
+ .interfunc       10016c18+000002 __ghsThumbBLR0
+ .fixaddr         10016c1a+000000 __ghsbegin_fixaddr
+ .fixtype         10016c1a+000000 __ghsbegin_fixtype
+ .fixaddr         10016c1a+000000 __ghsend_fixaddr
+ .secinfo         10016c1c+000000 __ghsbegin_secinfo
+ .secinfo         10016c1c+000018 __ghsbinfo_clear
+ .secinfo         10016c34+000000 __ghsbinfo_aclear
+ .secinfo         10016c34+000024 __ghsbinfo_copy
+ .secinfo         10016c34+000000 __ghseinfo_clear
+ .secinfo         10016c4c+000000 __ghsbinfo_acopy
+ .secinfo         10016c4c+000000 __ghsbinfo_tcopy
+ .robase          10016c58+000000 __ghsbegin_robase
+ .secinfo         10016c58+000000 __ghsbinfo_comacopy
+ .secinfo         10016c58+000000 __ghsbinfo_comcopy
+ .secinfo         10016c58+000000 __ghsbinfo_comtcopy
+ .secinfo         10016c58+000000 __ghseinfo_comcopy
+ .secinfo         10016c58+000000 __ghseinfo_copy
+ .rodata          10016ca0+000008 dataBufferSizeInWord..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cdrivers.5Ccanfd.5Ccy_canfd.
+ .rodata          10016cf4+00002c cryptoConfig
+ .rodata          1001705e+00000c cy_Rtc_daysInMonthTbl
+ .rodata          100170a4+000006 irq_cfg..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Cflash.5Ccy_mw_flash.
+ .rodata          10017194+00004c m_stcScbConfig..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ccommon.5Csrc.5Cmw.5Csemihosting.5Ccy_semihosting.
+ .rodata          1001721c+000014 fMargin_MHz_RefArray..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk.
+ .rodata          10017230+000014 trimSteps_RefArray..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk.
+ .rodata          10017244+000030 fll_gains_RefArray..D.3A.5Csvn.5CCYT2B9xx_M0.5Ctag.5Ce_rtu02_cyt2b9xx_M0_0.2E0.2E7.5CDebug.5CStatic_Code.5Ctviibe2m.5Csrc.5Cdrivers.5Csysclk.5Ccy_sysclk.
+                  10028000+000000 __cm4_rom_start
+                  10028000+000000 __cm4_vector_base_linker_symbol
+                  10028000+000000 __ghs_rombootcodeend
+                  17808000+000000 __ghs_romend

@@ -1,0 +1,2694 @@
+/*******************************************************************************
+**  (C) 2014 HYUNDAI AUTRON Company                                           **
+**  Confidential Proprietary Information Distribution Limited                 **
+**  Do Not Copy Without Prior Permission                                      **
+**                                                                            **
+**                                                                            **
+**  FILE NAME : App_DiagnosticService.c                                       **
+**                                                                            **
+**  TARGET    : All                                                           **
+**                                                                            **
+**  PRODUCT   : AUTOSAR Diagnostic Communication Manager Module               **
+**                                                                            **
+**  PURPOSE   : This file contains the API definitions for SW-C Sample of Dcm **
+**                                                                            **
+**  PLATFORM DEPENDANT [yes/no]: no                                           **
+**                                                                            **
+**  TO BE CHANGED BY USER [yes/no]: yes                                       **
+**                                                                            **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Rte_SWC_DiagnosticService.h"
+#include "HwResource.h"
+
+/*******************************************************************************
+**                      Global Symbols                                        **
+*******************************************************************************/
+#define APPDCM_AC 0x0A
+#define APPDCM_RPM_HIGH 0x07
+#define APPDCM_RPM_LOW 0x50
+
+/* Generate Seed from random generator */
+
+/* L1 : Seed Key */
+#if defined(Rte_Call_AutHsmPseudoRandomGenerate_L1_RandomGenerate)
+#if HWRESOURCE_MCU(HWRESOURCE_RH850F1KM)
+  #define APPDCM_L1_AUTRON_HSM_RANDOM_ICUM
+#else
+  #define APPDCM_L1_AUTRON_HSM_RANDOM
+#endif
+
+#elif defined(Rte_Call_HaeHsmPseudoRandomGenerate_L1_RandomGenerate)
+  #define APPDCM_L1_HAE_HSM_RANDOM
+
+#elif defined(Rte_Call_AutIcusRandomGenerate_L1_RandomGenerate)
+  #define APPDCM_L1_ICUS_RANDOM
+
+#elif defined(Rte_Call_AutRandomGenerate_L1_RandomGenerate)
+  #define APPDCM_L1_AUT_RANDOM
+#else
+  #define APPDCM_L1_NOT_SUPPORTED
+
+#endif
+
+/* L9 : Advanced Seed Key*/
+#if defined(Rte_Call_AutHsmPseudoRandomGenerate_L9_RandomGenerate)
+#if HWRESOURCE_MCU(HWRESOURCE_RH850F1KM)
+  #define APPDCM_L9_AUTRON_HSM_RANDOM_ICUM
+#else
+  #define APPDCM_L9_AUTRON_HSM_RANDOM
+#endif
+
+#elif defined(Rte_Call_HaeHsmPseudoRandomGenerate_L9_RandomGenerate)
+  #define APPDCM_L9_HAE_HSM_RANDOM
+
+#elif defined(Rte_Call_AutIcusRandomGenerate_L9_RandomGenerate)
+  #define APPDCM_L9_ICUS_RANDOM
+
+#elif (defined(Rte_Call_HaePseudoRandomSeed_L9_RandomSeedStart) \
+&& defined(Rte_Call_HaePseudoRandomSeed_L9_RandomSeedUpdate) \
+&& defined(Rte_Call_HaePseudoRandomSeed_L9_RandomSeedFinish) \
+&& defined(Rte_Call_HaePseudoRandomGenerate_L9_RandomGenerate))
+  #define APPDCM_L9_HAE_PSEUDO_RANDOM
+  #define APPDCM_L9_HAE_PSEUDO_ENTROPY_LENGTH 16U
+#else
+  #define APPDCM_L9_NOT_SUPPORTED
+
+#endif
+
+#if (defined(Rte_Call_HaeAdvSeedKey_L9_HashStart) \
+  && defined(Rte_Call_HaeAdvSeedKey_L9_HashUpdate) \
+  && defined(Rte_Call_HaeAdvSeedKey_L9_HashFinish))
+  #define APPDCM_L9_ADVANCED_SEEDKEY
+#endif
+
+uint8 AppDcm_GucEcuIsBusy = 0U;
+uint8 AppDcm_GucActualtorValue = APPDCM_AC;
+uint8 AppDcm_GaaVIN[17];
+uint8 AppDcm_GaaRPM[] = {APPDCM_RPM_HIGH,APPDCM_RPM_LOW};
+uint8 AppDcm_GaaECT[] = {0xA6U};
+uint8 AppDcm_GaaBatVolt[] = {0x8CU};
+uint8 AppDcm_GaaWriteData[255];
+uint8 AppDcm_GucSID = 0U;
+uint8 AppDcm_GucReqType = 0U;
+uint16 AppDcm_GusSourceAddress = 0U;
+uint16 AppDcm_GusDataSize = 0U;
+Dcm_ConfirmationStatusType AppDcm_GddConfirmationStatus = 0U;
+
+/* Global Variables for SecurityAccess_L1 */
+uint8 AppDcm_GaaSeed[4] = {0U, };
+/* Global Variables for SecurityAccess_L9 */
+#if defined(APPDCM_L9_AUTRON_HSM_RANDOM_ICUM)
+#pragma ghs section bss=".gbbss.DEFAULT_GLOBALB_RAM_VAR_CLEARED"
+#endif
+uint8 AppDcm_GaaAdvSeed[8];
+#if defined(APPDCM_L9_AUTRON_HSM_RANDOM_ICUM)
+#pragma ghs section
+#endif
+
+#if (defined(APPDCM_L9_ICUS_RANDOM) || defined(APPDCM_L9_AUTRON_HSM_RANDOM_ICUM))
+Std_ReturnType AppDcm_SeedGenResult;
+#endif
+
+
+/*******************************************************************************
+**                      Function Definitions                                  **
+*******************************************************************************/
+#define SWC_DiagnosticService_START_SEC_CODE
+#include "SWC_DiagnosticService_MemMap.h"
+/*******************************************************************************
+** Function Name        : AppDcm_DiagnosticSessionControlNotification         **
+**                                                                            **
+** Description          : This function notifies session transition.          **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     : None                                                **
+**                                                                            **
+*******************************************************************************/
+FUNC(void,SWC_DiagnosticService_CODE)
+  AppDcm_DiagnosticSessionControlNotification(void)
+{
+  Rte_ModeType_DcmDiagnosticSessionControl LddPrevMode;
+  Rte_ModeType_DcmDiagnosticSessionControl LddNextMode;
+
+  Rte_Mode_modeNotificationPort_SessionControl_DcmDiagnosticSessionControl(
+                                                    &LddPrevMode, &LddNextMode);
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_StartProtocol                                **
+**                                                                            **
+** Description          : This function notifies the start of a particular    **
+**                        protocol.                                           **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : ProtocolID                                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_CallbackDCMRequestServices_E_NOT_OK :                            **
+**     Request was not successful                                             **
+
+**   - RTE_E_CallbackDCMRequestServices_E_PROTOCOL_NOT_ALLOWED : conditions in**
+**     conditions in application allows no further procession of protocol     **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_StartProtocol(
+  IN Dcm_ProtocolType ProtocolID)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_StopProtocol                                 **
+**                                                                            **
+** Description          : This function notifies the stop of a particular     **
+**                        protocol.                                           **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : ProtocolID                                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_CallbackDCMRequestServices_E_NOT_OK :                            **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_StopProtocol(
+  IN Dcm_ProtocolType ProtocolID)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_ActuatorControl           **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ConditionCheckRead_ActuatorControl(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_ActuatorControl_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_FreezeCurrentState_ActuatorControl           **
+**                                                                            **
+** Description          : This function requests to the application to freeze **
+**                        the current state of an IOControl.                  **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_FreezeCurrentState_ActuatorControl(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_ActuatorControl_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_ActuatorControl                     **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_ActuatorControl(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = AppDcm_GucActualtorValue;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_WriteData_ActuatorControl                    **
+**                                                                            **
+** Description          : This function requests the application to write     **
+**                        a data value of a DID.                              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Data : Buffer containing the data to be written                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_WriteData_ActuatorControl(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_ActuatorControl_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    AppDcm_GucActualtorValue = Data[0];
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ResetToDefault_ActuatorControl               **
+**                                                                            **
+** Description          : This function requests to the application to reset  **
+**                        an IOControl to default value.                      **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ResetToDefault_ActuatorControl(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_ActuatorControl_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    AppDcm_GucActualtorValue = APPDCM_AC;
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReturnControlToECU_ActuatorControl           **
+**                                                                            **
+** Description          : This function requests to the application to return **
+**                        control to ECU of an IOControl.                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReturnControlToECU_ActuatorControl(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U != AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucActualtorValue = APPDCM_AC;
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+  else
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_ActuatorControl_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ShortTermAdjustment_ActuatorControl          **
+**                                                                            **
+** Description          : This function requests to the application to adjust **
+**                        the IO signal.                                      **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - ControlOptionRecord : ControlState information contained in the          **
+**   ControlOptionRecord parameter of the InputOutputControlByIdentifier      **
+**   diagnostic request                                                       **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ActuatorControl_E_NOT_OK :                          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ShortTermAdjustment_ActuatorControl(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) ControlOptionRecord,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_ActuatorControl_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    AppDcm_GucActualtorValue = ControlOptionRecord[0];
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_IsDidAvailable_DID_0100h_0110h               **
+**                                                                            **
+** Description          : This function requests if a specific DID is         **
+**                        available within the range or not.                  **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - DID : DID value                                                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - supported : Indicate if the DID is available within the range.           **
+**   - 1 : it is supported within the range                                   **
+**   - 0 : it is not supported within the range                               **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_E_NOT_OK :                **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_IsDidAvailable_DID_0100h_0110h(
+  IN uint16 DID,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) supported)
+{
+  Std_ReturnType LddRetVal;
+
+  if((DID >= 0x0100) && (DID <= 0x0109))
+  {
+    LddRetVal = RTE_E_OK;
+    *supported = 1U;
+  }
+  else
+  {
+    LddRetVal = RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_E_NOT_OK;
+    *supported = 0U;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadDidData_DID_0100h_0110h                  **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - DID : DID value                                                          **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+** - DataLength : Length of the data to be read                               **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_E_NOT_OK :                **
+**     Request was not successful                                             **
+**   - RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_DCM_E_PENDING :           **
+**     Request is not yet finished, Further call required to finish           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadDidData_DID_0100h_0110h(
+  IN uint16 DID,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint16, AUTOMATIC, RTE_APPL_DATA) DataLength,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  LddRetVal = RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_E_NOT_OK;
+
+  switch(DID)
+  {
+  case 0x0100:
+    *DataLength = 1U;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+    break;
+
+  case 0x0101:
+    *DataLength = 27U;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+    break;
+
+  case 0x0102:
+    *DataLength = 1U;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+    break;
+
+  case 0x0103:
+    *DataLength = 5U;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+    break;
+
+  case 0x0104:
+    *DataLength = 0U;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+    break;
+
+  default:
+    *DataLength = 0U;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+    break;
+  }
+
+  if(0U != *DataLength)
+  {
+    uint16 iteratorData;
+    for(iteratorData = 0U; iteratorData < *DataLength; iteratorData++)
+    {
+      Data[iteratorData] = iteratorData + 1U;
+    }
+
+    LddRetVal = RTE_E_OK;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_WriteDidData_DID_0100h_0110h                 **
+**                                                                            **
+** Description          : This function requests the application to write     **
+**                        a data value of a DID.                              **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - DID : DID value                                                          **
+** - Data : Buffer containing the data to be written                          **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+** - DataLength : Length of the data to be written                            **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_E_NOT_OK :                **
+**     Request was not successful                                             **
+**   - RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_DCM_E_PENDING :           **
+**     Request is not yet finished, Further call required to finish           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_WriteDidData_DID_0100h_0110h(
+  IN uint16 DID,
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  IN Dcm_OpStatusType OpStatus,
+  IN uint16 DataLength,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+  uint16 iteratorData;
+
+  LddRetVal = RTE_E_DataServices_DIDRange_DIDs_0100h_0110h_E_NOT_OK;
+
+  switch(DID)
+  {
+  case 0x0100:/* no break */
+
+  case 0x0101:/* no break */
+
+  case 0x0102:/* no break */
+
+  case 0x0103:
+    for(iteratorData = 0U; iteratorData < DataLength; iteratorData++)
+    {
+      AppDcm_GaaWriteData[iteratorData] = Data[iteratorData];
+    }
+
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+    LddRetVal = RTE_E_OK;
+    break;
+
+  case 0x0104:
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+    break;
+
+  case 0x0110:
+    *ErrorCode = DCM_E_GENERALPROGRAMMINGFAILURE;
+    break;
+
+  default:
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+    break;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_SystemSupplierECUHardware **
+**                        VersionNumber                                       **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_SystemSupplierECUHardwareVersionNumber_E_NOT_OK :   **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE)
+  AppDcm_ConditionCheckRead_SystemSupplierECUHardwareVersionNumber(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_SystemSupplierECUHardwareVersion    **
+**                        Number                                              **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_SystemSupplierECUHardwareVersionNumber_E_NOT_OK :   **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE)
+  AppDcm_ReadData_SystemSupplierECUHardwareVersionNumber(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = 0x00U;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_SystemSupplierECUSoftware **
+**                        Number                                              **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_SystemSupplierECUSoftwareNumber_E_NOT_OK :          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE)
+  AppDcm_ConditionCheckRead_SystemSupplierECUSoftwareNumber(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_SystemSupplierECUSoftwareNumber     **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_SystemSupplierECUSoftwareNumber_E_NOT_OK :          **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_SystemSupplierECUSoftwareNumber(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = 0x00U;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_VehicleManufacturerECU    **
+**                        SoftwareVersionNumber                               **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VehicleManufacturerECUSoftwareVersionNumber_E_NOT_OK**
+**     : Request was not successful                                           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE)
+  AppDcm_ConditionCheckRead_VehicleManufacturerECUSoftwareVersionNumber(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_VehicleManufacturerECUSoftware      **
+**                        VersionNumber                                       **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VehicleManufacturerECUSoftwareVersionNumber_E_NOT_OK**
+**     : Request was not successful                                           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE)
+  AppDcm_ReadData_VehicleManufacturerECUSoftwareVersionNumber(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = 0x00U;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_VehicleSpeed              **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VehicleSpeed_E_NOT_OK : Request was not successful  **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ConditionCheckRead_VehicleSpeed(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_GetScalingInformation_VehicleSpeed           **
+**                                                                            **
+** Description          : This function requests to the application           **
+**                        for the scaling information of a Data.              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ScalingInfo : caling information (scalingByte and scalingByteExtension)  **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VehicleSpeed_E_NOT_OK : Request was not successful  **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetScalingInformation_VehicleSpeed(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) ScalingInfo,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  /*
+    s#1 {unsigned numeric, 1 data byte}        0x01
+    s#2 {formula, 5 data bytes}                0x95
+    e#2 [byte#1] {formulaIdentifier=C0*x+C1}   0x00
+    e#2 [byte#2] {C0 high byte}                0xE0
+    e#2 [byte#3] {C0 low byte}[C0=75*10P-2P]   0x4B
+    e#2 [byte#4] {C1 high byte}                0x00
+    e#2 [byte#5] {C1 low byte}[C1=30*10P0P]    0x1E
+    s#3 {unit / format, 1 data byte}           0xA1
+    e#3 [byte#1]  {unit ID, km/h}              0x30
+  */
+
+  ScalingInfo[0] = (uint8)0x01U;
+  ScalingInfo[1] = (uint8)0x95U;
+  ScalingInfo[2] = (uint8)0x00U;
+  ScalingInfo[3] = (uint8)0xE0U;
+  ScalingInfo[4] = (uint8)0x4BU;
+  ScalingInfo[5] = (uint8)0x00U;
+  ScalingInfo[6] = (uint8)0x1EU;
+  ScalingInfo[7] = (uint8)0xA1U;
+  ScalingInfo[8] = (uint8)0x30U;
+
+  LddRetVal = RTE_E_OK;
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_VehicleSpeed                        **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VehicleSpeed_E_NOT_OK : Request was not successful  **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_VehicleSpeed(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = 0x00U;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_RequestResults_CalibrationActuator           **
+**                                                                            **
+** Description          : This function requests to the application the result**
+**                        of a routine execution.                             **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**   - DCM_FORCE_RCRRP_OK : Confirm a response pending transmission           **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - DataOut1 : Fixed-length Output data to provide in the routine control    **
+**              response                                                      **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_E_NOT_OK :         **
+**     Request was not successful                                             **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_DCM_E_PENDING :    **
+**     Request is not yet finished, Further call required to finish           **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_DCM_E_FORCE_RCRRP :**
+**     application request the transmission of a response Response Pending
+  **
+**     (NRC 0x78)                                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_RequestResults_CalibrationActuator(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(RequestDataOutType_RID_0200h_CalibrationActuator_routineStatus_ResOutSignal, AUTOMATIC, RTE_APPL_DATA) DataOut1,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+  DataOut1[0] = 0x71U;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_Start_CalibrationActuator                    **
+**                                                                            **
+** Description          : This function requests to the application to start  **
+**                        the execution of a routine.                         **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - DataIn1 : Fixed-length input data provided in the routine control request**
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**   - DCM_FORCE_RCRRP_OK : Confirm a response pending transmission           **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - DataOut1 : Fixed-length Output data to provide in the routine control    **
+**              response                                                      **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_E_NOT_OK :         **
+**     Request was not successful                                             **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_DCM_E_PENDING :    **
+**     Request is not yet finished, Further call required to finish           **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_DCM_E_FORCE_RCRRP :**
+**     application request the transmission of a response Response Pending
+  **
+**     (NRC 0x78)                                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_Start_CalibrationActuator(
+  IN StartDataInType_RID_0200h_CalibrationActuator_routineControlOption_StartInSignal DataIn1,
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(StartDataOutType_RID_0200h_CalibrationActuator_routineStatus_StartOutSignal, AUTOMATIC, RTE_APPL_DATA) DataOut1,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+  DataOut1[0] = DataIn1;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_Stop_CalibrationActuator                     **
+**                                                                            **
+** Description          : This function requests to the application to stop   **
+**                        the execution of a routine.                         **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - DataIn1 : Fixed-length input data provided in the routine control request**
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**   - DCM_FORCE_RCRRP_OK : Confirm a response pending transmission           **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - DataOut1 : Fixed-length Output data to provide in the routine control    **
+**              response                                                      **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_E_NOT_OK :         **
+**     Request was not successful                                             **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_DCM_E_PENDING :    **
+**     Request is not yet finished, Further call required to finish           **
+**   - RTE_E_RoutineServices_RID_0200h_CalibrationActuator_DCM_E_FORCE_RCRRP :**
+**     application request the transmission of a response Response Pending
+  **
+**     (NRC 0x78)                                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_Stop_CalibrationActuator(
+  IN StopDataInType_RID_0200h_CalibrationActuator_DcmDspRoutineStopInSignal0 DataIn1,
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(StopDataInType_RID_0200h_CalibrationActuator_DcmDspRoutineStopInSignal0, AUTOMATIC, RTE_APPL_DATA) DataOut1,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+  DataOut1[0] = DataIn1;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_GetSeed_L1                                   **
+**                                                                            **
+** Description          : Request to application for asynchronous provision of**
+**                        seed value.                                         **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Seed : Pointer for provided seed                                         **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_SecurityAccess_L1_E_NOT_OK : Request was not successful          **
+**   - RTE_E_SecurityAccess_L1_DCM_E_PENDING :                                **
+**     Request is not yet finished, Further call required to finish           **
+**                                                                            **
+*******************************************************************************/
+#if defined(RTE_E_SecurityAccess_L1_E_NOT_OK)
+
+#if (defined(APPDCM_L1_AUTRON_HSM_RANDOM) || defined(APPDCM_L1_HAE_HSM_RANDOM))
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetSeed_L1(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Seed,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L9_E_NOT_OK;
+
+  #if defined(APPDCM_L1_AUTRON_HSM_RANDOM)
+  /***************************************************************************
+   *                 true random generator(Chorus SPC58)                     *
+   ***************************************************************************/
+  if (RTE_E_OK == Rte_Call_AutHsmPseudoRandomGenerate_L1_RandomGenerate(&AppDcm_GaaSeed[0], 4U))
+
+  #elif defined(APPDCM_L1_HAE_HSM_RANDOM)
+  /***************************************************************************
+   *                 true random generator(Autoever HSM)                      *
+   ***************************************************************************/
+  if (RTE_E_OK == Rte_Call_HaeHsmPseudoRandomGenerate_L1_RandomGenerate(&AppDcm_GaaSeed[0], 4U))
+
+  #endif
+  {
+    uint8 LucIndex;
+    for (LucIndex = 0U; LucIndex < 4U; LucIndex++)
+    {
+      Seed[LucIndex] = AppDcm_GaaSeed[LucIndex];
+    }
+    LddRetVal = RTE_E_OK;
+  }
+  else
+  {
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+
+  return LddRetVal;
+}
+
+#elif (defined(APPDCM_L1_ICUS_RANDOM) || defined(APPDCM_L1_AUTRON_HSM_RANDOM_ICUM))
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetSeed_L1(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Seed,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L1_E_NOT_OK;
+
+  switch(OpStatus)
+  {
+  case DCM_INITIAL:
+    #if defined(APPDCM_L1_ICUS_RANDOM)
+    /***************************************************************************
+     *                 true random generator(RH850 ICUS)                       *
+     ***************************************************************************/
+    if (RTE_E_OK == Rte_Call_AutIcusRandomGenerate_L1_RandomGenerate(&AppDcm_GaaSeed[0], 4U))
+
+    #elif defined(APPDCM_L1_AUTRON_HSM_RANDOM_ICUM)
+    /***************************************************************************
+     *                 true random generator(RH850 ICUM)                       *
+     ***************************************************************************/
+    if (RTE_E_OK == Rte_Call_AutHsmPseudoRandomGenerate_L1_RandomGenerate(&AppDcm_GaaAdvSeed[0], 8U))
+
+    #endif
+    {
+      AppDcm_SeedGenResult = RTE_E_SecurityAccess_L1_DCM_E_PENDING;
+      LddRetVal = RTE_E_SecurityAccess_L1_DCM_E_PENDING;
+    }
+    break;
+
+  case DCM_PENDING:
+    LddRetVal = AppDcm_SeedGenResult;
+    if (RTE_E_OK == AppDcm_SeedGenResult)
+    {
+      uint8 LucIndex;
+      for (LucIndex = 0U; LucIndex < 4U; LucIndex++)
+      {
+        Seed[LucIndex] = AppDcm_GaaAdvSeed[LucIndex];//AppDcm_GaaSeed[LucIndex];
+      }
+    }
+    break;
+
+  case DCM_CANCEL:
+    LddRetVal = RTE_E_OK;
+    break;
+  default :
+    break;
+  }
+
+  if (RTE_E_SecurityAccess_L1_E_NOT_OK == LddRetVal)
+  {
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  return LddRetVal;
+}
+
+FUNC(Std_ReturnType, SWC_DiagnosticService_CODE) AppDcm_GetSeedCbk_L1(
+  IN VAR(Std_ReturnType, AUTOMATIC) retVal)
+{
+  if (retVal == RTE_E_OK)
+  {
+    AppDcm_SeedGenResult = RTE_E_OK;
+  }
+  else
+  {
+    AppDcm_SeedGenResult = RTE_E_SecurityAccess_L1_E_NOT_OK;
+  }
+
+  return RTE_E_OK;
+}
+
+#elif defined(APPDCM_L1_AUT_RANDOM)
+
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetSeed_L1(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Seed,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  /* Generate Seed from random generator */
+  if (RTE_E_OK != Rte_Call_AutRandomGenerate_L1_RandomGenerate(&AppDcm_GaaSeed[0], 4U) )
+  {
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+    LddRetVal = RTE_E_SecurityAccess_L1_E_NOT_OK;
+  }
+  else
+  {
+    uint8 LucIndex;
+    for (LucIndex = 0U; LucIndex < 4U; LucIndex++)
+    {
+      Seed[LucIndex] = AppDcm_GaaSeed[LucIndex];
+    }
+  }
+
+  return LddRetVal;
+}
+#endif
+#endif /* defined(RTE_E_SecurityAccess_L1_E_NOT_OK) */
+
+/*******************************************************************************
+** Function Name        : AppDcm_CompareKey_L1                                **
+**                                                                            **
+** Description          : Request to application for asynchronous comparing   **
+**                        key.                                                **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Key : Key, which needs to be compared                                    **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_SecurityAccess_L1_E_NOT_OK : Request was not successful          **
+**   - RTE_E_SecurityAccess_L1_DCM_E_PENDING :                                **
+**     Request is not yet finished, Further call required to finish           **
+**   - RTE_E_SecurityAccess_L1_DCM_E_COMPARE_KEY_FAILED : Key did not match   **
+**                                                                            **
+*******************************************************************************/
+#if defined(RTE_E_SecurityAccess_L1_E_NOT_OK)
+
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_CompareKey_L1(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Key,
+  IN Dcm_OpStatusType OpStatus)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L1_E_NOT_OK;
+
+  /* Generate Key based on SeedKey Algorithm */
+  if (RTE_E_OK == Rte_Call_AutSeedKey_L1_HashStart() )
+  {
+    if (RTE_E_OK == Rte_Call_AutSeedKey_L1_HashUpdate(&AppDcm_GaaSeed[0], 4U))
+    {
+      uint8 LaaKey[4] = {0U,};
+      uint32 LulLength = 4U;
+
+      if (RTE_E_OK == Rte_Call_AutSeedKey_L1_HashFinish(LaaKey, &LulLength, FALSE))
+      {
+        uint8 LucIndex;
+        for (LucIndex = 0U; LucIndex < 4U; LucIndex++)
+        {
+          if (LaaKey[LucIndex] != Key[LucIndex])
+          {
+            break;
+          }
+        }
+        if (LucIndex == LulLength)
+        {
+          /* key matches */
+          LddRetVal = RTE_E_OK;
+        }
+        else
+        {
+          LddRetVal = RTE_E_SecurityAccess_L1_DCM_E_COMPARE_KEY_FAILED;
+        }
+      }
+    }
+  }
+
+  return LddRetVal;
+}
+
+#endif /* defined(RTE_E_SecurityAccess_L1_E_NOT_OK) */
+
+
+/*******************************************************************************
+** Function Name        : AppDcm_GetSeed_L9                                   **
+**                                                                            **
+** Description          : Request to application for asynchronous provision of**
+**                        seed value.                                         **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Seed : Pointer for provided seed                                         **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_SecurityAccess_L9_E_NOT_OK : Request was not successful          **
+**   - RTE_E_SecurityAccess_L9_DCM_E_PENDING :                                **
+**     Request is not yet finished, Further call required to finish           **
+**                                                                            **
+*******************************************************************************/
+#if defined(RTE_E_SecurityAccess_L9_E_NOT_OK)
+
+#if (defined(APPDCM_L9_AUTRON_HSM_RANDOM) || defined(APPDCM_L9_HAE_HSM_RANDOM))
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetSeed_L9(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Seed,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L9_E_NOT_OK;
+
+  #if defined(APPDCM_L9_AUTRON_HSM_RANDOM)
+  /***************************************************************************
+   *                 true random generator(Chorus SPC58)                     *
+   ***************************************************************************/
+  if (RTE_E_OK == Rte_Call_AutHsmPseudoRandomGenerate_L9_RandomGenerate(&AppDcm_GaaAdvSeed[0], 8U))
+
+  #elif defined(APPDCM_L9_HAE_HSM_RANDOM)
+  /***************************************************************************
+   *                 true random generator(Autoever HSM)                      *
+   ***************************************************************************/
+  if (RTE_E_OK == Rte_Call_HaeHsmPseudoRandomGenerate_L9_RandomGenerate(&AppDcm_GaaAdvSeed[0], 8U))
+
+  #endif
+  {
+    uint8 LucIndex;
+    for (LucIndex = 0U; LucIndex < 8U; LucIndex++)
+    {
+      Seed[LucIndex] = AppDcm_GaaAdvSeed[LucIndex];
+    }
+    LddRetVal = RTE_E_OK;
+  }
+  else
+  {
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+
+  return LddRetVal;
+}
+
+#elif (defined(APPDCM_L9_ICUS_RANDOM) || defined(APPDCM_L9_AUTRON_HSM_RANDOM_ICUM))
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetSeed_L9(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Seed,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L9_E_NOT_OK;
+
+  switch(OpStatus)
+  {
+  case DCM_INITIAL:
+    #if defined(APPDCM_L9_ICUS_RANDOM)
+    /***************************************************************************
+     *                 true random generator(RH850 ICUS)                       *
+     ***************************************************************************/
+    if (RTE_E_OK == Rte_Call_AutIcusRandomGenerate_L9_RandomGenerate(&AppDcm_GaaAdvSeed[0], 8U))
+
+    #elif defined(APPDCM_L9_AUTRON_HSM_RANDOM_ICUM)
+    /***************************************************************************
+     *                 true random generator(RH850 ICUM)                       *
+     ***************************************************************************/
+    if (RTE_E_OK == Rte_Call_AutHsmPseudoRandomGenerate_L9_RandomGenerate(&AppDcm_GaaAdvSeed[0], 8U))
+
+    #endif
+    {
+      AppDcm_SeedGenResult = RTE_E_SecurityAccess_L9_DCM_E_PENDING;
+      LddRetVal = RTE_E_SecurityAccess_L9_DCM_E_PENDING;
+    }
+    break;
+
+  case DCM_PENDING:
+    LddRetVal = AppDcm_SeedGenResult;
+    if (RTE_E_OK == AppDcm_SeedGenResult)
+    {
+      uint8 LucIndex;
+      for (LucIndex = 0U; LucIndex < 8U; LucIndex++)
+      {
+        Seed[LucIndex] = AppDcm_GaaAdvSeed[LucIndex];
+      }
+    }
+    break;
+
+  case DCM_CANCEL:
+    LddRetVal = RTE_E_OK;
+    break;
+  default :
+    break;
+  }
+
+  if (RTE_E_SecurityAccess_L9_E_NOT_OK == LddRetVal)
+  {
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  return LddRetVal;
+}
+
+FUNC(Std_ReturnType, SWC_DiagnosticService_CODE) AppDcm_GetSeedCbk_L9(
+  IN VAR(Std_ReturnType, AUTOMATIC) retVal)
+{
+  if (retVal == RTE_E_OK)
+  {
+    AppDcm_SeedGenResult = RTE_E_OK;
+  }
+  else
+  {
+    AppDcm_SeedGenResult = RTE_E_SecurityAccess_L9_E_NOT_OK;
+  }
+
+  return RTE_E_OK;
+}
+
+#elif defined(APPDCM_L9_HAE_PSEUDO_RANDOM)
+
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetRandomSeed(
+  P2VAR(uint8, AUTOMATIC,DCM_APPL_DATA) RandomSeed)
+{
+  Std_ReturnType RetVal = E_NOT_OK;
+
+  /*
+  * Apply user RandomSeed to the argument in this function.
+  * RandomSeed is a 16-row array. (RandomSeed[16])
+  * Assign a random number to this variable (RandomSeed)
+  * ex) current time, tick count, event timer, ADC noise, sensor value, etc..
+  */
+
+  /*
+  * If you apply RandomSeed, you must return E_OK.
+  * E_OK : Use the user RandomSeed
+  * E_NOT_OK : Fail to use RandomSeed
+  */
+  
+  /* Example of SPC58x RandomSeed.
+   * This code is an example and is not guaranteed and should be used only for reference.
+   * OS tick address is different for each MCU
+   *
+   *
+   * uint32 LulSeed, LulSeedAddr, LulNoise;
+   * uint8 LucIndex;
+   *
+   * LulSeedAddr = 0xF4070004; // Address of SPC58x OS Tick
+   * LulSeed=(*(volatile uint32*)LulSeedAddr);
+   *
+   * for(LucIndex=0; LucIndex<APPDCM_L9_HAE_PSEUDO_ENTROPY_LENGTH; LucIndex++)
+   * {
+   *   LulSeed = (uint32)((LulSeed * 1103515245 + 12345)>>16) & 0xFF;
+   *   RandomSeed[LucIndex] = (uint8)(LulSeed + LulNoise);
+   * }
+   *
+   *  RetVal = E_OK;
+   *
+   */
+
+  #ifdef INSTST_TESTCODE_INTEGRATED
+  RetVal = E_OK;
+  #endif
+
+  return RetVal;
+}
+
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetSeed_L9(
+  IN Dcm_OpStatusType OpStatus,
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Seed,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L9_E_NOT_OK;
+  volatile static boolean LblRandomSeedUpdated = FALSE;
+
+  if (FALSE == LblRandomSeedUpdated)
+  {
+    uint8 LaaHaeHacSalt_L9[APPDCM_L9_HAE_PSEUDO_ENTROPY_LENGTH] = {0U};
+
+    /* Get RandomSeed */
+    LddRetVal = AppDcm_GetRandomSeed(LaaHaeHacSalt_L9);
+
+    if (E_OK == LddRetVal)
+    {
+      /* Update RandomSeed */
+      if (RTE_E_OK == Rte_Call_HaePseudoRandomSeed_L9_RandomSeedStart())
+      {
+        if (RTE_E_OK == Rte_Call_HaePseudoRandomSeed_L9_RandomSeedUpdate(LaaHaeHacSalt_L9, APPDCM_L9_HAE_PSEUDO_ENTROPY_LENGTH))
+        {
+          if (RTE_E_OK == Rte_Call_HaePseudoRandomSeed_L9_RandomSeedFinish())
+          {
+            LblRandomSeedUpdated = TRUE;
+          }
+        }
+      }
+    }
+  }
+
+  if (TRUE == LblRandomSeedUpdated)
+  {
+    if (RTE_E_OK == Rte_Call_HaePseudoRandomGenerate_L9_RandomGenerate(&AppDcm_GaaAdvSeed[0], 8U))
+    {
+      uint8 LucIndex;
+      for (LucIndex = 0U; LucIndex < 8U; LucIndex++)
+      {
+        Seed[LucIndex] = AppDcm_GaaAdvSeed[LucIndex];
+      }
+      LddRetVal = RTE_E_OK;
+    }
+  }
+  if (RTE_E_OK != LddRetVal)
+  {
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+
+  return LddRetVal;
+}
+#endif
+
+#endif /* defined(RTE_E_SecurityAccess_L9_E_NOT_OK) */
+
+/*******************************************************************************
+** Function Name        : AppDcm_CompareKey_L9                                **
+**                                                                            **
+** Description          : Request to application for asynchronous comparing   **
+**                        key.                                                **
+**                                                                            **
+** Sync/Async           : Asynchronous                                        **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Key : Key, which needs to be compared                                    **
+** - OpStatus : Status of the current operation                               **
+**   - DCM_INITIAL : Indicates the initial call to the operation              **
+**   - DCM_PENDING : Indicates that a pending return has been done on         **
+**                   the previous call of the operation                       **
+**   - DCM_CANCEL : Indicates that the DCM requests to cancel                 **
+**                  the pending operation                                     **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_SecurityAccess_L9_E_NOT_OK : Request was not successful          **
+**   - RTE_E_SecurityAccess_L9_DCM_E_PENDING :                                **
+**     Request is not yet finished, Further call required to finish           **
+**   - RTE_E_SecurityAccess_L9_DCM_E_COMPARE_KEY_FAILED : Key did not match   **
+**                                                                            **
+*******************************************************************************/
+#if defined(RTE_E_SecurityAccess_L9_E_NOT_OK)
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_CompareKey_L9(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Key,
+  IN Dcm_OpStatusType OpStatus)
+{
+  Std_ReturnType LddRetVal = RTE_E_SecurityAccess_L9_E_NOT_OK;
+
+  #if defined(APPDCM_L9_ADVANCED_SEEDKEY)
+  /***************************************************************************
+   *           generate the  key  based on the advanced seedKey algorithm    *
+   ***************************************************************************/
+  if (RTE_E_OK == Rte_Call_HaeAdvSeedKey_L9_HashStart() )
+  {
+    if (RTE_E_OK == Rte_Call_HaeAdvSeedKey_L9_HashUpdate(&AppDcm_GaaAdvSeed[0], 8U) )
+    {
+      uint8 LaaKey[8] = {0U, };
+      uint32 LulLength = 8U;
+
+      if (RTE_E_OK == Rte_Call_HaeAdvSeedKey_L9_HashFinish(LaaKey, &LulLength, FALSE))
+      {
+        uint8 LucIndex;
+        for (LucIndex = 0U; LucIndex < 8U; LucIndex++)
+        {
+          if (LaaKey[LucIndex] != Key[LucIndex])
+          {
+            break;
+          }
+        }
+        if (LucIndex == LulLength)
+        {
+          /* key matches */
+          LddRetVal = RTE_E_OK;
+        }
+        else
+        {
+          LddRetVal = RTE_E_SecurityAccess_L9_DCM_E_COMPARE_KEY_FAILED;
+        }
+      }
+    }
+  }
+  #endif
+
+  return LddRetVal;
+}
+#endif /* defined(RTE_E_SecurityAccess_L9_E_NOT_OK) */
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_VINDataIdentifier         **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VINDataIdentifier_E_NOT_OK :                        **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ConditionCheckRead_VINDataIdentifier(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_VINDataIdentifier                   **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VINDataIdentifier_E_NOT_OK :                        **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_VINDataIdentifier(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  uint16 iteratorData;
+
+  for(iteratorData = 0U; iteratorData < 17U; iteratorData++)
+  {
+    Data[iteratorData] = iteratorData + 1U;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_WriteData_VINDataIdentifier                  **
+**                                                                            **
+** Description          : This function requests the application to write     **
+**                        a data value of a DID.                              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Data : Buffer containing the data to be written                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VINDataIdentifier_E_NOT_OK :                        **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_WriteData_VINDataIdentifier(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+  uint16 iteratorData;
+
+  if(Data[0] == 0x57U) /* 0x57 = 'W' */
+  {
+    for(iteratorData = 0U; iteratorData < 17U; iteratorData++)
+    {
+      AppDcm_GaaVIN[iteratorData] = Data[iteratorData];
+    }
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+  else
+  {
+    LddRetVal = RTE_E_DataServices_VINDataIdentifier_E_NOT_OK;
+    *ErrorCode = DCM_E_REQUESTOUTOFRANGE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_GetScalingInformation_VINDataIdentifier      **
+**                                                                            **
+** Description          : This function requests to the application           **
+**                        for the scaling information of a Data.              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ScalingInfo : caling information (scalingByte and scalingByteExtension)  **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_VINDataIdentifier_E_NOT_OK :                        **
+**     Request was not successful                                             **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_GetScalingInformation_VINDataIdentifier(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) ScalingInfo,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  /*
+    0x6F = scalingByte#1 {ASCII, 15 data bytes}
+    0x62 = scalingByte#2 {ASCII, 2 data bytes}
+  */
+
+  ScalingInfo[0] = 0x6FU;
+  ScalingInfo[1] = 0x62U;
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_BatVolt                   **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_BatVolt_E_NOT_OK : Request was not successful       **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ConditionCheckRead_BatVolt(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_BatVolt                             **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_BatVolt_E_NOT_OK : Request was not successful       **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_BatVolt(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = AppDcm_GaaBatVolt[0];
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_WriteData_BatVolt                            **
+**                                                                            **
+** Description          : This function requests the application to write     **
+**                        a data value of a DID.                              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Data : Buffer containing the data to be written                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_BatVolt_E_NOT_OK : Request was not successful       **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_WriteData_BatVolt(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+  AppDcm_GaaBatVolt[0] = Data[0];
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_ECT                       **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ECT_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ConditionCheckRead_ECT(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_ECT                                 **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ECT_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_ECT(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = AppDcm_GaaECT[0];
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_WriteData_ECT                                **
+**                                                                            **
+** Description          : This function requests the application to write     **
+**                        a data value of a DID.                              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Data : Buffer containing the data to be written                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_ECT_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_WriteData_ECT(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+  AppDcm_GaaECT[0] = Data[0];
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ConditionCheckRead_RPM                       **
+**                                                                            **
+** Description          : This function requests to the application if the    **
+**                        conditions to read the Data are correct.            **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_RPM_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ConditionCheckRead_RPM(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReadData_ECT                                 **
+**                                                                            **
+** Description          : This function requests to the application a data    **
+**                        value of a DID.                                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - Data : Buffer where the requested data shall be copied to                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_RPM_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReadData_RPM(
+  OUT P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) Data)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  Data[0] = AppDcm_GaaRPM[0];
+  Data[1] = AppDcm_GaaRPM[1];
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_WriteData_RPM                                **
+**                                                                            **
+** Description          : This function requests the application to write     **
+**                        a data value of a DID.                              **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - Data : Buffer containing the data to be written                          **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_RPM_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_WriteData_RPM(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) Data,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  *ErrorCode = DCM_E_POSITIVERESPONSE;
+  AppDcm_GaaRPM[0] = Data[0];
+  AppDcm_GaaRPM[1] = Data[1];
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_FreezeCurrentState_RPM                       **
+**                                                                            **
+** Description          : This function requests to the application to freeze **
+**                        the current state of an IOControl.                  **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_RPM_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_FreezeCurrentState_RPM(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_RPM_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ReturnControlToECU_RPM                       **
+**                                                                            **
+** Description          : This function requests to the application to return **
+**                        control to ECU of an IOControl.                     **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     : None                                                **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_RPM_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ReturnControlToECU_RPM(
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U != AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GaaRPM[0] = APPDCM_RPM_HIGH;
+    AppDcm_GaaRPM[1] = APPDCM_RPM_LOW;
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+  else
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_RPM_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : AppDcm_ShortTermAdjustment_RPM                      **
+**                                                                            **
+** Description          : This function requests to the application to adjust **
+**                        the IO signal.                                      **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - ControlOptionRecord : ControlState information contained in the          **
+**   ControlOptionRecord parameter of the InputOutputControlByIdentifier      **
+**   diagnostic request                                                       **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_DataServices_RPM_E_NOT_OK : Request was not successful           **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) AppDcm_ShortTermAdjustment_RPM(
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) ControlOptionRecord,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal;
+
+  if(1U == AppDcm_GucEcuIsBusy)
+  {
+    AppDcm_GucEcuIsBusy = 0U;
+
+    LddRetVal = RTE_E_DataServices_RPM_E_NOT_OK;
+    *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+  }
+  else
+  {
+    AppDcm_GaaRPM[0] = ControlOptionRecord[0];
+    AppDcm_GaaRPM[1] = ControlOptionRecord[1];
+
+    LddRetVal = RTE_E_OK;
+    *ErrorCode = DCM_E_POSITIVERESPONSE;
+  }
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : ServiceRequestSupplierNotification_Confirmation     **
+**                                                                            **
+** Description          : This function notifies the confirmation of          **
+**                        diagnostic service.                                 **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - SID : Service ID                                                         **
+** - ReqType : Rx message address type                                        **
+** - SourceAddress : Source address                                           **
+** - ConfirmationStatus :                                                     **
+**   - DCM_RES_POS_OK : Transmission of positive response was successful      **
+**   - DCM_RES_POS_NOT_OK : Transmission of positive response failled         **
+**   - DCM_RES_NEG_OK : Transmission of negative response was successful      **
+**   - DCM_RES_NEG_NOT_OK : Transmission of negative response failled         **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_ServiceRequestNotification_E_NOT_OK : Request was not successful **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) ServiceRequestSupplierNotification_Confirmation(
+  IN uint8 SID,
+  IN uint8 ReqType,
+  IN uint16 SourceAddress,
+  IN Dcm_ConfirmationStatusType ConfirmationStatus)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  AppDcm_GucSID = SID;
+  AppDcm_GucReqType = ReqType;
+  AppDcm_GusSourceAddress = SourceAddress;
+  AppDcm_GddConfirmationStatus = ConfirmationStatus;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : ServiceRequestSupplierNotification_Indication       **
+**                                                                            **
+** Description          : This function notifies the confirmation of          **
+**                        diagnostic service.                                 **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - SID : Service ID                                                         **
+** - RequestData : Pointer to received data                                   **
+** - DataSize : Data length of received data                                  **
+** - ReqType : Rx message address type                                        **
+** - SourceAddress : Source address                                           **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_ServiceRequestNotification_E_NOT_OK : Request was not successful **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType,RTE_CODE) ServiceRequestSupplierNotification_Indication(
+  IN uint8 SID,
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) RequestData,
+  IN uint16 DataSize,
+  IN uint8 ReqType,
+  IN uint16 SourceAddress,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  AppDcm_GucSID = SID;
+  AppDcm_GusDataSize = DataSize;
+  AppDcm_GucReqType = ReqType;
+  AppDcm_GusSourceAddress = SourceAddress;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : ServiceRequestManufacturerNotification_Confirmation **
+**                                                                            **
+** Description          : This function notifies the confirmation of          **
+**                        diagnostic service.                                 **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - SID : Service ID                                                         **
+** - ReqType : Rx message address type                                        **
+** - SourceAddress : Source address                                           **
+** - ConfirmationStatus :                                                     **
+**   - DCM_RES_POS_OK : Transmission of positive response was successful      **
+**   - DCM_RES_POS_NOT_OK : Transmission of positive response failled         **
+**   - DCM_RES_NEG_OK : Transmission of negative response was successful      **
+**   - DCM_RES_NEG_NOT_OK : Transmission of negative response failled         **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    : None                                                **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_ServiceRequestNotification_E_NOT_OK : Request was not successful **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) ServiceRequestManufacturerNotification_Confirmation(
+  IN uint8 SID,
+  IN uint8 ReqType,
+  IN uint16 SourceAddress,
+  IN Dcm_ConfirmationStatusType ConfirmationStatus)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  AppDcm_GucSID = SID;
+  AppDcm_GucReqType = ReqType;
+  AppDcm_GusSourceAddress = SourceAddress;
+  AppDcm_GddConfirmationStatus = ConfirmationStatus;
+
+  return LddRetVal;
+}
+
+/*******************************************************************************
+** Function Name        : ServiceRequestManufacturerNotification_Indication   **
+**                                                                            **
+** Description          : This function notifies the confirmation of          **
+**                        diagnostic service.                                 **
+**                                                                            **
+** Sync/Async           : Synchronous                                         **
+**                                                                            **
+** Re-entrancy          : Non-Reentrant                                       **
+**                                                                            **
+** Input Parameters     :                                                     **
+** - SID : Service ID                                                         **
+** - RequestData : Pointer to received data                                   **
+** - DataSize : Data length of received data                                  **
+** - ReqType : Rx message address type                                        **
+** - SourceAddress : Source address                                           **
+**                                                                            **
+** InOut parameter      : None                                                **
+**                                                                            **
+** Output Parameters    :                                                     **
+** - ErrorCode : If this operation returns value E_NOT_OK, the Dcm module     **
+**   shall send a negative response with NRC code equal to the parameter      **
+**   ErrorCode parameter value. (Refer to the Rte_Dcm_Type.h)                 **
+**                                                                            **
+** Return parameter     :                                                     **
+** - Std_ReturnType                                                           **
+**   - RTE_E_OK : Request was successful                                      **
+**   - RTE_E_ServiceRequestNotification_E_NOT_OK : Request was not successful **
+**                                                                            **
+*******************************************************************************/
+FUNC(Std_ReturnType,RTE_CODE) ServiceRequestManufacturerNotification_Indication(
+  IN uint8 SID,
+  IN P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) RequestData,
+  IN uint16 DataSize,
+  IN uint8 ReqType,
+  IN uint16 SourceAddress,
+  OUT P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, RTE_APPL_DATA) ErrorCode)
+{
+  Std_ReturnType LddRetVal = RTE_E_OK;
+
+  AppDcm_GucSID = SID;
+  AppDcm_GusDataSize = DataSize;
+  AppDcm_GucReqType = ReqType;
+  AppDcm_GusSourceAddress = SourceAddress;
+
+  return LddRetVal;
+}
+
+FUNC(void, RTE_CODE) ApplicationUpdatedIndication(void)
+{
+}
+#define SWC_DiagnosticService_STOP_SEC_CODE
+#include "SWC_DiagnosticService_MemMap.h"
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/

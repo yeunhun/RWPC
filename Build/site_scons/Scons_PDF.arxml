@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+********************************************************************************
+**  (C) 2021 HYUNDAI AUTOEVER Corp.                                           **
+**  Confidential Proprietary Information. Distribution Limited.               **
+**  Do Not Copy Without Prior Permission                                      **
+**                                                                            **
+**  PURPOSE       : Definition of Build Configuration parameters.             **
+**                                                                            **
+**  DESCRIPTION   : This file provides the definition of the containers,      **
+**                  sub-containers and parameters specific to Build Option.   **
+**                                                                            **
+********************************************************************************
+** Version  Date          Prepared By     Description                         **
+********************************************************************************
+*  1.0.0    15-Jul-2018   TaeKyung Moon   Initial Version
+********************************************************************************
+--><AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+	<ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>1.0.0</REVISION-LABEL>
+        <ISSUED-BY>AUTRON</ISSUED-BY>
+        <DATE>2018-07-15</DATE>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+	<AR-PACKAGES>
+    <AR-PACKAGE UUID="8c8cfec6-21f5-4e5f-87b8-61cca68fc23a">
+      <SHORT-NAME>AUTRON</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-DEFINITION-COLLECTION>
+          <SHORT-NAME>Build_PDF</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTRON/SCons</MODULE-REF>
+          </MODULE-REFS>
+        </ECUC-DEFINITION-COLLECTION>
+        <ECUC-MODULE-DEF>
+          <SHORT-NAME>SCons</SHORT-NAME>
+          <DESC>
+            <L-2 L="EN">Configuration of build system.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>1.0.0</REVISION-LABEL>
+                <ISSUED-BY>AUTRON</ISSUED-BY>
+                <DATE>2018-07-15</DATE>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="42a61900-8ea4-4c06-a366-dd7cf2b69ab3">
+              <SHORT-NAME>Build</SHORT-NAME>
+              <CATEGORY>FIXED</CATEGORY>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="9e38ac64-b42f-4ab2-afce-ead6f6988508">
+                  <SHORT-NAME>McuFamilyType</SHORT-NAME>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="9da424b6-ecb4-4751-8d6a-6383e3a42008">
+                      <SHORT-NAME>BCM8910X</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="f362e26d-a838-4040-a19e-1af8c7063a85">
+                      <SHORT-NAME>MPC560XB</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="7be62f68-072d-43c5-80cc-59489bf0ba9f">
+                      <SHORT-NAME>RH850F1K</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="1acb5786-5d10-4334-b3e7-dabd0552d086">
+                      <SHORT-NAME>RH850F1KM</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="15bca248-dc0a-46a1-8758-d039a0aa2e60">
+                      <SHORT-NAME>RH850F1L</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="36bdbd19-06b6-41dd-b132-c87e411fce1a">
+                      <SHORT-NAME>S32GX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="6fe999fd-9f17-4265-ac9d-b7f86b38e9d5">
+                      <SHORT-NAME>S32KX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="d5fa73de-098a-445b-a151-b2d409837aba">
+                      <SHORT-NAME>S32VX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="b5aee6d0-efca-4a71-b6c0-bbaf599e58e2">
+                      <SHORT-NAME>S6J32xx</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="05ac646c-0d70-40df-8767-d92016c837dc">
+                      <SHORT-NAME>S6J33xx</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e8d67b8d-850a-4c33-b4ab-5c9750e1b4ea">
+                      <SHORT-NAME>SPC58X</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="82eda265-4371-4330-8065-897a83513279">
+                      <SHORT-NAME>TC2XX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="69847727-e6d4-4e1e-9d03-4687e11ab8eb">
+                      <SHORT-NAME>TC3XX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="3242c2d1-929a-403a-8d57-a20a54190200">
+                      <SHORT-NAME>TDA2XX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="47d2857e-838f-4fa1-956a-9fb683c3f6b9">
+                      <SHORT-NAME>TDA3XX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e32dee74-ef40-41a1-89e5-a11158b12723">
+                      <SHORT-NAME>TDA4XX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="a3eef553-a902-4da5-b5ae-7345ecfbd1b7">
+                      <SHORT-NAME>CYT2B9XX</SHORT-NAME>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="dec30fd0-6fe8-45c4-bb33-09e995cf5b57">
+                  <SHORT-NAME>CANoePath</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give CANoe path&#xD;
+e.g.)C:\Program Files\Vector CANoe 8.5\Exec64\CANoe64.exe</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="0f0cccf5-eb14-45b2-be92-d9520ca98d9c">
+                  <SHORT-NAME>Trace32Path</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give Trace32 path&#xD;
+e.g.)D:\ts_mirr\t32\T32_201602\bin\windows64\</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="b710e9d8-579a-432c-9318-f7bb73a3c502">
+                  <SHORT-NAME>IntTestDirectory</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give integration test folder relative directory to perform integration test&#xD;
+e.g.) Static_Code\b_autosar_swc_IntegrationTest</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="0403804e-696b-448c-8224-647768461ad4">
+                  <SHORT-NAME>ReleaseDir</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give top directory for released project &#xD;
+"D:\Released" will place released project under D:\Released folder&#xD;
+e.g.)  D:\Released\e_qe_sq_ibu_asr_swp_R181010&#xD;
+&#xD;
+By default, released project will be on the same directory as the original project</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="6f1001e6-27ed-4359-9481-ec28345d7161">
+                  <SHORT-NAME>DebugMode</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Set for debugging mode for Toolset</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="a193d36f-8d84-4d98-a0cf-2eb2fa75bd56">
+                  <SHORT-NAME>ArianFolder</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give ARIAN files top folder relative path</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="23c69e7d-6f26-4de4-9283-9dad1de6d323">
+                  <SHORT-NAME>FBLFolder</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give FBL top directory. If not set, FBL generated result will be located under RTSW's generated folders.&#xD;
+Relative to current project directory and it should be case-sensative.&#xD;
+ex) FBL</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="bb1f86de-741f-4dab-91d8-10a3f82ddfbf">
+                  <SHORT-NAME>CopyToCProject</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">By default, excluding list from .cproject will be used and copied to SCons.arxml.&#xD;
+If set to true, excluding list from SCons.arxml will be used and copied to .cproject file.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="fc6f0553-e41d-4091-8ffa-f2da15d3d4ea">
+                  <SHORT-NAME>EnvOptions</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Give any additional environment key, value&#xD;
+&#xD;
+DO NOT SET THESE VALUES UNLESS YOU KNOW HOW</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-MULTILINE-STRING-PARAM-DEF UUID="f15a59cf-a138-44a2-aab6-2a2e4435e0f3">
+                  <SHORT-NAME>PostBuildCommand</SHORT-NAME>
+                  <DESC>
+                    <L-2>Give any commands after build process is finished.&#xD;
+It will be excecuted after executable file (elf) is generated.&#xD;
+e.g) &#xD;
+echo hello&#xD;
+call D:\Test.bat input1 input2 input3</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                </ECUC-MULTILINE-STRING-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="91af56b0-6b74-406e-aa1f-4494b93ebaf5">
+                  <SHORT-NAME>Generation</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">To generate configured modules.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <ECUC-STRING-PARAM-DEF UUID="f66d3827-54fb-4eb1-80fc-b3c9e58e3c1c">
+                      <SHORT-NAME>McalGeneratorPath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give MCAL generator full path&#xD;
+e.g.)F:\ts_mirr\xml\tc29x\TC29x_BC_PB_V520\bin\tresos_cmd.bat</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="9d581064-ba80-4710-a469-a375dfa65e0c">
+                      <SHORT-NAME>JavaHomePath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give full path for Java (JRE)&#xD;
+e.g.)C:\ProgramData\Oracle\Java\javapath\java.exe</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="666eb440-c678-4767-9349-70fa2b554d60">
+                      <SHORT-NAME>TransformerGeneratorPath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give TransformerGenerator path&#xD;
+e.g.) D:\ts_mirr\xml</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="e5ce4ba5-580a-4915-9617-c8f313ce29b9">
+                      <SHORT-NAME>ExternalGeneratorRootPath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give External Generator Root path&#xD;
+e.g.) D:\ts_mirr\xml</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="9b9f65ae-3faf-4412-ba1e-c5512ede4f7a">
+                      <SHORT-NAME>OverrideFolders</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give folders for generation source files that needs to be detected by SCons, separated by comma(,)&#xD;
+e.g.) Static_Code, Configuration_App&#xD;
+&#xD;
+Files in the given folders will be used for generation process if same files are detected</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ae2b8f40-7d1d-41de-ad6d-b2696bcd28eb">
+                      <SHORT-NAME>Module</SHORT-NAME>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="e96efd40-70ba-4323-a667-6aab29eab242">
+                          <SHORT-NAME>ModuleName</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Select modules to be generated.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5f44c884-c403-4143-9068-cfe0e2407694">
+                              <SHORT-NAME>Adc</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9347239f-d111-43cb-94b1-807c13fb1568">
+                              <SHORT-NAME>Atm</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="1e8ff2ba-c761-4698-a50d-8a9dfa74face">
+                              <SHORT-NAME>Base</SHORT-NAME>
+                              <ORIGIN>NXP</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6aefd2e8-f823-4eaa-813b-bf0033fd8fc6">
+                              <SHORT-NAME>BswM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="04785a91-5cd1-4659-84c0-dc25337eb293">
+                              <SHORT-NAME>CDD_Router</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8413a7db-a821-4336-aa4e-cad3186fe17b">
+                              <SHORT-NAME>Can</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="789ee29c-f2f6-443b-8514-1f2f198616f1">
+                              <SHORT-NAME>CanCM</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d2e6c391-a933-4c51-94c3-2529bda7b49b">
+                              <SHORT-NAME>CanIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="29ca69b4-f06d-487a-9bf2-4b26704374e6">
+                              <SHORT-NAME>CanNm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2c3db5ee-cc0d-41e9-b3c7-c9c05b9cbc68">
+                              <SHORT-NAME>CanSM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="62bd228d-76bc-462e-8299-ee95b6ccb33b">
+                              <SHORT-NAME>CanTSyn</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="839fd167-0a03-4fe1-b1b8-eb5998ef9457">
+                              <SHORT-NAME>CanTp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fd091710-056a-41ed-b231-529ca60492eb">
+                              <SHORT-NAME>CanTrcv</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="26516263-4a51-4d4f-bfab-2cd099408876">
+                              <SHORT-NAME>Cdd</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8995d445-419d-4fdd-8247-693e19a36c03">
+                              <SHORT-NAME>CoSvAb</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4b51a492-be85-4674-bf69-2200de1106f0">
+                              <SHORT-NAME>Com</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="1021e3ef-287e-4afd-83fc-8458f8651714">
+                              <SHORT-NAME>ComM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f595571c-eeeb-4717-bc3a-e516c1092d76">
+                              <SHORT-NAME>ComXf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6406b926-acf3-45d0-bb80-c06794b883f6">
+                              <SHORT-NAME>CorTst</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="70cc7f7f-5641-4e48-bf06-026c2901ea27">
+                              <SHORT-NAME>Crc</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="40542a4e-7bef-478d-84f2-713aad9dfbe5">
+                              <SHORT-NAME>CryIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="96762760-164a-4a43-93e0-30856a50cbd6">
+                              <SHORT-NAME>Crypto</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7c5751d8-1054-43fb-8cde-eae770d99f47">
+                              <SHORT-NAME>CryptoLib</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="1492e95b-65c4-4ac4-bd6d-341725fdd454">
+                              <SHORT-NAME>Csm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9b5162c8-d96e-4b1b-a87f-06788ea661eb">
+                              <SHORT-NAME>CtrlRam</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bbc651be-e143-4c57-9f32-9aa9a3a859be">
+                              <SHORT-NAME>Dcm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="864acf17-f887-4792-a22c-b227f2d1d68f">
+                              <SHORT-NAME>Dem</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="663f1a48-06f9-43b8-b23e-a26c97827cda">
+                              <SHORT-NAME>Det</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="dc728ef2-b4c0-4828-abf3-4e930e961450">
+                              <SHORT-NAME>Dio</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4a58c05c-a989-47b3-8e12-cf08106da5f2">
+                              <SHORT-NAME>Dlt</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="02eec52f-8071-415f-8e99-c920cb725b6a">
+                              <SHORT-NAME>DoIP</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c4524570-6316-41db-8139-576bb6cfb510">
+                              <SHORT-NAME>E2EXf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8acbff47-1028-4ca6-8fee-6fede5f6fb8b">
+                              <SHORT-NAME>Ea</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="377088f8-3b4c-4e50-a5b8-0b399a3c5341">
+                              <SHORT-NAME>EcuM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e5bee875-5c00-48e9-bd1d-3efbdd2dfdbb">
+                              <SHORT-NAME>Eep</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4557f225-d68c-4032-a087-d56c20b62a56">
+                              <SHORT-NAME>Eol</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ef144903-eaa1-41f8-88cc-5ab6efd8929a">
+                              <SHORT-NAME>Eth</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7f1281eb-11f2-4d4c-ac02-8cee4bef5508">
+                              <SHORT-NAME>EthDiag</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="491c5ade-d520-48a6-80ce-315d7fe88684">
+                              <SHORT-NAME>EthIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2e4ad181-1af8-44dc-bf70-b6bc75b86f36">
+                              <SHORT-NAME>EthSM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f02373ee-0358-47ee-99ee-5b1a0dd56340">
+                              <SHORT-NAME>EthSwt</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bc712fe9-2188-4abf-9c72-8b86a1364bba">
+                              <SHORT-NAME>EthTSyn</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b1628f07-2c16-4f29-a7c3-11e5df8a9be4">
+                              <SHORT-NAME>EthTrcv</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a7fce5a0-7f42-40cd-b30a-995d253acec3">
+                              <SHORT-NAME>FBL</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="43467b48-302c-4ac9-8268-815cda0e9c48">
+                              <SHORT-NAME>Fee</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="779e6ba3-50ec-4740-b55a-c92b6c1256db">
+                              <SHORT-NAME>FiM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e9bc1bf8-f8ac-4c8a-a856-a7b9b6cd82cc">
+                              <SHORT-NAME>Fls</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="63aeecf3-0a67-4ece-8eda-76a79b8c9453">
+                              <SHORT-NAME>FlsLoader</SHORT-NAME>
+                              <ORIGIN>AURIX</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="be8e94fb-6655-4bac-b006-6cd0847e4318">
+                              <SHORT-NAME>FlsTst</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="db9a8434-8afa-42c9-a6b9-1f33cbe31abd">
+                              <SHORT-NAME>Fr</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="cfa03c75-3c5b-4b53-b766-ae18e24f9e6c">
+                              <SHORT-NAME>FrArTp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="448c04be-1171-4839-a4f6-d90a82506d03">
+                              <SHORT-NAME>FrIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="846fc3be-c2e2-4eb7-85d6-d36048b5766c">
+                              <SHORT-NAME>FrNm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f13c4d7f-8c77-4285-a4f6-30adfb46e3d2">
+                              <SHORT-NAME>FrSM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3772212f-58d4-47f3-9695-7e4b2ee12a92">
+                              <SHORT-NAME>FrTSyn</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a0ce48fb-327f-471b-8b7b-2aa3260aa276">
+                              <SHORT-NAME>FrTp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="eed3954f-a232-4172-90d6-67e4bdd2580f">
+                              <SHORT-NAME>FrTrcv</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4e12a80a-ac5a-4860-981c-363114971153">
+                              <SHORT-NAME>Gpt</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="433ce020-fba3-4e20-8639-941351985927">
+                              <SHORT-NAME>HwResource</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="26125ec3-11cd-41b5-9ac2-5114493141a7">
+                              <SHORT-NAME>Icu</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="922a4d5e-cb7a-4353-b213-9dd8dbdc0f9e">
+                              <SHORT-NAME>IdsM</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fc7dadb9-283e-42cf-a59f-1323406ed96a">
+                              <SHORT-NAME>IoHwAb</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e8dfe225-0912-4b73-b12f-7a434c7a4651">
+                              <SHORT-NAME>IpduM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="31da4255-8f62-4a3e-9595-acfd6f4645f5">
+                              <SHORT-NAME>Irq</SHORT-NAME>
+                              <ORIGIN>AURIX</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="aa06d342-e305-41e5-9029-12ee85b24024">
+                              <SHORT-NAME>J1939Dcm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a59b387f-b366-4e9f-b84f-4e6d05791bae">
+                              <SHORT-NAME>J1939Nm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="dbb6d62e-3159-4c82-9175-9c362aac8a0d">
+                              <SHORT-NAME>J1939Rm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a506c9dc-cb84-4771-b302-eb1d99160cda">
+                              <SHORT-NAME>J1939Tp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c98baf0a-5470-4ce5-b49c-e836ac372522">
+                              <SHORT-NAME>LdCom</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="202f4aab-51fe-4436-a957-e7531456823b">
+                              <SHORT-NAME>Lin</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="72ecf38a-d616-45b7-8e2e-2c6441c5d034">
+                              <SHORT-NAME>LinIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f1400036-ffe4-433c-bd20-745be229c041">
+                              <SHORT-NAME>LinNm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3cdd54d0-b7da-4ebe-8b25-57f92dbf8505">
+                              <SHORT-NAME>LinSM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8bd3fa08-554a-45f3-8b8d-9412b5d6b74e">
+                              <SHORT-NAME>LinTrcv</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8ab9ace3-8121-4e9d-803e-5fdbac36459e">
+                              <SHORT-NAME>McalLib</SHORT-NAME>
+                              <ORIGIN>INFINEON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7c4cdc42-6f91-47a1-bc3b-e3af8c292b49">
+                              <SHORT-NAME>Mcl</SHORT-NAME>
+                              <ORIGIN>NXP</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="18bc49d9-b257-4966-94fc-88767340b3a4">
+                              <SHORT-NAME>Mcu</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b944cba8-e0d2-4e52-a771-5c0c5459b483">
+                              <SHORT-NAME>MemIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="390f999b-0127-48b2-a84e-e9331d69280d">
+                              <SHORT-NAME>MuxDemuxIf</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="1d427948-488c-4626-a3f6-f67915edf419">
+                              <SHORT-NAME>Nm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c99b57a7-d4dd-460b-bdb7-cb7534d77eb5">
+                              <SHORT-NAME>NvM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5f0a65d9-3623-4d6c-9aa2-5b920cd8b231">
+                              <SHORT-NAME>Ocu</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a02b90d7-6839-4ca2-b5e8-27ba8219e5a2">
+                              <SHORT-NAME>Os</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="db6d70ef-6345-4518-a2b1-6fd4055a9bbc">
+                              <SHORT-NAME>OsImp</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a3c32dca-b4bd-4c51-9abb-08f0d8c71e21">
+                              <SHORT-NAME>OsProfiler</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5beedc22-454b-4c92-b021-52b4c0993493">
+                              <SHORT-NAME>Os_Common</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d9a1dc1f-d1ae-43ed-ac6e-f96c910f21b7">
+                              <SHORT-NAME>OsekNm</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="83669689-63eb-42d2-84d2-2795f627d740">
+                              <SHORT-NAME>PduR</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="745e9e86-1bf7-4005-b179-a7c64d63dc84">
+                              <SHORT-NAME>Pm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9fc7fe70-c8d5-4897-8ddb-ec7e00f70000">
+                              <SHORT-NAME>Port</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="433ce020-fba3-4e20-8639-941351985927">
+                              <SHORT-NAME>ProvAd</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="47abc278-a3e6-4740-872a-405800f922a6">
+                              <SHORT-NAME>Ptn</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d4a3ca4d-10ed-4c3f-a4d3-890f190cdbd2">
+                              <SHORT-NAME>Pwm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fe9227b1-c772-4b96-b516-8235dd9b082c">
+                              <SHORT-NAME>RamTst</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a7fda22e-d54c-470a-8098-14f63d976e0b">
+                              <SHORT-NAME>RegMon</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="dbe18114-58ba-4be5-a6c5-8922566c9198">
+                              <SHORT-NAME>Resource</SHORT-NAME>
+                              <ORIGIN>NXP</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6dc9e5a8-e86c-42cf-ab16-29f8d2690a1c">
+                              <SHORT-NAME>ResourceM</SHORT-NAME>
+                              <ORIGIN>INFINEON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="45e80703-a9c2-47b5-9369-a4bd16235e1a">
+                              <SHORT-NAME>Rte</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2179e01a-939b-4d1a-b2d0-0d504cad394b">
+                              <SHORT-NAME>Sd</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="346f3643-ebac-42de-a2db-8a2f27e6862b">
+                              <SHORT-NAME>SecOc</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b44d1fe4-46b8-4092-9267-34d337e3706d">
+                              <SHORT-NAME>Smu</SHORT-NAME>
+                              <ORIGIN>INFINEON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="61da818e-fd58-4d8a-a27b-80d47a6e36c8">
+                              <SHORT-NAME>SoAd</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="addf20b0-d590-4c33-95cd-e6b63cbfa1a6">
+                              <SHORT-NAME>SomeIpTp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9d050419-6205-43be-b1ea-8e32a004fc4a">
+                              <SHORT-NAME>SomeIpXf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a06d8c11-dbea-4cee-849e-89d911a5f5cc">
+                              <SHORT-NAME>Spi</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="07de4889-5ca8-4cc2-b795-9b86c7b778e5">
+                              <SHORT-NAME>StbM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="85c3ffbb-6b3f-4f7f-840b-9d6261640518">
+                              <SHORT-NAME>T1Ad</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="01f94a08-9181-4016-81d3-475f940c481a">
+                              <SHORT-NAME>TcpIp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0726d4f8-7039-419b-86a9-7b43af8d6496">
+                              <SHORT-NAME>Tm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="53577d13-3687-4dde-8543-cd4c0033c6ec">
+                              <SHORT-NAME>Ttcan</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="235d5d55-b01b-40c2-bfb9-459fe7c94f9b">
+                              <SHORT-NAME>TtcanIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bc9806da-f700-4e0c-87ce-c85fd4f2634b">
+                              <SHORT-NAME>Uart</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4ddcc738-35c3-4aa9-8076-5a51e88588a1">
+                              <SHORT-NAME>UdpNm</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f1ccd237-505e-4bcf-8da0-484fd3df49da">
+                              <SHORT-NAME>V2xBtp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="eb8d53fb-0269-4e33-a4b8-4d955047a2ad">
+                              <SHORT-NAME>V2xFac</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="405ee03b-3c02-4a90-98a5-ccd32fd8b56d">
+                              <SHORT-NAME>V2xGn</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="88c63214-132f-48cf-9501-b50f04052a7f">
+                              <SHORT-NAME>V2xM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="13c028f2-1157-4abd-910b-39da90d98c22">
+                              <SHORT-NAME>WEth</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="76e5a4d5-b00a-4be6-b1f5-37dd91fbdb53">
+                              <SHORT-NAME>WEthTrcv</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5731a045-8b8d-4248-b193-b1ea00365f13">
+                              <SHORT-NAME>Wdg</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="252e1ec3-7168-4aa5-8c4b-b3a5942333f6">
+                              <SHORT-NAME>WdgIf</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9100128a-7cd6-413a-9bf8-8e8595b2ab83">
+                              <SHORT-NAME>WdgM</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7aa0de15-a7f8-42a9-865e-2ba73ab62881">
+                              <SHORT-NAME>RomTst</SHORT-NAME>
+                              <ORIGIN>AUTRON</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="92c019fb-4fa7-4fa4-a4b9-0739280c61d2">
+                              <SHORT-NAME>Xcp</SHORT-NAME>
+                              <ORIGIN>AUTOSAR</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6d1b8bc6-6360-4390-9a97-37d2c694e32a">
+                              <SHORT-NAME>Other</SHORT-NAME>
+                              <ORIGIN>TIER</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="8f6f62e7-7514-4a94-a96c-80030aa7d878">
+                          <SHORT-NAME>InputFilesList</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">List input file names for generation (seperated by comma and exclude file extension for arxml but include extension if not)&#xD;
+e.g.) Ecud_WdgM, Ecud_WdgIf, Os.template</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="14f196de-1a4c-4c77-9ff3-50174602c0f6">
+                          <SHORT-NAME>ExpectedFilesList</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">List expected file names to be generated (seperated by comma)&#xD;
+e.g.) WdgM_Cfg.h,WdgM_Cfg.c, Os_Lsl.ld, Swcd_Bsw_Dcm.arxml</L-2>
+                          </DESC>
+                          <CATEGORY>FIXED</CATEGORY>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="78d5623f-7208-488d-81df-6de44ae92da8">
+                          <SHORT-NAME>BswDefines</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give BSWDEFINES for generator, seperate by comma. &#xD;
+e.g.) ldfile, Build\bcm89103_gnu.ld</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="5bcc4b50-e5de-476d-8daa-a25badaaf50d">
+                          <SHORT-NAME>BswIncludePath</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give BSW_INCLUDE_PATH for generator, seperate by comma. &#xD;
+e.g.) Configuration\Test_Config, Configuration\System\Bswmd</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="d9f63dde-abad-49d0-8255-5559e9dbad10">
+                          <SHORT-NAME>BswFlags</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give BSW_FLAGS for generator, seperate by comma(,)&#xD;
+e.g.) -P=xxxx&#xD;
+&#xD;
+Only supports -P/PDF option for TcpIp module only for now</L-2>
+                          </DESC>
+                          <CATEGORY>FIXED</CATEGORY>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-BOOLEAN-PARAM-DEF UUID="e2fa8165-a87b-44d1-a0ec-f25437a3b04e">
+                          <SHORT-NAME>IsMCAL</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Check if module is given by MCAL vendor</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-BOOLEAN-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="580c70b4-d8ce-43d0-9289-86f68a1ce548">
+                          <SHORT-NAME>McalDefineTarget</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give BSWDEFINES for generator, seperate by comma. &#xD;
+e.g.) ldfile, Build\bcm89103_gnu.ld</L-2>
+                          </DESC>
+                          <CATEGORY>FIXED</CATEGORY>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="f741d79c-e82d-4423-82b8-fe49fb1bf493">
+                          <SHORT-NAME>McalDefineDerivate</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give BSWDEFINES for generator, seperate by comma. &#xD;
+e.g.) ldfile, Build\bcm89103_gnu.ld</L-2>
+                          </DESC>
+                          <CATEGORY>FIXED</CATEGORY>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="4e3e1110-376c-4841-9bb4-316d2eafa579">
+                          <SHORT-NAME>MCAL_GeneratorPostfix</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give MCAL generator name postfix&#xD;
+(For RH850F1x the generator name has postfix, Wdg_X1x.exe)&#xD;
+e.g) X1x</L-2>
+                          </DESC>
+                          <CATEGORY>FIXED</CATEGORY>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-BOOLEAN-PARAM-DEF UUID="af7ed50f-daf1-446d-a240-936e53599731">
+                          <SHORT-NAME>Used</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Check if module is used</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-BOOLEAN-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="ab792629-4d2a-46b8-a21c-9bc101125d90">
+                          <SHORT-NAME>TestInputFilesList</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">List input file names for integration test (seperated by comma and exclude file arxml extension)&#xD;
+e.g.) Ecud_Pm_IntTst, Ecud_EcuM_IntTst</L-2>
+                          </DESC>
+                          <CATEGORY>FIXED</CATEGORY>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="14f25357-69fd-4580-9d94-680ea5bc107b">
+                          <SHORT-NAME>GeneratorName</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">If generator name does not match module name or extension is not .exe then Give generator file name with extension.&#xD;
+ex) TSync.exe or TSync.bat</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-BOOLEAN-PARAM-DEF UUID="d679f905-8dc0-4589-934f-b4230e0f219c">
+                          <SHORT-NAME>AUTOSAR44</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Check if module is based on AUTOSAR 44 which uses yml as an input.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-BOOLEAN-PARAM-DEF>
+                        <ECUC-MULTILINE-STRING-PARAM-DEF UUID="5a8c5c94-80b6-4b16-bcde-0ba9b9386a1c">
+                          <SHORT-NAME>ModuleOptions</SHORT-NAME>
+                          <DESC>
+                            <L-2>Give any options that must be passed to module generator (for AR44 only)&#xD;
+separate each option with new line.&#xD;
+e.g.) &#xD;
+msnAlias: Os&#xD;
+ORTI:&#xD;
+&#xD;
+above will set yml file like below&#xD;
+&#xD;
+   OsCommon:&#xD;
+      ModuleOptions:&#xD;
+         msnAlias: Os&#xD;
+         ORTI:</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-MULTILINE-STRING-PARAM-DEF>
+                      </PARAMETERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="2f3a62e9-3bf8-415c-a671-5e8d0d328a3b">
+                  <SHORT-NAME>Compile</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">To generate configured modules.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <ECUC-STRING-PARAM-DEF UUID="4878e705-8751-4662-81da-1aeb026ddecc">
+                      <SHORT-NAME>ArchivePath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Archive executor path for the compiler&#xD;
+e.g.) F:\ts_mirr\tasking\tricore.vx42r2ctc\bin\artc.exe</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="7b9dbefd-daef-4d5a-99cb-26f95c8a320f">
+                      <SHORT-NAME>CSuffixes</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Enter suffixes to be compiled seperated by comma(,)&#xD;
+e.g.) c, C, ppc,asm,S,s</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="c68604cb-d4a4-41a9-8d17-610d6098de14">
+                      <SHORT-NAME>CompilerLicense</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Compiler license path or ip address separated by comma(,)&#xD;
+e.g) ip=10.208.199.196, path=Build/license.ghslic</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="f66d3827-54fb-4eb1-80fc-b3c9e58e3c1c">
+                      <SHORT-NAME>CompilerPath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Compiler path for the compiler&#xD;
+e.g.) d:/ts_mirr/gh/V800.V2013.5.5.p42/ccrh850.exe</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="ab8e52c6-c22b-4ed9-bf9b-2951d55bb40d">
+                      <SHORT-NAME>DefaultCompileOption</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Default Compile Option (CCFLAGS) values seperated by comma (,)&#xD;
+e.g.) -Wall, -Wextra, -mcpu=cortex-m7,mthumb</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="8f97aaab-a918-4554-8bab-dc649dc86546">
+                      <SHORT-NAME>DefaultDefineOption</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Default Define Option (CPPDEFINES) values seperated by comma (,)&#xD;
+e.g.) __SC1__, __OS_HANDLES__&#xD;
+&#xD;
+These values will have prefix -D&#xD;
+e.i) -D__SC1__</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="70c840fc-15e1-42df-8091-6f727e961548">
+                      <SHORT-NAME>LibraryDirectory</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give library directory relative to project directory&#xD;
+e.g) Static_Code/Modules/b_autosar_sys_CryptoLib/lib/CycurLib/bin&#xD;
+</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="893e97a3-82f1-4380-aaa8-a0357c5f8b42">
+                      <SHORT-NAME>LibraryFiles</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give library file names without lib seperated by comma (,)&#xD;
+e.g) c, nosys, gcc&#xD;
+&#xD;
+Actual file names would be libc.a, libnosys.a, libgcc.a </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="e6f182ee-842d-4638-8afa-cd65b3708cd3">
+                      <SHORT-NAME>LinkDiscriptFile</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Link Discription file (.ld) directory relative to the project&#xD;
+e.g) Build\xxxx.ld</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="784eb813-533a-4006-8539-eb3253c3f2af">
+                      <SHORT-NAME>LinkOption</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Link option (LINKFLAGS) for linking process&#xD;
+e.g) -e _RESET, -map,-keepmap</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="89c47527-9f03-4c3d-a013-d4c8587633d4">
+                      <SHORT-NAME>LinkerPath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give Linker path for the compiler&#xD;
+e.g.) F:\ts_mirr\tasking\tricore.vx42r2ctc\bin\ltce.exe</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="25a17cc7-c77a-4544-af4f-a35752d63742">
+                      <SHORT-NAME>ObjectFiles</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give library file path(s) and name(s)&#xD;
+e.g) D:\ts_mirr\gh\V800.V2015.1.7.p8\lib\rh850\crt.o</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="5a378929-8773-4e5d-94ff-4afe00fba9cd">
+                      <SHORT-NAME>ReleaseExceptedDirectory</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Enter extra release excepted folder&#xD;
+e.g.) test_folder&#xD;
+&#xD;
+These folders are excepted already&#xD;
+['.svn', 'Debug_FBL', 'Debug', 'FBL_Output', 'FBL']</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="ca3c45a8-7161-4d8c-9282-31fd886e651e">
+                      <SHORT-NAME>ReleaseExceptedFile</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Enter release excepted file pattern (ignore CASE)&#xD;
+e.g.) .AIS, .bak, .etc&#xD;
+&#xD;
+These file patterns are excepted already&#xD;
+&#xD;
+.static_wa, .dblite
+, .cproject, .project, .zip, _LibFileList.xml, _FBL.arxml
+, _FBL.py
+, _FBL, _FBL.ld, .AIS, InstallTools.bat</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-ENUMERATION-PARAM-DEF UUID="b55cea77-a1e8-45f3-a693-b796f13a7171">
+                      <SHORT-NAME>CompilerType</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Select compiler type&#xD;
+1. multiide : ghs compiler&#xD;
+2. tasking : tasking compiler&#xD;
+3. armgcc : gcc compiler supporing arm</L-2>
+                      </DESC>
+                      <CATEGORY>FIXED</CATEGORY>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <LITERALS>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="f362e26d-a838-4040-a19e-1af8c7063a85">
+                          <SHORT-NAME>armgcc</SHORT-NAME>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="9da424b6-ecb4-4751-8d6a-6383e3a42008">
+                          <SHORT-NAME>multiide</SHORT-NAME>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="c9b23993-5c5c-4b6b-afd1-6e5faad73ab2">
+                          <SHORT-NAME>tasking</SHORT-NAME>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="f958c051-ef23-4d77-9acb-adc910a8fee2">
+                          <SHORT-NAME>ti</SHORT-NAME>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ECUC-ENUMERATION-PARAM-DEF>
+                    <ECUC-STRING-PARAM-DEF UUID="617961fb-864d-44b8-aaa3-7fe572fd1834">
+                      <SHORT-NAME>OverrideFolders</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Give folders for compile source files that needs to be detected by SCons, separated by comma(,)&#xD;
+e.g.) Static_Code&#xD;
+&#xD;
+Files in the given folders will be used for compile process if same files are detected.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                    </ECUC-STRING-PARAM-DEF>
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="af3a5741-511d-42aa-937a-205dd63f03f3">
+                      <SHORT-NAME>RecursiveHeaderPath</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">If set to true, header path will be passed to compiler recursively.&#xD;
+ex) If Adc.h is under directory dir/subdir then compile option '-I' will be as below...&#xD;
+-Idir&#xD;
+-Idir/subdir</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ae2b8f40-7d1d-41de-ad6d-b2696bcd28eb">
+                      <SHORT-NAME>Pattern</SHORT-NAME>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>255</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="f73d0fa4-1112-4de9-a04c-7ee238516155">
+                          <SHORT-NAME>PatternType</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Check corresponding pattern for you build option</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9da424b6-ecb4-4751-8d6a-6383e3a42008">
+                              <SHORT-NAME>MCAL</SHORT-NAME>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f362e26d-a838-4040-a19e-1af8c7063a85">
+                              <SHORT-NAME>BSW</SHORT-NAME>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="15bca248-dc0a-46a1-8758-d039a0aa2e60">
+                              <SHORT-NAME>ASW</SHORT-NAME>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="328985da-3c3b-43b3-81cd-4eb216d73774">
+                              <SHORT-NAME>FBL</SHORT-NAME>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="f1759534-8bc6-4f8a-bf06-57bfb5430771">
+                          <SHORT-NAME>CompileOption</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give Compile Option (CCFLAGS) values seperated by comma (,)&#xD;
+e.g.) -Wall, -Wextra, -mcpu=cortex-m7,mthumb</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="2127bdd3-08a7-4cee-ac46-34ca7b2f0599">
+                          <SHORT-NAME>DefineOption</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give Define Option (CPPDEFINES) values seperated by comma (,)&#xD;
+e.g.) __SC1__, __OS_HANDLES__&#xD;
+&#xD;
+These values will have prefix -D&#xD;
+e.i) -D__SC1__</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="afe7c105-902a-4f93-b7a4-9a0206a658d0">
+                          <SHORT-NAME>SourcePath</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give source path(s) where the options should be used &#xD;
+e.g) Static_Code\Modules\b_autosar_mcal_BCM8910x</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                        <ECUC-BOOLEAN-PARAM-DEF UUID="31b4e38e-4d8e-4aaf-8bd0-a66bfdf07c99">
+                          <SHORT-NAME>IsInternalFile</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Check 'True' if the pattern is for library option&#xD;
+'False' will not create library file unless listed in "Xxx_LibFileList.xml" file</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                        </ECUC-BOOLEAN-PARAM-DEF>
+                        <ECUC-STRING-PARAM-DEF UUID="00203e85-a54f-4de3-b5f8-5c6ff97fbae6">
+                          <SHORT-NAME>InternalLibPath</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Give internal library (.a) files to be archived into a single library(.a) file&#xD;
+e.g) Static_Code\Modules\b_autosar_sys_CryptoLib\lib\CycurLib\bin\libcycurlib_RH850.a</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                        </ECUC-STRING-PARAM-DEF>
+                      </PARAMETERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <ECUC-CHOICE-CONTAINER-DEF UUID="0057073c-f381-434f-9d86-ff42382405b4">
+                      <SHORT-NAME>CompileCmdChoice</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Select Build process type for excluding files/folders settings&#xD;
+&#xD;
+Possible options are stated below.&#xD;
+Build : Exclude files/folders for Build process&#xD;
+Release : Exclude files/folders for Release process&#xD;
+Compile : Exclude files/folders for Compile only process&#xD;
+&#xD;
+MAKE SURE ABOVE STRING MATCHES ARGUMENT PARAMETER TO BUILD.BAT FILE&#xD;
+e.g) .\Build\build.bat Build or .\Build\build.bat Release or .\Build\build.bat Compile</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>3</UPPER-MULTIPLICITY>
+                      <CHOICES>
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="290a074e-2dbb-4931-a5dc-1dd9f2d1bcb5">
+                          <SHORT-NAME>Release</SHORT-NAME>
+                          <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                          <PARAMETERS>
+                            <ECUC-STRING-PARAM-DEF UUID="aa1bfd01-9602-4b16-91dc-e288fb3944c0">
+                              <SHORT-NAME>ExcludeList</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Enter files/folders to exclude path relative to project directory.&#xD;
+e.g) Static_Code\Test_Folder</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                            </ECUC-STRING-PARAM-DEF>
+                          </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ffaec86b-599a-41b5-b756-a467f3a97177">
+                          <SHORT-NAME>Build</SHORT-NAME>
+                          <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                          <PARAMETERS>
+                            <ECUC-STRING-PARAM-DEF UUID="d14b7815-dc5e-4125-a56b-50726bbff06f">
+                              <SHORT-NAME>ExcludeList</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Enter files/folders to exclude path relative to project directory.&#xD;
+e.g) Static_Code\Test_Folder</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                            </ECUC-STRING-PARAM-DEF>
+                          </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="213eea6d-d658-4d1e-b755-69aa222eba56">
+                          <SHORT-NAME>Compile</SHORT-NAME>
+                          <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                          <PARAMETERS>
+                            <ECUC-STRING-PARAM-DEF UUID="d14b7815-dc5e-4125-a56b-50726bbff06f">
+                              <SHORT-NAME>ExcludeList</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Enter files/folders to exclude path relative to project directory.&#xD;
+e.g) Static_Code\Test_Folder</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                            </ECUC-STRING-PARAM-DEF>
+                          </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </CHOICES>
+                    </ECUC-CHOICE-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </ECUC-MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

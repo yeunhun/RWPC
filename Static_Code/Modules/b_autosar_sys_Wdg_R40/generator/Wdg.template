@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>1.8.2</TEMPLATE-VERSION>
+
+  <!-- Generation Tool versions which are supported by this Template -->
+  <SUPPORTED-TOOL-VERSIONS>1.8.2</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <!-- Module under test -->
+    <MODULE-UNDER-TEST>WDG</MODULE-UNDER-TEST>
+    <!-- Mandatory Modules required to Parse Wdg -->
+    <MANDATORY-MODULES>WDG GPT</MANDATORY-MODULES>
+    <!-- All the Modules to be Parsed -->
+    <MODULES>WDG GPT MCU DIO DEM</MODULES>
+    <!-- Modules required MDT File information -->
+    <MODULE-UNDER-TEST-MDT>WDG</MODULE-UNDER-TEST-MDT>
+    <!-- Provide all command line options here in capital case, first letter of each commandline option will also
+         be a valid command line option but it need not be mentioned below.
+         command line options should not conflict with each other including the first charactor of option
+    -->
+    <CMDLINEOPTIONS></CMDLINEOPTIONS>
+    <!-- Containers which contain reference parameters -->
+    <REFERENCE-CONTAINER-ARRAY>ExternalConfiguration DemEventParameterRefs DioTrigger</REFERENCE-CONTAINER-ARRAY>
+    <!-- Name of the containers and their corresponding reference parameters -->
+    <SYMREF-PARAM>
+      <ENTRY NAME = 'ExternalConfiguration'      DETAILS = 'GptChannelRef'></ENTRY>
+      <ENTRY NAME = 'DemEventParameterRefs'      DETAILS = 'E_DISABLE_REJECTED E_MODE_FAILED'></ENTRY>
+      <ENTRY NAME = 'DioTrigger'                 DETAILS = 'DioTriggerChannelRef'></ENTRY>
+    </SYMREF-PARAM>
+    <!-- For each reference parameters corresponding destination containers and parameters -->
+    <REFERENCES>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'GptChannelRef'            DESTINATION-CONTAINER = 'GptChannelConfiguration'       DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'E_DISABLE_REJECTED'       DESTINATION-CONTAINER = 'DemEventParameter'             DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'E_MODE_FAILED'            DESTINATION-CONTAINER = 'DemEventParameter'             DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'DioTriggerChannelRef'     DESTINATION-CONTAINER = 'DioChannel'                    DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+    </REFERENCES>
+    <!-- To check if the correct description file is provided as input.-->
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+    <!-- If parameter multiplicity is more than one -->
+    <PARAM-MULTIPLICITY>
+    </PARAM-MULTIPLICITY>
+    <!-- To have parameter copy of reference parameters -->
+    <PARAMETER-COPY>
+    </PARAMETER-COPY>
+    <!-- If reference parameter is optional -->
+    <REF-MUL>
+      <ENTRY>E_DISABLE_REJECTED</ENTRY>
+      <ENTRY>E_MODE_FAILED</ENTRY>
+    </REF-MUL>
+  </PARSER-DETAILS>
+
+  <!-- To generate handle ids -->
+  <HANDLE-ID-DETAILS>
+    <HANDLE-ENTRY CONTAINER-NAME = 'General'          PARAMETER-NAME = 'WdgIndex'           TYPE-CAST = 'uint8'></HANDLE-ENTRY>
+  </HANDLE-ID-DETAILS>
+
+  <!-- Map Names -->
+  <MAP-NAMES>
+    <CONTAINER-DETAILS>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgGeneral'                            MAP-NAME = 'General'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgDevErrorDetect'                     MAP-NAME = 'DevErrorDetect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgDisableAllowed'                     MAP-NAME = 'DisableAllowed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgVersionInfoApi'                     MAP-NAME = 'VersionInfoApi'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgIndex'                              MAP-NAME = 'Index'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgInitialTimeout'                     MAP-NAME = 'InitialTimeout'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgMaxTimeout'                         MAP-NAME = 'MaxTimeout'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgRunArea'                            MAP-NAME = 'RunArea'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgTriggerLocation'                    MAP-NAME = 'TriggerLocation'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgVendorMcalVersion'                  MAP-NAME = 'VendorMcalVersion'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgSettingsConfig'                     MAP-NAME = 'SettingsConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgDefaultMode'                        MAP-NAME = 'DefaultMode'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgGptChannelPrefix'                   MAP-NAME = 'GptChannelPrefix'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgDioChannelPrefix'                   MAP-NAME = 'DioChannelPrefix'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgSettingsOff'                        MAP-NAME = 'SettingsOff'>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgSettingsSlow'                       MAP-NAME = 'SettingsSlow'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgPeriod'                             MAP-NAME = 'Period'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgSettingsFast'                       MAP-NAME = 'SettingsFast'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgPeriod'                             MAP-NAME = 'Period'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgExternalConfiguration'              MAP-NAME = 'ExternalConfiguration'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgGptChannelRef'                      MAP-NAME = 'GptChannelRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgExternalDevice'                     MAP-NAME = 'ExternalDevice'>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgDioTrigger'                         MAP-NAME = 'DioTrigger'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgDioTriggerDuty'                     MAP-NAME = 'DioTriggerDuty'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgDioTriggerChannelRef'               MAP-NAME = 'DioTriggerChannelRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgArisuCan'                           MAP-NAME = 'ArisuCan'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgArisuCanTimerPeriod'                MAP-NAME = 'ArisuCanTimerPeriod'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgArisuCanTypeSelection'              MAP-NAME = 'ArisuCanTypeSelection'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgArisuCanDeactivationInStopMode'     MAP-NAME = 'ArisuCanDeactivationInStopMode'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgArisuCanEnableAfterBusWake'         MAP-NAME = 'ArisuCanEnableAfterBusWake'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgArisuCanMax3Reset'                  MAP-NAME = 'ArisuCanMax3Reset'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgMPQ6411'                            MAP-NAME = 'MPQ6411'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgMPQ6411InitailOffSet'               MAP-NAME = 'MPQ6411InitailOffSet'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgMPQ6411TriggerDuty'                 MAP-NAME = 'MPQ6411TriggerDuty'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgMPQ6411DioTriggerChannelRef'        MAP-NAME = 'MPQ6411DioTriggerChannelRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgMPQ6411DioModeChannelRef'           MAP-NAME = 'MPQ6411DioModeChannelRef'></PARAMETER-DETAIL>       
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgDemEventParameterRefs'              MAP-NAME = 'DemEventParameterRefs'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WDG_E_DISABLE_REJECTED'                MAP-NAME = 'E_DISABLE_REJECTED'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WDG_E_MODE_FAILED'                     MAP-NAME = 'E_MODE_FAILED'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL   ORIGINAL-NAME = 'WdgPublishedInformation'               MAP-NAME = 'PublishedInformation'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'WdgTriggerMode'                        MAP-NAME = 'TriggerMode'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+    </CONTAINER-DETAILS>
+  </MAP-NAMES>
+
+  <!-- Container Count -->
+  <CONTAINER-COUNTS>
+    <CONTAINER-COUNT MAP-NAME = 'General'                                         COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SettingsConfig'                                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SettingsSlow'                                    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SettingsFast'                                    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'ExternalDevice'                                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'DemEventParameterRefs'                           COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'PublishedInformation'                            COUNT = '0'></CONTAINER-COUNT>
+  </CONTAINER-COUNTS>
+
+  <!-- To get decimal value for the stucture fields -->
+  <DECIMAL-FIELDS>
+    <ENTRY>ulSlowPeriodMs</ENTRY>
+    <ENTRY>ddSlowPeriodTick</ENTRY>
+    <ENTRY>ulFastPeriodMs</ENTRY>
+    <ENTRY>ddFastPeriodTick</ENTRY>
+    <ENTRY>ulSlowDutyUs</ENTRY>
+    <ENTRY>ddSlowDutyTick</ENTRY>
+    <ENTRY>ulFastDutyUs</ENTRY>
+    <ENTRY>ddFastDutyTick</ENTRY>
+    <ENTRY>ulInitialOffSetPeriodMS</ENTRY>
+    <ENTRY>ddInitialOffSetPeriodTick</ENTRY>    
+  </DECIMAL-FIELDS>
+
+  <!-- Pre compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_DEV_ERROR_DETECT'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '1'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable Development error detection'
+      Container = 'General'
+      Parameter = 'DevErrorDetect'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_DEM_ERROR_REPORT'
+      Type      = '2'
+      Value     = 'STD_OFF'
+      Pos       = '2'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable DemEventParameter'
+      Container = 'DemEventParameterRefs'
+      Parameter = ''>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_VERSION_INFO_API'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '3'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable Wdg_GetVersionInfo API'
+      Container = 'General'
+      Parameter = 'VersionInfoApi'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_DISABLE_ALLOWED'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '4'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable selection of the OffMode'
+      Container = 'General'
+      Parameter = 'DisableAllowed'>
+    </MACRO-ENTRY> 
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_EXTERNAL_MODULE_DIO'
+      Type      = '3'
+      Value     = 'STD_OFF'
+      Pos       = '20'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable DIO trigger'
+      Parameter = 'Type'
+      ExpValue  = 'DioTrigger'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_EXTERNAL_MODULE_ARISUCAN'
+      Type      = '3'
+      Value     = 'STD_OFF'
+      Pos       = '21'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable Arisu-Can trigger '
+      Parameter = 'Type'
+      ExpValue  = 'ArisuCan'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_EXTERNAL_MODULE_MPQ6411'
+      Type      = '3'
+      Value     = 'STD_OFF'
+      Pos       = '22'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable MPQ611 trigger'
+      Parameter = 'Type'
+      ExpValue  = 'MPQ6411'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'WDG_76_ACW_PRECOMPILE_SUPPORT'
+      Type      = '5'
+      Value     = 'STD_ON'
+      Pos       = '30'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Enable or Disable precompile support'
+      Container = 'ImplClass'
+      Parameter = 'WDG'>
+    </MACRO-ENTRY>
+  </PRE-COMPILE-OPTIONS>
+
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+      <CONTAINER NAME = 'General'>
+        <PARAMETER-NAME>InitialTimeout</PARAMETER-NAME>
+        <PARAMETER-NAME>MaxTimeout</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'SettingsConfig'>
+        <PARAMETER-NAME>DefaultMode</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'SettingsSlow'>
+        <PARAMETER-NAME>Period</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'SettingsFast'>
+        <PARAMETER-NAME>Period</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'ExternalConfiguration'>
+        <PARAMETER-NAME>GptChannelRef</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'DioTrigger'>
+        <PARAMETER-NAME>DioTriggerInitValue</PARAMETER-NAME>
+        <PARAMETER-NAME>DioTriggerChannelRef</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'ArisuCan'>
+        <PARAMETER-NAME>ArisuCanTimerPeriod</PARAMETER-NAME>
+        <PARAMETER-NAME>ArisuCanTypeSelection</PARAMETER-NAME>
+        <PARAMETER-NAME>ArisuCanDeactivationInStopMode</PARAMETER-NAME>
+        <PARAMETER-NAME>ArisuCanEnableAfterBusWake</PARAMETER-NAME>
+        <PARAMETER-NAME>ArisuCanMax3Reset</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'MPQ6411'>
+        <PARAMETER-NAME>MPQ6411InitailOffSet</PARAMETER-NAME>
+        <PARAMETER-NAME>DioTriggerInitValue</PARAMETER-NAME>
+        <PARAMETER-NAME>MPQ6411DioTriggerChannelRef</PARAMETER-NAME>
+        <PARAMETER-NAME>MPQ6411DioModeChannelRef</PARAMETER-NAME>
+      </CONTAINER>      
+    </MANDATORY-CHECK>
+
+    <!-- String check -->
+    <STRING-CHECK>
+      <PARAMETER>
+        <NAME>RunArea</NAME>
+        <CONTAINER-NAME>General</CONTAINER-NAME>
+      </PARAMETER>
+    </STRING-CHECK>
+
+  </CONSISTENCY-CHECKS>
+
+  <!-- Output files and its details -->
+  <OUTPUT-FILES>
+    <Wdg_76_Acw_Cfg.h>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Wdg_76_Acw_Cfg.h                                               **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR AUTRON CUSTOM WDG                                    **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Generation Tool Information                           **
+*******************************************************************************/
+/*
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            */
+
+/*******************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+#ifndef WDG_76_ACW_CFG_H
+#define WDG_76_ACW_CFG_H
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION BEGIN (MISRA-C RULE CHECKER)                **
+*******************************************************************************/
+/*
+  polyspace:begin&lt;MISRA-C:19.4:Not a defect:Justify with annotations&gt; No Impact of this rule violation
+*/
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Std_Types.h"
+#include "WdgIf_Types.h"
+#include "Gpt.h"
+INCLUDE_FILES
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Common Published Information                          **
+*******************************************************************************/
+COMMON_PUBLISH_INFO
+
+/*******************************************************************************
+**                      Precompile Options                                    **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+/*******************************************************************************
+**                      Global Data Types                                     **
+*******************************************************************************/
+WDG_GLOBALDATATYPES
+
+/*******************************************************************************
+**               PRE-JUSTIFICATION END (MISRA-C RULE CHECKER)                 **
+*******************************************************************************/
+/*
+  polyspace:end&lt;MISRA-C:19.4:Not a defect:Justify with annotations&gt; No Impact of this rule violation 
+*/
+
+#endif /* WDG_76_ACW_CFG_H */
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+    </Wdg_76_Acw_Cfg.h>
+    <Wdg_76_Acw_Cfg.c>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Wdg_76_Acw_Cfg.c                                               **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR AUTRON CUSTOM WDG                                    **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Generation Tool Information                           **
+*******************************************************************************/
+/*
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            */
+
+/*******************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION BEGIN (MISRA-C RULE CHECKER)                **
+*******************************************************************************/
+/* polyspace-begin MISRA-C3:20.1 [Not a Defect] "see MEMMAP003 of AUTOSAR" */
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Wdg_76_Acw_Types.h"
+#include "Wdg_76_Acw.h"
+
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Version Check                                         **
+*******************************************************************************/
+VERSION_CHECK
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+STRUCTURE_DEFINITIONS
+
+/*******************************************************************************
+**               PRE-JUSTIFICATION END (MISRA-C RULE CHECKER)                 **
+*******************************************************************************/
+/* polyspace-end MISRA-C3:20.1 */
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+    </Wdg_76_Acw_Cfg.c>
+  </OUTPUT-FILES>
+
+  <VENDOR-SPECIFIC-INFOS>
+    <INFINEON_TC2XX>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannel_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroup_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </INFINEON_TC2XX>
+    <INFINEON_TC3XX>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannelConfiguration_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroup_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </INFINEON_TC3XX>
+    <FREESCALE>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannelConfiguration_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroupIdentification_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </FREESCALE>
+    <ST>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannelConfiguration_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroupIdentification_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </ST>
+    <RENESAS>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannelConfiguration_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroup_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </RENESAS>
+    <NXP>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannelConfiguration_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroupIdentification_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </NXP>
+    <CYPRESS_Traveo2>
+      <DEFAULT>
+        <GPT_CHANNEL_TYPE>GptConf_GptChannelConfiguration_</GPT_CHANNEL_TYPE>
+        <DIO_CHANNEL_TYPE>DioConf_DioChannel_</DIO_CHANNEL_TYPE>
+        <DIO_CHANNELGROUP_TYPE>DioConf_DioChannelGroupIdentification_</DIO_CHANNELGROUP_TYPE>
+        <SPI_SEQUENCE_TYPE>SpiConf_SpiSequence_</SPI_SEQUENCE_TYPE>
+        <SPI_CHANNEL_TYPE>SpiConf_SpiChannel_</SPI_CHANNEL_TYPE>
+      </DEFAULT>
+    </CYPRESS_Traveo2>
+  </VENDOR-SPECIFIC-INFOS>
+</GENERAL-INFORMATION>
+
+<!--
+################################################################################
+# Revision History:                                                            #
+# Version No.  Last modified  Author     Description                           #
+################################################################################
+# 1.8.2        26-Oct-2021    YH.Han     Redmine #32698                        #
+# 1.8.1        12-Jan-2021    YH.Han     Redmine #27593                        #
+# 1.8.0        22-May-2020    YH.Han     Redmine #23662                        #
+# 1.7.0        10-Apr-2020    YH.Han     Redmine #18097                        #
+# 1.6.1        12-Mar-2020    YH.Han     Redmine #21643                        #
+# 1.6.0        09-Aug-2019    YH.Han     Redmine #18796                        #
+# 1.5.1        18-Jun-2019    YH.Han     Redmine #17867                        #
+# 1.5.0        25-Apr-2019    YH.Han     Redmine #17075                        #
+# 1.4.0        07-Mar-2019    YH.Han     Redmine #16014, #16015, #16356        #
+# 1.3.1        25-Apr-2018    YH.Han     Redmine #12460                        #
+# 1.3.0        17-Jul-2017    KS.Joo     Redmine #9640                         #
+# 1.2.0        10-May-2017    KS.Joo     Redmine #8320                         #
+# 1.1.3        29-May-2017    KS.Joo     Redmine #8684, #8244                  #
+# 1.1.2        13-Apr-2017    KS.Joo     Redmine #7072                         #
+# 1.1.1        05-Dec-2016    KS.Joo     Redmine #6708                         #
+# 1.1.0        28-Apr-2016    Sinil      Redmine #4610, #4744                  #
+# 1.0.8        05-Apr-2016    KS.Joo     Redmine #4556                         #
+# 1.0.0        24-Nov-2014    Sinil      Initial version                       #
+################################################################################
+-->

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="c63800b6-f53e-4222-b866-8c767c1433ec">
+      <SHORT-NAME>cdd_uds</SHORT-NAME>
+      <ELEMENTS>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="7787cd74-9b1d-447d-9afa-05817d2422f4">
+          <SHORT-NAME>CDD_UDS</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="5d5e4d19-8ffa-45f7-a5ad-f5861e2166cf">
+              <SHORT-NAME>EventInfo_CANSM_E_BUS_OFF_BCAN</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticInfo/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticInfo</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="eaa8a424-4d8b-4d17-8414-83c067b08692">
+              <SHORT-NAME>EventInfo_CANSM_E_BUS_OFF_LCAN</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticInfo/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticInfo</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="925df0b1-fa9a-4860-8b04-953fb7d5db92">
+              <SHORT-NAME>R_Cdd</SHORT-NAME>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CddIf/ClearDTC</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CddIf</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="b625c8d2-f2b5-45dc-b383-70fca7d8b4f3">
+              <SHORT-NAME>InternalBehavior</SHORT-NAME>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="71bdebe8-365e-4ab4-b1b6-1d8af294ca20">
+                  <SHORT-NAME>RE_UDS</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="bd1c9da0-a42b-4f8d-890b-1f347cc20fd8">
+                      <SHORT-NAME>SSCP_RE_UDS_EventInfo_CANSM_E_BUS_OFF_BCAN_GetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_uds/CDD_UDS/EventInfo_CANSM_E_BUS_OFF_BCAN</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticInfo/GetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="82401486-c186-4318-8827-897b0dc0f234">
+                      <SHORT-NAME>SSCP_RE_UDS_EventInfo_CANSM_E_BUS_OFF_LCAN_GetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_uds/CDD_UDS/EventInfo_CANSM_E_BUS_OFF_LCAN</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticInfo/GetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="bd2a816b-7bcf-4983-90e5-f1608732a725">
+                      <SHORT-NAME>SSCP_RE_UDS_R_Cdd_ClearDTC</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/cdd_uds/CDD_UDS/R_Cdd</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CddIf/ClearDTC</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                  <SYMBOL>RE_UDS</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

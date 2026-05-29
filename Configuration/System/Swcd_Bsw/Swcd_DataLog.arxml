@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+	<AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Svc_DataLog</SHORT-NAME>
+      <ELEMENTS>
+        <SERVICE-SW-COMPONENT-TYPE UUID="5cc3ab0d-c9c7-42de-90c9-4a1d7d3f0470">
+          <SHORT-NAME>DataLog</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="01f28d01-2c1d-47b1-af51-666915fe93b9">
+              <SHORT-NAME>CBReadData_DE_DataLog</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_DataLog/ReadData</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_DataLog</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="345568e8-c22f-495f-8ef1-abb16eb6d381">
+              <SHORT-NAME>SwcIB_DataLog</SHORT-NAME>
+              <EVENTS>
+                <OPERATION-INVOKED-EVENT UUID="4f09d698-7ec1-45e8-aea2-c4b30c0aba50">
+                  <SHORT-NAME>OIE_CBReadData_DE_DataLog_CSDataServices_DE_DataLog_ReadData</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Svc_DataLog/DataLog/SwcIB_DataLog/CBReadData_DE_DataLog</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/Svc_DataLog/DataLog/CBReadData_DE_DataLog</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_DataLog/ReadData</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="cbd55f2f-d995-4bd3-a0f9-769799b44f1f">
+                  <SHORT-NAME>CBReadData_DE_DataLog</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>CBReadData_DE_DataLog</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </SERVICE-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES></AUTOSAR>

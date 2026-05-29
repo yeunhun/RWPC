@@ -1,0 +1,3374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>1.23.0.0</TEMPLATE-VERSION>
+
+  <!-- Generation Tool versions which are supported by this Template -->
+  <SUPPORTED-TOOL-VERSIONS>1.23.0.0</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <!-- Module under test -->
+    <MODULE-UNDER-TEST>FBL</MODULE-UNDER-TEST>
+    <!-- Mandatory Modules required to Parse FBL -->
+    <MANDATORY-MODULES>FBL</MANDATORY-MODULES>
+    <!-- All the Modules to be Parsed -->
+    <MODULES>FBL TCPIP</MODULES>
+    <!-- Modules required MDT File information -->
+    <MODULE-UNDER-TEST-MDT>FBL</MODULE-UNDER-TEST-MDT>
+    <!-- Containers which contain reference parameters -->
+    <!-- To check if the correct description file is provided as input.
+      ArReleaseVersion in the description file is compared with the below versions. -->
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+    <!-- Name of the containers and their corresponding reference parameters -->
+    <!-- For each reference parameters corresponding destination containers and parameters -->
+    <REFERENCES>
+    </REFERENCES>
+    <!-- If parameter multiplicity is more than one -->
+    <PARAM-MULTIPLICITY>
+    </PARAM-MULTIPLICITY>
+    <PARAMETER-COPY></PARAMETER-COPY>
+     <!-- For the parameters listed below reference need not be configured -->
+    <REF-MUL>
+    </REF-MUL>
+  </PARSER-DETAILS>
+
+  <!-- Map Names -->
+  <MAP-NAMES>
+  <!-- List all SWC related tags for which map names are required -->
+    <CONTAINER-DETAILS>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblGeneral'                                  MAP-NAME = 'FblGeneral'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSupportMcu'                             MAP-NAME = 'FblSupportMcu'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSupportHsm'                             MAP-NAME = 'FblSupportHsm'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDevErrorDetect'                         MAP-NAME = 'FblDevErrorDetect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSoftwareVersionCheck'                   MAP-NAME = 'FblSoftwareVersionCheck'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblOta'                                      MAP-NAME = 'FblOta'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblMemorySwapEnable'                       MAP-NAME = 'FblMemorySwapEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDecompressEnable'                       MAP-NAME = 'FblDecompressEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblOTAEnable'                              MAP-NAME = 'FblOTAEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblPartitionFlagAddress'                   MAP-NAME = 'FblPartitionFlagAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblPartitionFlagSize'                      MAP-NAME = 'FblPartitionFlagSize'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDecompressBufSize'                      MAP-NAME = 'FblDecompressBufSize'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblPllConfig'                                MAP-NAME = 'FblPllConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCpuClock'                               MAP-NAME = 'FblCpuClock'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblQuartzClock'                            MAP-NAME = 'FblQuartzClock'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblTimerPrescaler'                         MAP-NAME = 'FblTimerPrescaler'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblFlashConfig'                              MAP-NAME = 'FblFlashConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblMainSwEntryAddress1'                    MAP-NAME = 'FblMainSwEntryAddress1'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblMainSwEntryAddress2'                    MAP-NAME = 'FblMainSwEntryAddress2'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblFlashAlignment'                         MAP-NAME = 'FblFlashAlignment'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblStartupCommandAddress'                  MAP-NAME = 'FblStartupCommandAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCommonRamAddress'                       MAP-NAME = 'FblCommonRamAddress'></PARAMETER-DETAIL>
+	<PARAMETER-DETAIL ORIGINAL-NAME = 'FblFlashEraseUnit'                         MAP-NAME = 'FblFlashEraseUnit'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSecurityConfig'                           MAP-NAME = 'FblSecurityConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCrc16BlockSize'                         MAP-NAME = 'FblCrc16BlockSize'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSecurityAccess'                           MAP-NAME = 'FblSecurityAccess'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSecurityAccessLevel'                    MAP-NAME = 'FblSecurityAccessLevel'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSecureAccessCertificateHashAlgorithm'   MAP-NAME = 'FblSecureAccessCertificateHashAlgorithm'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSecurityNumAttDelay'                    MAP-NAME = 'FblSecurityNumAttDelay'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSecurityDelayTime'                      MAP-NAME = 'FblSecurityDelayTime'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSecureFlash'                              MAP-NAME = 'FblSecureFlash'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSecureFlashHashAlgorithm'               MAP-NAME = 'FblSecureFlashHashAlgorithm'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSecureFlashVersion'                     MAP-NAME = 'FblSecureFlashVersion'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblRevisedSecureFlash_2_0'                 MAP-NAME = 'FblRevisedSecureFlash_2_0'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblWriteSignature'                         MAP-NAME = 'FblWriteSignature'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblWriteSignatureDelimiter'                MAP-NAME = 'FblWriteSignatureDelimiter'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblDiagConfig'                               MAP-NAME = 'FblDiagConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagResponseBeforeResetEnable'          MAP-NAME = 'FblDiagResponseBeforeResetEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagResponseBeforeSessionChangeEnable'  MAP-NAME = 'FblDiagResponseBeforeSessionChangeEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagMaxNumResponsePending'              MAP-NAME = 'FblDiagMaxNumResponsePending'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagMaxNumSignArea'                     MAP-NAME = 'FblDiagMaxNumSignArea'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSupportDiagnosticStandard'              MAP-NAME = 'FblSupportDiagnosticStandard'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagSignatureTxMode'                    MAP-NAME = 'FblDiagSignatureTxMode'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagEraseRID'                           MAP-NAME = 'FblDiagEraseRID'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagChkProgDepRID'                      MAP-NAME = 'FblDiagChkProgDepRID'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagOTAReadyRID'                        MAP-NAME = 'FblDiagOTAReadyRID'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagTransferDataChunkMode'              MAP-NAME = 'FblDiagTransferDataChunkMode'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblDiagMaxNumOfBlockLength'                MAP-NAME = 'FblDiagMaxNumOfBlockLength'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'SwModule'                                    MAP-NAME = 'SwModule'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'SwModuleIndex'                             MAP-NAME = 'SwModuleIndex'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'StartAddress'                              MAP-NAME = 'StartAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'EndAddress'                                MAP-NAME = 'EndAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'ModuleInfoAddress'                         MAP-NAME = 'ModuleInfoAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'SpecialDataAddress'                        MAP-NAME = 'SpecialDataAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'CrcInfoAddress'                            MAP-NAME = 'CrcInfoAddress'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'SwVersionInfo'                               MAP-NAME = 'SwVersionInfo'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'CustomerId'                                MAP-NAME = 'CustomerId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'ProductVariant'                            MAP-NAME = 'ProductVariant'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'ProductId'                                 MAP-NAME = 'ProductId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'SwVersion'                                 MAP-NAME = 'SwVersion'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'IntSwVersion'                              MAP-NAME = 'IntSwVersion'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'Synchro1'                                  MAP-NAME = 'Synchro1'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'Synchro2'                                  MAP-NAME = 'Synchro2'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'BuildDate'                                 MAP-NAME = 'BuildDate'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'SwMemoryBlockArea'                           MAP-NAME = 'SwMemoryBlockArea'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'SwModuleIndex'                             MAP-NAME = 'SwModuleIndex'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'StartAddress'                              MAP-NAME = 'StartAddress'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'EndAddress'                                MAP-NAME = 'EndAddress'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblWatchdogConfig'                           MAP-NAME = 'FblWatchdogConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblIntWdgEnable'                           MAP-NAME = 'FblIntWdgEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblIntWdgTimeoutMs'                        MAP-NAME = 'FblIntWdgTimeoutMs'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblEthernetConfig'                           MAP-NAME = 'FblEthernetConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblReceivedDataBufferSize'                 MAP-NAME = 'FblReceivedDataBufferSize'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblProgramDataBufferSize'                  MAP-NAME = 'FblProgramDataBufferSize'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblEcuIpAddress'                             MAP-NAME = 'FblEcuIpAddress'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuIpAddressFixed'                      MAP-NAME = 'FblEcuIpAddressFixed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuIpAddressRef'                        MAP-NAME = 'FblEcuIpAddressRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblEcuMacAddress'                            MAP-NAME = 'FblEcuMacAddress'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuMacAddressFixed'                     MAP-NAME = 'FblEcuMacAddressFixed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuMacAddressRef'                       MAP-NAME = 'FblEcuMacAddressRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblEcuTcpPort'                               MAP-NAME = 'FblEcuTcpPort'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuTcpPortFixed'                        MAP-NAME = 'FblEcuTcpPortFixed'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblEthDiagLocalAddress'                      MAP-NAME = 'FblEthDiagLocalAddress'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuPhysicalLocalAddressFixed'           MAP-NAME = 'FblEcuPhysicalLocalAddressFixed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblTesterPhysicalLocalAddressFixed'        MAP-NAME = 'FblTesterPhysicalLocalAddressFixed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblRemotePhysicalLocalAddressFixed'        MAP-NAME = 'FblRemotePhysicalLocalAddressFixed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuFunctionalLocalAddressFixed'         MAP-NAME = 'FblEcuFunctionalLocalAddressFixed'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuPhysicalLocalAddressRef'             MAP-NAME = 'FblEcuPhysicalLocalAddressRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblTesterPhysicalLocalAddressRef'          MAP-NAME = 'FblTesterPhysicalLocalAddressRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblRemotePhysicalLocalAddressRef'          MAP-NAME = 'FblRemotePhysicalLocalAddressRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblEcuFunctionalLocalAddressRef'           MAP-NAME = 'FblEcuFunctionalLocalAddressRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblVlan'                                     MAP-NAME = 'FblVlan'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblVlanEnable'                             MAP-NAME = 'FblVlanEnable'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblVlanIdFixed'                            MAP-NAME = 'FblVlanIdFixed'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanConfig'                                MAP-NAME = 'FblCanConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblReceivedDataBufferSize'                 MAP-NAME = 'FblReceivedDataBufferSize'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblProgramDataBufferSize'                  MAP-NAME = 'FblProgramDataBufferSize'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanType'                                MAP-NAME = 'FblCanType'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanIfConfig'                              MAP-NAME = 'FblCanIfConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanIfCANFDDiscreteDlcSupport'           MAP-NAME = 'FblCanIfCANFDDiscreteDlcSupport'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDrvTc2xx'                              MAP-NAME = 'FblCanDrvTc2xx'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanCell'                                MAP-NAME = 'FblCanCell'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanNode'                                MAP-NAME = 'FblCanNode'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanRXD'                                 MAP-NAME = 'FblCanRXD'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDrvTc3xx'                              MAP-NAME = 'FblCanDrvTc3xx'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanCell'                                MAP-NAME = 'FblCanCell'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanNode'                                MAP-NAME = 'FblCanNode'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanRXD'                                 MAP-NAME = 'FblCanRXD'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDrvSpc58x'                             MAP-NAME = 'FblCanDrvSpc58x'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanCell'                                MAP-NAME = 'FblCanCell'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanClockDivider'                        MAP-NAME = 'FblCanClockDivider'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblProtocolClockSelection'                    MAP-NAME = 'FblProtocolClockSelection'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanRxPort'                              MAP-NAME = 'FblCanRxPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTxPort'                              MAP-NAME = 'FblCanTxPort'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDrvRh850f1km'                          MAP-NAME = 'FblCanDrvRh850f1km'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanCell'                                MAP-NAME = 'FblCanCell'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblProtocolClockSelection'                 MAP-NAME = 'FblProtocolClockSelection'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanClockDivider'                        MAP-NAME = 'FblCanClockDivider'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanRxPort'                              MAP-NAME = 'FblCanRxPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTxPort'                              MAP-NAME = 'FblCanTxPort'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysReqConfig'                  MAP-NAME = 'FblCanDiagMsgPhysReqConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysReqId'                    MAP-NAME = 'FblCanDiagMsgPhysReqId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysReqSTmin'                 MAP-NAME = 'FblCanDiagMsgPhysReqSTmin'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysReqAddrFormat'            MAP-NAME = 'FblCanDiagMsgPhysReqAddrFormat'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysResConfig'                  MAP-NAME = 'FblCanDiagMsgPhysResConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysResId'                    MAP-NAME = 'FblCanDiagMsgPhysResId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysResAddrFormat'            MAP-NAME = 'FblCanDiagMsgPhysResAddrFormat'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgPhysReqConfig'                  MAP-NAME = 'FblCanDiagMsgPhysReqConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgFuncId'                       MAP-NAME = 'FblCanDiagMsgFuncId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanDiagMsgFuncAddrFormat'               MAP-NAME = 'FblCanDiagMsgFuncAddrFormat'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanBaudRateConfig'                        MAP-NAME = 'FblCanBaudRateConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanPropSeg'                             MAP-NAME = 'FblCanPropSeg'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanSeg1'                                MAP-NAME = 'FblCanSeg1'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanSeg2'                                MAP-NAME = 'FblCanSeg2'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanSyncJumpWith'                        MAP-NAME = 'FblCanSyncJumpWith'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanBaudRate'                            MAP-NAME = 'FblCanBaudRate'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanPrescaler'                           MAP-NAME = 'FblCanPrescaler'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanFdBaudRateConfig'                      MAP-NAME = 'FblCanFdBaudRateConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdTxBitRateSwitch'                   MAP-NAME = 'FblCanFdTxBitRateSwitch'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdPropSeg'                           MAP-NAME = 'FblCanFdPropSeg'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdSeg1'                              MAP-NAME = 'FblCanFdSeg1'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdSeg2'                              MAP-NAME = 'FblCanFdSeg2'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdSyncJumpWith'                      MAP-NAME = 'FblCanFdSyncJumpWith'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdTrcvDelayCompensationOffset'       MAP-NAME = 'FblCanFdTrcvDelayCompensationOffset'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdBaudRate'                          MAP-NAME = 'FblCanFdBaudRate'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanFdPresclaer'                         MAP-NAME = 'FblCanFdPresclaere'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanTrcvSpc58x'                            MAP-NAME = 'FblCanTrcvSpc58x'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvStandbyPinPad'                   MAP-NAME = 'FblCanTrcvStandbyPinPad'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvStandbyPinValue'                 MAP-NAME = 'FblCanTrcvStandbyPinValue'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvEnablePinPad'                    MAP-NAME = 'FblCanTrcvEnablePinPad'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvEnablePinValue'                  MAP-NAME = 'FblCanTrcvEnablePinValue'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvErrorPinPad'                     MAP-NAME = 'FblCanTrcvErrorPinPad'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblCanTrcvRh850f1km'                         MAP-NAME = 'FblCanTrcvRh850f1km'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvStandbyPinSetToOutput'           MAP-NAME = 'FblCanTrcvStandbyPinSetToOutput'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvStandbyPinWriteDirect'           MAP-NAME = 'FblCanTrcvStandbyPinWriteDirect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvEnablePinSetToOutput'            MAP-NAME = 'FblCanTrcvEnablePinSetToOutput'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvEnablePinWriteDirect'            MAP-NAME = 'FblCanTrcvEnablePinWriteDirect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblCanTrcvErrorPinSetToInput'              MAP-NAME = 'FblCanTrcvErrorPinSetToInput'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblGpioPortPinControl'         	      MAP-NAME = 'FblGpioPortPinControl'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'PortPinIndex'         		      MAP-NAME = 'PortPinIndex'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblPortNum'      			      MAP-NAME = 'FblPortNum'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblPinNum'           		      MAP-NAME = 'FblPinNum'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblPortPinVal'           		      MAP-NAME = 'FblPortPinVal'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiSpc58x'                                MAP-NAME = 'FblSpiSpc58x'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiChannel'                             MAP-NAME = 'FblSpiChannel'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiLsbUse'                              MAP-NAME = 'FblSpiLsbUse'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiUseLeadingEdge'                      MAP-NAME = 'FblSpiUseLeadingEdge'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiPBR'                                 MAP-NAME = 'FblSpiPBR'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiBR'                                  MAP-NAME = 'FblSpiBR'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSoutPort'                            MAP-NAME = 'FblSpiSoutPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSinPort'                             MAP-NAME = 'FblSpiSinPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSckPort'                             MAP-NAME = 'FblSpiSckPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCs0Port'                             MAP-NAME = 'FblSpiCs0Port'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiControl'         	      MAP-NAME = 'FblSpiControl'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiChannel'      			    MAP-NAME = 'FblSpiChannel'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiDataWidth'      			  MAP-NAME = 'FblSpiDataWidth'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiClock'                 MAP-NAME = 'FblSpiClock'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCPOL'      		    	  MAP-NAME = 'FblSpiCPOL'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCPHA'      			      MAP-NAME = 'FblSpiCPHA'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiTranferStart'       	  MAP-NAME = 'FblSpiTranferStart'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSelect'      			    MAP-NAME = 'FblSpiSelect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSelectPolarity'      	MAP-NAME = 'FblSpiSelectPolarity'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiNumberOfSendCommand'   MAP-NAME = 'FblSpiNumberOfSendCommand'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiSendCommand'         	  MAP-NAME = 'FblSpiSendCommand'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiData'      			      MAP-NAME = 'FblSpiData'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiIn'         	                MAP-NAME = 'FblSpiIn'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiInPortAlphabet'      			MAP-NAME = 'FblSpiInPortAlphabet'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiInPortNum'      			      MAP-NAME = 'FblSpiInPortNum'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiInPinNum'           		    MAP-NAME = 'FblSpiInPinNum'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiOut'         	              MAP-NAME = 'FblSpiOut'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiOutPortAlphabet'      			MAP-NAME = 'FblSpiOutPortAlphabet'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiOutPortNum'      			    MAP-NAME = 'FblSpiOutPortNum'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiOutPinNum'           		  MAP-NAME = 'FblSpiOutPinNum'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiClk'         	              MAP-NAME = 'FblSpiClk'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiClkPortAlphabet'      			MAP-NAME = 'FblSpiClkPortAlphabet'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiClkPortNum'      			    MAP-NAME = 'FblSpiClkPortNum'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiClkPinNum'           		  MAP-NAME = 'FblSpiClkPinNum'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiCs'         	                MAP-NAME = 'FblSpiCs'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCsPortAlphabet'      			MAP-NAME = 'FblSpiCsPortAlphabet'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCsPortNum'      			      MAP-NAME = 'FblSpiCsPortNum'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCsPinNum'           		    MAP-NAME = 'FblSpiCsPinNum'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'FblSpiSpc58x'                                MAP-NAME = 'FblSpiSpc58x'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiChannel'                             MAP-NAME = 'FblSpiChannel'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiLsbUse'                              MAP-NAME = 'FblSpiLsbUse'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiUseLeadingEdge'                      MAP-NAME = 'FblSpiUseLeadingEdge'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiPBR'                                 MAP-NAME = 'FblSpiPBR'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiBR'                                  MAP-NAME = 'FblSpiBR'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSoutPort'                            MAP-NAME = 'FblSpiSoutPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSinPort'                             MAP-NAME = 'FblSpiSinPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiSckPort'                             MAP-NAME = 'FblSpiSckPort'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'FblSpiCs0Port'                             MAP-NAME = 'FblSpiCs0Port'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+    </CONTAINER-DETAILS>
+  </MAP-NAMES>
+
+  <!-- Container Count -->
+  <CONTAINER-COUNTS>
+    <CONTAINER-COUNT MAP-NAME = 'FblGeneral'                    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblOta'                        COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblPllConfig'                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblFlashConfig'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSecurityConfig'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSecurityAccess'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSecureFlash'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblDiagConfig'                 COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SwModule'                      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SwVersionInfo'                 COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SwMemoryBlockArea'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblWatchdogConfig'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanConfig'                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDrvTc2xx'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDrvTc3xx'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDrvSpc58x'               COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDrvRh850f1km'            COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDiagMsgFuncConfig'       COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDiagMsgPhysReqConfig'    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanDiagMsgPhysResConfig'    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanBaudRateConfig'          COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblCanFdBaudRateConfig'        COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiSpc58x'                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblEthernetConfig'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblGpioPortPinControl'         COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiControl'                 COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiSendCommand'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiIn'                      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiOut'                     COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiClk'                     COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'FblSpiCs'                      COUNT = '0'></CONTAINER-COUNT>
+  </CONTAINER-COUNTS>
+
+  <!-- Pre-compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'FBL_SUPPORT_MCU'
+      Type      = '1'
+      Value     = ''
+      Pos       = '1'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Supporeted MCU by FBL'
+      Container = 'FblGeneral'
+      Parameter = 'FblSupportMcu'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SUPPORT_HSM'
+      Type      = '1'
+      Value     = ''
+      Pos       = '2'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Supporeted HSM by FBL'
+      Container = 'FblGeneral'
+      Parameter = 'FblSupportHsm'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DEV_ERROR_DETECT'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '3'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch to enable or disable the Development Error Detection (DET) mechanism.'
+      Container = 'FblGeneral'
+      Parameter = 'FblDevErrorDetect'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SOFTWARE_VERSION_CHECK'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '4'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Preprocessor switch to enable or disable the version check. This can detect the downgrade'
+      Container = 'FblGeneral'
+      Parameter = 'FblSoftwareVersionCheck'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>	
+    <MACRO-ENTRY
+      Name      = 'FBL_MCU_NAME'
+      Type      = '1'
+      Value     = ''
+      Pos       = '4'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Supported MCU name'
+      Container = 'FblMcuSpc58x#$#FblMcuCytxxx'
+      Parameter = 'FblMcuName'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_MEMORY_SWAP_ENABLE'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '5'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to support memory swap feature by SW in FBL'
+      Container = 'FblOta'
+      Parameter = 'FblMemorySwapEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DECOMPRESS_ENABLE'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '6'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to use decompress freature'
+      Container = 'FblOta'
+      Parameter = 'FblDecompressEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_OTA_ENABLE'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '7'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to use ota freature'
+      Container = 'FblOta'
+      Parameter = 'FblOTAEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_PARTITION_FLAG_ADDRESS'
+      Type      = '2'
+      Value     = ''
+      Pos       = '8'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Partition flag address to check RTSW validity when using memory swap function'
+      Container = 'FblOta'
+      Parameter = 'FblPartitionFlagAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_PARTITION_FLAG_SIZE'
+      Type      = '2'
+      Value     = ''
+      Pos       = '9'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Size of partiton flag'
+      Container = 'FblOta'
+      Parameter = 'FblPartitionFlagSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DECOMPRESS_BUFFER_SIZE'
+      Type      = '2'
+      Value     = ''
+      Pos       = '10'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Size of Decompress buffer'
+      Container = 'FblOta'
+      Parameter = 'FblDecompressBufSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CPU_CLOCK'
+      Type      = '1'
+      Value     = 'FBL_CPU_300MHZ'
+      Pos       = '11'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CPU frequency used by FBL'
+      Container = 'FblPllConfig'
+      Parameter = 'FblCpuClock'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_QUARTZ_CLOCK'
+      Type      = '1'
+      Value     = 'FBL_QUARTZ_40MHZ'
+      Pos       = '13'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Quartz frequency used by FBL'
+      Container = 'FblPllConfig'
+      Parameter = 'FblQuartzClock'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'TIMER_PRESCALER_FACTOR'
+      Type      = '2'
+      Value     = ''
+      Pos       = '13'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Bus frequency used by FBL'
+      Container = 'FblPllConfig'
+      Parameter = 'FblTimerPrescaler'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'PLL_N_DIV'
+      Type      = '2'
+      Value     = ''
+      Pos       = '14'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'defined PLL N Divisor'
+      Container = 'FblPllConfig'
+      Parameter = 'PllNDiv'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'PLL_P_DIV'
+      Type      = '2'
+      Value     = ''
+      Pos       = '15'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'defined PLL P Divisor'
+      Container = 'FblPllConfig'
+      Parameter = 'PllPDiv'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'PLL_K2_DIV'
+      Type      = '2'
+      Value     = ''
+      Pos       = '16'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'defined PLL K2 Divisor'
+      Container = 'FblPllConfig'
+      Parameter = 'PllK2Div'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'MCU_OSCVAL_REG_VALUE'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '46'
+      Prefix    = '0x'
+      Postfix   = ''
+      Comment   = 'Defines MCU_OSCVAL_REG_VALUE'
+      Container = 'FblPllConfig'
+      Parameter = 'OscValue'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CLK_TRIM_ECO_WDTRIM'
+      Type      = '2'
+      Value     = ''
+      Pos       = '17'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Watch Dog Trim - Delta voltage below stead state level'
+      Container = 'FblPllConfig'
+      Parameter = 'CLK_TRIM_ECO_WDTRIM'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CLK_TRIM_ECO_ATRIM'
+      Type      = '2'
+      Value     = ''
+      Pos       = '18'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Amplitude trim to set the crystal drive level when ECO_CONFIG.AGC_EN=1'
+      Container = 'FblPllConfig'
+      Parameter = 'CLK_TRIM_ECO_ATRIM'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CLK_TRIM_ECO_FTRIM'
+      Type      = '2'
+      Value     = ''
+      Pos       = '19'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Filter Trim - 3rd harmonic oscillation'
+      Container = 'FblPllConfig'
+      Parameter = 'CLK_TRIM_ECO_FTRIM'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+     <MACRO-ENTRY
+      Name      = 'FBL_CLK_TRIM_ECO_RTRIM'
+      Type      = '2'
+      Value     = ''
+      Pos       = '20'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Feedback resistor Trim'
+      Container = 'FblPllConfig'
+      Parameter = 'CLK_TRIM_ECO_RTRIM'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CLK_TRIM_ECO_GTRIM'
+      Type      = '2'
+      Value     = ''
+      Pos       = '21'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Gain Trim - Startup time, ULP-only: ULP ECO requires only two bits, so the two LSBs are used; the MSB is not used.'
+      Container = 'FblPllConfig'
+      Parameter = 'CLK_TRIM_ECO_GTRIM'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CLK_ECO_AGC_EN'
+      Type      = '2'
+      Value     = ''
+      Pos       = '22'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Automatic Gain Control (AGC) enable'
+      Container = 'FblPllConfig'
+      Parameter = 'CLK_ECO_AGC_EN'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_FLASH_ALIGNMENT'
+      Type      = '2'
+      Value     = '256'
+      Pos       = '23'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Bytes for flash alignment'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblFlashAlignment'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_FLASH_ERASE_UNIT'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '24'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Bytes for flash erase unit'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblFlashEraseUnit'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>	
+    <MACRO-ENTRY
+      Name      = 'FBL_MAIN_SW_ENTRY_ADDRESS_1'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '26'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Location of entry point 1 of Main SW'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblMainSwEntryAddress1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_MAIN_SW_ENTRY_ADDRESS_2'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '27'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Location of entry point 2 of Main SW'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblMainSwEntryAddress2'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_STARTUP_COMMAND_ADDRESS'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '28'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'RAM address for Main SW to apply startup command'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblStartupCommandAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_COMMON_RAM_ADDRESS'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '29'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'RAM address shared by Main SW and FBL'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblCommonRamAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_ERASE_SECTOR_NUM'
+      Type      = '2'
+      Value     = '1'
+      Pos       = '30'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Erase Sector Number'
+      Container = 'FblFlashConfig'
+      Parameter = 'FblEraseSectorNum'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CRC16_BLOCK_SIZE'
+      Type      = '1'
+      Value     = 'FBL_CRC16_BLOCK_4096_BYTES'
+      Pos       = '31'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'The block size in bytes for CRC16'
+      Container = 'FblSecurityConfig'
+      Parameter = 'FblCrc16BlockSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SECURITY_ACCESS_LEVEL'
+      Type      = '8'
+      Value     = 'FBL_SA_SEEDKEY'
+      Pos       = '40'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Security level of security access'
+      Container = 'FblSecurityAccess'
+      Parameter = 'FblSecurityAccessLevel'
+      List      = 'FBL_SA_SEEDKEY#$#FBL_SA_ADVANCED_SEEDKEY#$#FBL_SA_SECUREACCESS_1_0#$#FBL_SA_SECUREACCESS_2_0'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SECURITY_NUM_ATT_DELAY'
+      Type      = '2'
+      Value     = '3'
+      Pos       = '41'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Number of failed security accesses'
+      Container = 'FblSecurityAccess'
+      Parameter = 'FblSecurityNumAttDelay'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SECURITY_DELAY_TIME'
+      Type      = '2'
+      Value     = '180'
+      Pos       = '42'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Delay time after failed security access'
+      Container = 'FblSecurityAccess'
+      Parameter = 'FblSecurityDelayTime'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SECURE_ACCESS_HASH_ALGORITHM'
+      Type      = '1'
+      Value     = 'FBL_SA_HASH_NONE'
+      Pos       = '43'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Hash algorithm used by secure access'
+      Container = 'FblSecurityAccess'
+      Parameter = 'FblSecureAccessCertificateHashAlgorithm'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SECURE_FLASH_HASH_ALGORITHM'
+      Type      = '1'
+      Value     = 'FBL_SF_HASH_SHA256'
+      Pos       = '44'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Hash algorithm used by secure flash'
+      Container = 'FblSecureFlash'
+      Parameter = 'FblSecureFlashSignatureHashAlgorithm'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SECURE_FLASH_VERSION'
+      Type      = '1'
+      Value     = 'FBL_SF_CRC'
+      Pos       = '45'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'ES95489-02 Secure Flash Version'
+      Container = 'FblSecureFlash'
+      Parameter = 'FblSecureFlashVersion'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_REVISED_SECURE_FLASH_2_0'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '47'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to apply revised Secure Flash 2.0'
+      Container = 'FblSecureFlash'
+      Parameter = 'FblRevisedSecureFlash_2_0'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_WRITE_SIGNATURE'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '48'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to write the signature on flash memory'
+      Container = 'FblSecureFlash'
+      Parameter = 'FblWriteSignature'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_WRITE_SIGNATURE_DELIMITER'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '49'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to write the signature delimiter on flash memory'
+      Container = 'FblSecureFlash'
+      Parameter = 'FblWriteSignatureDelimiter'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_MAX_NUMOFBLOCK_LENGTH'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '58'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Number of bytes shall be included in each TransferData request message from the client.'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagMaxNumOfBlockLength'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_TRANSFERDATA_CHUNK_MODE'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '59'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Write chunk data to flash while receiving block data'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagTransferDataChunkMode'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_RESPONSE_BEFORE_RESET_ENABLE'
+      Type      = '4'
+      Value     = 'STD_ON'
+      Pos       = '60'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to respond before reset'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagResponseBeforeResetEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_RESPONSE_BEFORE_SESSION_CHANGE_ENABLE'
+      Type      = '4'
+      Value     = 'STD_ON'
+      Pos       = '61'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to respond before session change'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagResponseBeforeSessionChangeEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_MAX_NUM_RESPONSE_PENDING'
+      Type      = '2'
+      Value     = '25'
+      Pos       = '62'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Maximum number of pending diagnostic response messages'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagMaxNumResponsePending'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_SUPPORT_DIAGNOSTIC_STANDARD'
+      Type      = '1'
+      Value     = 'FBL_ES95486_00'
+      Pos       = '63'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Diagnostic Specifications Supported by FBL'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblSupportDiagnosticStandard'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_SIGNATURE_TX_MODE'
+      Type      = '1'
+      Value     = 'FBL_TXDATA'
+      Pos       = '64'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Select Signature receive mode'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagSignatureTxMode'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_INT_WDG_ENABLE'
+      Type      = '4'
+      Value     = 'STD_ON'
+      Pos       = '65'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to use internal watchdog'
+      Container = 'FblWatchdogConfig'
+      Parameter = 'FblIntWdgEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_INT_WDG_TIMEOUT_MS'
+      Type      = '2'
+      Value     = '100'
+      Pos       = '66'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'Timeout value in milliseconds for internal watchdog'
+      Container = 'FblWatchdogConfig'
+      Parameter = 'FblIntWdgTimeoutMs'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_DIAG_MAX_NUM_SIGN_AREA'
+      Type      = '2'
+      Value     = '16'
+      Pos       = '67'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Maximum number of signing area'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagMaxNumSignArea'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'DCM_ROUTINE_ERASE_MEMORY'
+      Type      = '2'
+      Value     = '65280'
+      Pos       = '68'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'RoutineControl Erase RID'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagEraseRID'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'DCM_ROUTINE_SECUREFLASHING_CHECK'
+      Type      = '2'
+      Value     = '65281'
+      Pos       = '69'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'RoutineControl CheckProgrammingDependancy RID'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagChkProgDepRID'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'DCM_ROUTINE_OTA_READY'
+      Type      = '2'
+      Value     = '768'
+      Pos       = '70'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'RoutineControl OTAReady RID'
+      Container = 'FblDiagConfig'
+      Parameter = 'FblDiagOTAReadyRID'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>    
+
+    <MACRO-ENTRY
+      Name      = 'FBL_ETH_DIAG_PROTOCOL_VERSION'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '71'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'EthDiag Ptotocol Version'
+      Container = 'FblEthernetConfig'
+      Parameter = 'FblEthDiagProtocolVersion'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ECU_IP_ADDRESS'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '72'
+      Format    = 'ip'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = 'IP address of ECU'
+      Container = 'FblEcuIpAddress'
+      Parameter = 'FblEcuIpAddressFixed'
+      Ref       = 'FblEcuIpAddressRef'
+      RefCon    = 'TcpIpStaticIpAddressConfig'
+      RefParam  = 'TcpIpStaticIpAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ECU_MAC_ADDRESS'
+      Type      = '10'
+      Value     = '{0x00, 0x00, 0x00, 0x00, 0x00, 0x00}'
+      Pos       = '73'
+      Format    = 'mac'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'MAC address of ECU'
+      Container = 'FblEcuMacAddress'
+      Parameter = 'FblEcuMacAddressFixed'
+      Ref       = 'FblEcuMacAddressRef'
+      RefCon    = 'EthCtrlConfig'
+      RefParam  = 'EthCtrlPhyAddress'
+      Output    = 'Fbl_Cfg.h'
+      NoParen   = '1'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ECU_TCP_PORT'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '74'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'TCP port for Ethernet Reprogramming Tool'
+      Container = 'FblEcuTcpPort'
+      Parameter = 'FblEcuTcpPortFixed'
+      Ref       = 'FblEcuTcpPortRef'
+      RefCon    = 'SoAdSocketConnectionGroup'
+      RefParam  = 'SoAdSocketLocalPort'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ECU_PHYSICAL_LOCAL_ADDRESS_FOR_REQUEST'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '75'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'ECU Physical local address for request'
+      Container = 'FblEthDiagLocalAddress'
+      Parameter = 'FblEcuPhysicalLocalAddressForRequestFixed'
+      Ref       = 'FblEcuPhysicalLocalAddressForRequestRef'
+      RefCon    = 'EthDiagReprogramRxNSdu'
+      RefParam  = 'EthDiagLocalAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ECU_PHYSICAL_LOCAL_ADDRESS_FOR_RESPONSE'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '76'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'ECU Physical local address for response'
+      Container = 'FblEthDiagLocalAddress'
+      Parameter = 'FblEcuPhysicalLocalAddressForResponseFixed'
+      Ref       = 'FblEcuPhysicalLocalAddressForResponseRef'
+      RefCon    = 'EthDiagReprogramTxNSdu'
+      RefParam  = 'EthDiagLocalAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ECU_FUNCTIONAL_LOCAL_ADDRESS'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '77'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'ECU Functional local address'
+      Container = 'FblEthDiagLocalAddress'
+      Parameter = 'FblEcuFunctionalLocalAddressFixed'
+      Ref       = 'FblEcuFunctionalLocalAddressRef'
+      RefCon    = 'EthDiagReprogramRxNSdu'
+      RefParam  = 'EthDiagLocalAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_TESTER_PHYSICAL_LOCAL_ADDRESS'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '78'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Tester Physical local address'
+      Container = 'FblEthDiagLocalAddress'
+      Parameter = 'FblTesterPhysicalLocalAddressFixed'
+      Ref       = 'FblTesterPhysicalLocalAddressRef'
+      RefCon    = 'EthDiagReprogramRxNSdu'
+      RefParam  = 'EthDiagRemoteAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_REMOTE_PHYSICAL_LOCAL_ADDRESS'
+      Type      = '10'
+      Value     = '0'
+      Pos       = '79'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Remote Physical local address'
+      Container = 'FblEthDiagLocalAddress'
+      Parameter = 'FblRemotePhysicalLocalAddressFixed'
+      Ref       = 'FblRemotePhysicalLocalAddressRef'
+      RefCon    = 'EthDiagReprogramRxNSdu'
+      RefParam  = 'EthDiagRemoteAddress'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_ETH_RECEIVED_DATA_BUFFER_SIZE'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '80'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Number of bytes of data to be received per request download for ethernet'
+      Container = 'FblEthernetConfig'
+      Parameter = 'FblReceivedDataBufferSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ETH_PROGRAM_DATA_BUFFER_SIZE'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '81'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Number of bytes of data to be programmed per request download for ethernet'
+      Container = 'FblEthernetConfig'
+      Parameter = 'FblProgramDataBufferSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ETHARP_SUPPORT_VLAN'
+      Type      = '4'
+      Value     = ''
+      Pos       = '85'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Whether to use VLAN feature'
+      Container = 'FblVlan'
+      Parameter = 'FblVlanEnable'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'ETHARP_VLAN_CHECK'
+      Type      = '10'
+      Value     = ''
+      Pos       = '86'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'VLAN ID value'
+      Container = 'FblVlan'
+      Parameter = 'FblVlanIdFixed'
+      Ref       = 'FblVlanIdRef'
+      RefCon    = 'EthIfController'
+      RefParam  = 'EthIfVlanId'
+      Dep       = 'ETHARP_SUPPORT_VLAN'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'LWIP_HOOK_VLAN_SET(netif, p, src, dst, eth_type)'
+      Type      = '10'
+      Value     = ''
+      Pos       = '87'
+      Format    = 'value'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'VLAN ID value'
+      Container = 'FblVlan'
+      Parameter = 'FblVlanIdFixed'
+      Ref       = 'FblVlanIdRef'
+      RefCon    = 'EthIfController'
+      RefParam  = 'EthIfVlanId'
+      Dep       = 'ETHARP_SUPPORT_VLAN'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_ETH_TYPE'
+      Type      = '1'
+      Value     = 'FBL_ETH_TRANCEIVER'
+      Pos       = '89'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Eth Type'
+      Container = 'FblEthType'
+      Parameter = 'FblEthType'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ETH_SPEED'
+      Type      = '1'
+      Value     = 'FBL_ETH_SPEED_100M'
+      Pos       = '90'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Eth Speed'
+      Container = 'FblEthType'
+      Parameter = 'FblEthSpeed'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_ETH_BMCR_DATA'
+      Type      = '2'
+      Value     = '0x2100'
+      Pos       = '91'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'ETH_BMCR_DATA'
+      Container = 'FblEthType'
+      Parameter = 'ETH_BMCR_DATA'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CCUCON0_IVAL'
+      Type      = '2'
+      Value     = '0x15230333'
+      Pos       = '92'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CCUCON0_IVAL'
+      Container = 'FblEthType'
+      Parameter = 'CCUCON0'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CCUCON1_IVAL'
+      Type      = '2'
+      Value     = '0x00000292'
+      Pos       = '93'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CCUCON1_IVAL'
+      Container = 'FblEthType'
+      Parameter = 'CCUCON1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CCUCON2_IVAL'
+      Type      = '2'
+      Value     = '0x00000000'
+      Pos       = '94'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CCUCON2_IVAL'
+      Container = 'FblEthType'
+      Parameter = 'CCUCON2'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CCUCON5_IVAL'
+      Type      = '2'
+      Value     = '0x00000032'
+      Pos       = '95'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CCUCON5_IVAL'
+      Container = 'FblEthType'
+      Parameter = 'CCUCON5'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SCU_SYSPLLCON0_NDIV'
+      Type      = '2'
+      Value     = '29'
+      Pos       = '96'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'SCU_SYSPLLCON0_NDIV'
+      Container = 'FblEthType'
+      Parameter = 'SCU_SYSPLLCON0_NDIV'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SCU_SYSPLLCON0_PDIV'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '97'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'SCU_SYSPLLCON0_PDIV'
+      Container = 'FblEthType'
+      Parameter = 'SCU_SYSPLLCON0_PDIV'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SCU_SYSPLLCON1_K2DIV'
+      Type      = '2'
+      Value     = '1'
+      Pos       = '98'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'SCU_SYSPLLCON1_K2DIV'
+      Container = 'FblEthType'
+      Parameter = 'SCU_SYSPLLCON1_K2DIV'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SCU_PERPLLCON0_DIVBY'
+      Type      = '2'
+      Value     = '1'
+      Pos       = '99'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'SCU_PERPLLCON0_DIVBY'
+      Container = 'FblEthType'
+      Parameter = 'SCU_PERPLLCON0_DIVBY'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SCU_PERPLLCON0_NDIV'
+      Type      = '2'
+      Value     = '39'
+      Pos       = '99'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'SCU_PERPLLCON0_NDIV'
+      Container = 'FblEthType'
+      Parameter = 'SCU_PERPLLCON0_NDIV'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TYPE'
+      Type      = '1'
+      Value     = 'FBL_CAN_CLASSIC'
+      Pos       = '100'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN type'
+      Container = 'FblCanConfig'
+      Parameter = 'FblCanType'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_RECEIVED_DATA_BUFFER_SIZE'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '102'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Number of bytes of data to be received per request download for CAN'
+      Container = 'FblCanConfig'
+      Parameter = 'FblReceivedDataBufferSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_PROGRAM_DATA_BUFFER_SIZE'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '103'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Number of bytes of data to be programmed per request download for CAN'
+      Container = 'FblCanConfig'
+      Parameter = 'FblProgramDataBufferSize'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CANIF_CANFD_DISCRETE_DLC_SUPPORT'
+      Type      = '4'
+      Value     = 'STD_OFF'
+      Pos       = '104'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Selects support for CAN FD discrete DLC'
+      Container = 'FblCanIfConfig'
+      Parameter = 'FblCanIfCANFDDiscreteDlcSupport'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_BAUD_RATE'
+      Type      = '1'
+      Value     = 'FBL_CAN_500KBPS'
+      Pos       = '110'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = ''
+      Container = 'FblCanBaudRateConfig'
+      Parameter = 'FblCanBaudRate'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_PROP_SEG'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '111'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies propagation delay in time quantas'
+      Container = 'FblCanBaudRateConfig'
+      Parameter = 'FblCanPropSeg'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_SEG1'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '112'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies phase segment 1 in time quantas'
+      Container = 'FblCanBaudRateConfig'
+      Parameter = 'FblCanSeg1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_SEG2'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '113'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies phase segment 2 in time quantas'
+      Container = 'FblCanBaudRateConfig'
+      Parameter = 'FblCanSeg2'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_SYNC_JUMP_WITH'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '114'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the synchronization jump width for the controller in time quantas'
+      Container = 'FblCanBaudRateConfig'
+      Parameter = 'FblCanSyncJumpWith'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_PRESCALER'
+      Type      = '2'
+      Value     = ''
+      Pos       = '115'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies The value by which the oscillator frequency is divided for generating the bit the quanta'
+      Container = 'FblCanBaudRateConfig'
+      Parameter = 'FblCanPrescaler'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_BAUD_RATE'
+      Type      = '1'
+      Value     = 'FBL_CAN_500KBPS'
+      Pos       = '120'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = ''
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdBaudRate'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_PROP_SEG'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '121'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies propagation delay in time quantas'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdPropSeg'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_SEG1'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '122'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies phase segment 1 in time quantas'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdSeg1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_SEG2'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '123'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies phase segment 2 in time quantas'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdSeg2'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_SYNC_JUMP_WITH'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '124'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the synchronization jump width for the controller in time quantas'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdSyncJumpWith'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_TX_BITRATE_SWITCH'
+      Type      = '4'
+      Value     = 'STD_ON'
+      Pos       = '125'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Specifies if the bit rate switching shall be used for transmissions.'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdTxBitRateSwitch'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_TRCV_DELAY_COMP_OFFSET'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '125'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the Transceiver Delay Compensation Offset in ns. If not specified Transceiver Delay Compensation is disabled'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdTrcvDelayCompensationOffset'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_FD_PRESCALER'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '126'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies The value by which the oscillator frequency is divided for generating the bit the quanta'
+      Container = 'FblCanFdBaudRateConfig'
+      Parameter = 'FblCanFdPrescaler'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_CELL'
+      Type      = '1'
+      Value     = ''
+      Pos       = '130'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN cell information'
+      Container = 'FblCanDrvTc2xx#$#FblCanDrvTc3xx#$#FblCanDrvSpc58x#$#FblCanDrvRh850f1km#$#FblCanDrvCytxxx'
+      Parameter = 'FblCanCell'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_NODE'
+      Type      = '1'
+      Value     = ''
+      Pos       = '131'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN node information'
+      Container = 'FblCanDrvTc2xx#$#FblCanDrvTc3xx#$#FblCanDrvCytxxx'
+      Parameter = 'FblCanNode'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_RXD'
+      Type      = '1'
+      Value     = ''
+      Pos       = '132'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN RXD information'
+      Container = 'FblCanDrvTc2xx#$#FblCanDrvTc3xx'
+      Parameter = 'FblCanRXD'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_CLOCK_DIVIDER'
+      Type      = '1'
+      Value     = ''
+      Pos       = '131'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies can clock divider'
+      Container = 'FblCanDrvSpc58x#$#FblCanDrvRh850f1km'
+      Parameter = 'FblCanClockDivider'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_CLKSRC_CFG'
+      Type      = '1'
+      Value     = ''
+      Pos       = '132'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN source clock selection'
+      Container = 'FblCanDrvSpc58x#$#FblCanDrvRh850f1km'
+      Parameter = 'FblProtocolClockSelection'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_RX_PORT'
+      Type      = '1'
+      Value     = ''
+      Pos       = '133'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN rx information'
+      Container = 'FblCanDrvSpc58x#$#FblCanDrvRh850f1km#$#FblCanDrvCytxxx'
+      Parameter = 'FblCanRxPort'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TX_PORT'
+      Type      = '1'
+      Value     = ''
+      Pos       = '134'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN rx information'
+      Container = 'FblCanDrvSpc58x#$#FblCanDrvRh850f1km#$#FblCanDrvCytxxx'
+      Parameter = 'FblCanTxPort'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'MCAN_RX_PAD'
+      Type      = '20'
+      Value     = ''
+      Pos       = '135'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN Rx Port'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'MCAN_RX_INPUT_SSS'
+      Type      = '20'
+      Value     = ''
+      Pos       = '136'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN Rx Port'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'MCAN_TX_PAD'
+      Type      = '20'
+      Value     = ''
+      Pos       = '137'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN Tx Port'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'MCAN_TX_PAD_SSS'
+      Type      = '20'
+      Value     = ''
+      Pos       = '138'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN Tx Port'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_PHY_REQ_ID'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '140'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CAN ID of diagnostic message physical request'
+      Container = 'FblCanDiagMsgPhysReqConfig'
+      Parameter = 'FblCanDiagMsgPhysReqId'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_PHY_REQ_ADDR_FORMAT'
+      Type      = '1'
+      Value     = 'FBL_CAN_ADDR_STANDARD'
+      Pos       = '141'
+      Format    = ''
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Address format of diagnostic message physical request'
+      Container = 'FblCanDiagMsgPhysReqConfig'
+      Parameter = 'FblCanDiagMsgPhysReqAddrFormat'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_PHY_REQ_STMIN'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '142'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'STmin value of diagnostic message physical request'
+      Container = 'FblCanDiagMsgPhysReqConfig'
+      Parameter = 'FblCanDiagMsgPhysReqSTmin'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_PHY_RES_ID'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '143'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CAN ID of diagnostic message physical response'
+      Container = 'FblCanDiagMsgPhysResConfig'
+      Parameter = 'FblCanDiagMsgPhysResId'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_PHY_RES_ADDR_FORMAT'
+      Type      = '1'
+      Value     = 'FBL_CAN_ADDR_STANDARD'
+      Pos       = '144'
+      Format    = ''
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Address format of diagnostic message physical response'
+      Container = 'FblCanDiagMsgPhysResConfig'
+      Parameter = 'FblCanDiagMsgPhysResAddrFormat'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_FUNC_REQ_ID'
+      Type      = '2'
+      Value     = '0'
+      Pos       = '145'
+      Format    = 'hex'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CAN ID of diagnostic message functional request'
+      Container = 'FblCanDiagMsgFuncConfig'
+      Parameter = 'FblCanDiagMsgFuncId'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_DIAG_MSG_FUNC_REQ_ADDR_FORMAT'
+      Type      = '1'
+      Value     = 'FBL_CAN_ADDR_STANDARD'
+      Pos       = '146'
+      Format    = ''
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Address format of diagnostic message functional request'
+      Container = 'FblCanDiagMsgFuncConfig'
+      Parameter = 'FblCanDiagMsgFuncAddrFormat'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_RX_PORT_PIN_IOCR_ADDRESS'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '150'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN RXD Port Pin (_PIN_) IOCR register address'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_RX_PORT_PIN_INIT_VALUE'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '151'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Default value for CAN RXD Port Pin (_PIN_) IOCR register'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_RX_PORT_PIN_MASK'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '152'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Default value for CAN RXD Port Pin (_PIN_) IOCR register mask'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TX_PORT_PIN_IOCR_ADDRESS'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '153'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'CAN TXD Port Pin (_PIN_) IOCR register address'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TX_PORT_PIN_INIT_VALUE'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '154'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Default value for CAN TXD Port Pin (_PIN_) IOCR register'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TX_PORT_PIN_MASK'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '155'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Default value for CAN TXD Port Pin (_PIN_) IOCR register mask'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_CELL_ADDRESS'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '156'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Address for accessing selected CAN CELL'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_NODE_ADDRESS'
+      Type      = '20'
+      Value     = '0'
+      Pos       = '157'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Address for accessing selected CAN NODE'
+      Container = ''
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TRCV_STANDBY_PIN_PAD'
+      Type      = '2'
+      Value     = ''
+      Pos       = '170'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the Transceiver standby pin pad'
+      Container = 'FblCanTrcvSpc58x'
+      Parameter = 'FblCanTrcvStandbyPinPad'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TRCV_STANDBY_PIN_VALUE'
+      Type      = '2'
+      Value     = ''
+      Pos       = '171'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the Transceiver standby pin value'
+      Container = 'FblCanTrcvSpc58x'
+      Parameter = 'FblCanTrcvStandbyPinValue'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TRCV_ENABLE_PIN_PAD'
+      Type      = '2'
+      Value     = ''
+      Pos       = '172'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the Transceiver enable pin pad'
+      Container = 'FblCanTrcvSpc58x'
+      Parameter = 'FblCanTrcvEnablePinPad'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TRCV_ENABLE_PIN_VALUE'
+      Type      = '2'
+      Value     = ''
+      Pos       = '173'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the Transceiver enable pin value'
+      Container = 'FblCanTrcvSpc58x'
+      Parameter = 'FblCanTrcvEnablePinValue'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'FBL_CAN_TRCV_ERROR_PIN_PAD'
+      Type      = '2'
+      Value     = ''
+      Pos       = '174'
+      Format    = 'decimal'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Specifies the Transceiver error pin pad'
+      Container = 'FblCanTrcvSpc58x'
+      Parameter = 'FblCanTrcvErrorPinPad'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'CAN_STANDBY_setToOutput()'
+      Type      = '11'
+      Value     = ''
+      Pos       = '170'
+      Prefix    = '{'
+      Postfix   = '}'
+      Comment   = 'Defines CAN_STANDBY_setToOutput()'
+      Container = 'FblCanTrcvRh850f1km'
+      Parameter = 'FblCanTrcvStandbyPinSetToOutput'
+      NoParen   = '1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CAN_STANDBY_writeDirect()'
+      Type      = '11'
+      Value     = ''
+      Pos       = '171'
+      Prefix    = '{'
+      Postfix   = '}'
+      Comment   = 'Specifies the Transceiver standby pin value'
+      Container = 'FblCanTrcvRh850f1km'
+      Parameter = 'FblCanTrcvStandbyPinWriteDirect'
+      NoParen   = '1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CAN_ENABLE_setToOutput()'
+      Type      = '11'
+      Value     = ''
+      Pos       = '172'
+      Prefix    = '{'
+      Postfix   = '}'
+      Comment   = 'Specifies the Transceiver enable pin pad'
+      Container = 'FblCanTrcvRh850f1km'
+      Parameter = 'FblCanTrcvEnablePinSetToOutput'
+      NoParen   = '1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CAN_ENABLE_writeDirect()'
+      Type      = '11'
+      Value     = ''
+      Pos       = '173'
+      Prefix    = '{'
+      Postfix   = '}'
+      Comment   = 'Specifies the Transceiver enable pin value'
+      Container = 'FblCanTrcvRh850f1km'
+      Parameter = 'FblCanTrcvEnablePinWriteDirect'
+      NoParen   = '1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CAN_ERROR_setToInput()'
+      Type      = '11'
+      Value     = ''
+      Pos       = '174'
+      Prefix    = '{'
+      Postfix   = '}'
+      Comment   = 'Specifies the Transceiver error pin pad'
+      Container = 'FblCanTrcvRh850f1km'
+      Parameter = 'FblCanTrcvErrorPinSetToInput'
+      NoParen   = '1'
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'FBL_NUM_OF_MEM_BLOCKS'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '180'
+      SwIndex   = '0'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Configuration for total number of pages in flash memory'
+      Container = 'SwModule'
+      Parameter = ''
+      Output    = 'Fbl_Cfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'ASW_CRC_AREA_NUMBER'
+      Type      = '3'
+      Value     = '0'
+      Pos       = '181'
+      SwIndex   = '1'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Number of CRC area for ASW modules'
+      Container = 'SwModule'
+      Parameter = ''
+      Output    = 'Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'START_ADDR'
+      Type      = '9'
+      Value     = '0'
+      Pos       = '190'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = ''
+      Container = 'SwModule'
+      Parameter = 'StartAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'END_ADDR'
+      Type      = '9'
+      Value     = '0'
+      Pos       = '191'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = ''
+      Container = 'SwModule'
+      Parameter = 'EndAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SW_MODULE_INFO_ADDR'
+      Type      = '9'
+      Value     = '0'
+      Pos       = '192'
+      Prefix    = '(Fbl_SwModuleInfo*)'
+      Postfix   = 'UL'
+      Comment   = ''
+      Container = 'SwModule'
+      Parameter = 'ModuleInfoAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SPECIAL_DATA_ADDR'
+      Type      = '9'
+      Value     = '0'
+      Pos       = '193'
+      Prefix    = ''
+      Postfix   = 'UL'
+      Comment   = ''
+      Container = 'SwModule'
+      Parameter = 'SpecialDataAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CRC_INFO_ADDR'
+      Type      = '9'
+      Value     = '0'
+      Pos       = '194'
+      Prefix    = '(Fbl_CrcInfo*)'
+      Postfix   = 'UL'
+      Comment   = ''
+      Container = 'SwModule'
+      Parameter = 'CrcInfoAddress'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'CUSTOMER_ID'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '300'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'CC: Customer ID (1 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'CustomerId'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'PRODUCT_ID'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '301'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'AA: Product ID  (1 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'ProductId'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'PRODUCT_VARIANT'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '302'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'V_: Product variant (high digit only) from 0:(0x00) to F:(0xF0)'
+      Container = 'SwVersionInfo'
+      Parameter = 'ProductVariant'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SW_VERSION'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '303'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'VV: SW version (1 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'SwVersion'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'INTERMEDIATE_SW_VERSION'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '304'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'ZZ: Intermidiate SW version (1 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'IntSwVersion'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SYNCHRO1'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '305'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Synch byte 1'
+      Container = 'SwVersionInfo'
+      Parameter = 'Synchro1'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'SYNCHRO2'
+      Type      = '5'
+      Value     = '0'
+      Pos       = '306'
+      Format    = 'hex'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Synch byte 2'
+      Container = 'SwVersionInfo'
+      Parameter = 'Synchro2'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'BUILD_YEAR'
+      Type      = '6'
+      Value     = '0'
+      Pos       = '307'
+      Format    = 'year'
+      Size      = '2'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Build year 0xXXXX (2 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'BuildDate'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'BUILD_MONTH'
+      Type      = '6'
+      Value     = '0'
+      Pos       = '308'
+      Format    = 'month'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Build month 0xXX (1 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'BuildDate'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'BUILD_DAY'
+      Type      = '6'
+      Value     = '0'
+      Pos       = '309'
+      Format    = 'day'
+      Size      = '1'
+      Prefix    = ''
+      Postfix   = 'U'
+      Comment   = 'Build day 0xXX (1 byte)'
+      Container = 'SwVersionInfo'
+      Parameter = 'BuildDate'
+      Output    = 'Fbl_Cfg.h#$#Fbl_SharedCfg.h'>
+    </MACRO-ENTRY>
+  </PRE-COMPILE-OPTIONS>
+
+
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+
+    </MANDATORY-CHECK>
+
+    <!-- String check -->
+    <STRING-CHECK>
+      <PARAMETER>
+        <NAME>UserIncludeFile</NAME>
+        <CONTAINER-NAME>UserIncludeFiles</CONTAINER-NAME>
+        <REGULAR-EXPRESSION>[a-zA-Z0-9\_]+\.[hH]</REGULAR-EXPRESSION>
+      </PARAMETER>
+    </STRING-CHECK>
+
+    <!-- Config set reference check -->
+    <CONFIGSET-REFERENCE-CHECK>
+    </CONFIGSET-REFERENCE-CHECK>
+  </CONSISTENCY-CHECKS>
+
+  <!-- Static codes that to be added in the output files -->
+  <OUTPUT-FILES>
+  <Fbl_Cfg.h>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Fbl_Cfg.h                                                      **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR FBL Module                                           **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+#ifndef FBL_CFG_H
+#define FBL_CFG_H
+
+/*******************************************************************************
+**                              Include Section                               **
+*******************************************************************************/
+#include "Std_Types.h"
+INCLUDE_FILES
+
+/*******************************************************************************
+**                             Macro Definition                               **
+*******************************************************************************/
+/**
+ * Internal Use for FBL
+ */
+#define FBL_MCU_TC38X                                                        (1)
+#define FBL_MCU_TC39X                                                        (2)
+#define FBL_MCU_SPC58X                                                       (3)
+#define FBL_MCU_RH850F1KM                                                    (4)
+#define FBL_MCU_TC23X                                                        (5)
+#define FBL_MCU_TC29X                                                        (6)
+#define FBL_MCU_CYTXXX	                                                     (7)
+#define FBL_MCU_TC33X                                                        (8)
+#define FBL_MCU_TC36X                                                        (9)
+#define FBL_MCU_TC37X                                                       (10)
+
+#define FBL_HSM_NONE                                                         (0)
+#define FBL_HSM_AUTHSM_1_0                                                   (1)
+#define FBL_HSM_HAEHSM_2_0                                                   (2)
+
+#define FBL_CPU_80MHZ                                                       (80)
+#define FBL_CPU_160MHZ                                                     (160)
+#define FBL_CPU_200MHZ                                                     (200)
+#define FBL_CPU_300MHZ                                                     (300)
+#define FBL_QUARTZ_8MHZ                                                      (8)
+#define FBL_QUARTZ_16MHZ                                                    (16)
+#define FBL_QUARTZ_20MHZ                                                    (20)
+#define FBL_QUARTZ_24MHZ                                                    (24)
+#define FBL_QUARTZ_32MHZ                                                    (32)
+#define FBL_QUARTZ_40MHZ                                                    (40)
+
+#define FBL_CRC16_BLOCK_4096_BYTES                                        (4096)
+#define FBL_CRC16_BLOCK_2048_BYTES                                        (2048)
+#define FBL_CRC16_BLOCK_1024_BYTES                                        (1024)
+#define FBL_CRC16_BLOCK_512_BYTES                                          (512)
+#define FBL_CRC16_BLOCK_256_BYTES                                          (256)
+#define FBL_CRC16_BLOCK_128_BYTES                                          (128)
+
+#define FBL_SA_SEEDKEY                                                       (0)
+#define FBL_SA_ADVANCED_SEEDKEY                                              (1)
+#define FBL_SA_SECUREACCESS_1_0                                              (2)
+#define FBL_SA_SECUREACCESS_2_0                                              (3)
+
+#define FBL_SA_HASH_SHA160                                                   (0)
+#define FBL_SA_HASH_SHA256                                                   (1)
+
+#define FBL_SF_CRC                                                           (0)
+#define FBL_SF_VER_1_0                                                       (1)
+#define FBL_SF_VER_2_0                                                       (2)
+
+#define FBL_SF_HASH_SHA160                                                   (0)
+#define FBL_SF_HASH_SHA256                                                   (1)
+
+#define FBL_ES95486_00                                                       (1)
+#define FBL_ES95486_02                                                       (2)
+
+#define FBL_TXDATA                                                           (1)
+#define FBL_REQDOWNLOAD                                                      (2)
+
+#define FBL_CAN_CLASSIC                                                      (1)
+#define FBL_CAN_FD                                                           (2)
+
+#define FBL_CAN_100KBPS                                                    (100)
+#define FBL_CAN_125KBPS                                                    (125)
+#define FBL_CAN_250KBPS                                                    (250)
+#define FBL_CAN_500KBPS                                                    (500)
+#define FBL_CAN_1MBPS                                                     (1000)
+#define FBL_CAN_2MBPS                                                     (2000)
+
+#define FBL_CAN0                                                             (0)
+#define FBL_CAN1                                                             (1)
+#define FBL_CAN2                                                             (2)
+#define FBL_CAN3                                                             (3)
+#define FBL_CAN4                                                             (4)
+#define FBL_CAN5                                                             (5)
+#define FBL_CAN6                                                             (6)
+#define FBL_CAN7                                                             (7)
+
+#define FBL_XOSC                                                             (1)
+#define FBL_PLL                                                              (2)
+
+#define FBL_CAN_NODE0                                                        (0)
+#define FBL_CAN_NODE1                                                        (1)
+#define FBL_CAN_NODE2                                                        (2)
+#define FBL_CAN_NODE3                                                        (3)
+#define FBL_CAN_NODE4                                                        (4)
+
+#define FBL_CAN_RXDA                                                         (0)
+#define FBL_CAN_RXDB                                                         (1)
+#define FBL_CAN_RXDC                                                         (2)
+#define FBL_CAN_RXDD                                                         (3)
+#define FBL_CAN_RXDE                                                         (4)
+#define FBL_CAN_RXDF                                                         (5)
+#define FBL_CAN_RXDG                                                         (6)
+#define FBL_CAN_RXDH                                                         (7)
+
+#define FBL_ACTIVE_LOW                                                       (0)
+#define FBL_ACTIVE_HIGH                                                      (1)
+
+
+#define FBL_CAN_ADDR_STANDARD                                                (0)
+#define FBL_CAN_ADDR_EXTENDED                                                (1)
+
+#define FBL_ETH_SPEED_1000M                                                  (0)
+#define FBL_ETH_SPEED_100M                                                   (1)
+
+#define FBL_ETH_TRANCEIVER                                                   (0)
+#define FBL_ETH_SWITCH                                                       (1)
+
+/* RSA public key modulus length */
+#define SEC_RSA_PUBLIC_KEY_MODULUS_LENGTH                                 (256U)
+/* RSA public key exponent length */
+#define SEC_RSA_PUBLIC_KEY_EXPONENT_LENGTH                                  (4U)
+
+
+/* Main SW mudule ID */
+#define FBL_MAIN_SW_MODULE_ID                                               (1U)
+/* RomTst module ID */
+#define FBL_ROMTST_MODULE_ID                                                (2U)
+
+#define FBL_CRC_AREA_NUMBER                                                 (1U)
+
+
+/**
+ * Shared definition information
+ */
+/* Value of security key */
+#define FBL_SECURITY_KEY_VALUE                                    (0x90482442UL)
+/* Value of startup command */
+#define FBL_STARTUP_COMMAND_VALUE                                 (0xA5430911UL)
+
+
+/* SPC58X Supported MCU list */
+#define SPC582B50                                                            (0)
+#define SPC582B54                                                            (1)
+#define SPC582B60                                                            (2)
+#define SPC584B60                                                            (3)
+#define SPC584B64                                                            (4)
+#define SPC584B70                                                            (5)
+#define SPC584C70                                                            (6)
+#define SPC584C74                                                            (7)
+#define SPC584C80                                                            (8)
+#define SPC58EC70                                                            (9)
+#define SPC58EC74                                                           (10)
+#define SPC58EC80                                                           (11)
+
+/* CYTXXX Supported MCU list */
+#define CYT2B7XX                                                             (12)
+#define CYT2B9XX                                                             (13)
+#define CYT2BLXX                                                             (14)
+#define CYT3BBXX                                                             (15)
+#define CYT4BBXX                                                             (16)
+#define CYT4BFXX                                                             (17)
+
+
+/**
+ * Shared address information
+ */
+/* Location of security key to validate application */
+#define MAIN_SW_SECURITY_KEY_PTR            ((uint32*)MAIN_SW_SECURITY_KEY_ADDR)
+/* Location of shared data between RTSW and FBL */
+#define FBL_SHARED_DATA_PTR               (Fbl_SharedData*)FBL_SHARED_DATA_ADDR)
+/* Macros to access 'Common RAM' elements */
+#define FBL_COMMON_RAM_PTR        ((Fbl_SharedCommonRAM*)FBL_COMMON_RAM_ADDRESS)
+
+FBL_MEMORYBLOCK_NUM
+FBL_PORTPIN_CTRL_NUM
+
+FBL_SPI_CTRL_NUM
+
+FBL_SPI_DATA_NUM
+/*******************************************************************************
+**                              Generated Data                                **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+
+MACRO_DEFINITIONS
+
+#if (FBL_SUPPORT_MCU == FBL_MCU_TC23X)
+  #define INFINEON_TC23X
+#elif (FBL_SUPPORT_MCU == FBL_MCU_TC29X)
+  #define INFINEON_TC29X
+#endif
+/*******************************************************************************
+**                                Structures                                  **
+*******************************************************************************/
+typedef struct
+{
+  /* identification according to the naming rule */
+  const uint8 customerId;
+  const uint8 productId;
+  const uint8 productVariant;
+  const uint8 swVersion;
+  const uint8 intermediatSwVersion;
+  const uint8 synchro1;
+  const uint8 synchro2;
+  /* Stuffing byte, required due to alignement contraints */
+  const uint8 reserved;
+  /* Build date */
+  const uint8 BuildDay;
+  const uint8 BuildMonth;
+  const uint16 BuildYear;
+  /* CRC */
+  const uint16 crcValue;
+  const uint16 crcNumberOfArea;
+} Fbl_SwModuleInfo;
+
+typedef struct
+{
+  uint32 startAddr;
+  uint32 endAddr;
+} Fbl_CrcArea;
+
+typedef struct
+{
+  uint16 blockIndex;
+  uint32 startAddr;
+  uint32 endAddr;
+} Fbl_BlockArea;
+
+typedef struct
+{
+  uint16 crcValue;
+  uint16 numberOfCrcAreas;
+  Fbl_CrcArea crcArea[FBL_CRC_AREA_NUMBER];
+} Fbl_CrcInfo;
+
+typedef struct
+{
+  uint32            startAddr; /* Address of signing area */
+  uint32            length;   /* Length of signing area */
+} Fbl_SignArea;
+
+typedef struct
+{
+  const uint32            signatureAddress;
+  const uint32            ecuSwUnit;
+  const Fbl_BlockArea*    SwMemoryBlockAreaInfo;
+  const uint8             swMemoryBlockAreaNum;
+  const uint32            blkHeaderAddress;
+  const uint32            blkTrailerAddress;  
+} Fbl_SwModuleSubInfo;
+
+typedef struct
+{
+  const uint32            startAddress; /* Address of first byte */
+  const uint32            endAddress;   /* Address of last byte  */
+  const uint32*           skAddress;
+  const Fbl_SwModuleInfo* swModuleInfo;
+  const Fbl_CrcInfo*      crcInfo;
+  const uint8             logicalID;
+  const uint8             accessType;
+} Fbl_SwModule;
+typedef struct
+{
+  const uint32            FblPortNum;	/* GPIO Port Number */
+  const uint32            FblPinNum;   /* GPIO PIN  Number */
+  const uint32            FblPortPinVal;   /* GPIO PortPin Output Value */
+} Fbl_PortPinCtrlInfo;
+
+typedef struct
+{
+  uint8            FblSpiChannel;	/* Spi channel */
+  uint8            FblSpiDataWidth; /* Spi data width */
+  uint8            FblSpiCPOL; /* Spi CPOL */
+  uint8            FblSpiCPHA; /* Spi CPHA */
+  uint8            FblSpiSelect; /* Spi select */
+  uint8            FblSpiSelectPolarity; /* Spi polarity */
+  uint8            FblSpiTranferStart; /* Spi start MSB or LSB first */
+  uint32           FblSpiClock; /* Spi clock divide */
+  uint8            FblSpiNumberOfSendCommand; /* Spi clock divide */
+  const uint32     *FblSpiSendCommandPtr; /* Spi default data is transmit */
+  uint8            FblSpiInPortNum;   /* Spi port in */
+  uint8            FblSpiInPinNum;   /* Spi pin in */
+  uint8            FblSpiOutPortNum;   /* Spi port out */
+  uint8            FblSpiOutPinNum;   /* Spi pin out */
+  uint8            FblSpiClkPortNum;   /* Spi port clock */
+  uint8            FblSpiClkPinNum;   /* Spi pin clock */
+  uint8            FblSpiCsPortNum;   /* Spi port select */
+  uint8            FblSpiCsPinNum;   /* Spi pin select */
+} Fbl_SpiCtrlInfo;
+
+typedef struct
+{
+  const Fbl_SwModuleInfo* swModuleInfo;
+  const Fbl_CrcArea*      crcArea;
+} Fbl_SharedDataInFbl;
+
+typedef struct
+{
+  const uint16*           CRCA001_8;          /* Pointer to the CRC16 algorithm table */
+  const Fbl_SwModule*     swModuleMapping;    /* Pointer to the SW mapping Table */
+  const uint8             numberOfSwMdoule;   /* Number of entries in pcs_SwMap : not used */
+  const uint8*            diagServPublicKey;  /* Pointer to the public key for secure access */
+  const uint8*            imageServPublicKey; /* Pointer to the public key for secure flash */
+} Fbl_SharedData;
+
+typedef struct
+{
+  const uint32            securityKey;       /* Security Key */
+  const Fbl_SwModuleInfo* swModuleInfo;
+  const Fbl_CrcArea*      crcArea;
+} Fbl_SharedDataInMainSW;
+
+/* 'Common RAM' is used to share dynamic information. This is shared RAM memory
+ * in between Bootloader and application.
+ */
+FBL_SHAREDCOMMONRAM
+
+/*******************************************************************************
+**                             Global Variables                               **
+*******************************************************************************/
+#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"
+
+extern const uint8 Sec_Gau8_DiagServPubKey[SEC_RSA_PUBLIC_KEY_MODULUS_LENGTH];
+extern const Fbl_SwModule Fbl_Gast_AppMappingTable[FBL_NUM_OF_MEM_BLOCKS];
+extern const Fbl_SwModuleSubInfo Fbl_Gast_AppMappingSubTable[FBL_NUM_OF_MEM_BLOCKS];
+extern const uint16 Sec_Gau16_CRCA001_8[256];
+extern const uint8 Sec_Gau8_ImageServPubKey[SEC_RSA_PUBLIC_KEY_MODULUS_LENGTH];
+#if (FBL_PORTPIN_CTRL_NUM == 0U)
+extern const Fbl_PortPinCtrlInfo Fbl_GaaPortPinCtrlInfoConfig[1U];
+#else
+extern const Fbl_PortPinCtrlInfo Fbl_GaaPortPinCtrlInfoConfig[FBL_PORTPIN_CTRL_NUM];
+#endif
+#if (FBL_SPI_CTRL_NUM != 0U)
+extern const uint32 Fbl_GaaSpiSendCommandData[FBL_SPI_DATA_NUM];
+extern const Fbl_SpiCtrlInfo Fbl_GaaSpiCtrlInfoConfig[FBL_SPI_CTRL_NUM];
+#endif
+#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"
+
+/*******************************************************************************
+**                        Global Function Declaration                         **
+*******************************************************************************/
+FUNCTION_DECLARATION
+
+#endif /* FBL_CFG_H */
+
+/*******************************************************************************
+**                                End of File                                 **
+*******************************************************************************/
+</TEMPLATE>
+  </Fbl_Cfg.h>
+
+  <Fbl_Cfg.c>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Fbl_Cfg.c                                                      **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR FBL Module                                           **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**                              Include Section                               **
+*******************************************************************************/
+#include "Fbl_Cfg.h"
+
+/*******************************************************************************
+**                             Macro Definition                               **
+*******************************************************************************/
+
+/*******************************************************************************
+**                             Global Variables                               **
+*******************************************************************************/
+STRUCTURE_DECLARATIONS
+
+#define FBL_START_SEC_MODULE_INFO
+#include "Fbl_SharedMemMap.h"
+
+const Fbl_SwModuleInfo Fbl_Gdt_SwModuleInfoFbl =
+{
+  CUSTOMER_ID,
+  PRODUCT_ID,
+  PRODUCT_VARIANT,
+  SW_VERSION,
+  INTERMEDIATE_SW_VERSION,
+  SYNCHRO1,
+  SYNCHRO2,
+  0xFFU,
+  BUILD_DAY,
+  BUILD_MONTH,
+  BUILD_YEAR,
+	0xFFFFU,
+  0xFFFFU
+};
+
+#define FBL_STOP_SEC_MODULE_INFO
+#include "Fbl_SharedMemMap.h"
+
+#define FBL_START_SEC_CRC
+#include "Fbl_SharedMemMap.h"
+
+const Fbl_CrcInfo Fbl_Gdt_SwCrcInfo =
+{
+  0xFFFFU,
+  0xFFFFU,
+  {
+    { 0xFFFFFFFFUL, 0xFFFFFFFFUL },
+  }
+};
+
+#define FBL_STOP_SEC_CRC
+#include "Fbl_SharedMemMap.h"
+
+#define FBL_START_SEC_SHARED_DATA
+#include "Fbl_SharedMemMap.h"
+
+const Fbl_SharedData Fbl_Gdt_SharedData = {
+  Sec_Gau16_CRCA001_8,
+  Fbl_Gast_AppMappingTable,
+  1,
+  Sec_Gau8_DiagServPubKey,
+  Sec_Gau8_ImageServPubKey,
+};
+
+#define FBL_STOP_SEC_SHARED_DATA
+#include "Fbl_SharedMemMap.h"
+
+/*******************************************************************************
+**                                End of File                                 **
+*******************************************************************************/
+</TEMPLATE>
+      <STRUCTURES-AND-ARRAYS>
+
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Fbl_GaaSpiCommandData</NAME>
+          <COMMENT>/* const uint32 Fbl_GaaSpiCommandData[]; */</COMMENT>
+          <FIELD>FblSpiData</FIELD>
+          <TYPE>UINT32</TYPE>
+       <RANGE>NONE#NONE</RANGE>
+          <REFERENCE>NONE</REFERENCE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <MEMMAP-START>#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-STOP>
+        <ENTRY-TYPE>Structure</ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+        
+         <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Fbl_Gast_AppMappingTable</NAME>
+          <COMMENT>/* const Fbl_SwModule Fbl_Gast_AppMappingTable[FBL_NUM_OF_MEM_BLOCKS]; */</COMMENT>
+          <FIELD>StartAddress EndAddress skAddress swModuleInfo crcInfo logicalID accessType </FIELD>
+          <TYPE>UINT32 UINT32 UINT32 UINT32 UINT32 UINT32 UINT8</TYPE>
+       <RANGE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <REFERENCE>NONE NONE NONE NONE NONE NONE NONE</REFERENCE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <MEMMAP-START>#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-STOP>
+        <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO>FBL_NUM_OF_MEM_BLOCKS</SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Fbl_Gast_AppMappingSubTable</NAME>
+          <COMMENT>/* const Fbl_SwModuleSubInfo Fbl_Gast_AppMappingSubTable[FBL_NUM_OF_MEM_BLOCKS]; */</COMMENT>
+          <FIELD>signatureAddress ecuSwUnit swMemoryBlockAreaInfo swMemoryBlockAreaNum blkHeaderAddress blkTrailerAddress</FIELD>
+          <TYPE>UINT32 UINT32 PSTR UINT8</TYPE>
+       <RANGE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <REFERENCE>NONE NONE NONE NONE</REFERENCE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <MEMMAP-START>#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-STOP>
+        <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO>FBL_NUM_OF_MEM_BLOCKS</SIZE-MACRO>
+          <SIZE-MACRO-COMMENT></SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX></SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+
+         <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Fbl_GaaSwMemoryblockAreaConfig</NAME>
+          <COMMENT>/* const Fbl_BlockArea Fbl_GaaSwMemoryblockAreaConfig[]; */</COMMENT>
+          <FIELD>SwBlockIndex StartAddress EndAddress</FIELD>
+          <TYPE>UINT16 UINT32 UINT32</TYPE>
+       <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <REFERENCE>NONE NONE NONE</REFERENCE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <MEMMAP-START>#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-STOP>
+        <ENTRY-TYPE>Structure</ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Fbl_GaaPortPinCtrlInfoConfig</NAME>
+          <COMMENT>/* const Fbl_PortPinCtrlInfo Fbl_GaaPortPinCtrlInfoConfig[]; */</COMMENT>
+          <FIELD>FblPortNum FblPinNum FblPortPinVal</FIELD>
+          <TYPE>UINT32 UINT32 UINT32</TYPE>
+       <RANGE>NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <REFERENCE>NONE NONE NONE</REFERENCE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <MEMMAP-START>#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-STOP>
+        <ENTRY-TYPE>Structure</ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Fbl_GaaSpiCtrlInfoConfig</NAME>
+          <COMMENT>/* const Fbl_SpiCtrlInfo Fbl_GaaSpiCtrlInfoConfig[]; */</COMMENT>
+          <FIELD>FblSpiChannel FblSpiDataWidth FblSpiCPOL FblSpiCPHA FblSpiSelect FblSpiSelectPolarity FblSpiTranferStart FblSpiClock FblSpiNumberOfSendCommand FblSpiSendCommand FblSpiInPortNum FblSpiInPinNum FblSpiOutPortNum FblSpiOutPinNum FblSpiClkPortNum FblSpiClkPinNum FblSpiCsPortNum FblSpiCsPinNum</FIELD>
+          <TYPE>UINT8 UINT8 UINT8 UINT8 UINT8 UINT8 UINT8 UINT32 UINT8 STRING UINT8 UINT8 UINT8 UINT8 UINT8 UINT8 UINT8 UINT8</TYPE>
+       <RANGE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <REFERENCE>NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE NONE</REFERENCE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <MEMMAP-START>#define BTL_START_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define BTL_STOP_SEC_CONST
+#include "Btl_MemMap.h"</MEMMAP-STOP>
+        <ENTRY-TYPE>Structure</ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+        
+      </STRUCTURES-AND-ARRAYS>
+  </Fbl_Cfg.c>
+
+  <Fbl_SharedCfg.h>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Fbl_SharedCfg.h                                                **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR FBL Module                                           **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+#ifndef FBL_SHAREDCFG_H
+#define FBL_SHAREDCFG_H
+
+/*******************************************************************************
+**                              Include Section                               **
+*******************************************************************************/
+#include "Std_Types.h"
+
+/*******************************************************************************
+**                             Macro Definition                               **
+*******************************************************************************/
+/**
+ * Shared definition information
+ */
+/* Value of security key */
+#define FBL_SECURITY_KEY_VALUE                                    (0x90482442UL)
+/* Value of cpd pass key */
+#define FBL_CPD_KEY_VALUE                                         (0x19801217UL)
+/* Value of startup command */
+#define FBL_STARTUP_COMMAND_VALUE                                 (0xA5430911UL)
+/* Macro to get startup command address */
+#define FBL_STARTUP_COMMAND_PTR           ((uint32*)FBL_STARTUP_COMMAND_ADDRESS)
+/* Macros to access 'Common RAM' elements */
+#define FBL_COMMON_RAM_PTR        ((Fbl_SharedCommonRAM*)FBL_COMMON_RAM_ADDRESS)
+
+/*******************************************************************************
+**                              Generated Data                                **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+
+/*******************************************************************************
+**                                Structures                                  **
+*******************************************************************************/
+typedef struct
+{
+  /* identification according to the naming rule */
+  const uint8 customerId;
+  const uint8 productId;
+  const uint8 productVariant;
+  const uint8 swVersion;
+  const uint8 intermediatSwVersion;
+  const uint8 synchro1;
+  const uint8 synchro2;
+  /* Stuffing byte, required due to alignement contraints */
+  const uint8 reserved;
+  /* Build date */
+  const uint8 BuildDay;
+  const uint8 BuildMonth;
+  const uint16 BuildYear;
+  /* CRC */
+  const uint16 crcValue;
+  const uint16 crcNumberOfArea;
+} Fbl_SwModuleInfo;
+
+typedef struct
+{
+  uint32 startAddr;
+  uint32 endAddr;
+} Fbl_CrcArea;
+
+typedef struct
+{
+  uint16 blockIndex;
+  uint32 startAddr;
+  uint32 endAddr;
+} Fbl_BlockArea;
+
+typedef struct
+{
+  uint16 crcValue;
+  uint16 numberOfCrcAreas;
+  Fbl_CrcArea crcArea[ASW_CRC_AREA_NUMBER];
+} Fbl_CrcInfo;
+
+typedef struct
+{
+  uint32            startAddr; /* Address of signing area */
+  uint32            length;   /* Length of signing area */
+} Fbl_SignArea;
+
+typedef struct
+{
+  const uint32            signatureAddress;
+  const uint32            ecuSwUnit;
+  const Fbl_BlockArea*    SwMemoryBlockAreaInfo;
+  const uint8             swMemoryBlockAreaNum;
+} Fbl_SwModuleSubInfo;
+
+typedef struct
+{
+  const uint32            startAddress; /* Address of first byte */
+  const uint32            endAddress;   /* Address of last byte  */
+  const uint32*           skAddress;
+  const Fbl_SwModuleInfo* swModuleInfo;
+  const Fbl_CrcInfo*      crcInfo;
+  const uint8             logicalID;
+  const uint8             accessType;
+} Fbl_SwModule;
+
+typedef struct
+{
+  const Fbl_SwModuleInfo* swModuleInfo;
+  const Fbl_CrcArea*      crcArea;
+} Fbl_SharedDataInFbl;
+
+typedef struct
+{
+  const uint16*           CRCA001_8;          /* Pointer to the CRC16 algorithm table */
+  const Fbl_SwModule*     swModuleMapping;    /* Pointer to the SW mapping Table */
+  const uint8             numberOfSwMdoule;   /* Number of entries in pcs_SwMap : not used */
+  const uint8*            diagServPublicKey;  /* Pointer to the public key for secure access */
+  const uint8*            imageServPublicKey; /* Pointer to the public key for secure flash */
+} Fbl_SharedData;
+
+typedef struct
+{
+  const uint32            securityKey;        /* Security Key */
+  const Fbl_SwModuleInfo* swModuleInfo;
+  const Fbl_CrcArea*      crcArea;
+} Fbl_SharedDataInMainSW;
+
+/* 'Common RAM' is used to share dynamic information. This is shared RAM memory
+ * in between Bootloader and application.
+ */
+FBL_SHAREDCOMMONRAM
+
+/*******************************************************************************
+**                        Global Function Declaration                         **
+*******************************************************************************/
+extern void Fbl_SetStartupCommand(uint32 command);
+
+extern uint32* Fbl_GetProgConditionsAddress(void);
+
+extern Fbl_SharedCommonRAM* Fbl_GetProgConditions(void);
+
+extern void Fbl_SetProgConditions(Fbl_SharedCommonRAM* progCondition);
+
+#endif /* FBL_SHAREDCFG_H */
+
+/*******************************************************************************
+**                                End of File                                 **
+*******************************************************************************/
+</TEMPLATE>
+  </Fbl_SharedCfg.h>
+
+  <Fbl_SharedCfg.c>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Fbl_SharedCfg.c                                                **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR FBL Module                                           **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**                              Include Section                               **
+*******************************************************************************/
+#include "Fbl_SharedCfg.h"
+
+/*******************************************************************************
+**                             Global Variables                               **
+*******************************************************************************/
+#define MAINSW_START_SEC_SECURITY_KEY
+#include "Fbl_SharedMemMap.h"
+
+uint32 const Fbl_Gu32_SecurityKey = FBL_SECURITY_KEY_VALUE;
+
+#define MAINSW_STOP_SEC_SECURITY_KEY
+#include "Fbl_SharedMemMap.h"
+
+#define MAINSW_START_SEC_CPD_KEY
+#include "Fbl_SharedMemMap.h"
+
+uint32 const Fbl_Gu32_CheckDependencyKey = FBL_CPD_KEY_VALUE;
+
+#define MAINSW_STOP_SEC_CPD_KEY
+#include "Fbl_SharedMemMap.h"
+
+
+#define MAINSW_START_SEC_MODULE_INFO
+#include "Fbl_SharedMemMap.h"
+
+const Fbl_SwModuleInfo Fbl_Gdt_SwModuleInfoMainSW =
+{
+  CUSTOMER_ID,
+  PRODUCT_ID,
+  PRODUCT_VARIANT,
+  SW_VERSION,
+  INTERMEDIATE_SW_VERSION,
+  SYNCHRO1,
+  SYNCHRO2,
+  0xFFU,
+  BUILD_DAY,
+  BUILD_MONTH,
+  BUILD_YEAR,
+	0xFFFFU,
+  0xFFFFU
+};
+
+#define MAINSW_STOP_SEC_MODULE_INFO
+#include "Fbl_SharedMemMap.h"
+
+#define MAINSW_START_SEC_CRC
+#include "Fbl_SharedMemMap.h"
+
+const Fbl_CrcInfo Fbl_Gdt_SwCrcInfoMainSW =
+{
+  0xFFFFU,
+  0xFFFFU,
+  {
+ASW_DUMMY_CRC_VALUES
+  }
+};
+
+#define MAINSW_STOP_SEC_CRC
+#include "Fbl_SharedMemMap.h"
+
+/*******************************************************************************
+**                        Global Function Definition                          **
+*******************************************************************************/
+void Fbl_SetStartupCommand(uint32 command)
+{
+  *FBL_STARTUP_COMMAND_PTR = command;
+}
+
+uint32* Fbl_GetProgConditionsAddress(void)
+{
+  return (uint32*)FBL_COMMON_RAM_PTR;
+}
+
+Fbl_SharedCommonRAM* Fbl_GetProgConditions(void)
+{
+  return FBL_COMMON_RAM_PTR;
+}
+
+void Fbl_SetProgConditions(Fbl_SharedCommonRAM* progCondition)
+{
+  /* Save Tester Source Address in common Reset save memory area */
+  FBL_COMMON_RAM_PTR->TesterSourceAddr = progCondition->TesterSourceAddr;
+  /* Save AppIf Protocol ID in common Reset save memory area */
+  FBL_COMMON_RAM_PTR->ProtocolId = progCondition->ProtocolId;
+  /* Save Diagnostic Service ID being processed during Reset */
+  FBL_COMMON_RAM_PTR->Sid = progCondition->Sid;
+  /* Save Diagnostic Sub Function ID of Service being processed during Reset */
+  FBL_COMMON_RAM_PTR->SubFncId = progCondition->SubFncId;
+  /* Clear Re programming Request Flag to enable Jump to Application */
+  FBL_COMMON_RAM_PTR->ReprogramingRequest = progCondition->ReprogramingRequest;
+  /* Save Application update related data */
+  FBL_COMMON_RAM_PTR->ApplUpdated = progCondition->ApplUpdated;
+  /* Save information related to Response to be sent after Reset */
+  FBL_COMMON_RAM_PTR->ResponseRequired = progCondition->ResponseRequired;
+  /* Save the active unlocked security level */
+  FBL_COMMON_RAM_PTR->SecLvInfo = progCondition->SecLvInfo;
+}
+
+/*******************************************************************************
+**                                End of File                                 **
+*******************************************************************************/
+</TEMPLATE>
+  </Fbl_SharedCfg.c>
+
+  <Fbl_SharedMemMap.h>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Fbl_SharedMemMap.h                                             **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR FBL Module                                           **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+#if defined (START_FBL_SHARED_MEMMAP)
+
+#elif defined (FBL_START_SEC_MODULE_INFO)
+  #undef FBL_START_SEC_MODULE_INFO
+  #ifdef __TASKING__
+    #pragma section farrom "FBL_MODULE_INFO"
+  #elif defined __GHS__
+    #pragma ghs section rodata="FBL_MODULE_INFO"
+  #endif
+#elif defined (FBL_STOP_SEC_MODULE_INFO)
+  #undef FBL_STOP_SEC_MODULE_INFO
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+#elif defined (FBL_START_SEC_CRC)
+  #undef FBL_START_SEC_CRC
+  #ifdef __TASKING__
+    #pragma section farrom "FBL_CRC"
+  #elif defined __GHS__
+    #pragma ghs section rodata="FBL_CRC"
+  #endif
+#elif defined (FBL_STOP_SEC_CRC)
+  #undef FBL_STOP_SEC_CRC
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+#elif defined (FBL_START_SEC_SHARED_DATA)
+  #undef FBL_START_SEC_SHARED_DATA
+  #ifdef __TASKING__
+    #pragma section farrom "FBL_SHARED_DATA"
+  #elif defined __GHS__
+    #pragma ghs section rodata="FBL_SHARED_DATA"
+  #endif
+#elif defined (FBL_STOP_SEC_SHARED_DATA)
+  #undef FBL_STOP_SEC_SHARED_DATA
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+
+#elif defined (MAINSW_START_SEC_SECURITY_KEY)
+  #undef MAINSW_START_SEC_SECURITY_KEY
+  #ifdef __TASKING__
+    #pragma section farrom "MAINSW_SECURITY_KEY"
+  #elif defined __GHS__
+    #pragma ghs section rodata="MAINSW_SECURITY_KEY"
+  #endif
+#elif defined (MAINSW_STOP_SEC_SECURITY_KEY)
+  #undef MAINSW_STOP_SEC_SECURITY_KEY
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+#elif defined (MAINSW_START_SEC_CPD_KEY)
+  #undef MAINSW_START_SEC_CPD_KEY
+  #ifdef __TASKING__
+    #pragma section farrom "MAINSW_CPD_KEY"
+  #elif defined __GHS__
+    #pragma ghs section rodata="MAINSW_CPD_KEY"
+  #endif
+#elif defined (MAINSW_STOP_SEC_CPD_KEY)
+  #undef MAINSW_STOP_SEC_CPD_KEY
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+
+
+#elif defined (MAINSW_START_SEC_MODULE_INFO)
+  #undef MAINSW_START_SEC_MODULE_INFO
+  #ifdef __TASKING__
+    #pragma section farrom "MAINSW_MODULE_INFO"
+  #elif defined __GHS__
+    #pragma ghs section rodata="MAINSW_MODULE_INFO"
+  #endif
+#elif defined (MAINSW_STOP_SEC_MODULE_INFO)
+  #undef MAINSW_STOP_SEC_MODULE_INFO
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+#elif defined (MAINSW_START_SEC_CRC)
+  #undef MAINSW_START_SEC_CRC
+  #ifdef __TASKING__
+    #pragma section farrom "MAINSW_CRC"
+  #elif defined __GHS__
+    #pragma ghs section rodata="MAINSW_CRC"
+  #endif
+#elif defined (MAINSW_STOP_SEC_CRC)
+  #undef MAINSW_STOP_SEC_CRC
+  #ifdef __TASKING__
+    #pragma section farrom restore
+  #elif defined __GHS__
+    #pragma ghs section
+  #endif
+
+#else
+/**
+ * Error ...! no memory section is found
+ */
+  #error "Fbl_SharedMemMap.h: No valid section define found...!"
+
+/**
+ * End of START_FBL_SHARED_MEMMAP
+ */
+#endif
+
+/*******************************************************************************
+**                                End of File                                 **
+*******************************************************************************/
+</TEMPLATE>
+  </Fbl_SharedMemMap.h>
+  </OUTPUT-FILES>
+
+</GENERAL-INFORMATION>
+<!--
+################################################################################
+# Revision History:                                                            #
+# Version No.  Last modified  Author     Description                           #
+################################################################################
+# 1.23.0       27-Dec-2021    JHLim      Redmine #31776                        #
+# 1.22.0       09-Nov-2021    JYS        Redmine #32899, #29462, #29282        #
+# 1.21.0       27-Sep-2021    JYS        Redmine #29449, #29277                #
+# 1.20.0.0     03-Sep-2021    Sungwook   Redmine #29451                        #
+# 1.19.0.0     27-Jul-2021    JYS        Redmine #29489                        #
+# 1.17.1.0     19-Jun-2021    VuPH6      Redmine #29453                        #
+# 1.17.0.0     16-Jun-2021    Sungwook   Redmine #29464                        #
+# 1.16.0.0     09-Jun-2021    VuPH6      Redmine #28436                        #
+# 1.14.0.0     06-May-2021    JHLim      Redmine #29712                        #
+# 1.12.0.0     24-Feb-2021    JHLim      Redmine #26660                        #
+# 1.10.0.0     07-Feb-2021    JYS        Redmine #24230 #28298 #27968          #
+# 1.9.1.0      23-Jan-2021    JYS        Redmine #27914                        #
+# 1.9.0.0      22-Jan-2021    JYS        Redmine #27881                        #
+# 1.8.0.0      05-Nov-2020    JYS        Redmine #26457                        #
+# 1.2.0.0      30-Jun-2020    EunKyung   Redmine #23953, #23954                #
+# 1.1.0.0_HF7  07-April-2020  JaeHyun    Redmine #21079, #21592, #21594        #
+# 1.1.0.0_HF0  10-Feb-2020    Sinil      Redmine #21079, #21592, #21594        #
+# 1.1.0        06-Dec-2019    Sinil      Redmine #19192, #20402, #20452        #
+# 1.0.0        05-Aug-2019    Sinil      Initial version                       #
+################################################################################
+-->

@@ -1,0 +1,1714 @@
+<?xml version='1.0'?>
+<datamodel version="5.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Pwm" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                <ad:ADMIN-DATA>
+                  <ad:DOC-REVISIONS>
+                    <ad:DOC-REVISION>
+                      <ad:REVISION-LABEL>4.2.2</ad:REVISION-LABEL>
+                      <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      <ad:DATE>2014-10-31</ad:DATE>
+                    </ad:DOC-REVISION>
+                  </ad:DOC-REVISIONS>
+                </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="DESC" 
+                   value="EN:&lt;html&gt; Configuration of Pwm (Pulse Width Modulation) module.&lt;/html&gt;"/>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="POSTBUILDVARIANTSUPPORT" value="true"/>
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="UPPER-MULTIPLICITY" value="*"/>
+              <a:a name="UUID" value="ac769e52-f622-4203-8e00-e32dfaebba8a"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                     type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                </a:a>
+                <a:a name="LABEL" value="Config Variant"/>
+                <a:a name="UUID" value="60caaa5e-e211-472c-85d0-0ace2c47356e"/>
+                <a:da name="DEFAULT" value="VariantPostBuild"/>
+                <a:da name="RANGE" value="VariantPostBuild"/>
+              </v:var>
+              <v:lst name="PwmChannelConfigSet"  type="MAP">
+                <a:da name="MIN" value="1"/>
+                <v:ctr name="PwmChannelConfigSet" type="IDENTIFIABLE">
+                  <a:a name="DESC"  value="EN:&lt;html&gt;  This container contains the configuration parameters and sub containers of the AUTOSAR Pwm module.&lt;/html&gt;"/>
+                <a:a name="UUID" value="188097a4-7111-4eb6-bda6-c0ac2c67d3a2"/>
+                <v:lst name="PwmChannel" type="MAP">
+                    <a:a name="COLUMNS">
+                      <a:v>PwmAlignment</a:v>
+                      <a:v>PwmChannelClass</a:v>
+                      <a:v>PwmChannelId</a:v>
+                      <a:v>PwmTimer</a:v>
+                      <a:v>PwmUpdateOutputAtInitEnable</a:v>
+                      <a:v>PwmOutputAtInitSelect</a:v>
+                      <a:v>PwmCompOutputAtInitSelect</a:v>
+                      <a:v>PwmMcuClockReferencePoint</a:v>
+                      <a:v>PwmDutycycleDefault</a:v>
+                      <a:v>PwmPeriodDefault</a:v>
+                      <a:v>PwmPolarity</a:v>
+                      <a:v>PwmIdleState</a:v>
+                      <a:v>PwmNotification</a:v>
+                      <a:v>PwmChannelPrescale</a:v>
+                      <a:v>PwmChannelStartDelay</a:v>
+                      <a:v>PwmStartDelayTimer</a:v>
+                      <a:v>PwmStartDelayMcuClockReferencePoint</a:v>
+                      <a:v>PwmStartDelayTrigger</a:v>
+                      <a:v>PwmHwTriggerOutputLine</a:v>
+                      <a:v>PwmHwTriggerOutputFactor</a:v>
+                      <a:v>PwmHwTriggerOutputDefaultTime</a:v>
+                      <a:v>PwmHwTriggerOutputDefaultTick</a:v>
+                      <a:v>PwmStartAtInit</a:v>
+                      <a:v>PwmDebugMode</a:v>
+                      <a:v>PwmSetOutputEnable</a:v>
+                      <a:v>PwmOutputOffset</a:v>
+                    </a:a>
+                  <a:da name="MIN" value="1"/>
+                  <a:da name="MAX" value="65535"/>
+                  <v:ctr name="PwmChannel" type="IDENTIFIABLE">
+                    <a:a name="DESC"  value="EN:&lt;html&gt; Configuration of an individual PWM channel.&lt;/html&gt;"/>
+                    <a:a name="UUID" 
+                         value="57f9e068-d4a3-40d2-9648-b7ffaa011898"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="node:containsValue(node:foreach(node:paths(../../../*/PwmChannel/*), 'path', '(substring-before(node:path($path), node:name($path)) != substring-before(node:path(.), node:name(.))) and (node:name($path) = node:name(.)) and (node:value(concat($path, &quot;/PwmChannelId&quot;)) != node:value(./PwmChannelId))'), 'true')"
+                             true = "All PwmChannelId of the container of the same name should be the same for the different configuration set." />
+                    </a:da>
+                    <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                    <v:var name="PwmAlignment" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Defines aligned type of timer channel.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="679892b2-fe93-43e2-b81e-4db1431a3890"/>
+                      <a:da name="DEFAULT" value="PWM_LEFT_ALIGNED"/>
+                      <a:da name="RANGE">
+                        <a:v>PWM_LEFT_ALIGNED</a:v>
+                        <a:v>PWM_CENTER_ALIGNED</a:v>
+                        <a:v>PWM_RIGHT_ALIGNED</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmChannelClass" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>EN:&lt;html&gt; Class of PWM Channel. ImplementationType: Pwm_ChannelClassType&lt;/html&gt;</a:v>
+                        </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="5a00ab9e-949a-40e3-adf3-1769cd12ca65"/>
+                      <a:da name="DEFAULT" value="PWM_FIXED_PERIOD"/>
+                      <a:da name="RANGE">
+                        <a:v>PWM_FIXED_PERIOD</a:v>
+                        <a:v>PWM_FIXED_PERIOD_SHIFTED</a:v>
+                        <a:v>PWM_VARIABLE_PERIOD</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmChannelId" type="INTEGER">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; HW-Channel Id of the hardware PWM channel. This value is not assigned to the symbolic name. ATTENTION! The ChannelId can not be used for an API call. Please use the symbolic name for API calls only.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                      <a:a name="UUID" 
+                           value="ba57ac00-0370-4d49-98f5-e31f969d0ab8"/>
+                      <a:da name="DEFAULT" type="XPath" expr="num:integer(../@index)"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=65535" />
+                        <a:tst expr="&gt;=0" />
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="(node:fallback( ., 0 ) &gt;= 0) and (node:fallback( ., 0 ) &lt; num:i(count(node:fallback( node:current()/../../*, 1 ))))" false="Value out of range: must be in range 0 to N-1 (N is number of configured channels)."/>
+                        <a:tst expr="text:uniq(node:fallback( ../../*/PwmChannelId, text:split('0') ), node:fallback( ., 1 ))" false="Duplicated value, PwmChannelId must be unique across all PWM channels."/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmTimer" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Specifies the physical hardware timer that is assigned to this logical channel.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="BA550702-43FE-4db7-9A49-E37DA0D4BDAF"/>
+                      <a:da name="DEFAULT" type="XPath" expr="
+                        (text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' ')))[1]
+                      "/>
+                      <a:da name="RANGE" type="XPath" expr="
+                        text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' '))
+                      "/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:uniq(../../*/PwmTimer,.)"
+                               false="Only one configuration per Pwm Timer is allowed in the same configuration set." />
+                        <a:tst expr="node:containsValue(../../*/PwmStartDelayTimer,.)"
+                               true="PwmStartDelayTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:containsValue(../../../PwmChannelGroup/*/PwmGroupStartDelay/PwmGroupStartDelayTimer,.)"
+                               true="PwmGroupStartDelayTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer,.)"
+                               true="OcuTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource,.)"
+                               true="IcuResource already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer,.)"
+                               true="GptTimer module already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer,.)"
+                               true="GptPredefTimer module already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmUpdateOutputAtInitEnable" type="BOOLEAN">
+                      <a:a name="DESC"  value="EN:&lt;html&gt; Allows to configure PWM and PWM complementary signal output at Pwm_Init() function call. If enabled, then configured value in PwmOutputAtInitSelect and PwmCompOutputAtInitSelect will be set as PWM signal and complemntary signal output at Pwm_Init() function call. &lt;/html&gt;"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="404192c6-e61b-11ea-adc1-0242ac120002"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="((ecu:get(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.GRP_NR.', bit:shr(substring-after(substring-after(../PwmTimer, '_'),'_'), 8), '.CNT.GRP_SMC_PRESENT')) = 1) and (node:empty(../PwmChannelClass) or (node:exists(../PwmChannelClass) and (../PwmChannelClass = 'PWM_FIXED_PERIOD'))))"/>
+                      </a:da>
+                      <a:da name="DEFAULT" value="false"/>
+                    </v:var>
+                    <v:var name="PwmOutputAtInitSelect" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; PWM signal output selection at the Pwm_Init().&lt;br/&gt;
+                             LOW       : fixed '0'&lt;br/&gt;
+                             HIGH      : fixed '1'&lt;br/&gt;
+                             PWM       : PWM signal 'line'&lt;br/&gt;
+                             PWM_INV   : inverted PWM signal 'line'&lt;br/&gt;
+                             PWM_HIGHZ : High impedance
+                        </a:v>
+                      </a:a>  
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="27a9c418-e61b-11ea-adc1-0242ac120002"/>
+                      <a:da name="DEFAULT" value="PWM"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="../PwmUpdateOutputAtInitEnable = 'true'"/>
+                      </a:da>
+                      <a:da name="RANGE">
+                        <a:v>LOW</a:v>
+                        <a:v>HIGH</a:v>
+                        <a:v>PWM</a:v>
+                        <a:v>PWM_INV</a:v>
+                        <a:v>HIGHZ</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmCompOutputAtInitSelect" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; PWM complementary signal output selection at the Pwm_Init().&lt;br/&gt;
+                             LOW       : fixed '0'&lt;br/&gt;
+                             HIGH      : fixed '1'&lt;br/&gt;
+                             PWM       : PWM signal 'line'&lt;br/&gt;
+                             PWM_INV   : inverted PWM signal 'line'&lt;br/&gt;
+                             PWM_HIGHZ : High impedance
+                        </a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="416fb612-e618-11ea-adc1-0242ac120002"/>
+                      <a:da name="DEFAULT" value="PWM_INV"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="../PwmUpdateOutputAtInitEnable = 'true'"/>
+                      </a:da>
+                      <a:da name="RANGE">
+                        <a:v>LOW</a:v>
+                        <a:v>HIGH</a:v>
+                        <a:v>PWM</a:v>
+                        <a:v>PWM_INV</a:v>
+                        <a:v>HIGHZ</a:v>
+                      </a:da>
+                    </v:var>                    
+                    <v:ref name="PwmMcuClockReferencePoint" type="REFERENCE">
+                      <a:a name="DESC" 
+                           value="EN: This parameter contains reference to the McuClockReferencePoint"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="ECU"/>
+                      <a:a name="UUID" value="eeee312a-290d-465a-9b66-8a081d64495b"/>
+                      <a:da name="RANGE" type="XPath">
+                            <a:tst expr="node:foreach(node:paths(/AUTOSAR/TOP-LEVEL-PACKAGES/Mcu/ELEMENTS/Mcu/McuModuleConfiguration/*/McuClockSettingConfig/*/McuClockReferencePoint/*),'ref','node:when(node:ref($ref)/McuClock=concat(&quot;MCU_&quot;,ecu:get(concat(&quot;TCPWM.&quot;,substring-before(substring-after(node:current()/../PwmTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;.CLOCKS.&quot;,substring-after(substring-after(node:current()/../PwmTimer, &quot;TCPWM_&quot;),&quot;_&quot;)))),$ref)')"/>
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">                          
+                        <a:tst expr="node:refexists(node:current()) and node:ref(node:current())/McuClock = concat( 'MCU_', ecu:get( concat('TCPWM.',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'),'_'),'.CLOCKS.',substring-after(substring-after(node:current()/../PwmTimer, 'TCPWM_'),'_'))))"
+                               false="Required clock reference point for PWM is not configured in Mcu module."/>
+                      </a:da>
+                      <a:da name="REF" 
+                            value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"/>
+                    </v:ref>
+                    <v:var name="PwmDutycycleDefault" type="INTEGER">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt;  Value of duty cycle used for initialization&lt;br&gt; 0: 0%.&lt;br&gt; 0x8000: 100%.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="15063f87-0412-423a-bfcd-ef17051454c0"/>
+                      <a:da name="DEFAULT" value="16384"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=32768"/>
+                        <a:tst expr="&gt;=0"/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmPeriodDefault" type="FLOAT">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Value of period used for initialization in seconds.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="abdc5761-9c80-4e3b-a6ed-6f481cf00de6"/>
+                      <a:da name="DEFAULT" value="0.00001"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="((1 div (num:i(node:ref(../PwmMcuClockReferencePoint)/McuClockReferencePointFrequency))) > (.))"
+                               true="PwmPeriodDefault is too small." />
+                        <a:tst expr="(((1 div (num:i(node:ref(../PwmMcuClockReferencePoint)/McuClockReferencePointFrequency)))*128*65535) > (.)  )"
+                               false="PwmPeriodDefault is too big." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmPolarity" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: Defines the starting polarity of each PWM channel."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="1d85dbbd-3250-4d14-af92-e78eb98a099d"/>
+                      <a:da name="DEFAULT" value="PWM_LOW"/>
+                      <a:da name="RANGE">
+                        <a:v>PWM_HIGH</a:v>
+                        <a:v>PWM_LOW</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmIdleState" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: The parameter PWM_IDLE_STATE represents the output state of the PWM after the signal is stopped (e.g. call of Pwm_SetOutputToIdle)."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="11f829b1-1fe7-4f9f-accb-2ade47249f73"/>
+                      <a:da name="DEFAULT" value="PWM_LOW"/>
+                      <a:da name="RANGE">
+                        <a:v>PWM_HIGH</a:v>
+                        <a:v>PWM_LOW</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmNotification" type="FUNCTION-NAME">
+                      <a:a name="DESC" 
+                           value="EN: Definition of the Callback function."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="3c2a3103-8a8f-4cae-b8c9-66540270449c"/>
+                      <a:da name="DEFAULT" value="NULL"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="(. = 'NULL') or text:uniq(../../*/PwmNotification,.)"
+                               false="Duplicated value, PwmNotification must be unique across all channels."/>
+                        <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                               false="Invalid name of the PwmNotification. Must be valid C function name."/>
+                      </a:da>
+                      <a:da name="ENABLE" value="false"/>
+                    </v:var>
+                    <v:var name="PwmChannelPrescale" type="INTEGER">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; PWM module specific prescaler factor per channel for group start delay. This value can be obtained by Pwm_GetChannelStatus.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="ECU"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="f2118a71-a43b-4f55-91bd-acd04af4e143"/>
+                      <a:da name="ENABLE" type="XPath" expr="node:exists(../PwmChannelClass) and (../PwmChannelClass = 'PWM_FIXED_PERIOD_SHIFTED' or ../PwmChannelClass = 'PWM_VARIABLE_PERIOD') and (node:contains(node:refs(node:filter(../../../PwmChannelGroup/*/PwmChannelRef/*, 'node:exists(../../PwmGroupStartDelay)')), ..))"/>
+                      <a:da name="DEFAULT" type="XPath" expr="node:when(var:set('chPrescale', ../PwmPeriodDefault * node:ref(../PwmMcuClockReferencePoint)/McuClockReferencePointFrequency div 32767) and ($chPrescale>64), num:i(7), node:when($chPrescale>32, num:i(6),
+                                                                node:when($chPrescale>16, num:i(5), node:when($chPrescale>8, num:i(4), node:when($chPrescale>4, num:i(3), node:when($chPrescale>2, num:i(2), node:when($chPrescale>1, num:i(1), num:i(0))))))))"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr=". = node:when(var:set('chPrescale', ../PwmPeriodDefault * node:ref(../PwmMcuClockReferencePoint)/McuClockReferencePointFrequency div 32767) and ($chPrescale>64), num:i(7), node:when($chPrescale>32, num:i(6),
+                                           node:when($chPrescale>16, num:i(5), node:when($chPrescale>8, num:i(4), node:when($chPrescale>4, num:i(3), node:when($chPrescale>2, num:i(2), node:when($chPrescale>1, num:i(1), num:i(0))))))))"
+                               false="PwmChannelPrescale has to be re-calculated. Please press &apos;Calculate value&apos; button."/>"
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmChannelStartDelay" type="INTEGER">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Channel start delay value defines the time in ticks that the period start is delayed from the moment of initialization. ImplementationType: uint16&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  value="d3d9930d-5c12-4dd4-817f-b57978b80f0b"/>
+                      <a:da name="ENABLE" type="XPath" expr="node:exists(../PwmChannelClass) and (../PwmChannelClass = 'PWM_FIXED_PERIOD_SHIFTED' or ../PwmChannelClass = 'PWM_VARIABLE_PERIOD') and (node:exists(../PwmStartDelayTimer) or node:contains(node:refs(node:filter(../../../PwmChannelGroup/*/PwmChannelRef/*, 'node:exists(../../PwmGroupStartDelay)')), ..))"/>
+                      <a:da name="DEFAULT" value="128"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=65535"/>
+                        <a:tst expr="&gt;=0"/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmStartDelayTimer" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Specifies the physical hardware timer for StartDelay.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="25084a88-259f-4769-b884-cb95ac534115"/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:da name="EDITABLE" type="XPath" expr="node:exists(.) or (node:exists(../PwmChannelClass) and (../PwmChannelClass != 'PWM_FIXED_PERIOD'))"/>
+                      <a:da name="DEFAULT" type="XPath" expr="(text:concat(concat('TCPWM_',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '_'),text:split(text:join(node:foreach(ecu:list(concat('TCPWM.',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'),'.GRP.instances')),'i',&quot;text:join(num:i(num:add(256*$i,ecu:list(concat('TCPWM.',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'),'.GRP.',string($i),'.CNT.instances')))),',')&quot;),','),',')))[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="text:concat(concat('TCPWM_',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '_'),text:split(text:join(node:foreach(ecu:list(concat('TCPWM.',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'),'.GRP.instances')),'i',&quot;text:join(num:i(num:add(256*$i,ecu:list(concat('TCPWM.',substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'),'.GRP.',string($i),'.CNT.instances')))),',')&quot;),','),','))"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(node:foreach(text:split(text:join(node:foreach(num:i(text:range(0,1)), 'i',
+                                     &quot;node:when(ecu:has(concat('TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.trigg.FROM.TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.TR_OUT', $i, '.signals')),
+                                                     concat('TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.trigg.FROM.TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.TR_OUT', $i, '.signals'), '')&quot;)), ' '), 'j',
+                                     &quot;node:when(node:containsValue(ecu:list($j), ../PwmStartDelayTrigger), node:containsValue(ecu:list(concat('TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.trigg.TO.TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.TR_ALL_CNT_IN.signals')),
+                                                      concat('TCPWM_', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '_TR_OUT', substring-before(substring-after($j, concat('TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.trigg.FROM.TCPWM.', substring-before(substring-after(node:current()/../PwmTimer,'TCPWM_'), '_'), '.TR_OUT') ), '.signals'), '_', substring-after(substring-after(., 'TCPWM_'), '_'))))&quot;), 'true')"
+                               false="This PwmStartDelayTimer cannot connect to output trigger via PwmStartDelayTrigger." />
+                        <a:tst expr="node:empty(../PwmChannelClass) or (../PwmChannelClass = 'PWM_FIXED_PERIOD') or num:i(../PwmChannelStartDelay) = num:i(0)"
+                               true="The Pwm channel cannot use PwmStartDelayTimer."/>
+                        <a:tst expr="text:uniq(../../*/PwmStartDelayTimer,.)"
+                               false="Only one configuration per PwmStartDelayTimer is allowed in the same configuration set." />
+                        <a:tst expr="node:containsValue(../../*/PwmTimer,.)"
+                               true="PwmTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:containsValue(../../../PwmChannelGroup/*/PwmGroupStartDelay/PwmGroupStartDelayTimer,.)"
+                               true="PwmGroupStartDelayTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer,.)"
+                               true="OcuTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource,.)"
+                               true="IcuResource already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer,.)"
+                               true="GptTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer,.)"
+                               true="GptPredefTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                      </a:da>
+                    </v:var>
+                    <v:ref name="PwmStartDelayMcuClockReferencePoint" type="REFERENCE">
+                      <a:a name="DESC" 
+                           value="EN: This parameter contains reference to the McuClockReferencePoint for PwmStartDelayTimer."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="ECU"/>
+                      <a:a name="UUID" 
+                           value="91d8b61a-6fec-4c92-adbf-b9e395a93d3b"/>
+                      <a:da name="ENABLE" type="XPath" expr="node:exists(../PwmStartDelayTimer)"/>
+                      <a:da name="RANGE" type="XPath">
+                            <a:tst expr="node:foreach(node:paths(/AUTOSAR/TOP-LEVEL-PACKAGES/Mcu/ELEMENTS/Mcu/McuModuleConfiguration/*/McuClockSettingConfig/*/McuClockReferencePoint/*),'ref','node:when(node:exists(node:current()) and node:ref($ref)/McuClock=concat(&quot;MCU_&quot;,ecu:get(concat(&quot;TCPWM.&quot;,substring-before(substring-after(node:current()/../PwmStartDelayTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;.CLOCKS.&quot;,substring-after(substring-after(node:current()/../PwmStartDelayTimer, &quot;TCPWM_&quot;),&quot;_&quot;)))),$ref)')"/>
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">                          
+                        <a:tst expr="node:refexists(node:current()) and node:ref(node:current())/McuClock = concat( 'MCU_', ecu:get( concat('TCPWM.',substring-before(substring-after(node:current()/../PwmStartDelayTimer,'TCPWM_'),'_'),'.CLOCKS.',substring-after(substring-after(node:current()/../PwmStartDelayTimer, 'TCPWM_'),'_'))))"
+                               false="Required clock reference point for PWM is not configured in Mcu module."/>
+                        <a:tst expr="node:ref(../PwmMcuClockReferencePoint)/McuClockReferencePointFrequency = node:ref(node:current())/McuClockReferencePointFrequency"
+                               false="McuClockReferencePointFrequency is different from the one of PwmMcuClockReferencePoint"/>
+                      </a:da>
+                      <a:da name="REF" 
+                            value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"/>
+                    </v:ref>
+                    <v:var name="PwmStartDelayTrigger" type="ENUMERATION">
+                      <a:a name="DESC" 
+                          value="EN:  Specifies the input trigger for StartDelay."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="4cccfe82-b078-4146-a0ad-e1635f69cde0"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:da name="ENABLE" type="XPath" expr="node:exists(../PwmStartDelayTimer)"/>
+                      <a:da name="DEFAULT" type="XPath"
+                            expr="(text:split(text:join(node:foreach(text:split(text:join(node:foreach(num:i(text:range(0, ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmTimer, 'TCPWM_'), '_'), '.TR_ALL_CNT_NR'))-1)), 'i', &quot;ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmTimer, 'TCPWM_'), '_'), '.trigg.INPUT.TR_ALL_CNT_IN.', $i, '.signal'))&quot;)), ' '), 'j',
+                                      &quot;node:when(var:set('instance', substring-before(substring-after(../PwmTimer, 'TCPWM_'), '_')) and (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')), $j)) or (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')), $j)), $j, '')&quot;)), ' '))[1]"/>
+                      <a:da name="RANGE" type="XPath"
+                            expr="text:split(text:join(node:foreach(text:split(text:join(node:foreach(num:i(text:range(0, ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmTimer, 'TCPWM_'), '_'), '.TR_ALL_CNT_NR'))-1)), 'i', &quot;ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmTimer, 'TCPWM_'), '_'), '.trigg.INPUT.TR_ALL_CNT_IN.', $i, '.signal'))&quot;)), ' '), 'j',
+                                      &quot;node:when(var:set('instance', substring-before(substring-after(../PwmTimer, 'TCPWM_'), '_')) and (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')), $j)) or (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')), $j)), $j, '')&quot;)), ' ')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:uniq(../../*/PwmStartDelayTrigger,.)"
+                               false="One configuration for each channel allowed in the same configuration set."/>
+                        <a:tst expr="node:containsValue(../../../PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                               true="The same value as PwmChannelGroupStartTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../../PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                               true="The same value as PwmChannelGroupStopTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../../PwmChannelGroup/*/PwmGroupStartDelay/PwmGroupStartDelayTrigger,.)"
+                               true="The same value as PwmGroupStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../../PwmChannelGroup/*/PwmChannelGroupSwitchEventTrigger,.)"
+                               true="The same value as PwmChannelGroupSwitchEventTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect0 = ." 
+                               true="The same value as PwmStartTriggerSelect0 cannot be set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect1 = ." 
+                               true="The same value as PwmStartTriggerSelect1 cannot be set."/>
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                               true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                               true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                               true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                               true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                               true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                               true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                               true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmHwTriggerOutputLine" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Specifies the output trigger channel. The trigger connection between output trigger channel (trigger source) and trigger destination should be configured with PORT module.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  
+                           value="08fb6bc5-9aaa-4fdf-b948-bbce6ff290fb"/>
+                      <a:da name="DEFAULT" type="XPath"
+                              expr="node:when(ecu:has(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT0.',substring-after(substring-after(../PwmTimer,'TCPWM_'),'_'),'.signal')),'TR_OUT0',
+                              node:when(ecu:has(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT1.',substring-after(substring-after(../PwmTimer,'TCPWM_'),'_'),'.signal')),'TR_OUT1',''))"/>
+                      <a:da name="RANGE">
+                        <a:v>TR_OUT0</a:v>
+                        <a:v>TR_OUT1</a:v>
+                        <a:v>BOTH</a:v>
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="((.='TR_OUT0' or .='BOTH') and ecu:has(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT0.',substring-after(substring-after(../PwmTimer,'TCPWM_'),'_'),'.signal'))=false()) or ((.='TR_OUT1' or .='BOTH')  and ecu:has(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT1.',substring-after(substring-after(../PwmTimer,'TCPWM_'),'_'),'.signal'))=false()) or
+                                     ((ecu:get(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.GRP_NR.', bit:shr(substring-after(substring-after(../PwmTimer, 'TCPWM_'),'_'), 8), '.CNT.GRP_AMC_PRESENT'))=0) and
+                                      (../PwmAlignment = 'PWM_CENTER_ALIGNED') and node:empty(../PwmOutputOffset))"
+                               true="There is no PwmHwTriggerOutputLine available for this TCPWM." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmHwTriggerOutputFactor" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: Defines output trigger factor of timer channel. "/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="150651eb-2f90-4c98-97e2-33c9f109806d"/>
+                      <a:da name="DEFAULT" value="PWM_TRIGGER_SYNC_PERIOD"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="node:exists(../PwmHwTriggerOutputLine)"/>
+                      </a:da>
+                      <a:da name="RANGE">
+                        <a:v>PWM_TRIGGER_SYNC_PERIOD</a:v>
+                        <a:v>PWM_TRIGGER_SYNC_DUTY</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmHwTriggerOutputDefaultTime" type="FLOAT">
+                      <a:a name="DESC"  value="EN:&lt;html&gt; Output trigger default delay time in seconds. &lt;/html&gt;"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  value="b1b8de26-9e83-49b2-a48d-0836769ce298"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="node:empty(../PwmOutputOffset) and node:exists(../PwmHwTriggerOutputLine) and
+                                     node:exists(../../../../../PwmGeneral/PwmHwTriggerOutputUnitType) and
+                                     node:value(../../../../../PwmGeneral/PwmHwTriggerOutputUnitType) = 'PWM_TRIGGER_SECOND'"/>
+                      </a:da>
+                      <a:da name="DEFAULT" value="0.0"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr=". &lt;=../PwmPeriodDefault" false="PwmHwTriggerOutputDefaultTime is too big."/>
+                        <a:tst expr=". &gt;=0" false="PwmHwTriggerOutputDefaultTime is too small."/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmHwTriggerOutputDefaultTick" type="INTEGER">
+                      <a:a name="DESC"  value="EN:&lt;html&gt; Output trigger default delay ticks. &lt;/html&gt;"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  value="4cd87763-9e0a-4266-8812-954228cb8628"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="node:empty(../PwmOutputOffset) and node:exists(../PwmHwTriggerOutputLine) and
+                                     node:exists(../../../../../PwmGeneral/PwmHwTriggerOutputUnitType) and
+                                     node:value(../../../../../PwmGeneral/PwmHwTriggerOutputUnitType) = 'PWM_TRIGGER_TICK'"/>
+                      </a:da>
+                      <a:da name="DEFAULT" value="0"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=65534" />
+                        <a:tst expr="&gt;=0" />
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmHwTriggerOutputScaled" type="BOOLEAN">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Switch for enabling the scaling of the output trigger delay with the period by Pwm_SetPeriodAndDuty. True: scaling with the period change / False: not scaling with the period change&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="7fb816bb-a74c-46b7-b750-ccade829469e"/>
+                      <a:da name="DEFAULT" value="true"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="node:empty(../PwmOutputOffset) and node:exists(../PwmHwTriggerOutputLine)"/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmStartAtInit" type="BOOLEAN">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Pwm channel is started when Pwm_Init() is called. If disabled Pwm channel will be started when Pwm_StartGroupTrigger() is called.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="2965ADF8-9120-4331-B2F1-BDDE825F6E18"/>
+                      <a:da name="DEFAULT" value="true"/>
+                    </v:var>
+                    <v:var name="PwmDebugMode" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Defines behavior of timer channel when processor is in debug mode. &lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  value="78BE14EF-5DD8-4952-9C7A-9136CAFC13A3"/>
+                      <a:da name="DEFAULT" value="PWM_DEBUG_MODE_CONTINUE"/>
+                      <a:da name="RANGE">
+                        <a:v>PWM_DEBUG_MODE_HALT</a:v>
+                        <a:v>PWM_DEBUG_MODE_CONTINUE</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmSetOutputEnable" type="BOOLEAN">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Enables the service of setting the channel output.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  value="a96a16a5-9263-4f7e-bd62-ecf28b465434"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="../../../../../PwmConfigurationOfOptApiServices/PwmSetOutputState = 'true' and (ecu:get(concat('TCPWM.',substring-before(substring-after(../PwmTimer,'TCPWM_'),'_'),'.GRP_NR.', bit:shr(substring-after(substring-after(../PwmTimer, '_'),'_'), 8), '.CNT.GRP_SMC_PRESENT')) = 1)"/>
+                      </a:da>
+                      <a:da name="DEFAULT" value="false"/>
+                    </v:var>
+                    <v:var name="PwmOutputOffset" type="INTEGER">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; The offset value for the rising edge in ticks.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"  value="0487ef54-5877-4ce4-8c6b-b9c77fe8ad0f"/>
+                      <a:da name="DEFAULT" value="0"/>
+                      <a:da name="EDITABLE" type="XPath" expr="node:exists(.) or ../PwmAlignment != 'PWM_RIGHT_ALIGNED'"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=65533"/>
+                        <a:tst expr="&gt;=0"/>
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="../PwmAlignment = 'PWM_RIGHT_ALIGNED'" true="PwmOutputOffset cannot use when PwmAlignment is PWM_RIGHT_ALIGNED."/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmOutputOffsetScaled" type="BOOLEAN">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Switch for enabling the scaling of the rising edge offset together with the period by Pwm_SetPeriodAndDuty. True: scaling with the period change / False: not scaling with the period change&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="6f50b41b-1ac3-4d76-bcab-51bf8343d5b3"/>
+                      <a:da name="DEFAULT" value="false"/>
+                      <a:da name="ENABLE" type="XPath">
+                        <a:tst expr="node:exists(../PwmOutputOffset) and node:exists(../PwmChannelClass) and (../PwmChannelClass = 'PWM_VARIABLE_PERIOD')"/>
+                      </a:da>
+                    </v:var>
+                  </v:ctr>
+                </v:lst>
+                <v:lst name="PwmChannelGroup" type="MAP">
+                  <a:a name="COLUMNS">
+                    <a:v>PwmChannelGroupId</a:v>
+                    <a:v>PwmChannelGroupStartTrigger</a:v>
+                    <a:v>PwmChannelGroupStopTrigger</a:v>
+                    <a:v>PwmChannelGroupSwitchEventTrigger</a:v>
+                    <a:v>PwmChannelRef</a:v>
+                  </a:a>
+                  <a:da name="MIN" value="0"/>
+                  <a:da name="MAX" value="65535"/>
+                  <v:ctr name="PwmChannelGroup" type="IDENTIFIABLE">
+                    <a:a name="DESC" value="EN:&lt;html&gt; Configuration of an individual PWM channel group.&lt;/html&gt;"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="UUID" value="ba288c35-98c4-4081-b03d-d53f5060ee7e"/>
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="node:containsValue(node:foreach(node:paths(../../../*/PwmChannelGroup/*), 'path', '(node:name($path) = node:name(.)) and (node:value(concat($path, &quot;/PwmChannelGroupId&quot;)) != node:value(./PwmChannelGroupId))'), 'true')"
+                             true="All PwmChannelGroupId of the container of the same name should be the same for the different configuration set." />
+                    </a:da>
+                    <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                    <v:var name="PwmChannelGroupId" type="INTEGER">
+                      <a:a name="DESC"
+                           value="EN:  &lt;html&gt; Channel Id of the PWM channel group.&lt;/html&gt;"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                      <a:a name="UUID" 
+                           value="c39d0484-48b2-4540-a84a-91f082528efe"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:da name="DEFAULT" type="XPath" expr="node:pos(..)"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:uniq(../../*/PwmChannelGroupId,.)" 
+                               false="One configuration for each channel allowed in the same configuration set."/>
+                        <a:tst expr=". &gt;= count(../../*)" 
+                               true="The logical Channel Group ID has to be zero-based and consecutive."/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmChannelGroupStartTrigger" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN:  Specifies the input trigger to start the PWM channel group synchronously. When this parameter is configured, a trigger signal is required to start all the channels in the group. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Pwm_StartGroupTrigger(). In this case, the group trigger configuration is also required in PORT module. When this parameter is not configured, the channels in the group start sequentially by Pwm_StartGroupTrigger()."/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="28a899b4-53dd-4c6e-b5e6-5f90694f76ef"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))'))[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(../../*/PwmChannelGroupStopTrigger,.)"
+                               true="The same value as PwmChannelGroupStopTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../*/PwmChannelGroupSwitchEventTrigger,.)"
+                               true="The same value as PwmChannelGroupSwitchEventTrigger cannot be set in the same cofiguration set."/>                               
+                        <a:tst expr="node:containsValue(../../*/PwmGroupStartDelay/PwmGroupStartDelayTrigger,.)"
+                               true="The same value as PwmGroupStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../../PwmChannel/*/PwmStartDelayTrigger,.)"
+                               true="The same value as PwmStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect0 = ." 
+                               true="The same value as PwmStartTriggerSelect0 cannot be set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect1 = ." 
+                               true="The same value as PwmStartTriggerSelect1 cannot be set."/>
+                        <a:tst expr="text:contains(node:foreach(node:refs(../PwmChannelRef/*)/PwmTimer,'i',&quot;node:when(starts-with(string($i),substring-before(.,'TR_')),'true','false')&quot;),'false')"
+                               true="PwmChannelRef has PwmTimer of different instance."/>
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                               true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                               true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                               true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                               true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                               true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                               true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                      </a:da>
+                      <a:da name="WARNING" type="XPath">
+                        <a:tst expr="text:uniq(../../*/PwmChannelGroupStartTrigger,.)"
+                               false="PwmChannelGroupStartTrigger already uses this TCPWM trigger."/>
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                               true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        </a:da>
+                    </v:var>
+                    <v:var name="PwmChannelGroupStopTrigger" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN:  Specifies the input trigger to stop the PWM channel group synchronously. When this parameter is configured, a trigger signal is required to stop all the channels in the group. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Pwm_StopGroupTrigger(). In this case, the group trigger configuration is also required in PORT module. When this parameter is not configured, the channels in the group stop sequentially by Pwm_StopGroupTrigger()."/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="c6798a65-8420-4f0e-b42b-9f7255e194de"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))'))[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(../../*/PwmChannelGroupStartTrigger,.)"
+                               true="The same value as PwmChannelGroupStartTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../*/PwmChannelGroupSwitchEventTrigger,.)"
+                               true="The same value as PwmChannelGroupSwitchEventTrigger cannot be set in the same cofiguration set."/>                               
+                        <a:tst expr="node:containsValue(../../../PwmChannel/*/PwmStartDelayTrigger,.)"
+                               true="The same value as PwmStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../*/PwmGroupStartDelay/PwmGroupStartDelayTrigger,.)"
+                               true="The same value as PwmGroupStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect0 = ." 
+                               true="The same value as PwmStartTriggerSelect0 cannot be set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect1 = ." 
+                               true="The same value as PwmStartTriggerSelect1 cannot be set."/>
+                        <a:tst expr="text:contains(node:foreach(node:refs(../PwmChannelRef/*)/PwmTimer,'i',&quot;node:when(starts-with(string($i),substring-before(.,'TR_')),'true','false')&quot;),'false')"
+                               true="PwmChannelRef has PwmTimer of different instance."/>
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                               true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                               true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                               true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                               true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                               true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                               true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                      </a:da>
+                      <a:da name="WARNING" type="XPath">
+                        <a:tst expr="text:uniq(../../*/PwmChannelGroupStopTrigger,.)"
+                               false="PwmChannelGroupStopTrigger already uses this TCPWM trigger."/>
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                               true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmChannelGroupSwitchEventTrigger" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN:  Specifies the input trigger to perform switch event on the PWM channel group synchronously. When this parameter is configured, a trigger signal is required to perform swith event on the PWM channels with-in this group after calling Pwm_SetDutyAndChannelOutputBuffer(), Pwm_SetDutyCycleBuff(), Pwm_SetChannelOutputBuffer() APIs. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling mentioned APIs. In this case, the group trigger configuration is also required in PORT module."/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="fae44a98-e7a0-11ea-adc1-0242ac120002"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))'))[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(../../*/PwmChannelGroupStopTrigger,.)"
+                               true="The same value as PwmChannelGroupStopTrigger cannot be set in the same cofiguration set."/>                      
+                        <a:tst expr="node:containsValue(../../*/PwmChannelGroupStartTrigger,.)"
+                               true="The same value as PwmChannelGroupStartTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../../PwmChannel/*/PwmStartDelayTrigger,.)"
+                               true="The same value as PwmStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../*/PwmGroupStartDelay/PwmGroupStartDelayTrigger,.)"
+                               true="The same value as PwmGroupStartDelayTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect0 = ." 
+                               true="The same value as PwmStartTriggerSelect0 cannot be set."/>
+                        <a:tst expr="../../../../../PwmGeneral/PwmStartTriggerSelect1 = ." 
+                               true="The same value as PwmStartTriggerSelect1 cannot be set."/>
+                        <a:tst expr="text:contains(node:foreach(node:refs(../PwmChannelRef/*)/PwmTimer,'i',&quot;node:when(starts-with(string($i),substring-before(.,'TR_')),'true','false')&quot;),'false')"
+                               true="PwmChannelRef has PwmTimer of different instance."/>
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                               true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                               true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                               true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                               true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                               true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                               true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst expr="text:uniq(../../*/PwmChannelGroupSwitchEventTrigger,.)"
+                               false="PwmChannelGroupSwitchEventTrigger already uses this TCPWM trigger in other group."/>
+                        <a:tst expr="node:exists(../PwmGroupStartDelay)"
+                               true="PwmGroupStartDelay and PwmChannelGroupSwitchEventTrigger cannot be used simultaneously in a group."/>
+                      </a:da>
+                    </v:var>
+                    <v:lst name="PwmChannelRef">
+                      <a:da name="MIN" value="1"/>
+                      <v:ref name="PwmChannelRef" type="REFERENCE">
+                        <a:a name="DESC">
+                             <a:v>EN:&lt;html&gt; Assignment of channels to a channel group.&lt;/html&gt;</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="UUID" value="f208d688-de0c-425a-bf0e-0b4b79a1a539"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:da name="REF" value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Pwm/PwmChannelConfigSet/PwmChannel"/>
+                        <a:da name="RANGE" type="XPath"
+                              expr="node:foreach(node:paths(node:refs('ASPathDataOfSchema:/AUTOSAR/EcucDefs/Pwm/PwmChannelConfigSet/PwmChannel')),
+                              'i', &quot;node:when(substring-before(substring-after($i,'/PwmChannelConfigSet/'),'/')=substring-before(substring-after(node:path(.),'/PwmChannelConfigSet/'),'/'), $i)&quot;)"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="text:uniq(../*, .)"  false="PwmChannelRef must be unique."/>
+                          <a:tst expr="node:refexists(.)"  false="The referenced Pwm channel is not found."/>
+                          <a:tst expr="node:exists(../../PwmChannelGroupStopTrigger) and not(text:uniq(../../../*/PwmChannelRef/*,.))"
+                                 true="The referenced Pwm channel cannot be shared between groups configuring PwmChannelGroupStopTrigger."/>
+                          <a:tst expr="node:exists(../../PwmGroupStartDelay) and (node:empty(node:ref(.)/PwmChannelClass) or (node:ref(.)/PwmChannelClass = 'PWM_FIXED_PERIOD'))"
+                                 true="PwmChannelClass of the referenced Pwm channel must be PWM_FIXED_PERIOD_SHIFTED or PWM_VARIABLE_PERIOD."/>
+                          <a:tst expr="node:exists(../../PwmGroupStartDelay) and node:exists(node:ref(.)/PwmStartDelayTimer)"
+                                 true="The referenced Pwm channel can only use either PwmGroupStartDelay or PwmStartDelayTimer."/>
+                          <a:tst expr="node:exists(../../PwmChannelGroupSwitchEventTrigger) and node:exists(node:ref(.)/PwmChannelClass) and node:ref(.)/PwmChannelClass != 'PWM_FIXED_PERIOD'"
+                                 true="When PwmChannelGroupSwitchEventTrigger is enabled, the referenced Pwm channel can only use that PwmChannelClass is disable or PWM_FIXED_PERIOD."/>
+                          <a:tst expr="node:exists(../../PwmGroupStartDelay) and node:ref(node:ref(.)/PwmMcuClockReferencePoint)/McuClockReferencePointFrequency != node:ref(../../PwmGroupStartDelay/PwmGroupStartDelayMcuClockReferencePoint)/McuClockReferencePointFrequency"
+                                 true="The referenced Pwm channel is different McuClockReferencePointFrequency from PwmGroupStartDelayMcuClockReferencePoint."/>
+                          <a:tst expr="node:exists(../../PwmGroupStartDelay) and (node:ref(.)/PwmStartAtInit != node:ref(../*[1])/PwmStartAtInit)"
+                                 true="The referenced Pwm channel can not set different PwmStartAtInit."/>
+                          <a:tst expr="node:exists(../../PwmGroupStartDelay) and (node:when(var:set('currentPrescale', node:ref(.)/PwmPeriodDefault * (node:ref(node:ref(.)/PwmMcuClockReferencePoint)/McuClockReferencePointFrequency div 32767)) and ($currentPrescale>64), num:i(7), 
+                                         node:when($currentPrescale>32, num:i(6), node:when($currentPrescale>16, num:i(5), node:when($currentPrescale>8, num:i(4), node:when($currentPrescale>4, num:i(3), node:when($currentPrescale>2, num:i(2), node:when($currentPrescale>1, num:i(1), num:i(0)))))))) !=
+                                       node:when(var:set('ch0Prescale', node:ref(../*[1])/PwmPeriodDefault * node:ref(node:ref(../*[1])/PwmMcuClockReferencePoint)/McuClockReferencePointFrequency div 32767) and ($ch0Prescale>64), num:i(7), node:when($ch0Prescale>32, num:i(6),
+                                         node:when($ch0Prescale>16, num:i(5), node:when($ch0Prescale>8, num:i(4), node:when($ch0Prescale>4, num:i(3), node:when($ch0Prescale>2, num:i(2), node:when($ch0Prescale>1, num:i(1), num:i(0)))))))))"
+                                 true="The referenced Pwm channel can not set different prescale value."/>
+                          <a:tst expr="node:exists(../../PwmGroupStartDelay) and not(text:uniq(../../../*/PwmChannelRef/*,.))" true="The referenced channel can not refer in other group." />
+                        </a:da>
+                        <a:da name="WARNING" type="XPath">
+                          <a:tst expr="text:uniq(../../../*/PwmChannelRef/*,.)" false="Channel reference is used in more than one group." />
+                        </a:da>
+                      </v:ref>
+                    </v:lst>
+                    <v:ctr name="PwmGroupStartDelay" type="IDENTIFIABLE">
+                      <a:a name="DESC" value="EN:&lt;html&gt; This container contains settings for group start delay.&lt;/html&gt;"/>
+                      <a:a name="UUID" value="d86acf8d-19f5-42b3-9d3a-f4de35761d63"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <v:var name="PwmGroupStartDelayTimer" type="ENUMERATION">
+                        <a:a name="DESC">
+                          <a:v>EN:&lt;html&gt; Specifies the physical hardware timer for PwmGroupStartDelay.&lt;/html&gt;</a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="0539960b-3aa9-4666-be8a-a3a2b343e387"/>
+                        <a:da name="DEFAULT" type="XPath" expr="(text:concat(concat('TCPWM_',substring-before(substring-after(node:refs(../../PwmChannelRef/*)[1]/PwmTimer,'TCPWM_'), '_'), '_'),text:split(text:join(node:foreach(ecu:list(concat('TCPWM.',substring-before(substring-after(node:refs(../../PwmChannelRef/*)[1]/PwmTimer,'TCPWM_'), '_'),'.GRP.instances')),'i',&quot;text:join(num:i(num:add(256*$i,ecu:list(concat('TCPWM.',substring-before(substring-after(node:refs(../../PwmChannelRef/*)[1]/PwmTimer,'TCPWM_'), '_'),'.GRP.',string($i),'.CNT.instances')))),',')&quot;),','),',')))[1]"/>
+                        <a:da name="RANGE" type="XPath" expr="text:concat(concat('TCPWM_',substring-before(substring-after(node:refs(../../PwmChannelRef/*)[1]/PwmTimer,'TCPWM_'), '_'), '_'),text:split(text:join(node:foreach(ecu:list(concat('TCPWM.',substring-before(substring-after(node:refs(../../PwmChannelRef/*)[1]/PwmTimer,'TCPWM_'), '_'),'.GRP.instances')),'i',&quot;text:join(num:i(num:add(256*$i,ecu:list(concat('TCPWM.',substring-before(substring-after(node:refs(../../PwmChannelRef/*)[1]/PwmTimer,'TCPWM_'), '_'),'.GRP.',string($i),'.CNT.instances')))),',')&quot;),','),','))"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="node:containsValue(node:foreach(text:split(text:join(node:foreach(num:i(text:range(0,1)), 'i',
+                                       &quot;node:when(ecu:has(concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.trigg.FROM.TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.TR_OUT', $i, '.signals')),
+                                                       concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.trigg.FROM.TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.TR_OUT', $i, '.signals'), '')&quot;)), ' '), 'j',
+                                       &quot;node:when(node:containsValue(ecu:list($j), ../PwmStartDelayTrigger), node:containsValue(ecu:list(concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.trigg.TO.TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.TR_ALL_CNT_IN.signals')),
+                                                       concat('TCPWM_', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '_TR_OUT', substring-before(substring-after($j, concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.trigg.FROM.TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'), '_'), '.TR_OUT') ), '.signals'), '_', substring-after(substring-after(., 'TCPWM_'), '_'))), 'true')&quot;), 'true')"
+                                 false="This PwmGroupStartDelayTimer cannot connect to output trigger via PwmGroupStartDelayTrigger." />
+                          <a:tst expr="text:uniq(../../../*/PwmGroupStartDelay/PwmGroupStartDelayTimer,.)"
+                                 false="Only one configuration per PwmGroupStartDelayTimer is allowed in the same configuration set." />
+                          <a:tst expr="node:containsValue(../../../../PwmChannel/*/PwmTimer,.)"
+                                 true="PwmTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst expr="node:containsValue(../../../../PwmChannel/*/PwmStartDelayTimer,.)"
+                                 true="PwmStartDelayTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst expr="text:contains(node:foreach(node:refs(../../PwmChannelRef/*)/PwmTimer,'i',&quot;node:when(starts-with(string($i),concat('TCPWM_',substring-before(substring-after(.,'_'),'_'),'_')),'true','false')&quot;),'false')"
+                                 true="PwmChannelRef has PwmTimer of different instance."/>
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer,.)"
+                                 true="OcuTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource,.)"
+                                 true="IcuResource already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer,.)"
+                                 true="GptTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer,.)"
+                                 true="GptPredefTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        </a:da>
+                      </v:var>
+                      <v:ref name="PwmGroupStartDelayMcuClockReferencePoint" type="REFERENCE">
+                        <a:a name="DESC"
+                             value="EN: This parameter contains reference to the McuClockReferencePoint for PwmGroupStartDelayTimer."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="ECU"/>
+                        <a:a name="UUID" value="e6082240-afe7-4583-9e69-95f4638f3b14"/>
+                        <a:da name="RANGE" type="XPath">
+                          <a:tst expr="node:foreach(node:paths(/AUTOSAR/TOP-LEVEL-PACKAGES/Mcu/ELEMENTS/Mcu/McuModuleConfiguration/*/McuClockSettingConfig/*/McuClockReferencePoint/*),'ref','node:when(node:exists(node:current()) and node:ref($ref)/McuClock=concat(&quot;MCU_&quot;,ecu:get(concat(&quot;TCPWM.&quot;,substring-before(substring-after(../PwmGroupStartDelayTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;.CLOCKS.&quot;,substring-after(substring-after(../PwmGroupStartDelayTimer, &quot;TCPWM_&quot;),&quot;_&quot;)))),$ref)')"/>
+                        </a:da>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="node:refexists(node:current()) and node:ref(node:current())/McuClock = concat( 'MCU_', ecu:get( concat('TCPWM.',substring-before(substring-after(../PwmGroupStartDelayTimer,'TCPWM_'),'_'),'.CLOCKS.',substring-after(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'),'_'))))"
+                                 false="Required clock reference point for PWM is not configured in Mcu module."/>
+                        </a:da>
+                        <a:da name="REF" 
+                              value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"/>
+                      </v:ref>
+                      <v:var name="PwmGroupStartDelayTrigger" type="ENUMERATION">
+                        <a:a name="DESC"
+                             value="EN: Specifies the ouput trigger for PwmGroupStartDelayTimer and the input trigger for each referenced channels."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="279425c4-d747-4294-990a-e508d1e231dc"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:da name="DEFAULT" type="XPath"
+                              expr="(text:split(text:join(node:foreach(text:split(text:join(node:foreach(num:i(text:range(0, ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'), '_'), '.TR_ALL_CNT_NR'))-1)), 'i', &quot;ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'), '_'), '.trigg.INPUT.TR_ALL_CNT_IN.', $i, '.signal'))&quot;)), ' '), 'j',
+                                        &quot;node:when(var:set('instance', substring-before(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'), '_')) and (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')), $j)) or (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')), $j)), $j, '')&quot;)), ' '))[1]"/>
+                        <a:da name="RANGE" type="XPath"
+                              expr="text:split(text:join(node:foreach(text:split(text:join(node:foreach(num:i(text:range(0, ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'), '_'), '.TR_ALL_CNT_NR'))-1)), 'i', &quot;ecu:get(concat('TCPWM.', substring-before(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'), '_'), '.trigg.INPUT.TR_ALL_CNT_IN.', $i, '.signal'))&quot;)), ' '), 'j',
+                                        &quot;node:when(var:set('instance', substring-before(substring-after(../PwmGroupStartDelayTimer, 'TCPWM_'), '_')) and (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT0.signals')), $j)) or (ecu:has(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')) and node:containsValue(ecu:list(concat('TCPWM.', $instance, '.trigg.FROM.TCPWM.', $instance, '.TR_OUT1.signals')), $j)), $j, '')&quot;)), ' ')"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="text:uniq(../../../*/PwmGroupStartDelay/PwmGroupStartDelayTrigger,.)"
+                                 false="One configuration for each channel allowed in the same configuration set."/>
+                          <a:tst expr="node:containsValue(../../../../PwmChannel/*/PwmStartDelayTrigger,.)"
+                                 true="The same value as PwmStartDelayTrigger cannot be set in the same cofiguration set."/>
+                          <a:tst expr="node:containsValue(../../../../PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                                 true="The same value as PwmChannelGroupStartTrigger cannot be set in the same cofiguration set."/>
+                          <a:tst expr="node:containsValue(../../../../PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                                 true="The same value as PwmChannelGroupStopTrigger cannot be set in the same cofiguration set."/>
+                          <a:tst expr="node:containsValue(../../../../PwmChannelGroup/*/PwmChannelGroupSwitchEventTrigger,.)"
+                                 true="The same value as PwmChannelGroupSwitchEventTrigger cannot be set in the same cofiguration set."/>                                 
+                          <a:tst expr="../../../../../../PwmGeneral/PwmStartTriggerSelect0 = ." 
+                                 true="The same value as PwmStartTriggerSelect0 cannot be set."/>
+                          <a:tst expr="../../../../../../PwmGeneral/PwmStartTriggerSelect1 = ." 
+                                 true="The same value as PwmStartTriggerSelect1 cannot be set."/>
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                                 true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                                 true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                                 true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                                 true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                                 true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                                 true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                          <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                                 true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                        </a:da>
+                      </v:var>
+                    </v:ctr>
+                  </v:ctr>
+                </v:lst>
+              </v:ctr>
+             </v:lst>
+              <v:ctr name="PwmConfigurationOfOptApiServices" 
+                     type="IDENTIFIABLE">
+                <a:a name="DESC" value="EN:&lt;html&gt; This container contains settings for enabling or disabling of API services.&lt;/html&gt;"/>
+                <a:a name="UUID" value="8b7c53e8-6f0e-4fbe-b06b-2fa7f92ffa6d"/>
+                <v:var name="PwmDeInitApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Pwm_DeInit() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="386cadbe-5b90-4e72-9650-2fe679cf3f74"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmGetOutputState" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_GetOutputState() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="a519016e-a0a4-43d0-a0d1-8367528536d8"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmSetDutyCycle" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetDutyCycle() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="ddf76ae0-81b1-4d9c-bbe5-d995068e83b9"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmSetOutputToIdle" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetOutputToIdle() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="48f3008b-7ff7-499b-8b6c-76cf852805b8"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmSetPeriodAndDuty" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetPeriodAndDuty() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="1b4743b3-255e-435c-b1bd-602bf76fcc13"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmVersionInfoApi" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Switch to indicate that the Pwm_GetVersionInfo is supported.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="51bd0796-8e20-46a5-9cec-f555df386a2d"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmEnableDisableTriggerApi" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_EnableTrigger() and Pwm_DisableTrigger() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="2089841a-86f2-469b-976b-7bb8c6ad4331"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetTriggerDelay" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetTriggerDelay() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="1366c038-18b8-44a1-b55c-151de6add736"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetOutputOffset" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetOutputOffset() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="ae743746-50da-4b0c-94e6-d0ef44b860f1"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetOutputState" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetChannelOutput() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="57a3b78c-5c72-4f18-9a22-173d969b80c4"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetPrescaler" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetPrescaler() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="2475addc-6def-40ac-ab7b-e2be1ce387b2"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmStopGroup" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_StopGroupTrigger() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="3c38cd0f-3df5-43b1-b690-b1864b6c1197"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetDutyCycleBufferApi" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetDutyCycleBuffer() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="890ba311-f873-a993-5531-3c869083a910"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetDutyAndChannelOutputBufferApi" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetDutyAndChannelOutputBuffer() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="0708cc22-009a-646d-6677-83465bd88c98"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmSetChannelOutputBufferApi" type="BOOLEAN">
+                  <a:a name="DESC"  value="EN:&lt;html&gt; Adds / removes the service Pwm_SetChannelOutputBuffer() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="ff5389b9-c854-010e-eed9-ca1d8ec73d0c"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+              </v:ctr>
+              <v:ctr name="PwmGeneral" type="IDENTIFIABLE">
+                <a:a name="DESC"  value="EN:&lt;html&gt;  General configuration of Pwm (Pulse Width Modulation) module.&lt;/html&gt;"/>
+                <a:a name="UUID" value="f4653388-d5c1-41fb-a6f5-d794be83daa6"/>
+                <v:var name="PwmDevErrorDetect" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switches the Default Error Tracer (Det) detection and notification ON or OFF."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="efe0c840-e4db-482f-88f0-b0de08e55b5d"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmDutycycleUpdatedEndperiod" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switch for enabling the update of the duty cycle parameter at the end of the current period."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="68a8aee6-5984-45e1-a073-711a56dd4c71"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmIndex" type="INTEGER">
+                  <a:a name="DESC"
+                       value="EN:&lt;html&gt;
+                              Specifies the Instance Id of this module instance. If only one instance is present it shall have the Id 0.
+                       &lt;br/&gt;NOTE: Parameter is not used!
+                       &lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="558a48da-fd3f-4e98-ac25-b590eadfc7ce"/>
+                  <a:da name="DEFAULT" value="0"/>
+                  <a:da name="EDITABLE" value="false"/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=0"/>
+                    <a:tst expr="&gt;=0"/>
+                  </a:da>
+                </v:var>
+                <v:var name="PwmNotificationSupported" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switch to indicate that the notifications are supported"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="13830c33-5ba4-48ae-b23f-9cd3d1c91855"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmPeriodUpdatedEndperiod" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switch for enabling the update of the period parameter at the end of the current period."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="8dfbae07-9dfe-46d8-bab4-581e57647038"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="PwmMultipleUpdateInPeriod" type="BOOLEAN">
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt; Switch for enabling the multiple update in period.&lt;br/&gt;
+                    Note:&lt;br/&gt;
+                    In any of the following cases, the channel is waiting for an update.&lt;br/&gt;
+                    &lt;br/&gt;
+                    - Call Pwm_Init API including any of channels with start delay&lt;br/&gt;
+                    - Call Pwm_StartGroupTrigger API including any of channels with start delay&lt;br/&gt;
+                    - Call Pwm_SetPeriodAndDuty API when PwmPeriodUpdatedEndperiod is true&lt;br/&gt;
+                    - Call Pwm_SetDutyCycle API when PwmDutycycleUpdatedEndperiod is true&lt;br/&gt;
+                    - Call Pwm_SetTriggerDelay API&lt;br/&gt;
+                    - Call Pwm_SetOutputOffset API&lt;br/&gt;
+                    - Call Pwm_SetChannelOutput API&lt;br/&gt;
+                    &lt;br/&gt;
+                    The channel is updated at timing of period and it is cleared waiting state for an update.&lt;br/&gt;
+                    When the channel with waiting for an update is called with Pwm_SetPeriodAndDuty, Pwm_SetDutyCycle, Pwm_SetTriggerDelay or Pwm_SetOutputOffset API:&lt;br/&gt;
+                    - In case of this switch is true: PWM channel continues output waveform and output trigger. However, the channel might become uncommonly disordered output.&lt;br/&gt;
+                    - In case of this switch is false: PWM channel stops immediate output waveform and output trigger, and restart.&lt;br/&gt;
+                    &lt;/html&gt;
+                    </a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="2495c829-ce13-4c20-97a9-562b732906c4"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="PwmErrorCalloutFunction"  type="FUNCTION-NAME">
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt;
+                    Error callout function. Syntax:&lt;br/&gt;
+                    void ErrorCalloutHandler (uint16 ModuleId, uint8 InstanceId, uint8 ApiId, uint8 ErrorId)&lt;br/&gt;
+                    &lt;br/&gt;
+                    The error callout function is called on every error. The ASIL level of this function limits the ASIL level of the PWM driver.
+                    &lt;/html&gt;
+                    </a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="ErrorCalloutHandler"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the PwmErrorCalloutFunction. Must be valid C function name."/>
+                  </a:da>
+                  <a:a name="UUID" value="A6DF2629-FC84-4d62-A78B-1F82E524A1F6"/>
+                </v:var>
+                <v:var name="PwmHwTriggerOutputUnitType" type="ENUMERATION">
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt;
+                    Switches a unit type to second or tick.&lt;br/&gt;
+                    PWM_TRIGGER_SECOND: PwmHwTriggerOutputDefaultTime is available.&lt;br/&gt;
+                    PWM_TRIGGER_TICK: PwmHwTriggerOutputDefaultTick is available.
+                    &lt;/html&gt;
+                    </a:v>
+                  </a:a>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="eab98f38-11ef-48d2-8caf-77912431ba78"/>
+                  <a:da name="DEFAULT" value="PWM_TRIGGER_SECOND"/>
+                  <a:da name="RANGE">
+                    <a:v>PWM_TRIGGER_TICK</a:v>
+                    <a:v>PWM_TRIGGER_SECOND</a:v>
+                  </a:da>
+                </v:var>
+                <v:var name="PwmStartTriggerSelect0" type="ENUMERATION">
+                  <a:a name="DESC" 
+                       value="EN:  Specifies the input trigger of TCPWM instance 0 to start all PWM channel synchronously. When this parameter is configured, a trigger signal is required to start all channels. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Pwm_Init(). In this case, the group trigger configuration is also required in PORT module. When this parameter is not configured, channels start sequentially by Pwm_Init()."/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="a36e47de-aef1-4b94-a9d4-ef68321ad957"/>
+                  <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.0.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;))[1]"/>
+                  <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.0.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;)"/>
+                  <a:da name="EDITABLE" type="XPath" expr="node:containsValue(ecu:list('TCPWM.instances'),'0') or node:exists(.)"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger, .)" 
+                           true="The same value as PwmStartDelayTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger, .)" 
+                           true="The same value as PwmChannelGroupStartTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger, .)" 
+                           true="The same value as PwmChannelGroupStopTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupSwitchEventTrigger,.)"
+                           true="The same value as PwmChannelGroupSwitchEventTrigger cannot be set in the same cofiguration set."/>                           
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmGroupStartDelay/PwmGroupStartDelayTrigger, .)" 
+                           true="The same value as PwmGroupStartDelayTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(ecu:list('TCPWM.instances'),'0')"
+                           false="There is not this instance."/>
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                           true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                           true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                           true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                           true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                           true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                  </a:da>
+                  <a:da name="WARNING" type="XPath">
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                           true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                  </a:da>
+                </v:var>
+                <v:var name="PwmStartTriggerSelect1" type="ENUMERATION">
+                  <a:a name="DESC" 
+                       value="EN:  Specifies the input trigger of TCPWM instance 1 to start all PWM channel synchronously. When this parameter is configured, a trigger signal is required to start all channels. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Pwm_Init(). In this case, the group trigger configuration is also required in PORT module. When this parameter is not configured, channels start sequentially by Pwm_Init()."/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="87cd84db-ef9f-4110-9265-42763e00f7e0"/>
+                  <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.1.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;))[1]"/>
+                  <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.1.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;)"/>
+                  <a:da name="EDITABLE" type="XPath" expr="node:containsValue(ecu:list('TCPWM.instances'),'1') or node:exists(.)"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger, .)" 
+                           true="The same value as PwmStartDelayTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger, .)" 
+                           true="The same value as PwmChannelGroupStartTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger, .)" 
+                           true="The same value as PwmChannelGroupStopTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupSwitchEventTrigger,.)"
+                           true="The same value as PwmChannelGroupSwitchEventTrigger cannot be set in the same cofiguration set."/>                           
+                    <a:tst expr="node:containsValue(../../PwmChannelConfigSet/*/PwmChannelGroup/*/PwmGroupStartDelay/PwmGroupStartDelayTrigger, .)" 
+                           true="The same value as PwmGroupStartDelayTrigger cannot be set."/>
+                    <a:tst expr="node:containsValue(ecu:list('TCPWM.instances'),'1')"
+                           false="There is not this instance."/>
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                           true="IcuInputTriggerSelection already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                           true="IcuChannelGroupStartTrigger already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                           true="IcuChannelGroupStopTrigger already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                           true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                           true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                  </a:da>
+                  <a:da name="WARNING" type="XPath">
+                    <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                           true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                  </a:da>
+                </v:var>
+                <v:var name="PwmLowPowerStatesSupport" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes all power state management related APIs (PWM_SetPowerState, PWM_GetCurrentPowerState, PWM_GetTargetPowerState, PWM_PreparePowerState, PWM_Main_PowerTransitionManager), indicating if the HW offers low power state management."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="9dc09b18-52c0-42cf-8b6f-09cf6492629a"/>
+                  <a:da name="DEFAULT" value="false"/>
+                  <a:da name="EDITABLE" value="false"/>
+                </v:var>
+                <v:var name="PwmPowerStateAsynchTransitionMode" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Enables / disables support of the PWM Driver to the asynchronous power state transition."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="3473cd19-c53c-4bea-ae3a-3022ac7f74dd"/>
+                  <a:da name="DEFAULT" value="false"/>
+                  <a:da name="EDITABLE" value="false"/>
+                </v:var>
+                <v:lst name="PwmIncludeFile">
+                  <v:var name="PwmIncludeFile" type="STRING">
+                    <a:a name="DESC"  value="EN:&lt;html&gt; A file that shall be included by Pwm_Cfg_Include.h. Any application specific symbol that is used by the Pwm configuration (e.g. Error callout function) should be included by configuring this parameter.&lt;/html&gt;"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                      <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SCOPE" value="LOCAL"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="UUID"  value="C6DB5347-E65C-45fb-8BEA-56024B34AB3B"/>
+                    <a:da name="DEFAULT" value="ErrorCalloutHandler.h" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:match(normalize-space(.),'^[_0-9a-zA-Z]+\.h$')" false="Invalid name of the PwmIncludeFile. Must be a filename with extension .h."/>
+                      <a:tst expr="text:uniq(../*,.)"  false="PwmIncludeFile must be unique."/>
+                    </a:da>
+                  </v:var>
+                </v:lst>
+                <v:lst name="PwmPowerStateConfig" type="MAP">
+                  <a:a name="COLUMNS">
+                    <a:v>PwmPowerStateConfig</a:v>
+                    <a:v>PwmPowerStateReadyCbkRef</a:v>
+                  </a:a>
+                  <a:da name="MIN" value="0"/>
+                  <v:ctr name="PwmPowerStateConfig" type="IDENTIFIABLE">
+                    <a:a name="DESC" 
+                         value="EN: Each instance of this parameter defines a power state and the callback to be called when this power state is reached."/>
+                    <a:a name="UUID" 
+                         value="99335408-9e2a-4be9-a48f-51d8476402fb"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:da name="EDITABLE" value="false"/>
+                    <v:var name="PwmPowerState" type="INTEGER">
+                      <a:a name="DESC" 
+                           value="EN: Each instance of this parameter describes a different power state supported by the PWM HW. It should be defined by the HW supplier and used by the PWMDriver to reference specific HW configurations which set the PWM HW module in the referenced power state."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                      <a:a name="UUID" 
+                           value="ded8edf2-060b-445a-bdb0-92fabe4aa106"/>
+                      <a:da name="EDITABLE" value="false"/>
+                      <a:da name="DEFAULT" value="0"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=0"/>
+                        <a:tst expr="&gt;=0"/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="PwmPowerStateReadyCbkRef" type="FUNCTION-NAME">
+                      <a:a name="DESC" 
+                           value="EN: Each instance of this parameter contains a reference to a power mode callback defined in a CDD or IoHwAbs component."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="2006c3a3-f9b7-4081-8c51-985902f2677a"/>
+                      <a:da name="EDITABLE" value="false"/>
+                      <a:da name="DEFAULT" value="ReadyCbk"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                               false="Invalid name of the PwmPowerStateReadyCbkRef. Must be valid C function name."/>
+                      </a:da>
+                    </v:var>
+                  </v:ctr>
+                </v:lst>
+              </v:ctr>
+              <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/EcucDefs/Pwm"/>
+            </v:ctr>
+          </d:chc>
+          <d:chc name="PWM_EcuParameterDefinition" type="AR-ELEMENT" 
+                 value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="UUID" value="38b3805f-dd7c-44bb-c341-184d18fa4fd9"/>
+              <a:a name="DEF" 
+                   value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Pwm"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

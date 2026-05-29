@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Bsw_CanTrcv_255_Autron</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION>
+          <SHORT-NAME>BswImplementation_CanTrcv_255_Autron</SHORT-NAME>
+          <SW-VERSION>1.5.0</SW-VERSION>
+          <VENDOR-ID>255</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Bsw_CanTrcv_255_Autron/CanTrcv_255_Autron/BswInternalBehavior</BEHAVIOR-REF>
+          <VENDOR-API-INFIX>Autron</VENDOR-API-INFIX>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-ENTRY>
+          <SHORT-NAME>CanTrcv_255_Autron_Init</SHORT-NAME>
+          <SERVICE-ID>0</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-DESCRIPTION>
+          <SHORT-NAME>CanTrcv_255_Autron</SHORT-NAME>
+          <MODULE-ID>255</MODULE-ID>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>BswInternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>INTERRUPT_PROTECTION_AREA</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <ENTITYS>
+                <BSW-CALLED-ENTITY>
+                  <SHORT-NAME>BswCalledEntity_CANTRCV_SETOPMODE_MACRO</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_CanTrcv_255_Autron/CanTrcv_255_Autron/BswInternalBehavior/INTERRUPT_PROTECTION_AREA</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_CanTrcv_255_Autron/CanTrcv_255_Autron_Init</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+              </ENTITYS>
+              <DISTINGUISHED-PARTITIONS>
+                <BSW-DISTINGUISHED-PARTITION>
+                  <SHORT-NAME>BswDistinguishedPartition_CanTrcv</SHORT-NAME>
+                </BSW-DISTINGUISHED-PARTITION>
+              </DISTINGUISHED-PARTITIONS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,30 @@
+/**
+ * \file Demo_FeatureOnDemand.h
+ */
+
+#ifndef DEMO_FEATURE_ON_DEMAND_H_
+#define DEMO_FEATURE_ON_DEMAND_H_
+
+#include "Hsm_Types.h"
+#include "Demo_AppTestDefine.h"
+
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertStore(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertStore_Rev1(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertDelete(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertDelete_Rev1(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandGetCertList(void);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertStore_NBMode(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertStore_Rev1_NBMode(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertDelete_NBMode(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandCertDelete_Rev1_NBMode(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandGetCertList_NBMode(void);
+Std_ReturnType HostTest_HSM_FeatureOnDemandUserFVStoreRead(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandUserFVStore_Fixed(HSM_FOD_TestVector_t hsmFoDTv);
+Std_ReturnType HostTest_HSM_FeatureOnDemandUserFVRead_Fixed(void);
+Std_ReturnType HostTest_HSM_FeatureOnDemandUserFVStore_illegalFeature(void);
+Std_ReturnType HostTest_HSM_FeatureOnDemandUserFVStoreRead_NBMode(HSM_FOD_TestVector_t hsmFoDTv);
+
+Std_ReturnType Demo_FoDTest(void);
+Std_ReturnType Demo_FoDTest_aSIMS(void);
+
+#endif /* DEMO_FEATURE_ON_DEMAND_H_ */

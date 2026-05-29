@@ -1,0 +1,1542 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-2-2.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="04696AB1-FD37-4d2d-9064-09ED70CC1434">
+      <SHORT-NAME>TS_T40D13M1I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-DEFINITION-COLLECTION UUID="31699a26-58af-48e7-b7db-f37f4e5ff207">
+          <SHORT-NAME>DIO_EcuParameterDefinition</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="ECUC-MODULE-DEF">/TS_T40D13M1I0R0/Dio</MODULE-REF>
+          </MODULE-REFS>
+        </ECUC-DEFINITION-COLLECTION>
+        <ECUC-MODULE-DEF UUID="931ea64f-2292-46cb-9005-8e8fc88dfb7d">
+          <SHORT-NAME>Dio</SHORT-NAME>
+          <DESC>
+            <L-2 L="EN">Configuration of the Dio (Digital IO) module.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>4.2.2</REVISION-LABEL>
+                <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                <DATE>2014-10-31</DATE>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+          <REFINED-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Dio</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <!-- Container Definition: DioConfig -->
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="dffcb0d2-122e-4eb7-8996-95755f12869b">
+              <SHORT-NAME>DioConfig</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">This container contains the configuration parameters and sub containers of the AUTOSAR DIO module. This container is a MultipleConfigurationContainer, i.e. this container and its sub-containers exist once per configuration set.</L-2>
+              </DESC>
+              <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00152</RELATED-TRACE-ITEM-REF>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+              <SUB-CONTAINERS>
+                <!-- Container Definition: DioPort -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="7b6cd255-efa7-4a41-a8bf-0194e96f5567">
+                  <SHORT-NAME>DioPort</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Configuration of individual DIO ports, consisting of channels and possible channel groups.&lt;br/&gt;</L-2>
+                  </DESC>
+                  <INTRODUCTION>
+                    <P>
+                      <L-1 L="EN">Note that this container definition does not explicitly&lt;br/&gt;
+                      define a symbolic name parameter. Instead, the container&apos;s short name will be used in the Ecu Configuration Description to specify the symbolic name of the port.</L-1>
+                    </P>
+                  </INTRODUCTION>
+                  <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00144</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY-INFINITE>1</UPPER-MULTIPLICITY-INFINITE>
+                  <MULTIPLICITY-CONFIG-CLASSES>
+                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                  </MULTIPLICITY-CONFIG-CLASSES>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <PARAMETERS>
+                    <!-- PARAMETER DEFINITION: DioPortId -->
+                    <ECUC-INTEGER-PARAM-DEF UUID="214bc483-69a8-4411-887d-7289785d1d1e">
+                      <SHORT-NAME>DioPortId</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Numeric identifier of the DIO port. Not all MCU ports may be used for DIO, thus there may be &quot;gaps&quot; in the list of all IDs. This value will be&lt;br/&gt;</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">assigned to the DIO port symbolic name (i.e. the SHORT-NAME of the DioPort container).</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00145</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>ECU</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>127</MAX>
+                      <MIN>0</MIN>
+                    </ECUC-INTEGER-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: DioChannel -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="001f134a-574d-4e75-b86e-65a8dabb1429">
+                      <SHORT-NAME>DioChannel</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Configuration of an individual DIO channel. Besides a HW specific channel name which is typically fixed for a specific micro controller, additional symbolic names can be defined per channel.&lt;br/&gt;
+Note that this container definition does not explicitly define a symbolic name parameter. Instead, the container&apos;s short name will be used in the Ecu Configuration Description to specify the symbolic name of the channel.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00146</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>1</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: DioChannelId -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="9c3bfea9-893d-4172-905d-954613d3d021">
+                          <SHORT-NAME>DioChannelId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Channel Id of the DIO channel. This value will be assigned to the symbolic names.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00147</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>ECU</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>4294967295</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: DioChannelPin -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="bf6d985f-17d8-435c-8b92-3f149bcdfd57">
+                          <SHORT-NAME>DioChannelPin</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">HW-Pin Id of the hardware port pin. This value is not assigned to the symbolic name.&lt;br/&gt;&lt;br/&gt;
+ATTENTION!&lt;br/&gt;
+The PortPinId can not be used for an API call.&lt;br/&gt;
+Please use the symbolic name for API calls only.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Cypress</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>P000_0</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2322d3cf-71bb-454d-90b2-a9a4dff34273">
+                              <SHORT-NAME>P000_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8b41e044-a0b6-408b-9cf6-1c800080a1e7">
+                              <SHORT-NAME>P000_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="cd4b4182-0e2e-49a9-b86a-d220205ece13">
+                              <SHORT-NAME>P000_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5e7ed155-c422-4018-8e0d-f28d0a989ca1">
+                              <SHORT-NAME>P000_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="21beb720-ab3a-4ca1-b411-1d1976c75a1e">
+                              <SHORT-NAME>P000_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="eb2fe899-9166-480c-bdb4-f2c24dce902d">
+                              <SHORT-NAME>P000_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c24389be-feb8-4c05-864d-00fcf5534657">
+                              <SHORT-NAME>P000_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="06d73871-878b-43a8-abc6-c765af1912dc">
+                              <SHORT-NAME>P000_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e98b63d4-a749-46a2-a852-df08ff07cd09">
+                              <SHORT-NAME>P001_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4da0f26d-1767-464a-9c81-50b70536aa94">
+                              <SHORT-NAME>P001_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f16982cc-2aba-4a8d-93e0-b9cf09968932">
+                              <SHORT-NAME>P001_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c703e686-2d0f-42ac-b920-3e8226f696bf">
+                              <SHORT-NAME>P001_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="83f7f30d-53d4-4b3e-a0d0-2c250d62dfd1">
+                              <SHORT-NAME>P001_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7d8d3441-bcec-461d-a956-d92dedca2fc6">
+                              <SHORT-NAME>P001_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b3c17c9e-c5dc-46db-9902-dcecb2a910e6">
+                              <SHORT-NAME>P001_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="531bedde-308f-4c20-a168-bc15692a8af2">
+                              <SHORT-NAME>P001_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0566ff3e-0cb9-4c42-aa60-4250217a9ef0">
+                              <SHORT-NAME>P002_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8d7edcc1-a4c8-4919-a063-0810ceac872f">
+                              <SHORT-NAME>P002_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ee252069-5bfd-40c2-bf21-f67c606f6ac8">
+                              <SHORT-NAME>P002_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="504ba778-af66-4e85-bc2a-a5257d188ab6">
+                              <SHORT-NAME>P002_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7a57a241-715e-4e2d-b9b4-7c4241ae8de6">
+                              <SHORT-NAME>P002_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="af62aa73-25ef-4466-b031-51827dccee72">
+                              <SHORT-NAME>P002_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b45a4376-d992-47f6-84d3-069cdebc4273">
+                              <SHORT-NAME>P002_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8c7818af-a77b-4297-a9e2-722ecdd1a46c">
+                              <SHORT-NAME>P002_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="26e67736-054d-41af-9a33-c914c2894436">
+                              <SHORT-NAME>P003_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a573de70-1c83-4c9a-9542-1fdda1d75aae">
+                              <SHORT-NAME>P003_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7031f495-ab8c-4fb8-b245-953ce661b16f">
+                              <SHORT-NAME>P003_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="80f5f1df-a836-4ee0-b317-f9362092b7eb">
+                              <SHORT-NAME>P003_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="93386326-6393-46ef-8ed6-1937babca1de">
+                              <SHORT-NAME>P003_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="81a31cd6-3cde-4f7d-8483-c23d9cac2791">
+                              <SHORT-NAME>P003_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4296713f-3e59-4264-8a59-42fe385eaa83">
+                              <SHORT-NAME>P003_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a2d6494e-c419-4b16-8f8a-487f640c8c2c">
+                              <SHORT-NAME>P003_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e72e5c61-ba14-48e8-921f-ed0341b49421">
+                              <SHORT-NAME>P004_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e1926006-e7b3-4a75-ac98-1955380f2dbf">
+                              <SHORT-NAME>P004_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="61bb51d4-fc6a-4ade-a556-026fa1d49e5f">
+                              <SHORT-NAME>P004_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ef07b022-c72f-408f-86e4-d72479eb0615">
+                              <SHORT-NAME>P004_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="48e0866e-4767-4369-919b-4f712a2244a0">
+                              <SHORT-NAME>P004_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="08edb2ad-2d7f-480d-906b-5a4c24d6a200">
+                              <SHORT-NAME>P004_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fd13651d-a2bf-42a2-8421-ddef1851bd5b">
+                              <SHORT-NAME>P004_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e74c4038-85c8-430e-a35d-de551b66d8de">
+                              <SHORT-NAME>P004_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3ca8fad9-21e7-4b6c-a5ac-ff455197922e">
+                              <SHORT-NAME>P005_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9d51b75e-977b-44ac-85be-7db9c95211ae">
+                              <SHORT-NAME>P005_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="495aa9d3-7990-4805-8d6c-513ba37255e9">
+                              <SHORT-NAME>P005_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="40824e10-83a9-4cbb-ab32-de3021c72913">
+                              <SHORT-NAME>P005_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="405f01bc-ebed-4ab7-b56d-2ed26f88e215">
+                              <SHORT-NAME>P005_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fb639030-9ed0-4102-b912-07a4e3f12eeb">
+                              <SHORT-NAME>P005_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="160c8d04-bc9b-4832-bb70-58c6950ebbb1">
+                              <SHORT-NAME>P005_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4b9bce00-2350-4f41-a0ff-abc19ca6cc94">
+                              <SHORT-NAME>P005_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d79b0cfa-1c5a-4e06-a0af-805e7bd38e62">
+                              <SHORT-NAME>P006_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="77a9bd77-3abc-4a72-b544-74ba17f6fec5">
+                              <SHORT-NAME>P006_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b3204ade-7563-4b20-96dc-f57d92b88ae4">
+                              <SHORT-NAME>P006_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4ccc30b6-9618-49b5-a16f-be517965a005">
+                              <SHORT-NAME>P006_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2bd6b6c5-837b-4d4e-8851-fce07108d13a">
+                              <SHORT-NAME>P006_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e488890d-c802-4634-9752-e9c088a7938c">
+                              <SHORT-NAME>P006_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="05f4db6c-646b-49d7-99ee-a447c4b27776">
+                              <SHORT-NAME>P006_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ad89aaa0-8087-454c-9092-230197b5aa62">
+                              <SHORT-NAME>P006_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b91c4eee-bec8-43ad-9bd1-72b9255544af">
+                              <SHORT-NAME>P007_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="64ea656c-57f8-4874-84b3-de8a13a87b31">
+                              <SHORT-NAME>P007_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f3868605-e943-46ac-8553-e1711f62cc3c">
+                              <SHORT-NAME>P007_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="704efde0-00d5-4bb7-8820-002e90f967e5">
+                              <SHORT-NAME>P007_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ba7a5dc5-e4e9-4717-88d0-4b74f2733c06">
+                              <SHORT-NAME>P007_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="cb9a7d60-b4ce-4bbd-9c1c-69d33a8e6af3">
+                              <SHORT-NAME>P007_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5461f960-6c29-42e0-8774-fb556e567b3a">
+                              <SHORT-NAME>P007_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7b91509f-b29f-4d74-9059-d2e81f7d6b1b">
+                              <SHORT-NAME>P007_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7614a9dd-b47f-4687-845b-0d1e160605ed">
+                              <SHORT-NAME>P008_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7ab672a3-c104-42e4-a4e1-3fdcd90dd646">
+                              <SHORT-NAME>P008_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="725fb949-5830-4c57-994e-e602a931fe9e">
+                              <SHORT-NAME>P008_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="aaaef4f1-d3aa-48f3-b06b-4a5554ea7d98">
+                              <SHORT-NAME>P008_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="27658a69-bbc6-4221-b701-7240e51ed6dc">
+                              <SHORT-NAME>P008_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b668f360-90ee-4d97-873e-54093ad49c5b">
+                              <SHORT-NAME>P008_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="34646370-a82f-4f05-b54e-a6f895755343">
+                              <SHORT-NAME>P008_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e7de63db-55b2-4fd4-9623-e0faacca6bdf">
+                              <SHORT-NAME>P008_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8b7fdf0c-7adc-4f6d-93f7-c59c47988731">
+                              <SHORT-NAME>P009_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="25ee8447-6c80-4f80-a2dd-86fbe09bac80">
+                              <SHORT-NAME>P009_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a74589c7-f89b-4ef3-9d2b-fc4c12b37bc0">
+                              <SHORT-NAME>P009_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4b9302b1-d179-406f-9330-7d00005a05ce">
+                              <SHORT-NAME>P009_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="17fa0e2d-4a1d-47a4-9585-ec7a9813bf7c">
+                              <SHORT-NAME>P009_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bc73e822-b1c6-4ae9-9cae-2ece677d3702">
+                              <SHORT-NAME>P009_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f5e4b0db-399a-454a-a8cf-1f9ff33e9d91">
+                              <SHORT-NAME>P009_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="72c24884-2016-40ff-914e-03b290f80776">
+                              <SHORT-NAME>P009_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="290a54f7-3a77-46ee-bebd-64a60c34f8bf">
+                              <SHORT-NAME>P010_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c6ab38c8-f0e4-45e8-89ee-95e9d9e192ce">
+                              <SHORT-NAME>P010_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="eecf0dac-3ba2-4cfc-aab3-1461736d9c4c">
+                              <SHORT-NAME>P010_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d00a073d-dcd7-48f6-bc8e-20c99e66b5ae">
+                              <SHORT-NAME>P010_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="051efb71-0247-4096-ae23-1c8675a4af14">
+                              <SHORT-NAME>P010_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6bbde190-2dd4-4f5f-8a9c-84d31a067d95">
+                              <SHORT-NAME>P010_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="27100998-12fc-44af-b1f8-b2bf89f17370">
+                              <SHORT-NAME>P010_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="675ab68a-6bf1-4f57-aef8-4c2a779b9d32">
+                              <SHORT-NAME>P010_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d8d18fa2-46bb-42d9-94e5-b85490dfa81f">
+                              <SHORT-NAME>P011_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="680faa25-3267-4bb5-91de-13a0bf596247">
+                              <SHORT-NAME>P011_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fca23b6e-c87c-4e10-91b2-8ceb82236917">
+                              <SHORT-NAME>P011_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="dd0970c1-d2a9-45f1-8799-b39746202b59">
+                              <SHORT-NAME>P011_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ce0cc738-57ab-46fc-a16e-b511810fdbf9">
+                              <SHORT-NAME>P011_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bba60021-6f4d-4516-8cb9-5de933c0dfa7">
+                              <SHORT-NAME>P011_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8742d9ef-f9b7-496f-a86d-d0ffbb1fc31a">
+                              <SHORT-NAME>P011_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5ce77698-de47-41ac-8ec0-b15a11bca237">
+                              <SHORT-NAME>P011_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="1332de3e-094b-4cdd-97c8-5134bd96a1c9">
+                              <SHORT-NAME>P012_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c2fee5a3-ffbf-4bd3-ad56-21eadc1b4c12">
+                              <SHORT-NAME>P012_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="de2e3a28-544e-4d97-aa99-7343bc4eadd7">
+                              <SHORT-NAME>P012_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4c6d1aee-578d-45d0-aff1-a9fc535ed7fd">
+                              <SHORT-NAME>P012_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="25bdeb86-15ee-4214-8988-680df6d7bc8b">
+                              <SHORT-NAME>P012_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="76fd667b-f3b7-460f-a774-7f602aab2670">
+                              <SHORT-NAME>P012_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="374a7612-04e5-4ebe-802b-a7481e29fc9b">
+                              <SHORT-NAME>P012_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="dfdabe07-3254-440f-947d-c5fff0e3678a">
+                              <SHORT-NAME>P012_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f8c2b5f9-f448-4c7c-8eaf-fcf2d813e731">
+                              <SHORT-NAME>P013_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6256d9a5-8282-4ba2-9ce7-c8da80fc1858">
+                              <SHORT-NAME>P013_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="93dbac79-8392-46ba-94d7-b9660178d6a2">
+                              <SHORT-NAME>P013_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b812e8c2-1bf8-4e0a-810b-6ef37f54892a">
+                              <SHORT-NAME>P013_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ea110b3f-73e2-406c-ad00-f1bc2f1d1d53">
+                              <SHORT-NAME>P013_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="470a8b0f-6fde-4678-acea-d6a600fb76ff">
+                              <SHORT-NAME>P013_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="155a246f-eddd-4c7a-8f28-db2ca9cd2d49">
+                              <SHORT-NAME>P013_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b0bceb1e-cbfc-48d8-91fa-09c1eb82ba9b">
+                              <SHORT-NAME>P013_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ec860e05-bbdd-45ea-9532-1d5c94836f69">
+                              <SHORT-NAME>P014_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="dd521f03-78d8-4a98-afbf-8d0df21f3df8">
+                              <SHORT-NAME>P014_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2024beae-65e1-4783-bf27-4b2940ed025b">
+                              <SHORT-NAME>P014_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="da442233-48a6-4f69-8fd4-eb48a8d1f57c">
+                              <SHORT-NAME>P014_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="be07c2da-5ffb-4675-9e8a-f33d9b0eb73f">
+                              <SHORT-NAME>P014_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7f482f83-ed25-43c9-aa84-5eecea1b30ac">
+                              <SHORT-NAME>P014_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9799d056-9cbd-4f0e-8ce3-0af60a98221a">
+                              <SHORT-NAME>P014_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="69278cf7-0b8d-45da-97b6-5cc06676b89c">
+                              <SHORT-NAME>P014_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2696d260-d389-4a6c-b95b-770e99f081d7">
+                              <SHORT-NAME>P015_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="356e552b-2552-4585-9fc9-a8df3d7ba46b">
+                              <SHORT-NAME>P015_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0d694d2f-348d-40e1-a5ab-1de68ecfcb23">
+                              <SHORT-NAME>P015_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e8700883-6dcd-4241-bc56-c96422ca6b7f">
+                              <SHORT-NAME>P015_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="821d1140-ccf3-40ea-ac98-a7a4522c3554">
+                              <SHORT-NAME>P015_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4fde9564-e9e8-4dd9-aa5a-59f115be9ed6">
+                              <SHORT-NAME>P015_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6331fdd4-0af1-455c-8ba0-8944817a652c">
+                              <SHORT-NAME>P015_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a27d88bb-e438-4c94-8e14-8d288cf427e2">
+                              <SHORT-NAME>P015_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ac5d8cca-1e6e-4eba-9d2d-27c4b663e810">
+                              <SHORT-NAME>P016_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="379d1455-532e-49f5-be51-c7c0f66c9b77">
+                              <SHORT-NAME>P016_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c38c874e-2f6b-4dd4-bcfc-55ad10e12bb9">
+                              <SHORT-NAME>P016_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7801d844-c6f7-4354-969b-e26f0586b482">
+                              <SHORT-NAME>P016_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3339d9e3-a3d0-4ede-b6f1-061be6b2021a">
+                              <SHORT-NAME>P016_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b83bbd78-4d7e-43d4-9289-b9a5ed7f74e1">
+                              <SHORT-NAME>P016_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4a928dac-9a7a-47c5-93db-95e80e5e4ea0">
+                              <SHORT-NAME>P016_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="22bf9fc3-7811-4e9d-9d7d-448967e27e47">
+                              <SHORT-NAME>P016_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="00278355-4d0e-4da2-ac11-89d46d70074f">
+                              <SHORT-NAME>P017_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="50208a4c-e36e-4a78-b370-d0a1c2857b6c">
+                              <SHORT-NAME>P017_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a70b9ed8-33b7-4f11-8fa6-e686a90b0262">
+                              <SHORT-NAME>P017_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4a2b746b-a7a6-475f-a695-88695b0b5844">
+                              <SHORT-NAME>P017_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9eb8c695-5865-4f63-a688-f970b7526e99">
+                              <SHORT-NAME>P017_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f2095a02-1446-449c-b1fd-0cc03240644f">
+                              <SHORT-NAME>P017_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ac24feed-32c2-49a2-937e-0d4cc920fa08">
+                              <SHORT-NAME>P017_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="1caa766f-ccb5-446a-8962-a38c9ce209ee">
+                              <SHORT-NAME>P017_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d861d5c3-dbc1-4862-adc4-53622e5f51aa">
+                              <SHORT-NAME>P018_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fee6a7b8-38fd-4be9-8c6d-333f5113d140">
+                              <SHORT-NAME>P018_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2c964590-81b0-487e-b9f0-adc547e5e5a7">
+                              <SHORT-NAME>P018_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e1bff821-bfd9-4d00-b9a9-54cddb2157bf">
+                              <SHORT-NAME>P018_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4ddb6c47-a17c-49ba-be86-85d5d52ff2b0">
+                              <SHORT-NAME>P018_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ea726f60-05fc-4b60-ab77-ec62fea2042c">
+                              <SHORT-NAME>P018_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="144f63d8-4944-4cd2-aedd-3b0c4f598843">
+                              <SHORT-NAME>P018_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e485dbce-0e40-4b9a-bf25-c7b3676304e5">
+                              <SHORT-NAME>P018_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f30d3035-f420-4928-9778-d8a5b3579720">
+                              <SHORT-NAME>P019_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="00b2d433-e286-4a74-8c30-08aa31eec5f9">
+                              <SHORT-NAME>P019_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5abf1ad1-bf58-4216-84ee-a71044e7c72d">
+                              <SHORT-NAME>P019_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3315dcc2-7ac7-425b-af4b-5f37fa751ee9">
+                              <SHORT-NAME>P019_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="cf8dd052-ba3b-4597-9928-ac3e4e73f8b0">
+                              <SHORT-NAME>P019_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="974b0e7e-953d-4721-ac6d-cb9b4eb36494">
+                              <SHORT-NAME>P019_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="fa7c70ea-6a82-4c00-a5ec-c0363762a9c7">
+                              <SHORT-NAME>P019_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0372d22b-66e5-4962-9d0b-b7ccfb934c63">
+                              <SHORT-NAME>P019_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="51620f8a-f5a7-4668-99e8-b0f2e2e6098d">
+                              <SHORT-NAME>P020_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b94e4449-ad71-4afe-8054-3fc04fa0295c">
+                              <SHORT-NAME>P020_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3a5af78f-3222-4f09-b18d-f7a10eb48298">
+                              <SHORT-NAME>P020_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="452fadb8-fd0f-4e97-b581-b444211b501a">
+                              <SHORT-NAME>P020_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="514522ef-06c2-4507-886e-0f893afaf89a">
+                              <SHORT-NAME>P020_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7d9fa619-78fd-4c2e-841b-b988587b19b2">
+                              <SHORT-NAME>P020_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bc52e7f9-3275-4d53-a9b3-a026bd624976">
+                              <SHORT-NAME>P020_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2e4505eb-71a2-4923-ba72-6f4f41a7368d">
+                              <SHORT-NAME>P020_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bc2d8173-f312-440f-bbc5-aa3c912dbd9c">
+                              <SHORT-NAME>P021_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="aa6130a1-957c-4256-93a6-000beee54b00">
+                              <SHORT-NAME>P021_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d04637a6-1b83-42c4-8f70-1de7072579db">
+                              <SHORT-NAME>P021_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4ab2cec7-841b-4653-9211-da389d9e5af9">
+                              <SHORT-NAME>P021_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="908ca482-f3cb-49b3-8eb9-c1a4da081cad">
+                              <SHORT-NAME>P021_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3dc1031f-343c-4dba-8a79-8cd130dab544">
+                              <SHORT-NAME>P021_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a640d532-5706-4992-a5b3-a4beb2a51823">
+                              <SHORT-NAME>P021_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="11b1a56c-ab89-407f-a15f-30b600ad26bf">
+                              <SHORT-NAME>P021_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2cc50839-87b2-490d-9c60-0ee2c607fb02">
+                              <SHORT-NAME>P022_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5fcd3b7d-7162-404a-8b54-1adee661c812">
+                              <SHORT-NAME>P022_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="29a35edf-946f-48b1-8c02-76d9b4517e30">
+                              <SHORT-NAME>P022_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b5b3358a-6828-4093-8c3b-054a2acfb874">
+                              <SHORT-NAME>P022_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="50d5e30c-bcca-47f9-90e6-7d699401ba8b">
+                              <SHORT-NAME>P022_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="55742101-6db3-454b-90e4-08fc39b13c35">
+                              <SHORT-NAME>P022_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f63fbcec-c6bd-4d18-be7d-08123f3f3dfe">
+                              <SHORT-NAME>P022_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="115659a6-e927-4076-908c-0777680df1a0">
+                              <SHORT-NAME>P022_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2affda5e-8e3e-4d55-b00f-239125dbf7db">
+                              <SHORT-NAME>P023_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d758f54e-e5e1-4cc5-80ee-559f3c74e050">
+                              <SHORT-NAME>P023_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8becd21d-6adc-4f08-b60c-417b8be0b66d">
+                              <SHORT-NAME>P023_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0dde2b79-0422-4032-96e6-0c372e59d524">
+                              <SHORT-NAME>P023_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d2a7ae97-631e-48b2-b03b-11c03bacb615">
+                              <SHORT-NAME>P023_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bbeffeb6-9acb-4b87-ae5f-dfb559fda30c">
+                              <SHORT-NAME>P023_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="10b23f3b-696c-4007-9369-fc1f04b4a5b8">
+                              <SHORT-NAME>P023_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e8e03bda-6aed-4079-bf00-b2a465ee6b9c">
+                              <SHORT-NAME>P023_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="376a3093-b9c5-4ee7-ada6-c21713f11943">
+                              <SHORT-NAME>P024_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="abe14683-cc51-4926-9d1b-df6f3c45a6ad">
+                              <SHORT-NAME>P024_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="76da477d-471f-4223-9835-ddf19efbf6b2">
+                              <SHORT-NAME>P024_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b4abfd75-786e-4161-8627-d9e8aa93958a">
+                              <SHORT-NAME>P024_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c5a71e19-2b96-4d13-9b5d-5618989df063">
+                              <SHORT-NAME>P024_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="40ea149b-5a95-44bd-b910-8adbac94e35b">
+                              <SHORT-NAME>P025_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="58380b0c-9241-4fc1-bfd0-ebd088d8e8b9">
+                              <SHORT-NAME>P025_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="28804c93-5384-42db-b8f7-6dee4adb6e51">
+                              <SHORT-NAME>P025_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d88bfc8a-a3f0-4a5e-adbc-bb3f4fdaaae0">
+                              <SHORT-NAME>P025_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ca564a10-77a9-4adb-9a44-035f5e102a49">
+                              <SHORT-NAME>P025_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bee70a73-110a-4b2e-9030-e189b0333731">
+                              <SHORT-NAME>P025_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="275878f2-815d-4bc0-9fcb-a863bebbba9d">
+                              <SHORT-NAME>P025_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="aa6339c3-44c0-4b61-9796-a8f681f3925c">
+                              <SHORT-NAME>P025_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="390e04cc-9604-4ee5-9a28-d18841b20d6d">
+                              <SHORT-NAME>P026_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ec880ec5-473d-4755-8f69-b31db06175f4">
+                              <SHORT-NAME>P026_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0df75130-7576-472d-9d2f-435039fa8df6">
+                              <SHORT-NAME>P026_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="56d455c0-d4da-4e38-8aef-a26f6b418316">
+                              <SHORT-NAME>P026_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f457a0f5-98d9-4716-a0ef-924be23ef80d">
+                              <SHORT-NAME>P026_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bd571f72-63b9-41b2-8632-2841ee6bed8f">
+                              <SHORT-NAME>P026_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a326ada6-1929-4378-9330-7dc3c697bc3c">
+                              <SHORT-NAME>P026_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="43fb76fd-4e50-4e8e-9926-3993697632db">
+                              <SHORT-NAME>P026_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b2a00af6-aa1c-4ca1-81b9-254ac4aa9abb">
+                              <SHORT-NAME>P027_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7ba7f16c-31c3-49c9-abaf-1eec2eccf687">
+                              <SHORT-NAME>P027_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e67a503c-e4c4-42c5-a842-cf095705ed4f">
+                              <SHORT-NAME>P027_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="57f181cd-0dd5-4835-bbe1-bd9576c16a53">
+                              <SHORT-NAME>P027_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="85171177-fb31-4e4c-aacb-51666e1ff466">
+                              <SHORT-NAME>P027_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="2cae6d6f-3451-4b06-9af3-d1f4f8b7f0ed">
+                              <SHORT-NAME>P027_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3deb7896-97de-4e25-9af7-01e316381925">
+                              <SHORT-NAME>P027_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bf8e009e-68f3-4c37-8671-caf2a831ee75">
+                              <SHORT-NAME>P027_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="68bc9c3c-6053-4c30-8aca-2ea8bd871aec">
+                              <SHORT-NAME>P028_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7139fbf2-a87a-4ea4-adac-1d51830899b3">
+                              <SHORT-NAME>P028_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ecf5def7-b58a-42aa-92f5-f9d26056a01f">
+                              <SHORT-NAME>P028_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ebcfd964-5864-4c39-ae26-8448797d92e2">
+                              <SHORT-NAME>P028_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="99688447-9521-4e76-a12c-eea9955e774b">
+                              <SHORT-NAME>P028_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8b4460ac-b1c1-4271-97d0-2bcbe7e89979">
+                              <SHORT-NAME>P028_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9e17f050-287e-4d47-873d-5740d78f4b7c">
+                              <SHORT-NAME>P028_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3ae3b995-8029-4420-9d0f-cd8f95459ffd">
+                              <SHORT-NAME>P028_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="3c0db5e3-33f5-43db-a380-9e55e10f628d">
+                              <SHORT-NAME>P029_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4ab55aae-f091-4f18-9cfc-6af1ed13ec55">
+                              <SHORT-NAME>P029_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="12a92d6e-b85f-4625-baf5-19ad556e1ecf">
+                              <SHORT-NAME>P029_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="5e3c4df8-02fe-40ff-b75a-cae49c3639f0">
+                              <SHORT-NAME>P029_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="b8a156e5-1b61-47ea-8c51-dfc48ab11afd">
+                              <SHORT-NAME>P029_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a5c1a075-2696-42d1-bf1f-64a04f64c71d">
+                              <SHORT-NAME>P029_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f808a293-af3b-4733-87ed-948c439e820b">
+                              <SHORT-NAME>P029_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c2f54159-73d8-47c9-af2a-64cfc2cab476">
+                              <SHORT-NAME>P029_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="9f8cf11d-65e6-482e-a45b-60c9d185896d">
+                              <SHORT-NAME>P030_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d013300d-be4a-49df-8295-d99c14452fc2">
+                              <SHORT-NAME>P030_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0a31e2c4-e601-43fc-8c3f-00b534f233c8">
+                              <SHORT-NAME>P030_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="e6deb4cb-7f8e-45be-986f-91fa825adeb8">
+                              <SHORT-NAME>P030_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a8c7e094-9cac-40c8-9e1d-32054fa7d86c">
+                              <SHORT-NAME>P031_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a6eecfbe-fa43-4fbe-8bf4-aeba67b69bac">
+                              <SHORT-NAME>P031_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="36538759-b634-4fb8-9510-b47ac111a0a6">
+                              <SHORT-NAME>P031_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="0b1a9a46-77b9-41ed-8203-7508fc40113d">
+                              <SHORT-NAME>P032_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="837df601-755a-44e2-a710-1209ffdafdb6">
+                              <SHORT-NAME>P032_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="f20f7b64-e1c2-46bd-bbf0-86bf5af5a82a">
+                              <SHORT-NAME>P032_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c88b6293-bd6d-4385-a027-dfd769b89b39">
+                              <SHORT-NAME>P032_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="68379310-23a5-4c9b-b546-3d01ec5daeaf">
+                              <SHORT-NAME>P032_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ef4d2dae-d2e1-4fa3-9142-67ffb682d1b2">
+                              <SHORT-NAME>P032_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="00e32c5b-3b9e-4c49-af49-193f2f6ceb97">
+                              <SHORT-NAME>P032_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="183fc1a3-870b-4aa2-9330-47c3bd083817">
+                              <SHORT-NAME>P032_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="05c7e715-bc19-4bcf-a195-bd900b98e620">
+                              <SHORT-NAME>P033_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="8acbfa4a-ee03-42fc-87d5-9d0469202916">
+                              <SHORT-NAME>P033_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ef777431-ca51-4c35-8a18-bb3d5e15e170">
+                              <SHORT-NAME>P033_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7e38f888-0c78-41d6-8916-83ca47ac7b0b">
+                              <SHORT-NAME>P033_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="85bc415a-34d3-49f1-bdfd-9be54b4ad8ec">
+                              <SHORT-NAME>P033_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="09a68d89-6496-4f66-b4ec-0be2088d9502">
+                              <SHORT-NAME>P033_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6ccf84e0-601e-4a8a-98ce-ead6fd20af2e">
+                              <SHORT-NAME>P033_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="d9cdab7a-1c44-467b-8afe-c2c880c363ca">
+                              <SHORT-NAME>P033_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7f16bc0d-d0f8-4f62-a809-52a061005e49">
+                              <SHORT-NAME>P034_0</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="4ec08a28-8386-41df-bc70-930a8b5f3e05">
+                              <SHORT-NAME>P034_1</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="a44ade2c-7e95-4736-b64b-d057ad76ed50">
+                              <SHORT-NAME>P034_2</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="101ac642-0313-467d-8d6d-297d3ebdcdf0">
+                              <SHORT-NAME>P034_3</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="c746421f-65ee-46bf-90f8-7c7774206849">
+                              <SHORT-NAME>P034_4</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="6af0af5f-c989-4f0e-ac8a-7a21331a7f2d">
+                              <SHORT-NAME>P034_5</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="bd60c250-5955-4a80-9c7d-43167cc44b23">
+                              <SHORT-NAME>P034_6</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="7cd74916-de27-4d0a-afbb-f8ce694cc678">
+                              <SHORT-NAME>P034_7</SHORT-NAME>
+                              <ORIGIN>Cypress</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                      </PARAMETERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: DioChannelGroup -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="2d0b2704-a626-40b5-84e1-75e8f7af6c07">
+                      <SHORT-NAME>DioChannelGroup</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Definition and configuration of DIO channel groups. A channel group represents several adjoining DIO channels represented by a logical group.&lt;br/&gt;</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">Note that this container definition does not explicitly 
+                          define a symbolic name parameter. Instead, the container&apos;s short name will be used in the Ecu Configuration Description to specify the symbolic name of the channel group.</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00148</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>1</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: DioChannelGroupIdentification -->
+                        <ECUC-STRING-PARAM-DEF UUID="f0dc671c-8d88-49c4-87db-e4a99cf20d4d">
+                          <SHORT-NAME>DioChannelGroupIdentification</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">The DIO channel group is identified in DIO API by a pointer to a data structure (of type Dio_ChannelGroupType). That data structure contains the channel group information.&lt;br/&gt;&lt;br/&gt;</L-2>
+                          </DESC>
+                          <INTRODUCTION>
+                            <P>
+                              <L-1 L="EN">This parameter contains the code fragment that has to be inserted in the API call of the calling module to get the address of the variable in memory which holds the channel group information.&lt;br/&gt;
+                              Default value is &quot;&amp;Dio_ChannelGroupCfg[0]&quot;.</L-1>
+                            </P>
+                          </INTRODUCTION>
+                          <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00149</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>ECU</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                          <ECUC-STRING-PARAM-DEF-VARIANTS>
+                            <ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                              <DEFAULT-VALUE>&amp;Dio_ChannelGroupCfg[0]</DEFAULT-VALUE>
+                            </ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                          </ECUC-STRING-PARAM-DEF-VARIANTS>
+                        </ECUC-STRING-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: DioPortMask -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="1472fbdf-3e52-44a9-a4af-c71f13a4dc34">
+                          <SHORT-NAME>DioPortMask</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This shall be the mask which defines the positions of the channel</L-2>
+                          </DESC>
+                          <INTRODUCTION>
+                            <P>
+                              <L-1 L="EN">group.&lt;br/&gt;
+                              The channels shall consist of adjoining bits in the same port.&lt;br/&gt;
+                              The data type depends on the port width.</L-1>
+                            </P>
+                          </INTRODUCTION>
+                          <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00150</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                          <MAX>255</MAX>
+                          <MIN>1</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: DioPortOffset -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="f8fea5ba-3baf-4d8f-bfde-0a08ff57cfcf">
+                          <SHORT-NAME>DioPortOffset</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">The position of the Channel Group on the port, counted</L-2>
+                          </DESC>
+                          <INTRODUCTION>
+                            <P>
+                              <L-1 L="EN">from the LSB. This value can be derived from DioPortMask.&lt;br/&gt;&lt;br/&gt;
+                              calculationFormula = Position of the first bit of DioPortMask which is set to &apos;1&apos; counted from LSB.&lt;br/&gt;&lt;br/&gt;
+                              This value will be calculated at generation time.</L-1>
+                            </P>
+                          </INTRODUCTION>
+                          <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00151</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>7</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                      </PARAMETERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <!-- Container Definition: DioGeneral -->
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="74e15c2c-d3eb-4e67-8278-9ff53528cf32">
+              <SHORT-NAME>DioGeneral</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">General DIO module configuration parameters.</L-2>
+              </DESC>
+              <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00141</RELATED-TRACE-ITEM-REF>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+              <PARAMETERS>
+                <!-- PARAMETER DEFINITION: DioDevErrorDetect -->
+                <ECUC-BOOLEAN-PARAM-DEF UUID="65f530ba-6fe4-4693-846d-e004c4d28785">
+                  <SHORT-NAME>DioDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Switches the Default Error Tracer (Det) detection and notification ON or OFF.</L-2>
+                  </DESC>
+                  <INTRODUCTION>
+                    <P>
+                      <L-1 L="EN">* true: enabled (ON).
+                      * false: disabled (OFF).</L-1>
+                    </P>
+                  </INTRODUCTION>
+                  <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00142</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <!-- PARAMETER DEFINITION: DioFlipChannelApi -->
+                <ECUC-BOOLEAN-PARAM-DEF UUID="e5f22f9a-3d38-4f02-a19b-7c5c29a2dc66">
+                  <SHORT-NAME>DioFlipChannelApi</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Adds / removes the service Dio_FlipChannel() from the code.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00153</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <!-- PARAMETER DEFINITION: DioVersionInfoApi -->
+                <ECUC-BOOLEAN-PARAM-DEF UUID="62381508-e6ff-46dd-a8ca-6631883185bc">
+                  <SHORT-NAME>DioVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Adds / removes the service Dio_GetVersionInfo() from the code.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF DEST="TRACEABLE">ECUC_Dio_00143</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <!-- PARAMETER DEFINITION: DioMaskedWritePortApi -->
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ef24a99d-3f39-41f3-ba32-973556288a53">
+                  <SHORT-NAME>DioMaskedWritePortApi</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Adds / removes the service Dio_MaskedWritePort() from the code.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>Cypress</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <!-- PARAMETER DEFINITION: DioErrorCalloutFunction -->
+                <ECUC-FUNCTION-NAME-DEF UUID="547ad601-31ea-4cbb-8295-eb2484c0fe8d">
+                  <SHORT-NAME>DioErrorCalloutFunction</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">A symbol name for a call-out function. Dio module calls the function whenever any error occurs.&lt;br/&gt;&lt;br/&gt;
+&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;[Checking if the configuration is correct]&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;
+&lt;u&gt;1) DioErrorCalloutFunction is an appropriate C language function name;&lt;/u&gt;&lt;br/&gt;
+if it is not satisfied, the following message shall be reported:&lt;br/&gt;
+Invalid name of the DioErrorCalloutFunction. Must be valid C function name.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>Cypress</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                    <ECUC-FUNCTION-NAME-DEF-CONDITIONAL>
+                      <DEFAULT-VALUE>ErrorCalloutHandler</DEFAULT-VALUE>
+                    </ECUC-FUNCTION-NAME-DEF-CONDITIONAL>
+                  </ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                </ECUC-FUNCTION-NAME-DEF>
+                <!-- PARAMETER DEFINITION: DioIncludeFile -->
+                <ECUC-STRING-PARAM-DEF UUID="b07132ba-03e3-4547-9dcc-d6849f9c28c5">
+                  <SHORT-NAME>DioIncludeFile</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">The header file to which Dio module refers. The file is used to define the functional declaration about call-out by users.&lt;br/&gt;&lt;br/&gt;
+&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;[Checking if the configuration is correct]&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;
+&lt;u&gt;1) DioIncludeFile is an appropriate header file name;&lt;/u&gt;&lt;br/&gt;
+if it is not satisfied, the following message shall be reported:&lt;br/&gt;
+Invalid name of the DioIncludeFile. Must be a filename with extension .h.&lt;br/&gt;&lt;br/&gt;
+&lt;u&gt;2) All of DioIncludeFile have a different file name each other;&lt;/u&gt;&lt;br/&gt;
+if it is not satisfied, the following message shall be reported:&lt;br/&gt;
+DioIncludeFile must be unique.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY-INFINITE>1</UPPER-MULTIPLICITY-INFINITE>
+                  <MULTIPLICITY-CONFIG-CLASSES>
+                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                  </MULTIPLICITY-CONFIG-CLASSES>
+                  <ORIGIN>Cypress</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <ECUC-STRING-PARAM-DEF-VARIANTS>
+                    <ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                      <DEFAULT-VALUE>ErrorCalloutHandler.h</DEFAULT-VALUE>
+                    </ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                  </ECUC-STRING-PARAM-DEF-VARIANTS>
+                </ECUC-STRING-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </ECUC-MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

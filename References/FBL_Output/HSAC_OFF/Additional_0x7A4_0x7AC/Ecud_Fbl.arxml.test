@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0a65b447-e405-4956-a29e-0c95ead28806">
+      <SHORT-NAME>EcucModules</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="ef2208d8-0a71-4c9f-b355-d0a744e049f4">
+          <SHORT-NAME>Fbl</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTRON/Fbl</DEFINITION-REF>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Bsw_Fbl/BswImplementation_Fbl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="45e97b96-1aaf-444d-a672-743b51defb6d">
+              <SHORT-NAME>FblGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblGeneral/FblSupportMcu</DEFINITION-REF>
+                  <VALUE>FBL_MCU_CYTXXX</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblGeneral/FblSupportHsm</DEFINITION-REF>
+                  <VALUE>FBL_HSM_HAEHSM_2_0</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="2c82482e-6605-4e05-8743-02d3eea1f2dd">
+                  <SHORT-NAME>FblOta</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblGeneral/FblOta</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblGeneral/FblOta/FblMemorySwapEnable</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblGeneral/FblOta/FblDecompressEnable</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>FblSupportMcuName</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTRON/Fbl/FblGeneral/FblSupportMcuName</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE>
+                      <SHORT-NAME>FblMcuCytxxx</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblGeneral/FblSupportMcuName/FblMcuCytxxx</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblGeneral/FblSupportMcuName/FblMcuCytxxx/FblMcuName</DEFINITION-REF>
+                          <VALUE>CYT2B9XX</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="7cec02bc-163b-412d-a0ca-038d3c6a9a1a">
+              <SHORT-NAME>FblFlashConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2022-03-24T20:09:35Z" GID="FblMainSwEntryAddress1">0x10048001</SD>
+                    <SD T="2022-03-24T18:56:10Z" GID="FblMainSwEntryAddress2"/>
+                    <SD T="2022-01-21T16:15:43Z" GID="FblStartupCommandAddress">0x800a000</SD>
+                    <SD T="2022-01-21T16:15:47Z" GID="FblCommonRamAddress">0x800a010</SD>
+                    <SD T="2022-03-24T16:59:51Z" GID="FblEraseSectorNum"/>
+                    <SD T="2022-03-24T17:00:07Z" GID="FblFlashAlignment">32</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblFlashConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblFlashConfig/FblFlashAlignment</DEFINITION-REF>
+                  <VALUE>32</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblFlashConfig/FblMainSwEntryAddress1</DEFINITION-REF>
+                  <VALUE>0x10048001</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblFlashConfig/FblStartupCommandAddress</DEFINITION-REF>
+                  <VALUE>0x800a000</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblFlashConfig/FblCommonRamAddress</DEFINITION-REF>
+                  <VALUE>0x800a010</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="16e0edbe-8961-4446-beb1-b660bd74ad1e">
+              <SHORT-NAME>FblDiagConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2022-03-24T20:50:01Z" GID="FblDiagMaxNumResponsePending">250</SD>
+                    <SD T="2022-01-21T16:18:36Z" GID="FblSupportDiagnosticStandard">FBL_ES95486_00</SD>
+                    <SD T="2022-03-25T14:50:54Z" GID="FblDiagSignatureTxMode">FBL_TXDATA</SD>
+                    <SD T="2022-03-24T19:11:25Z" GID="FblDiagMaxNumOfBlockLength">2050</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblDiagConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagResponseBeforeResetEnable</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagMaxNumResponsePending</DEFINITION-REF>
+                  <VALUE>250</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagResponseBeforeSessionChangeEnable</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblSupportDiagnosticStandard</DEFINITION-REF>
+                  <VALUE>FBL_ES95486_02</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagSignatureTxMode</DEFINITION-REF>
+                  <VALUE>FBL_TXDATA</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagMaxNumSignArea</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagEraseRID</DEFINITION-REF>
+                  <VALUE>65280</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagChkProgDepRID</DEFINITION-REF>
+                  <VALUE>65281</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagOTAReadyRID</DEFINITION-REF>
+                  <VALUE>768</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagTransferDataChunkMode</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblDiagConfig/FblDiagMaxNumOfBlockLength</DEFINITION-REF>
+                  <VALUE>2050</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="8b896402-fae6-47bc-9ccb-80d733bc4aea">
+              <SHORT-NAME>ModuleInformation</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/ModuleInformation</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="2071ad9e-28c3-4f84-8ffe-d127e5083528">
+                  <SHORT-NAME>FBL</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-01-21T16:24:31Z" GID="StartAddress">0x10028000</SD>
+                        <SD T="2022-01-21T16:24:34Z" GID="EndAddress">0x10047FFF</SD>
+                        <SD T="2022-01-21T16:24:38Z" GID="ModuleInfoAddress">268599328</SD>
+                        <SD T="2022-01-21T16:24:42Z" GID="SpecialDataAddress">268599344</SD>
+                        <SD T="2022-01-21T16:24:48Z" GID="CrcInfoAddress">268599552</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/ModuleInformation/SwModule</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SwModuleIndex</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/StartAddress</DEFINITION-REF>
+                      <VALUE>0x10028000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/EndAddress</DEFINITION-REF>
+                      <VALUE>0x10047FFF</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/ModuleInfoAddress</DEFINITION-REF>
+                      <VALUE>0x10028200</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SpecialDataAddress</DEFINITION-REF>
+                      <VALUE>0x10028300</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/CrcInfoAddress</DEFINITION-REF>
+                      <VALUE>0x10028210</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="e6fb2736-2ab2-4781-87b7-eb0af77d3563">
+                  <SHORT-NAME>MainSW</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-01-21T16:25:42Z" GID="ModuleInfoAddress">268732416</SD>
+                        <SD T="2022-01-21T16:25:34Z" GID="StartAddress">0x10048000</SD>
+                        <SD T="2022-01-21T16:25:46Z" GID="SpecialDataAddress">268732672</SD>
+                        <SD T="2022-01-21T16:25:53Z" GID="CrcInfoAddress">0x10048810</SD>
+                        <SD T="2022-01-21T16:25:56Z" GID="SignatureAddress">268732928</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/ModuleInformation/SwModule</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SwModuleIndex</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/StartAddress</DEFINITION-REF>
+                      <VALUE>0x10048000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/EndAddress</DEFINITION-REF>
+                      <VALUE>0x1020FFFF</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/ModuleInfoAddress</DEFINITION-REF>
+                      <VALUE>0x10048800</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SpecialDataAddress</DEFINITION-REF>
+                      <VALUE>0x10048900</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/CrcInfoAddress</DEFINITION-REF>
+                      <VALUE>0x10048810</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SignatureAddress</DEFINITION-REF>
+                      <VALUE>0x10048A00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="fbc1b632-cb6d-40b9-9f12-02a30553d262">
+                  <SHORT-NAME>RomTstArea</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                        <SD T="2022-01-24T19:10:19Z" GID="SwModuleIndex">0</SD>
+                        <SD T="2022-01-24T19:10:19Z" GID="StartAddress">0</SD>
+                        <SD T="2022-01-24T19:10:19Z" GID="EndAddress">0</SD>
+                        <SD T="2022-01-24T19:10:19Z" GID="ModuleInfoAddress">0</SD>
+                        <SD T="2022-01-24T19:10:19Z" GID="SpecialDataAddress">0</SD>
+                        <SD T="2022-01-24T19:10:19Z" GID="CrcInfoAddress">0</SD>
+                        <SD T="2022-01-24T19:10:19Z" GID="SignatureAddress">0</SD>
+                      </SDG>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-01-24T19:11:50Z" GID="SwModuleIndex">2</SD>
+                        <SD T="2022-01-27T15:26:25Z" GID="StartAddress">0x10048c00</SD>
+                        <SD T="2022-01-27T15:27:27Z" GID="EndAddress">0x10048fff</SD>
+                        <SD T="2022-01-27T15:32:28Z" GID="CrcInfoAddress">0x10048c0c</SD>
+                        <SD T="2022-01-27T15:32:03Z" GID="SpecialDataAddress">0x10048c20</SD>
+                        <SD T="2022-01-27T15:33:42Z" GID="ModuleInfoAddress">0x10048c00</SD>
+                        <SD T="2022-03-24T13:12:11Z" GID="SignatureAddress"/>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/ModuleInformation/SwModule</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SwModuleIndex</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/EndAddress</DEFINITION-REF>
+                      <VALUE>268734207</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/ModuleInfoAddress</DEFINITION-REF>
+                      <VALUE>268733696</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/SpecialDataAddress</DEFINITION-REF>
+                      <VALUE>268733728</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/CrcInfoAddress</DEFINITION-REF>
+                      <VALUE>268733708</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwModule/StartAddress</DEFINITION-REF>
+                      <VALUE>0x10048d00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="d1feb799-7dda-4ef8-b5e7-923a6ae3fc62">
+                  <SHORT-NAME>SwVersionInfo</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/CustomerId</DEFINITION-REF>
+                      <VALUE>02</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/ProductId</DEFINITION-REF>
+                      <VALUE>00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/ProductVariant</DEFINITION-REF>
+                      <VALUE>00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/SwVersion</DEFINITION-REF>
+                      <VALUE>01</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/IntSwVersion</DEFINITION-REF>
+                      <VALUE>00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/Synchro1</DEFINITION-REF>
+                      <VALUE>00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/Synchro2</DEFINITION-REF>
+                      <VALUE>00</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTRON/Fbl/ModuleInformation/SwVersionInfo/BuildDate</DEFINITION-REF>
+                      <VALUE>2020-04-17</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="8599535c-2977-408f-abb4-7f177eb1b614">
+              <SHORT-NAME>FblWatchdogConfig</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblWatchdogConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblWatchdogConfig/FblIntWdgEnable</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblWatchdogConfig/FblIntWdgTimeoutMs</DEFINITION-REF>
+                  <VALUE>100</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="78b14ac0-cf93-4df8-803b-49fc44d08ab8">
+              <SHORT-NAME>FblCommConfig</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="cc53dd71-b418-4fe2-8b24-05d43e7a9259">
+                  <SHORT-NAME>FblCanConfig</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblReceivedDataBufferSize</DEFINITION-REF>
+                      <VALUE>2050</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblProgramDataBufferSize</DEFINITION-REF>
+                      <VALUE>32</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanType</DEFINITION-REF>
+                      <VALUE>FBL_CAN_CLASSIC</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="2022c4f9-b7a4-44ae-a3c6-e124a7fb5724">
+                      <SHORT-NAME>FblCanDiagMessageConfig</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="f84641f9-6b92-4a48-99ef-dc5de30f2d08">
+                          <SHORT-NAME>FblCanDiagMsgFuncConfig</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgFuncConfig</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgFuncConfig/FblCanDiagMsgFuncAddrFormat</DEFINITION-REF>
+                              <VALUE>FBL_CAN_ADDR_STANDARD</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgFuncConfig/FblCanDiagMsgFuncId</DEFINITION-REF>
+                              <VALUE>0x7DF</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="048fb51d-14c5-4546-9a41-f6d208976e12">
+                          <SHORT-NAME>FblCanDiagMsgPhysReqConfig</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                                <SD T="2022-03-28T22:53:16Z" GID="FblCanDiagMsgPhysReqId">0x7A4</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysReqConfig</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysReqConfig/FblCanDiagMsgPhysReqAddrFormat</DEFINITION-REF>
+                              <VALUE>FBL_CAN_ADDR_STANDARD</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysReqConfig/FblCanDiagMsgPhysReqId</DEFINITION-REF>
+                              <VALUE>0x7A4</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysReqConfig/FblCanDiagMsgPhysReqSTmin</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="37c94dcf-c0be-4073-bc3b-5f2f2dc1cc2d">
+                          <SHORT-NAME>FblCanDiagMsgPhysResConfig</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                                <SD T="2022-03-28T22:53:20Z" GID="FblCanDiagMsgPhysResId">0x7AC</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysResConfig</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysResConfig/FblCanDiagMsgPhysResAddrFormat</DEFINITION-REF>
+                              <VALUE>FBL_CAN_ADDR_STANDARD</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDiagMessageConfig/FblCanDiagMsgPhysResConfig/FblCanDiagMsgPhysResId</DEFINITION-REF>
+                              <VALUE>0x7AC</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="6ee5552e-cf43-424d-9c04-0117473fea3b">
+                      <SHORT-NAME>FblCanBaudRateConfig</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig/FblCanBaudRate</DEFINITION-REF>
+                          <VALUE>FBL_CAN_500KBPS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig/FblCanPropSeg</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig/FblCanSeg1</DEFINITION-REF>
+                          <VALUE>14</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig/FblCanSeg2</DEFINITION-REF>
+                          <VALUE>5</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig/FblCanSyncJumpWith</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanBaudRateConfig/FblCanPrescaler</DEFINITION-REF>
+                          <VALUE>4</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="b2bb01ca-f23d-4358-993e-16fab182ffc9">
+                      <SHORT-NAME>FblCanDrvConfig</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDrvConfig</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="b6dd4d82-6a4e-45ae-8324-401651fb10ee">
+                          <SHORT-NAME>FblCanDrvCytxxx</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                                <SD T="2022-01-24T14:21:54Z" GID="FblCanCell">FBL_CAN0</SD>
+                                <SD T="2022-01-24T14:22:00Z" GID="FblCanNode">FBL_CAN_NODE2</SD>
+                                <SD T="2022-01-24T14:22:32Z" GID="FblCanRxPort">P6_3_CAN0_2_RX</SD>
+                                <SD T="2022-01-24T14:22:38Z" GID="FblCanTxPort">P6_2_CAN0_2_TX</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDrvConfig/FblCanDrvCytxxx</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDrvConfig/FblCanDrvCytxxx/FblCanCell</DEFINITION-REF>
+                              <VALUE>FBL_CAN0</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDrvConfig/FblCanDrvCytxxx/FblCanNode</DEFINITION-REF>
+                              <VALUE>FBL_CAN_NODE2</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDrvConfig/FblCanDrvCytxxx/FblCanTxPort</DEFINITION-REF>
+                              <VALUE>P6_2_CAN0_2_TX</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanDrvConfig/FblCanDrvCytxxx/FblCanRxPort</DEFINITION-REF>
+                              <VALUE>P6_3_CAN0_2_RX</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="373f33b3-a2f4-4268-b1c7-f1d21a0a3bac">
+                      <SHORT-NAME>FblCanTrcvConfig</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanTrcvConfig</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="7acc7c72-869b-4bd1-8a92-d82c3e648df2">
+                          <SHORT-NAME>FblCanTrcvCytxxx</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanConfig/FblCanTrcvConfig/FblCanTrcvCytxxx</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="fb24ad05-b2e4-4920-bf3f-e4acc94657c0">
+                  <SHORT-NAME>FblCanIfConfig</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-03-24T20:30:57Z" GID="FblCanIfCANFDDiscreteDlcSupport">0</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblCanIfConfig</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblCanIfConfig/FblCanIfCANFDDiscreteDlcSupport</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="245d0cdf-5650-4f6b-8806-9d370de5760c">
+                  <SHORT-NAME>FblGpioPortPinControl_BCAN_STB</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblCommConfig/FblGpioPortPinControl</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblGpioPortPinControl/PortPinIndex</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblGpioPortPinControl/FblPortNum</DEFINITION-REF>
+                      <VALUE>6</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblGpioPortPinControl/FblPinNum</DEFINITION-REF>
+                      <VALUE>4</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblCommConfig/FblGpioPortPinControl/FblPortPinVal</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="265309c6-985d-4fdd-85eb-6a8815a77d8b">
+              <SHORT-NAME>FblSecurityConfig</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblSecurityConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblCrc16BlockSize</DEFINITION-REF>
+                  <VALUE>FBL_CRC16_BLOCK_4096_BYTES</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="0a8a57f8-ae54-4ffa-8a83-7634b05c1090">
+                  <SHORT-NAME>FblSecurityAccess</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-03-24T13:15:52Z" GID="FblSecurityAccessLevel">FBL_SA_SEEDKEY</SD>
+                        <SD T="2022-03-25T14:40:13Z" GID="FblSecureAccessCertificateHashAlgorithm">FBL_SA_HASH_SHA160</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecurityAccess</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecurityAccess/FblSecurityAccessLevel</DEFINITION-REF>
+                      <VALUE>FBL_SA_ADVANCED_SEEDKEY</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecurityAccess/FblSecureAccessCertificateHashAlgorithm</DEFINITION-REF>
+                      <VALUE>FBL_SA_HASH_SHA160</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecurityAccess/FblSecurityNumAttDelay</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecurityAccess/FblSecurityDelayTime</DEFINITION-REF>
+                      <VALUE>180</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="c8481d44-5d21-4685-b1c1-10d14cf2d1ad">
+                  <SHORT-NAME>FblSecureFlash</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                        <SD T="2022-03-24T14:01:58Z" GID="FblRevisedSecureFlash_2_0">0</SD>
+                        <SD T="2022-03-25T15:16:24Z" GID="FblWriteSignature">0</SD>
+                        <SD T="2022-03-25T14:40:07Z" GID="FblSecureFlashVersion">FBL_SF_VER_2_0</SD>
+                        <SD T="2022-03-25T15:16:23Z" GID="FblWriteSignatureDelimiter">0</SD>
+                        <SD T="2022-03-24T16:16:26Z" GID="FblSecureFlashSignatureHashAlgorithm">FBL_SF_HASH_SHA256</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecureFlash</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecureFlash/FblSecureFlashVersion</DEFINITION-REF>
+                      <VALUE>FBL_SF_VER_2_0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecureFlash/FblSecureFlashSignatureHashAlgorithm</DEFINITION-REF>
+                      <VALUE>FBL_SF_HASH_SHA256</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecureFlash/FblRevisedSecureFlash_2_0</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecureFlash/FblWriteSignatureDelimiter</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/Fbl/FblSecurityConfig/FblSecureFlash/FblWriteSignature</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="434edc1f-d20c-41a8-a680-5eccf1d67d0e">
+              <SHORT-NAME>FblPllConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_AUTO_CONFIG_PROPERTY">
+                    <SD GID="FblQuartzClock">true</SD>
+                  </SDG>
+                  <SDG GID="ODIN_WRITER_TYPE:AUTO_CONFIGURED">
+                    <SD T="2022-01-20T10:06:45Z" GID="FblQuartzClock">FBL_QUARTZ_16MHZ</SD>
+                  </SDG>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2022-01-21T17:00:35Z" GID="FblCpuClock">FBL_CPU_160MHZ</SD>
+                    <SD T="2022-01-24T13:47:46Z" GID="FblTimerPrescaler">159</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/Fbl/FblPllConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/FblCpuClock</DEFINITION-REF>
+                  <VALUE>FBL_CPU_160MHZ</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/FblQuartzClock</DEFINITION-REF>
+                  <VALUE>FBL_QUARTZ_16MHZ</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/CLK_ECO_AGC_EN</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/CLK_TRIM_ECO_ATRIM</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/CLK_TRIM_ECO_FTRIM</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/CLK_TRIM_ECO_GTRIM</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/CLK_TRIM_ECO_RTRIM</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/CLK_TRIM_ECO_WDTRIM</DEFINITION-REF>
+                  <VALUE>4</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/Fbl/FblPllConfig/FblTimerPrescaler</DEFINITION-REF>
+                  <VALUE>159</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

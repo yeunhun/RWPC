@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+********************************************************************************
+**                                                                            **
+**  (C) 2018~2019 HYUNDAI AUTRON Co., Ltd.                                    **
+**  Confidential Proprietary Information. Distribution Limited.               **
+**  Do Not Copy Without Prior Permission                                      **
+**                                                                            **
+**  PRODUCT       : AUTOSAR CryptoLib Module                                  **
+**                                                                            **
+**  PURPOSE       : Definition of the Configuration parameters.               **
+**                                                                            **
+**  DESCRIPTION   : This file provides the definition of the containers,      **
+**                  sub-containers and parameters specific to CryptoLib       **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                              Revision History                              **
+********************************************************************************
+** Revision   Date          By            Description                         **
+********************************************************************************
+** 1.0.5      04-Dec-2019   Sinil         Redmine #20521                      **
+** 1.0.4      09-May-2019   Sinil         Redmine #17420                      **
+** 1.0.3      09-Apr-2019   Sinil         Redmine #16953                      **
+** 1.0.2      11-Dec-2018   Sinil         Redmine #15110                      **
+** 1.0.1      09-May-2018   Sinil         Redmine #12625                      **
+** 1.0.0      23-Jan-2018   Sinil         Initial version                     **
+********************************************************************************
+--><AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+<AR-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+      <SHORT-NAME>AUTRON</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-DEFINITION-COLLECTION>
+          <SHORT-NAME>ParameterDefinition_CryptoLib</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTRON/CryptoLib</MODULE-REF>
+          </MODULE-REFS>
+        </ECUC-DEFINITION-COLLECTION>
+        <ECUC-MODULE-DEF>
+          <SHORT-NAME>CryptoLib</SHORT-NAME>
+          <DESC>
+            <L-2 L="EN">Configuration Parameters for the CryptoLib module.</L-2>
+          </DESC>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <ECUC-PARAM-CONF-CONTAINER-DEF>
+              <SHORT-NAME>CryptoLibGeneral</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">General configuration parameters of CryptoLib.</L-2>
+              </DESC>
+              <INTRODUCTION>
+                <P>
+                  <L-1 L="EN" />
+                </P>
+              </INTRODUCTION>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="119fa2ae-023a-4f4b-83eb-7c729b995d70">
+                  <SHORT-NAME>CryptoLibSupportHsm</SHORT-NAME>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="891ce1cc-2600-468e-a015-56976da006dc">
+                      <SHORT-NAME>HAE_HSM_2_X</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="392c0eb1-68d5-4b56-95b7-3acef736f7af">
+                      <SHORT-NAME>ICUS</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="832f6f15-4019-450d-9ed3-e8e4fbe7653b">
+                      <SHORT-NAME>ICUM</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ab80db3d-21e7-40c0-85c9-d401607970d9">
+                      <SHORT-NAME>SPC584BX</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ac878349-c6d9-4a03-9789-b4bbaef668a6">
+                      <SHORT-NAME>SPC584CX</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="344d2a45-9c45-4530-b2eb-d897cbc740d6">
+                      <SHORT-NAME>SPC58ECX</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="b85f1c32-2739-4707-9333-299eca21e88e">
+                      <SHORT-NAME>SPC58XEX</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="8b399514-1eeb-408d-8c4c-865edfab68a7">
+                      <SHORT-NAME>SPC58XGX</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e8887a0d-e36a-4d7e-b190-0718cf582c98">
+                      <SHORT-NAME>CSEC</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="c149d975-c785-48e9-8868-8caa6b7d17f4">
+                  <SHORT-NAME>CryptoLibEnableDevInfo</SHORT-NAME>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="acc4fd64-8677-4d03-a8fc-e5cc2a83ec98">
+              <SHORT-NAME>CryptoLibAutronHsm</SHORT-NAME>
+              <DESC>
+                <L-2>Configuration parameters for Autron Hsm driver</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <PARAMETERS>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="e7e9176a-cd8b-4d88-8fda-0f99e870ecf0">
+                  <SHORT-NAME>CryptoLibUseOs</SHORT-NAME>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="974fefc1-9ca4-4173-bec4-21a45e91ebcf">
+                  <SHORT-NAME>CryptoLibSupportECU</SHORT-NAME>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="392c0eb1-68d5-4b56-95b7-3acef736f7af">
+                      <SHORT-NAME>IAU</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="fb0a1bc3-43d8-469a-b5fe-efbbdfab4afb">
+              <SHORT-NAME>CryptoLibHaeHsm</SHORT-NAME>
+              <DESC>
+                <L-2>Configuration parameters for Autron Hsm driver</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <PARAMETERS>
+                <ECUC-INTEGER-PARAM-DEF UUID="12fef987-f820-44a7-87b2-b82ce5a9e87a">
+                  <SHORT-NAME>CryptoLibHaeHsmTimeout</SHORT-NAME>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <DEFAULT-VALUE>100000000</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>1</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="c54153fb-ec05-412b-8853-6a76f3fff481">
+                  <SHORT-NAME>CryptoLibHaeHsmMaxErrorCount</SHORT-NAME>
+                  <CATEGORY />
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <DEFAULT-VALUE>20</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>1</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="615cdbf6-18cf-4747-bf4f-4087a69df013">
+              <SHORT-NAME>CryptoLibAutronIcus</SHORT-NAME>
+              <DESC>
+                <L-2>Configuration parameters for Autron ICUS driver</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <PARAMETERS>
+                <ECUC-INTEGER-PARAM-DEF UUID="b69f5d75-7a9d-452c-8d27-af3f57714065">
+                  <SHORT-NAME>CryptoLibAutronIcusTimeoutLevel1</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This parameter is used for internal purpose.</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>512</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>0</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="bb77842a-10a7-47d4-b545-af55526c9a00">
+                  <SHORT-NAME>CryptoLibAutronIcusTimeoutLevel2</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This parameter is used for internal purpose.</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>8192</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>0</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="0e4d5ca6-8630-4e93-acf7-30ca3ca74e50">
+                  <SHORT-NAME>CryptoLibAutronIcusTimeoutLevel3</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This parameter is used for internal purpose.</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>262144</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>0</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="b388a2c5-f0fb-4e0d-bec4-10578c7b94bb">
+                  <SHORT-NAME>CryptoLibAutronIcusTimeoutLevel4</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This parameter is used for internal purpose.</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>1048575</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>0</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="cfe9609e-35a7-4a2a-9375-2a736bce5806">
+                  <SHORT-NAME>CryptoLibAutronIcusSupportDebugCommand</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Pre-processor switch to enable and disable CMD_DEBUG command.&#xD;
+This feature needs the third-party algorithm library (HAE CryptoLib).</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="9d27c88c-dbff-4985-8893-d3813de0a746">
+              <SHORT-NAME>CryptoLibAutronCsec</SHORT-NAME>
+              <DESC>
+                <L-2>Configuration parameters for Autron CSEc driver</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>0</UPPER-MULTIPLICITY>
+              <PARAMETERS>
+                <ECUC-INTEGER-PARAM-DEF UUID="8197ffa0-5a3e-4a35-915a-4481a24a6b80">
+                  <SHORT-NAME>CryptoLibAutronCsecTimeout</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Internal timeout for CSEc</L-2>
+                  </DESC>
+                  <CATEGORY />
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>1048575</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>0</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="d2ce0f2d-e50e-40a8-827c-14294ca370b2">
+                  <SHORT-NAME>CryptoLibAutronCsecFlashKeySize</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Number of flash keys for CSEc</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>CSEC_20_FLASH_KEYS</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e1195cd1-3085-4619-a516-113504d0c48f">
+                      <SHORT-NAME>CSEC_NO_FLASH_KEYS</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="633d1f24-e0a0-4a0b-9dd7-e39ff8178e41">
+                      <SHORT-NAME>CSEC_5_FLASH_KEYS</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="a582fbc4-c87b-457f-a0b3-c6f3f944f8be">
+                      <SHORT-NAME>CSEC_10_FLASH_KEYS</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="49def16a-4d61-4bc1-85be-cfb6fb53cbcc">
+                      <SHORT-NAME>CSEC_20_FLASH_KEYS</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="9b878ec0-974c-4710-84ac-bb91ec6e7844">
+                  <SHORT-NAME>CryptoLibAutronCsecSecurityFlagExtension</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Flash key Verify Only attribute option</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>CSEC_FLASH_KEY_VERIFY_ONLY_DISABLED</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e1195cd1-3085-4619-a516-113504d0c48f">
+                      <SHORT-NAME>CSEC_FLASH_KEY_VERIFY_ONLY_DISABLED</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="633d1f24-e0a0-4a0b-9dd7-e39ff8178e41">
+                      <SHORT-NAME>CSEC_FLASH_KEY_VERIFY_ONLY_ENABLED</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="f8f2d952-0ad2-4053-8678-d880684edb3d">
+                  <SHORT-NAME>CryptoLibAutronCsecFlexRAMLoadOption</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">FlexRAM load during reset option</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>CSEC_FLEXRAM_LOADED_EEPROM_DATA</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e1195cd1-3085-4619-a516-113504d0c48f">
+                      <SHORT-NAME>CSEC_FLEXRAM_LOADED_EEPROM_DATA</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="633d1f24-e0a0-4a0b-9dd7-e39ff8178e41">
+                      <SHORT-NAME>CSEC_FLEXRAM_NOT_LOADED</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="945380b5-0d64-487a-8020-2d1a9ec662eb">
+                  <SHORT-NAME>CryptoLibAutronCsecEEPROMDataSetSizeCode</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">EEPROM data set size</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>CSEC_EEPROM_DATA_SET_SIZE_4KB</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e1195cd1-3085-4619-a516-113504d0c48f">
+                      <SHORT-NAME>CSEC_EEPROM_DATA_SET_SIZE_0B</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="633d1f24-e0a0-4a0b-9dd7-e39ff8178e41">
+                      <SHORT-NAME>CSEC_EEPROM_DATA_SET_SIZE_2KB</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="cea67d7a-dacd-40ee-8552-4a878050ed8a">
+                      <SHORT-NAME>CSEC_EEPROM_DATA_SET_SIZE_4KB</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="07ed8729-fe3b-4f96-a9fa-6e4d6ded2a32">
+                  <SHORT-NAME>CryptoLibAutronCsecFlexNVMPartitionCode</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">EEPROM-backup size</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>CSEC_EEPROM_BACKUP_SIZE_64KB</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e1195cd1-3085-4619-a516-113504d0c48f">
+                      <SHORT-NAME>CSEC_EEPROM_BACKUP_SIZE_0B</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="633d1f24-e0a0-4a0b-9dd7-e39ff8178e41">
+                      <SHORT-NAME>CSEC_EEPROM_BACKUP_SIZE_24KB</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="0012d5b0-91f1-4ab0-8c9d-efdc78b2c6aa">
+                      <SHORT-NAME>CSEC_EEPROM_BACKUP_SIZE_32KB</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="5d7cfa01-da2d-4abd-9d31-24f8ad1138d6">
+                      <SHORT-NAME>CSEC_EEPROM_BACKUP_SIZE_48KB</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="4e05806b-63e5-4b9e-afbb-d3e01be1429a">
+                      <SHORT-NAME>CSEC_EEPROM_BACKUP_SIZE_64KB</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="c6149996-4259-4702-9884-2281374462b6">
+                  <SHORT-NAME>CryptoLibAutronCsecSecureBootSize</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">The size in bits of the area to be checked for integrity by the secure boot process.&#xD;
+The secure boot is run on the program flash block starting at address '0' and finishing at this bits size.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>8192</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>1</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="90da9309-ba3c-400b-b3b3-7a4b503b6933">
+                  <SHORT-NAME>CryptoLibAutronCsecSecureBootFlavor</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Boot Flavor&#xD;
+CSEC_SECURE_BOOT_NONE : No secure boot defined.&#xD;
+CSEC_SECURE_BOOT_SERIAL : Application shall boot only after successful completion of secure boot.&#xD;
+CSEC_SECURE_BOOT_PARALLEL : Secure boot and application boot shall happen in parallel. Also even if the secure boot fails, the application shall boot.&#xD;
+CSEC_SECURE_BOOT_STRICT : If secure boot fails, the chip will not boot at all and will remain stuck in reset. Once set can't be changed.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>CSEC_SECURE_BOOT_NONE</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="5d7cfa01-da2d-4abd-9d31-24f8ad1138d6">
+                      <SHORT-NAME>CSEC_SECURE_BOOT_NONE</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="633d1f24-e0a0-4a0b-9dd7-e39ff8178e41">
+                      <SHORT-NAME>CSEC_SECURE_BOOT_SERIAL</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="0012d5b0-91f1-4ab0-8c9d-efdc78b2c6aa">
+                      <SHORT-NAME>CSEC_SECURE_BOOT_PARALLEL</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="e1195cd1-3085-4619-a516-113504d0c48f">
+                      <SHORT-NAME>CSEC_SECURE_BOOT_STRICT</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="a3b9bd1e-a0e0-45e0-8a10-0339f0297de3">
+                  <SHORT-NAME>CryptoLibAutronCsecSecureBootApply</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Whether the secure boot configurations are applied.&#xD;
+true : try to apply secure boot configurations when initializing CSEc&#xD;
+false : Do not try to apply secure boot configurations when initializing CSEc</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </ECUC-MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES></AUTOSAR>

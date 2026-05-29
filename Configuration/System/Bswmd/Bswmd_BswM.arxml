@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AUTOSAR_BswM</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-DESCRIPTION>
+              <SHORT-NAME>BswM</SHORT-NAME>
+              <MODULE-ID>42</MODULE-ID>
+              <PROVIDED-MODE-GROUPS>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="08cc5668-7235-4806-9645-3c9847058e77">
+                  <SHORT-NAME>modeSwitchPort_EcuMode</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/EcuM/ModeDeclarationGroups/EcuMode</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+              </PROVIDED-MODE-GROUPS>
+              <REQUIRED-MODE-GROUPS>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="132fb1f6-097d-4d68-b436-b2f2221532e2">
+                  <SHORT-NAME>modeNotificationPort_DcmApplicationUpdated</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="6e08b90b-a7c9-493e-a6fb-2297e033a71f">
+                  <SHORT-NAME>modeNotificationPort_DcmCommunicationControl_0</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="c40ce307-89c8-4bf2-b07d-9127c9acc5ca">
+                  <SHORT-NAME>modeNotificationPort_DcmCommunicationControl_1</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="390ee7cb-8ffd-4b04-8f5d-6c83c8f5a775">
+                  <SHORT-NAME>modeNotificationPort_DcmControlDTCSetting</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="620b714d-a078-404a-8c6b-641618eaf8b8">
+                  <SHORT-NAME>modeNotificationPort_DcmDiagnosticSessionControl</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="b231ef2b-6968-4f57-93ff-f689f3e412d1">
+                  <SHORT-NAME>modeNotificationPort_DcmEcuReset</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+                <MODE-DECLARATION-GROUP-PROTOTYPE UUID="b91cf223-fdc2-434b-b69c-cef654e8cd70">
+                  <SHORT-NAME>modeNotificationPort_DcmModeRapidPowerShutDown</SHORT-NAME>
+                  <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown</TYPE-TREF>
+                </MODE-DECLARATION-GROUP-PROTOTYPE>
+              </REQUIRED-MODE-GROUPS>
+              <INTERNAL-BEHAVIORS>
+                <BSW-INTERNAL-BEHAVIOR>
+                  <SHORT-NAME>BswIB_BswM</SHORT-NAME>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmCommunicationControl</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmControlDTCSetting</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmEcuReset</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmModeRapidPowerShutDown</DATA-TYPE-MAPPING-REF>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ARPackage_Dcm/DataTypeMappingSet/DcmApplicationUpdated</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA UUID="cd1f46fb-0fb1-4a1d-9721-57013e747f5e">
+                      <SHORT-NAME>DATA_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA UUID="3e1ee0e3-8bd9-449d-84d0-64a2de6b8fb3">
+                      <SHORT-NAME>RULEPREVRESULT_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                    <EXCLUSIVE-AREA UUID="8f24172f-d740-4390-a4f3-2452dd09f78f">
+                      <SHORT-NAME>RULESTATUS_PROTECTION</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <INCLUDED-DATA-TYPE-SETS>
+                    <INCLUDED-DATA-TYPE-SET>
+                      <DATA-TYPE-REFS>
+                        <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_BswM/ImplementationDataTypes/BswM_EcuModeTransition</DATA-TYPE-REF>
+                      </DATA-TYPE-REFS>
+                    </INCLUDED-DATA-TYPE-SET>
+                    <INCLUDED-DATA-TYPE-SET>
+                      <DATA-TYPE-REFS>
+                        <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_BswM/ImplementationDataTypes/BswM_ShutdownTargetType</DATA-TYPE-REF>
+                      </DATA-TYPE-REFS>
+                    </INCLUDED-DATA-TYPE-SET>
+                    <INCLUDED-DATA-TYPE-SET>
+                      <DATA-TYPE-REFS>
+                        <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_BswM/ImplementationDataTypes/BswM_StateManagerType</DATA-TYPE-REF>
+                      </DATA-TYPE-REFS>
+                    </INCLUDED-DATA-TYPE-SET>
+                    <INCLUDED-DATA-TYPE-SET>
+                      <DATA-TYPE-REFS>
+                        <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/EcuM/ImplementationDataTypes/EcuM_StateType</DATA-TYPE-REF>
+                      </DATA-TYPE-REFS>
+                    </INCLUDED-DATA-TYPE-SET>
+                  </INCLUDED-DATA-TYPE-SETS>
+                  <ENTITYS>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmApplicationUpdated</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmApplicationUpdated</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmApplicationUpdated</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_ActionList_SchMSwitch_EcuMode</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_ActionList_SchMSwitch_EcuMode</IMPLEMENTED-ENTRY-REF>
+                      <MANAGED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeSwitchPort_EcuMode</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </MANAGED-MODE-GROUPS>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmCommunicationControl_0</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmCommunicationControl_0</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmCommunicationControl_1</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmCommunicationControl_1</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmControlDTCSetting</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmControlDTCSetting</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmControlDTCSetting</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmDiagnosticSessionControl</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmDiagnosticSessionControl</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmEcuReset</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmEcuReset</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswM_Immediate_DcmModeRapidPowerShutDown</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <ACCESSED-MODE-GROUPS>
+                        <MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                          <MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmModeRapidPowerShutDown</MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                        </MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL>
+                      </ACCESSED-MODE-GROUPS>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_Immediate_DcmModeRapidPowerShutDown</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                    <BSW-SCHEDULABLE-ENTITY>
+                      <SHORT-NAME>BswSE_BswM_MainFunction</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/DATA_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/RULEPREVRESULT_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/RULESTATUS_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_BswM/BswModuleEntrys/BswM_MainFunction</IMPLEMENTED-ENTRY-REF>
+                    </BSW-SCHEDULABLE-ENTITY>
+                  </ENTITYS>
+                  <EVENTS>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmApplicationUpdated_modeNotificationPort_DcmApplicationUpdated_APP_NOT_UPDATED</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmApplicationUpdated</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmApplicationUpdated</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated/APP_NOT_UPDATED</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmApplicationUpdated_modeNotificationPort_DcmApplicationUpdated_APP_UPDATED</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmApplicationUpdated</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmApplicationUpdated</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmApplicationUpdated/APP_UPDATED</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_DISABLE_RX_DISABLE_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_DISABLE_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_DISABLE_RX_ENABLE_TX_NORM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_ENABLE_TX_NORM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_DISABLE_RX_ENABLE_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_ENABLE_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_DISABLE_RX_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_DISABLE_RX_TX_NORMAL</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_TX_NORMAL</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_DISABLE_RX_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_ENABLE_RX_DISABLE_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_DISABLE_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_ENABLE_RX_DISABLE_TX_NORM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_DISABLE_TX_NORM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_ENABLE_RX_DISABLE_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_DISABLE_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_ENABLE_RX_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_ENABLE_RX_TX_NORM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NORM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_0_modeNotificationPort_DcmCommunicationControl_0_DCM_ENABLE_RX_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_0</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_DISABLE_RX_DISABLE_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_DISABLE_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_DISABLE_RX_ENABLE_TX_NORM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_ENABLE_TX_NORM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_DISABLE_RX_ENABLE_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_ENABLE_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_DISABLE_RX_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_DISABLE_RX_TX_NORMAL</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_TX_NORMAL</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_DISABLE_RX_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_DISABLE_RX_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_ENABLE_RX_DISABLE_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_DISABLE_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_ENABLE_RX_DISABLE_TX_NORM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_DISABLE_TX_NORM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_ENABLE_RX_DISABLE_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_DISABLE_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_ENABLE_RX_TX_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_ENABLE_RX_TX_NORM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NORM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmCommunicationControl_1_modeNotificationPort_DcmCommunicationControl_1_DCM_ENABLE_RX_TX_NORM_NM</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmCommunicationControl_1</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmCommunicationControl/DCM_ENABLE_RX_TX_NORM_NM</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmControlDTCSetting_modeNotificationPort_DcmControlDTCSetting_DISABLEDTCSETTING</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmControlDTCSetting</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmControlDTCSetting</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting/DISABLEDTCSETTING</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmControlDTCSetting_modeNotificationPort_DcmControlDTCSetting_ENABLEDTCSETTING</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmControlDTCSetting</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmControlDTCSetting</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmControlDTCSetting/ENABLEDTCSETTING</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_DEFAULT_SESSION</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_DEFAULT_SESSION</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_ECU_PROGRAMMING_MODE</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_ECU_PROGRAMMING_MODE</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_EXTENDED_DIAGNOSTIC_MODE</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_EXTENDED_DIAGNOSTIC_MODE</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_EXTENDED_DIAGNOSTIC_SESSION</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_EXTENDED_DIAGNOSTIC_SESSION</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_PROGRAMMING_SESSION</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_PROGRAMMING_SESSION</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_QUIESCENT_CURRENT_DIAGNOSTIC_MODE_START</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_QUIESCENT_CURRENT_DIAGNOSTIC_MODE_START</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_SAFETY_SYSTEM_DIAGNOSTIC_SESSION</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_SAFETY_SYSTEM_DIAGNOSTIC_SESSION</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmDiagnosticSessionControl_modeNotificationPort_DcmDiagnosticSessionControl_DCM_SLEEP_MODE_START_REQUEST</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmDiagnosticSessionControl</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmDiagnosticSessionControl/DCM_SLEEP_MODE_START_REQUEST</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_EXECUTE</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/EXECUTE</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_HARD</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/HARD</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_JUMPTOBOOTLOADER</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/JUMPTOBOOTLOADER</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_JUMPTOSYSSUPPLIERBOOTLOADER</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/JUMPTOSYSSUPPLIERBOOTLOADER</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_KEYONOFF</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/KEYONOFF</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_NONE</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/NONE</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmEcuReset_modeNotificationPort_DcmEcuReset_SOFT</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmEcuReset</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmEcuReset/SOFT</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmModeRapidPowerShutDown_modeNotificationPort_DcmModeRapidPowerShutDown_DISABLE_RAPIDPOWERSHUTDOWN</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmModeRapidPowerShutDown</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmModeRapidPowerShutDown</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown/DISABLE_RAPIDPOWERSHUTDOWN</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-MODE-SWITCH-EVENT>
+                      <SHORT-NAME>BMSE_Entry_BswM_Immediate_DcmModeRapidPowerShutDown_modeNotificationPort_DcmModeRapidPowerShutDown_ENABLE_RAPIDPOWERSHUTDOWN</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswM_Immediate_DcmModeRapidPowerShutDown</STARTS-ON-EVENT-REF>
+                      <ACTIVATION>ON-ENTRY</ACTIVATION>
+                      <MODE-IREFS>
+                        <MODE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmModeRapidPowerShutDown</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                          <TARGET-MODE-REF DEST="MODE-DECLARATION">/ARPackage_Dcm/ModeDeclarationGroup/DcmModeRapidPowerShutDown/ENABLE_RAPIDPOWERSHUTDOWN</TARGET-MODE-REF>
+                        </MODE-IREF>
+                      </MODE-IREFS>
+                    </BSW-MODE-SWITCH-EVENT>
+                    <BSW-TIMING-EVENT>
+                      <SHORT-NAME>BswTE_BswM_MainFunction</SHORT-NAME>
+                      <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM/BswSE_BswM_MainFunction</STARTS-ON-EVENT-REF>
+                      <PERIOD>0.01</PERIOD>
+                    </BSW-TIMING-EVENT>
+                  </EVENTS>
+                  <MODE-SENDER-POLICYS>
+                    <BSW-MODE-SENDER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <PROVIDED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeSwitchPort_EcuMode</PROVIDED-MODE-GROUP-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </BSW-MODE-SENDER-POLICY>
+                  </MODE-SENDER-POLICYS>
+                  <MODE-RECEIVER-POLICYS>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmApplicationUpdated</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_0</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmCommunicationControl_1</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmControlDTCSetting</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmDiagnosticSessionControl</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmEcuReset</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                    <BSW-MODE-RECEIVER-POLICY>
+                      <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                      <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/AUTOSAR_BswM/BswModuleDescriptions/BswM/modeNotificationPort_DcmModeRapidPowerShutDown</REQUIRED-MODE-GROUP-REF>
+                      <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                    </BSW-MODE-RECEIVER-POLICY>
+                  </MODE-RECEIVER-POLICYS>
+                  <DISTINGUISHED-PARTITIONS>
+                    <BSW-DISTINGUISHED-PARTITION>
+                      <SHORT-NAME>BswDistinguishedPartition_BswM</SHORT-NAME>
+                    </BSW-DISTINGUISHED-PARTITION>
+                  </DISTINGUISHED-PARTITIONS>
+                </BSW-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </BSW-MODULE-DESCRIPTION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>BswImplementations</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-IMPLEMENTATION>
+              <SHORT-NAME>BswImplementation_BswM</SHORT-NAME>
+              <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+              <SW-VERSION>2.7.5</SW-VERSION>
+              <SWC-BSW-MAPPING-REF DEST="SWC-BSW-MAPPING">/BswM/SwcBswMappings/SwcBswMapping_BswM</SWC-BSW-MAPPING-REF>
+              <VENDOR-ID>76</VENDOR-ID>
+              <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+              <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/AUTOSAR_BswM/BswModuleDescriptions/BswM/BswIB_BswM</BEHAVIOR-REF>
+              <VENDOR-SPECIFIC-MODULE-DEF-REFS>
+                <VENDOR-SPECIFIC-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/AUTRON/BswM</VENDOR-SPECIFIC-MODULE-DEF-REF>
+              </VENDOR-SPECIFIC-MODULE-DEF-REFS>
+            </BSW-IMPLEMENTATION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>BswModuleEntrys</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-ENTRY UUID="4ee69826-0aea-4273-bed8-56748c01defe">
+              <SHORT-NAME>BswM_Immediate_DcmApplicationUpdated</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="85ea849e-6a95-41be-a359-557fe6269532">
+              <SHORT-NAME>BswM_ActionList_SchMSwitch_EcuMode</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="6fb4f18c-60ae-4c4c-abf6-49d93e85fc60">
+              <SHORT-NAME>BswM_Immediate_DcmCommunicationControl_0</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="1443a326-1847-4f65-be69-ff607884f504">
+              <SHORT-NAME>BswM_Immediate_DcmCommunicationControl_1</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="148e816f-4cf4-4d2a-b693-d53af5450c18">
+              <SHORT-NAME>BswM_Immediate_DcmControlDTCSetting</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="603c882b-ede8-4a5a-8d68-532c46fb1b1b">
+              <SHORT-NAME>BswM_Immediate_DcmDiagnosticSessionControl</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="50e7b3e0-a7f2-4b16-b12d-22cd5af834c3">
+              <SHORT-NAME>BswM_Immediate_DcmEcuReset</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="f15addb9-de8f-4e77-8253-693a8ee12085">
+              <SHORT-NAME>BswM_Immediate_DcmModeRapidPowerShutDown</SHORT-NAME>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="37533498-b953-4ca1-a44e-ec76ae971537">
+              <SHORT-NAME>BswM_MainFunction</SHORT-NAME>
+              <SERVICE-ID>3</SERVICE-ID>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+              <CALL-TYPE>SCHEDULED</CALL-TYPE>
+              <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+            </BSW-MODULE-ENTRY>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>CompuMethods</SHORT-NAME>
+          <ELEMENTS>
+            <COMPU-METHOD UUID="92d1416f-434f-4f1b-b399-0ed1c55fc5b8">
+              <SHORT-NAME>ENUM_EcuModeTransition</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUMODETRANSITION_END</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUMODETRANSITION_ONGOING</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="01505da3-13ea-4038-9ec0-09c4f5085db4">
+              <SHORT-NAME>ENUM_ShutdownTargetType</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_SHUTDOWNTARGET_RUN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_SHUTDOWNTARGET_SLEEP</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_SHUTDOWNTARGET_OFF</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_SHUTDOWNTARGET_RESET</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="8652286e-0927-4b45-90ac-a55817d18548">
+              <SHORT-NAME>ENUM_StateManagerType</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_READY</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">18</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">18</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_STARTUP_TWO</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">19</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">19</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_STARTUP_THREE</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">48</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">48</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_RUN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">64</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">64</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_SHUTDOWN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">68</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">68</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_PREP_SHUTDOWN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">80</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">80</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_SLEEP</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">128</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">128</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_OFF</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">144</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">144</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_ENTRY_RESET</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">274</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">274</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_EXIT_STARTUP_TWO</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">275</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">275</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_EXIT_STARTUP_THREE</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">304</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">304</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_EXIT_RUN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">320</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">320</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_EXIT_SHUTDOWN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">324</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">324</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_EXIT_PREP_SHUTDOWN</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">336</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">336</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>BSWM_ECUSTATE_EXIT_SLEEP</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
+          <ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE UUID="061adef9-065e-4124-91a5-3d553821be1a">
+              <SHORT-NAME>BswM_EcuModeTransition</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint8</BASE-TYPE-REF>
+                    <COMPU-METHOD-REF DEST="COMPU-METHOD">/AUTOSAR_BswM/CompuMethods/ENUM_EcuModeTransition</COMPU-METHOD-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="06cdc299-4341-4212-9e3a-54be761c86cd">
+              <SHORT-NAME>BswM_ShutdownTargetType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint8</BASE-TYPE-REF>
+                    <COMPU-METHOD-REF DEST="COMPU-METHOD">/AUTOSAR_BswM/CompuMethods/ENUM_ShutdownTargetType</COMPU-METHOD-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="802717e7-1078-4aae-b79d-6367e8051ee6">
+              <SHORT-NAME>BswM_StateManagerType</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint8</BASE-TYPE-REF>
+                    <COMPU-METHOD-REF DEST="COMPU-METHOD">/AUTOSAR_BswM/CompuMethods/ENUM_StateManagerType</COMPU-METHOD-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>1.0.0</TEMPLATE-VERSION>
+
+  <!-- Generation Tool versions which are supported by this Template -->
+  <SUPPORTED-TOOL-VERSIONS>1.4.0 1.4.1</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <!-- Module under test -->
+    <MODULE-UNDER-TEST>ROMTST</MODULE-UNDER-TEST>
+    <!-- Modules required MDT File information -->
+    <MODULE-UNDER-TEST-MDT>ROMTST</MODULE-UNDER-TEST-MDT>
+    <!-- Mandatory Modules required to Parse RomTst -->
+    <MANDATORY-MODULES>ROMTST</MANDATORY-MODULES>
+    <!-- All the Modules to be Parsed -->
+    <MODULES>ROMTST</MODULES>
+    <!-- To check if the correct description file is provided as input.
+      ArReleaseVersion in the description file is compared with the below versions -->
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+    <!-- If parameter multiplicity is more than one -->
+    <PARAM-MULTIPLICITY>
+      <ENTRY></ENTRY>
+    </PARAM-MULTIPLICITY>
+  </PARSER-DETAILS>
+  <!-- Handle Id details -->
+  <HANDLE-ID-DETAILS>
+    <HANDLE-ENTRY CONTAINER-NAME = ''     PARAMETER-NAME = '' TYPE-CAST = ''></HANDLE-ENTRY>
+  </HANDLE-ID-DETAILS>
+  <!-- Map Names -->
+  <MAP-NAMES>
+  <!-- List all SWC related tags for which map names are required -->
+    <CONTAINER-DETAILS>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RomTstGeneral'                               MAP-NAME = 'General'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstDevErrorDetect'                      MAP-NAME = 'DevErrorDetect'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstTestCompletedNotificationSupported'  MAP-NAME = 'TestCompletedNotificationSupported'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RomTstConfigSet'                             MAP-NAME = 'ConfigSet'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstTestCompletedNotification'           MAP-NAME = 'TestCompletedNotification'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RomTstBlockBgnd'                             MAP-NAME = 'BlockBgnd'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstBgndBlockIndex'                      MAP-NAME = 'BgndBlockIndex'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstCrcAreaAddressFirst'                 MAP-NAME = 'CrcAreaAddressFirst'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstCrcAreaAddressSecond'                MAP-NAME = 'CrcAreaAddressSecond'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'RomTstBlockFgnd'                             MAP-NAME = 'BlockFgnd'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstFgndBlockIndex'                      MAP-NAME = 'FgndBlockIndex'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstCrcAreaAddressFirst'                 MAP-NAME = 'CrcAreaAddressFirst'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'RomTstCrcAreaAddressSecond'                MAP-NAME = 'CrcAreaAddressSecond'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+    </CONTAINER-DETAILS>
+  </MAP-NAMES>
+
+  <!-- Container Count -->
+  <CONTAINER-COUNTS>
+    <CONTAINER-COUNT MAP-NAME = 'General'                     COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'ConfigSet'                   COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'BlockBgnd'                   COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'BlockFgnd'                   COUNT = '0'></CONTAINER-COUNT>
+  </CONTAINER-COUNTS>
+
+  <!-- Pre compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'ROMTST_DEV_ERROR_DETECT'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '1'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre compile option for development error detection'
+      Container = 'General'
+      Parameter = 'DevErrorDetect' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ROMTST_TEST_COMPLETED_NOTIFICATION_SUPPORTED'
+      Type      = '1'
+      Value     = 'STD_OFF'
+      Pos       = '2'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for test completed notification supported'
+      Container = 'General'
+      Parameter = 'TestCompletedNotificationSupported' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ROMTST_OTA_SUPPORT'
+      Type      = '2'
+      Value     = 'STD_OFF'
+      Pos       = '3'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'Pre Compile option for enable / disable CrcAreaAddressSecond usage'
+      Container = 'BlockBgnd,BlockFgnd'
+      Parameter = 'CrcAreaAddressSecond' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ROMTST_MAX_TEST_BLOCK'
+      Type      = '3'
+      Value     = ''
+      Pos       = '4'
+      Prefix    = ''
+      Postfix   = ''
+      Comment   = 'This macro is total number of RomTstBlockBgnd + RomTstBlockFgnd'
+      Container = 'BlockBgnd,BlockFgnd'
+      Parameter = '' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ROMTST_TEST_COMPLETED_NOTIFICATION'
+      Type      = '4'
+      Value     = ''
+      Pos       = '5'
+      Prefix    = '('
+      Postfix   = ')'
+      Comment   = 'Pre Compile option for callback function name of test completed notification'
+      Container = 'ConfigSet'
+      Parameter = 'TestCompletedNotification' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ROMTST_NUM_OF_BGN_BLOCKS'
+      Type      = '3'
+      Value     = ''
+      Pos       = '6'
+      Prefix    = '('
+      Postfix   = 'U)'
+      Comment   = 'This macro is total Background Block'
+      Container = 'BlockBgnd'
+      Parameter = '' >
+    </MACRO-ENTRY>
+
+    <MACRO-ENTRY
+      Name      = 'ROMTST_NUM_OF_FRG_BLOCKS'
+      Type      = '3'
+      Value     = ''
+      Pos       = '7'
+      Prefix    = '('
+      Postfix   = 'U)'
+      Comment   = 'This macro is total Foreground Block'
+      Container = 'BlockFgnd'
+      Parameter = '' >
+    </MACRO-ENTRY>
+  </PRE-COMPILE-OPTIONS>
+
+
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+      <CONTAINER NAME = 'General'>
+        <PARAMETER-NAME>DevErrorDetect</PARAMETER-NAME>
+        <PARAMETER-NAME>TestCompletedNotificationSupported</PARAMETER-NAME>
+      </CONTAINER>
+
+      <CONTAINER NAME = 'ConfigSet'>
+        <PARAMETER-NAME>TestCompletedNotification</PARAMETER-NAME>
+      </CONTAINER>
+
+      <CONTAINER NAME = 'BlockBgnd'>
+        <PARAMETER-NAME>BgndBlockIndex</PARAMETER-NAME>
+        <PARAMETER-NAME>CrcAreaAddressFirst</PARAMETER-NAME>
+      </CONTAINER>
+      <CONTAINER NAME = 'BlockFgnd'>
+        <PARAMETER-NAME>FgndBlockIndex</PARAMETER-NAME>
+        <PARAMETER-NAME>CrcAreaAddressFirst</PARAMETER-NAME>
+      </CONTAINER>
+    </MANDATORY-CHECK>
+
+    <!-- String check -->
+    <STRING-CHECK>
+      <PARAMETER>
+        <CONTAINER-NAME>ConfigSet</CONTAINER-NAME>
+        <REGULAR-EXPRESSION>[a-zA-Z0-9_]([a-zA-Z0-9\._])*</REGULAR-EXPRESSION>
+      </PARAMETER>
+    </STRING-CHECK>
+  </CONSISTENCY-CHECKS>
+
+  <!-- Static code that is to be added in the output files -->
+  <OUTPUT-FILES>
+    <RomTst_Cfg.h>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: RomTst_Cfg.h                                                   **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR ROM Test Module                                      **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+#ifndef ROMTST_CFG_H
+#define ROMTST_CFG_H
+
+POLYSPACE_START
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Std_Types.h"
+INCLUDE
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+/*******************************************************************************
+**                      Common Published Information                          **
+*******************************************************************************/
+AR_SW_COMMON_PUBLISH_INFO
+/*******************************************************************************
+**                      Global Data Types                                     **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+
+TYPEDEF
+
+TYPEDEF_ENUM
+/*******************************************************************************
+**                      Configuration Set Handles                             **
+*******************************************************************************/
+BLOCKDESC_HANDLES
+
+/*******************************************************************************
+**                      Function Prototypes                                   **
+*******************************************************************************/
+EXTERN_FUNC
+
+POLYSPACE_STOP
+
+#endif /* ROMTST_CFG_H */
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+  </RomTst_Cfg.h>
+<RomTst_Cfg.c>
+    <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: RomTst_Cfg.c                                                   **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR ROM Test Module                                      **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "RomTst.h"
+
+/*******************************************************************************
+**                      Version Information                                   **
+*******************************************************************************/
+AR_SW_VERSIONS
+
+/*******************************************************************************
+**                      Function Prototypes                                   **
+*******************************************************************************/
+
+EXTERN_FUNC
+
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+/* polyspace-begin ISO-17961:intptrconv MISRA-C3:11.4 [Justified:Low] "Crc Area shall be located at a fixed address defined by linker script" */
+STRUCTURE_DECLARATIONS
+/* polyspace-end ISO-17961:intptrconv MISRA-C3:11.4 [Justified:Low] "Crc Area shall be located at a fixed address defined by linker script" */
+/*******************************************************************************
+**                      Initialization Structure                              **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+      <STRUCTURES-AND-ARRAYS>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* Structure for block of ROM */</STRUCTURE-COMMENT>
+          <NAME>RomTst_1TestBlockList</NAME>
+          <COMMENT>/* static CONST(RomTst_TestBlockType, ROMTST_CONST) 
+        RomTst_TestBlockList[ROMTST_MAX_TEST_BLOCK]; */</COMMENT>
+          <FIELD>CrcArea1 CrcArea2</FIELD>
+          <TYPE>NONE NONE</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE#NONE NONE#NONE</REFERENCE><MEMMAP-START>#define ROMTST_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define ROMTST_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+          <SIZE-MACRO>ROMTST_MAX_TEST_BLOCK</SIZE-MACRO>
+          <SIZE-MACRO-COMMENT>This macro defined the Number of configured parameter sets for the available test algorithms</SIZE-MACRO-COMMENT>
+          <SIZE-MACRO-PREFIX>(uint16)</SIZE-MACRO-PREFIX>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <STRUCTURE-COMMENT>/* Structure for configuring an algorithm */</STRUCTURE-COMMENT>
+          <NAME>RomTst_2Config</NAME>
+          <COMMENT>/* CONST(RomTst_ConfigType, ROMTST_CONST) RomTst_Config[1]; */</COMMENT>
+          <FIELD>TestBlockFgnd NumOfTestBlockFgnd TestBlockBgnd NumOfTestBlockBgnd</FIELD>
+          <TYPE>NONE UINT8 NONE UINT8</TYPE>
+          <RANGE>NONE#NONE 0#255 NONE#NONE 0#255</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE</REFERENCE>
+          <MEMMAP-START>#define ROMTST_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define ROMTST_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+      </STRUCTURES-AND-ARRAYS>
+    </RomTst_Cfg.c>
+  </OUTPUT-FILES>
+</GENERAL-INFORMATION>
+
+<!--
+################################################################################
+# Revision History:                                                            #
+# Version No.  Last modified  Author         Description                       #
+################################################################################
+# 1.0.0     23-Mar-2018   VinhLV5           Initial Version                    #
+################################################################################
+-->

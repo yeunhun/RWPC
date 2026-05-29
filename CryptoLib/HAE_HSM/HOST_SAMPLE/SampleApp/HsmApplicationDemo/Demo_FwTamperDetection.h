@@ -1,0 +1,17 @@
+#ifndef DEMO_FW_TAMPER_DETECTION_H_
+#define DEMO_FW_TAMPER_DETECTION_H_
+
+#include "Hsm_Types.h"
+#include "Demo_AppTestDefine.h"
+
+Std_ReturnType HostTest_HSM_FactoryFwTamperDetectionEnable(HSM_FTD_CONFIG_TestVector_t hsmTpConfigTv);
+Std_ReturnType HostTest_HSM_FactoryFwTamperDetectionDisable(void);
+Std_ReturnType HostTest_HSM_FwTamperDetectionConfig(HSM_FTD_CONFIG_TestVector_t hsmTpConfigTv);
+Std_ReturnType HostTest_HSM_FwTamperDetectionUpdtTarget(HSM_FTD_TARGET_testVector_t hsmTpUpdtTargetTv);
+Std_ReturnType HostTest_HSM_FwTamperDetectionTempStop(HSM_FTD_TEMP_STOP_TestVector_t hsmFTDtempStopTv);
+Std_ReturnType HostTest_HSM_FwTamperDetectionRestart(void);
+Std_ReturnType HostTest_HSM_FwTamperDetectionStatus(void);
+Std_ReturnType HostTest_HSM_FwTamperDetectionLog(void);
+Std_ReturnType HostTest_HSM_FwTamperDetectionCallback(HSM_FTD_CONFIG_TestVector_t hsmTpConfigTv);
+
+#endif /* DEMO_FW_TAMPER_DETECTION_H_ */

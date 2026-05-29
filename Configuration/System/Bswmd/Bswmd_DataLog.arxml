@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CDD_DataLog</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-MODULE-DESCRIPTION>
+          <SHORT-NAME>DataLog</SHORT-NAME>
+          <MODULE-ID>255</MODULE-ID>
+          <PROVIDED-ENTRYS>
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_MainFunction</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetCustomData</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetSleepConditionLog</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetSleepOKLog</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetWakeupEventLog</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+          </PROVIDED-ENTRYS>
+          <BSW-MODULE-DEPENDENCYS>
+            <BSW-MODULE-DEPENDENCY UUID="8fa1f5cf-c018-4086-9507-421096608fe2">
+              <SHORT-NAME>BswModuleDependency_Dem</SHORT-NAME>
+              <TARGET-MODULE-ID>54</TARGET-MODULE-ID>
+            </BSW-MODULE-DEPENDENCY>
+          </BSW-MODULE-DEPENDENCYS>
+          <REQUIRED-MODE-GROUPS>
+            <MODE-DECLARATION-GROUP-PROTOTYPE UUID="cdc79900-e32a-4674-9552-1779f7dad3c7">
+              <SHORT-NAME>DataLog_EM_R</SHORT-NAME>
+              <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/EcuM/ModeDeclarationGroups/EcuMode</TYPE-TREF>
+            </MODE-DECLARATION-GROUP-PROTOTYPE>
+          </REQUIRED-MODE-GROUPS>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>BswInternalBehavior_DataLog</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="879d4e1a-e0a7-4ef3-86b4-296742ff5bce">
+                  <SHORT-NAME>DATA_PROTECTION</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <INCLUDED-DATA-TYPE-SETS>
+                <INCLUDED-DATA-TYPE-SET>
+                  <DATA-TYPE-REFS>
+                    <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/CDD_DataLog/DataLog_DelayCountType</DATA-TYPE-REF>
+                    <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/CDD_DataLog/DataLog_DataSizeType</DATA-TYPE-REF>
+                  </DATA-TYPE-REFS>
+                  <LITERAL-PREFIX />
+                </INCLUDED-DATA-TYPE-SET>
+              </INCLUDED-DATA-TYPE-SETS>
+              <ENTITYS>
+                <BSW-SCHEDULABLE-ENTITY UUID="756de308-55c1-4cc5-9079-899c7a9d3521">
+                  <SHORT-NAME>BswSE_DataLog_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/CDD_DataLog/DataLog/BswInternalBehavior_DataLog/DATA_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_MainFunction</IMPLEMENTED-ENTRY-REF>
+                </BSW-SCHEDULABLE-ENTITY>
+                <BSW-CALLED-ENTITY UUID="d8fbbb99-cf4c-4d71-ac02-755abc9aa038">
+                  <SHORT-NAME>BswCE_DataLog_SetSleepConditionLog</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetSleepConditionLog</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                <BSW-CALLED-ENTITY UUID="64c39cae-0707-4b15-a1e4-98b05c0e13b6">
+                  <SHORT-NAME>BswCE_DataLog_SetSleepOKLog</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetSleepOKLog</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                <BSW-CALLED-ENTITY UUID="4ca604dd-03d0-4c90-8bb5-2a0dace0feaa">
+                  <SHORT-NAME>BswCE_DataLog_SetWakeupEventLog</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetWakeupEventLog</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                <BSW-CALLED-ENTITY UUID="3de94b67-5acb-46d7-bccb-d47300e52d5f">
+                  <SHORT-NAME>BswCE_DataLog_SetCustomData</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/CDD_DataLog/DataLog_SetCustomData</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+              </ENTITYS>
+              <EVENTS>
+                <BSW-TIMING-EVENT UUID="da32e54f-3bbf-4888-af67-4066dbe3e6b8">
+                  <SHORT-NAME>BswTE_DataLog_MainFunction</SHORT-NAME>
+                  <CONTEXT-LIMITATION-REFS>
+                    <CONTEXT-LIMITATION-REF DEST="BSW-DISTINGUISHED-PARTITION">/CDD_DataLog/DataLog/BswInternalBehavior_DataLog/BswDistinguishedPartition_DataLog</CONTEXT-LIMITATION-REF>
+                  </CONTEXT-LIMITATION-REFS>
+                  <DISABLED-IN-MODE-IREFS>
+                    <DISABLED-IN-MODE-IREF>
+                      <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/CDD_DataLog/DataLog/DataLog_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                      <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_STARTUP_ONE</TARGET-MODE-REF>
+                    </DISABLED-IN-MODE-IREF>
+                    <DISABLED-IN-MODE-IREF>
+                      <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/CDD_DataLog/DataLog/DataLog_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                      <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_STARTUP_TWO</TARGET-MODE-REF>
+                    </DISABLED-IN-MODE-IREF>
+                    <DISABLED-IN-MODE-IREF>
+                      <CONTEXT-MODE-DECLARATION-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/CDD_DataLog/DataLog/DataLog_EM_R</CONTEXT-MODE-DECLARATION-GROUP-REF>
+                      <TARGET-MODE-REF DEST="MODE-DECLARATION">/EcuM/ModeDeclarationGroups/EcuMode/ECUM_STATE_STARTUP_THREE</TARGET-MODE-REF>
+                    </DISABLED-IN-MODE-IREF>
+                  </DISABLED-IN-MODE-IREFS>
+                  <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/CDD_DataLog/DataLog/BswInternalBehavior_DataLog/BswSE_DataLog_MainFunction</STARTS-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </BSW-TIMING-EVENT>
+              </EVENTS>
+              <MODE-RECEIVER-POLICYS>
+                <BSW-MODE-RECEIVER-POLICY>
+                  <ENHANCED-MODE-API>true</ENHANCED-MODE-API>
+                  <REQUIRED-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/CDD_DataLog/DataLog/DataLog_EM_R</REQUIRED-MODE-GROUP-REF>
+                  <SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>true</SUPPORTS-ASYNCHRONOUS-MODE-SWITCH>
+                </BSW-MODE-RECEIVER-POLICY>
+              </MODE-RECEIVER-POLICYS>
+              <DISTINGUISHED-PARTITIONS>
+                <BSW-DISTINGUISHED-PARTITION>
+                  <SHORT-NAME>BswDistinguishedPartition_DataLog</SHORT-NAME>
+                </BSW-DISTINGUISHED-PARTITION>
+              </DISTINGUISHED-PARTITIONS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+        <BSW-IMPLEMENTATION UUID="b0bac813-146f-4e63-9abc-aaeb0adb92e6">
+          <SHORT-NAME>BswImplementation_DataLog</SHORT-NAME>
+          <SW-VERSION>1.0.0</SW-VERSION>
+          <VENDOR-ID>76</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/CDD_DataLog/DataLog/BswInternalBehavior_DataLog</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-ENTRY UUID="a1164644-f042-4f18-a41a-4632d7f94dd4">
+          <SHORT-NAME>DataLog_MainFunction</SHORT-NAME>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+          <CALL-TYPE>SCHEDULED</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="1c6ada70-aee0-4960-874e-4a34b6a29601">
+          <SHORT-NAME>DataLog_SetSleepOKLog</SHORT-NAME>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="6e986931-18de-4576-b8e8-f1e69b54b2ed">
+          <SHORT-NAME>DataLog_SetSleepConditionLog</SHORT-NAME>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="3a464be3-d820-46c0-92bb-22965fa8c889">
+          <SHORT-NAME>DataLog_SetWakeupEventLog</SHORT-NAME>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="5220bb5c-823e-4fbf-a097-eb19e9531dff">
+          <SHORT-NAME>DataLog_SetCustomData</SHORT-NAME>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+          <RETURN-TYPE UUID="e18eed4a-25e8-4953-bf56-2a87ea05da93">
+            <SHORT-NAME>Std_ReturnType</SHORT-NAME>
+            <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          </RETURN-TYPE>
+          <ARGUMENTS>
+            <SW-SERVICE-ARG UUID="07f10762-3774-47d4-b5fe-27dbd173a9b6">
+              <SHORT-NAME>customData</SHORT-NAME>
+              <CATEGORY>DATA_REFERENCE</CATEGORY>
+              <DIRECTION>IN</DIRECTION>
+            </SW-SERVICE-ARG>
+            <SW-SERVICE-ARG UUID="36098a45-77ff-45e1-94ad-51dbb49da7b6">
+              <SHORT-NAME>customDataIndex</SHORT-NAME>
+              <DIRECTION>IN</DIRECTION>
+            </SW-SERVICE-ARG>
+          </ARGUMENTS>
+        </BSW-MODULE-ENTRY>
+        <COMPU-METHOD UUID="0421c88a-98af-488d-b8a5-49746df964f3">
+          <SHORT-NAME>ENUM_DataLogDelayCount</SHORT-NAME>
+          <CATEGORY>TEXTTABLE</CATEGORY>
+          <COMPU-INTERNAL-TO-PHYS>
+            <COMPU-SCALES>
+              <COMPU-SCALE>
+                <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                <COMPU-CONST>
+                  <VT>DATALOG_DELAY_ZERO</VT>
+                </COMPU-CONST>
+              </COMPU-SCALE>
+              <COMPU-SCALE>
+                <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                <COMPU-CONST>
+                  <VT>DATALOG_DELAY_WAKEUP_LIMIT</VT>
+                </COMPU-CONST>
+              </COMPU-SCALE>
+              <COMPU-SCALE>
+                <LOWER-LIMIT INTERVAL-TYPE="CLOSED">50</LOWER-LIMIT>
+                <UPPER-LIMIT INTERVAL-TYPE="CLOSED">50</UPPER-LIMIT>
+                <COMPU-CONST>
+                  <VT>DATALOG_DELAY_SLEEP_LIMIT</VT>
+                </COMPU-CONST>
+              </COMPU-SCALE>
+            </COMPU-SCALES>
+          </COMPU-INTERNAL-TO-PHYS>
+        </COMPU-METHOD>
+        <IMPLEMENTATION-DATA-TYPE UUID="7719c445-16d2-4855-97de-c9f7ee86df10">
+          <SHORT-NAME>DataLog_DelayCountType</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint32</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/CDD_DataLog/ENUM_DataLogDelayCount</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <COMPU-METHOD UUID="ea8ad8b8-4f72-476e-a74e-a56d6e3ea1db">
+          <SHORT-NAME>ENUM_DataLogDataSize</SHORT-NAME>
+          <CATEGORY>TEXTTABLE</CATEGORY>
+          <COMPU-INTERNAL-TO-PHYS>
+            <COMPU-SCALES>
+              <COMPU-SCALE>
+                <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                <COMPU-CONST>
+                  <VT>DATALOG_DATA_BYTE_SIZE</VT>
+                </COMPU-CONST>
+              </COMPU-SCALE>
+            </COMPU-SCALES>
+          </COMPU-INTERNAL-TO-PHYS>
+        </COMPU-METHOD>
+        <BSW-MODULE-ENTRY UUID="240a6e8e-1ba0-4957-9693-bcd00d9c73de">
+          <SHORT-NAME>DataLog_GetSleepSequence</SHORT-NAME>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+          <RETURN-TYPE UUID="19d4871d-3276-463f-96da-886d451c9e34">
+            <SHORT-NAME>DataLog_SleepSeqType</SHORT-NAME>
+            <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          </RETURN-TYPE>
+        </BSW-MODULE-ENTRY>
+        <IMPLEMENTATION-DATA-TYPE UUID="fbadb066-be6d-43ca-871d-99ee27daf475">
+          <SHORT-NAME>DataLog_DataSizeType</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_DataTypes/BaseTypes/uint32</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/CDD_DataLog/ENUM_DataLogDataSize</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <BSW-MODULE-ENTRY UUID="99dfcd53-400d-4525-baa2-b4b2c7e854e5">
+          <SHORT-NAME>DataLog_SetSleepSequence</SHORT-NAME>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+          <ARGUMENTS>
+            <SW-SERVICE-ARG UUID="d1d340e2-4f41-4730-84e8-fe15bfe93faf">
+              <SHORT-NAME>seq</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <DIRECTION>IN</DIRECTION>
+            </SW-SERVICE-ARG>
+          </ARGUMENTS>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

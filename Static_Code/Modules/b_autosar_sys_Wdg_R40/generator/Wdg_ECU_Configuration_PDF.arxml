@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+********************************************************************************
+**                                                                            **
+**  (C) 2016 HYUNDAI AUTRON Co., Ltd.                                         **
+**  Confidential Proprietary Information. Distribution Limited.               **
+**  Do Not Copy Without Prior Permission                                      **
+**                                                                            **
+**  MODULE        : AUTRON CUSTOM Wdg Module                                  **
+**                                                                            **
+**  PURPOSE       : Definition of the Configuration parameters.               **
+**                                                                            **
+**  DESCRIPTION   : This file provides the definition of the containers,      **
+**                  sub-containers and parameters specific to Wdg module.     **
+**                                                                            **
+********************************************************************************
+** Version Date           Prepared By     Description                         **
+********************************************************************************
+** 1.8.2   01-Nov-2021    YH.Han          Redmine #32459                      **
+** 1.8.0   22-Map-2020    YH.Han          Redmine #23662                      **
+** 1.7.0   10-Apr-2020    YH.Han          Redmine #18097                      **
+** 1.6.1   12-Mar-2020    YH.Han          Redmine #21643                      **
+** 1.6.0   11-Oct-2019    YH.Han          Redmine #19638                      **
+** 1.6.0   09-Aug-2019    YH.Han          Redmine #18796                      **
+** 1.5.0   25-Apr-2019    YH.Han          Redmine #17075                      **
+** 1.4.0   14-Feb-2019    Yonghyun Han    Redmine #16014, #16015              **
+** 1.2.0   19-Apr-2017    Kuksun Joo      Redmine #7894                       **
+** 1.1.1   19-Apr-2017    Kuksun Joo      Redmine #8239                       **
+** 1.1.0   19-Apr-2016    Sinil Kang      Redmine #4610                       **
+** 1.0.5   18-Feb-2016    Sinil Kang      Redmine #4182                       **
+** 1.0.0   18-Nov-2014    Sinil Kang      Initial version                     **
+********************************************************************************
+--><AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTRON</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-DEF>
+          <SHORT-NAME>Wdg</SHORT-NAME>
+          <DESC>
+            <L-2 L="EN">Configuration of the Wdg (Watchdog Driver) module.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>1.8.2</REVISION-LABEL>
+                <ISSUED-BY>AUTRON</ISSUED-BY>
+                <DATE>2021-11-01</DATE>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <REFINED-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Wdg</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="e64e0ccf-1710-4d61-9701-9612f478119b">
+              <SHORT-NAME>WdgDemEventParameterRefs</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Container for the references to DemEventParameter elementswhich shall be invoked using the API Dem_ReportErrorStatus in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId value. The standardized errors are provided in the container and can be extended by vendor-specific error references.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <REFERENCES>
+                <ECUC-REFERENCE-DEF UUID="b78ed5f2-b412-4e11-a6b7-3609f0e9befd">
+                  <SHORT-NAME>WDG_E_DISABLE_REJECTED</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Reference to the DemEventParameter which shall be issued when the error "Initialization or mode switch failed because it would disable the watchdog" has occurred.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter</DESTINATION-REF>
+                </ECUC-REFERENCE-DEF>
+                <ECUC-REFERENCE-DEF UUID="b78ed5f2-b412-4e11-a6b7-3609f0e9befd">
+                  <SHORT-NAME>WDG_E_MODE_FAILED</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Reference to the DemEventParameter which shall be issued when the error "Setting a watchdog mode failed (during initialization or mode switch)" has occurred.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter</DESTINATION-REF>
+                </ECUC-REFERENCE-DEF>
+              </REFERENCES>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF>
+              <SHORT-NAME>WdgGeneral</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">All general parameters of the watchdog driver are collected here.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="d93c6127-3591-4462-92c8-e338b45079a7">
+                  <SHORT-NAME>WdgDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Compile switch to enable / disable development error detection for this module. True: Development error detection enabled False: Development error detection disabled</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="d93c6127-3591-4462-92c8-e338b45079a7">
+                  <SHORT-NAME>WdgDisableAllowed</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Compile switch to allow / forbid disabling the watchdog driver during runtime. True: Disabling the watchdog driver at runtimeis allowed. False: Disabling the watchdog driver at runtime is not allowed.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="24e3b272-497b-496b-8de9-34649a8ed673">
+                  <SHORT-NAME>WdgIndex</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Represents the watchdog driver's ID so that it can be referenced by the watchdog interface.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>255</MAX>
+                  <MIN>0</MIN>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-FLOAT-PARAM-DEF UUID="66cc6e47-1ce5-42be-be40-66fa2b1b2c05">
+                  <SHORT-NAME>WdgInitialTimeout</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">The initial timeout (sec) for the trigger condition to be initialized during Init function. It shall be not larger than WdgMaxTimeout.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>0.2</DEFAULT-VALUE>
+                  <MAX>65.535</MAX>
+                  <MIN>0</MIN>
+                </ECUC-FLOAT-PARAM-DEF>
+                <ECUC-FLOAT-PARAM-DEF UUID="66cc6e47-1ce5-42be-be40-66fa2b1b2c05">
+                  <SHORT-NAME>WdgMaxTimeout</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">The maximum timeout (sec) to which the watchdog trigger condition can be initialized.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>1.0</DEFAULT-VALUE>
+                  <MAX>65.535</MAX>
+                  <MIN>0</MIN>
+                </ECUC-FLOAT-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="2a653ea3-fc1b-4711-a84c-f1c297d4be12">
+                  <SHORT-NAME>WdgRunArea</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN" />
+                  </DESC>
+                  <CATEGORY>NOT_SUPPORTED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>ROM</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="8530dbe6-6126-4ae5-92c1-1963f7e4eced">
+                      <SHORT-NAME>RAM</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Watchdog driver to be executed out of RAM area</L-2>
+                      </DESC>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="8530dbe6-6126-4ae5-92c1-1963f7e4eced">
+                      <SHORT-NAME>ROM</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Watchdog driver to be executed out of ROM area</L-2>
+                      </DESC>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-FUNCTION-NAME-DEF UUID="eace0ec9-8cf4-476a-b894-a2c2995adb03">
+                  <SHORT-NAME>WdgTriggerLocation</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Location (memory address) of the watchdog trigger routine.</L-2>
+                  </DESC>
+                  <CATEGORY>NOT_SUPPORTED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                </ECUC-FUNCTION-NAME-DEF>
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ba36e7d6-466b-42a0-94f8-aa71f97379a4">
+                  <SHORT-NAME>WdgVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Compile switch to enable / disable the version information API * True: API enabled * False: API disabled</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </ECUC-BOOLEAN-PARAM-DEF>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="c7e64fa2-422e-4b52-a9b6-5340742549e4">
+                  <SHORT-NAME>WdgVendorMcalVersion</SHORT-NAME>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="f17a6b40-ffe8-4f48-b06e-966eeafb6f72">
+                      <SHORT-NAME>INFINEON_TC2XX</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="0f944004-64ef-4baa-a024-6566a6ca425e">
+                      <SHORT-NAME>INFINEON_TC3XX</SHORT-NAME>
+                      <ORIGIN>AURTON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="3f8ebed3-aeb6-4720-90db-0daebebd1d5c">
+                      <SHORT-NAME>FREESCALE</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="7fd967d2-5a8d-48b8-95f6-ea9eb3c3747f">
+                      <SHORT-NAME>RENESAS</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="a8f68be7-aa8d-4ff1-a498-7b318bfab153">
+                      <SHORT-NAME>ST</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="8a9cf40f-490f-4c94-92cd-c961d05e0aa9">
+                      <SHORT-NAME>NXP</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="8e429e67-6dcc-496a-8499-2d2ab397b0f8">
+                      <SHORT-NAME>CYPRESS_Traveo2</SHORT-NAME>
+                      <ORIGIN>AUTRON</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="d5346be8-59d5-41bf-9ed2-87e7b1f27b5e">
+              <SHORT-NAME>WdgSettingsConfig</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Configuration items for the different watchdog settings, including those for external watchdog hardware. Note: All postbuild parameters are handled via this container.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="1be5fe83-37b1-4447-a892-1844f38bf7bb">
+                  <SHORT-NAME>WdgDefaultMode</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Default mode for watchdog driver initialization. ImplementationType: WdgIf_ModeType</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>WDGIF_SLOW_MODE</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="7af02483-6ee9-4fa3-bf85-c464924314fc">
+                      <SHORT-NAME>WDGIF_OFF_MODE</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Default watchdog mode is "off"</L-2>
+                      </DESC>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="aaee1720-815b-4d9c-a72d-db52189932a1">
+                      <SHORT-NAME>WDGIF_SLOW_MODE</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Default watchdog mode is "slow"</L-2>
+                      </DESC>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ae1376fc-4c4c-4ea9-a0ed-7c638428a07f">
+                      <SHORT-NAME>WDGIF_FAST_MODE</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Default watchdog mode is "fast"</L-2>
+                      </DESC>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="657b9c05-a1d6-4b04-aa27-064c010f54f6">
+                  <SHORT-NAME>WdgGptChannelPrefix</SHORT-NAME>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="a1b8ae8a-f780-4c99-a105-4e9f92829025">
+                  <SHORT-NAME>WdgDioChannelPrefix</SHORT-NAME>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>AUTRON</ORIGIN>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                </ECUC-STRING-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="21ac6a1a-eba9-435f-b559-8a533dfab1e0">
+                  <SHORT-NAME>WdgSettingsOff</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Hardware dependent settings for the watchdog driver's "off" mode.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="eddbaf51-300f-4220-b0b4-4b525e38df59">
+                  <SHORT-NAME>WdgSettingsSlow</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Hardware dependent settings for the watchdog driver's "slow" mode.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <PARAMETERS>
+                    <ECUC-FLOAT-PARAM-DEF UUID="71b7d80b-e4d4-4e2e-acee-d1749b094ac3">
+                      <SHORT-NAME>WdgPeriod</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">A period of time to send output signals in seconds.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>AUTRON</ORIGIN>
+                      <DEFAULT-VALUE>0.05</DEFAULT-VALUE>
+                      <MAX>65.535</MAX>
+                      <MIN>0.001</MIN>
+                    </ECUC-FLOAT-PARAM-DEF>
+                  </PARAMETERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="30257091-01e4-4ee6-9ddb-12a5196db671">
+                  <SHORT-NAME>WdgSettingsFast</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Hardware dependent settings for the watchdog driver's "fast" mode.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <PARAMETERS>
+                    <ECUC-FLOAT-PARAM-DEF UUID="71b7d80b-e4d4-4e2e-acee-d1749b094ac3">
+                      <SHORT-NAME>WdgPeriod</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">A period of time to send output signals in seconds.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>AUTRON</ORIGIN>
+                      <DEFAULT-VALUE>0.02</DEFAULT-VALUE>
+                      <MAX>65.535</MAX>
+                      <MIN>0.001</MIN>
+                    </ECUC-FLOAT-PARAM-DEF>
+                  </PARAMETERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="9be10bb0-eec2-4478-89d6-c5ea04fb6dbe">
+                  <SHORT-NAME>WdgExternalConfiguration</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Configuration items for an external watchdog hardware</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <REFERENCES>
+                    <ECUC-CHOICE-REFERENCE-DEF UUID="f19f0235-bd9f-4b1c-9341-2bef91ca4e5d">
+                      <SHORT-NAME>WdgExternalContainerRef</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Reference to either - a DioChannelGroup container in case the hardware watchdog is connected via DIO pins - an SpiSequenceConfiguration container in case the watchdog hardware is accessed via SPI</L-2>
+                      </DESC>
+                      <CATEGORY>NOT_SUPPORTED</CATEGORY>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <DESTINATION-REFS>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannelGroup</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence</DESTINATION-REF>
+                      </DESTINATION-REFS>
+                    </ECUC-CHOICE-REFERENCE-DEF>
+                    <ECUC-REFERENCE-DEF UUID="a08fb812-1ad1-4f40-96d2-5b83a9320356">
+                      <SHORT-NAME>WdgGptChannelRef</SHORT-NAME>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTRON</ORIGIN>
+                      <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Gpt/GptChannelConfigSet/GptChannelConfiguration</DESTINATION-REF>
+                    </ECUC-REFERENCE-DEF>
+                  </REFERENCES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CHOICE-CONTAINER-DEF UUID="78b123b7-84fd-40f6-8140-51e832c5f163">
+                      <SHORT-NAME>WdgExternalDevice</SHORT-NAME>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <CHOICES>
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="6716af2a-3a23-46db-a5ed-73eb6c5d6262">
+                          <SHORT-NAME>WdgDioTrigger</SHORT-NAME>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <PARAMETERS>
+                            <ECUC-INTEGER-PARAM-DEF UUID="eca08668-f143-4bfc-b1f1-65799e253454">
+                              <SHORT-NAME>WdgDioTriggerDuty</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Duty of the output signals in percent.</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>10</DEFAULT-VALUE>
+                              <MAX>99</MAX>
+                              <MIN>1</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <ECUC-REFERENCE-DEF UUID="1643be27-7fb6-4c63-9da8-165f64b0a273">
+                              <SHORT-NAME>WdgDioTriggerChannelRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to a DioChannel container in case the hardware watchdog is connected via a DIO pin</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannel</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                          </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="6f4edd58-4b7a-47ea-a924-7578a5b15a04">
+                          <SHORT-NAME>WdgArisuCan</SHORT-NAME>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <PARAMETERS>
+                            <ECUC-ENUMERATION-PARAM-DEF UUID="12b472b4-cd0e-4ae5-af47-cfe9664176f3">
+                              <SHORT-NAME>WdgArisuCanTimerPeriod</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Watchdog Timer Period</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>WD_TIMER_100MS</DEFAULT-VALUE>
+                              <LITERALS>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="7a706686-7e74-4fb2-a552-779dbff7d085">
+                                  <SHORT-NAME>WD_TIMER_10MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="94426c9c-cc14-475f-b91b-f026eaf3ea37">
+                                  <SHORT-NAME>WD_TIMER_20MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="b24821a5-1262-45f0-b4d2-0ac894756ed5">
+                                  <SHORT-NAME>WD_TIMER_50MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="4ef4122f-c795-46ae-a485-6c6f667a9a5a">
+                                  <SHORT-NAME>WD_TIMER_100MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="21bf9de2-21aa-4893-8314-bfee66c1e4a9">
+                                  <SHORT-NAME>WD_TIMER_200MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="8815f147-934d-4a4b-89c5-5b24568a652d">
+                                  <SHORT-NAME>WD_TIMER_500MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="7a8af7b8-7100-480f-9f81-07365c90210a">
+                                  <SHORT-NAME>WD_TIMER_1000MS</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                              </LITERALS>
+                            </ECUC-ENUMERATION-PARAM-DEF>
+                            <ECUC-ENUMERATION-PARAM-DEF UUID="edc96699-b143-43c2-9446-95926f637f96">
+                              <SHORT-NAME>WdgArisuCanType</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Watchdog Type Selection&#xD;
+WD_TYPE_TIMEOUT : Watchdog works as a Time-Out watchdog&#xD;
+WD_TYPE_WINDOW : Watchdog works as a Window watchdog&#xD;
+WD_TYPE_WINDOW is not supported.</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>WD_TYPE_TIMEOUT</DEFAULT-VALUE>
+                              <LITERALS>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="d7b14d0c-d188-4c1b-9779-4e91ba5f58ff">
+                                  <SHORT-NAME>WD_TYPE_TIMEOUT</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="6403e242-3761-4056-a75f-b3cd7e4d255d">
+                                  <SHORT-NAME>WD_TYPE_WINDOW</SHORT-NAME>
+                                  <ORIGIN>AUTRON</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                              </LITERALS>
+                            </ECUC-ENUMERATION-PARAM-DEF>
+                            <ECUC-BOOLEAN-PARAM-DEF UUID="3444612a-441f-49c5-89c1-fdcddddaba34">
+                              <SHORT-NAME>WdgArisuCanDeactivationInStopMode</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Watchdog Deactivation during Stop Mode&#xD;
+false : Watchdog is active in Stop Mode&#xD;
+true : Watchdog is deactivated in Stop Mode</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                            </ECUC-BOOLEAN-PARAM-DEF>
+                            <ECUC-BOOLEAN-PARAM-DEF UUID="7c367976-03ac-4696-85ec-975878b79003">
+                              <SHORT-NAME>WdgArisuCanEnableAfterBusWake</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Watchdog Enable after Bus (CANx) Wake in SBC Stop Mode&#xD;
+false : Watchdog will not start after a CANx wake&#xD;
+true : Watchdog starts with a long open window after CANx Wake</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                            </ECUC-BOOLEAN-PARAM-DEF>
+                            <ECUC-BOOLEAN-PARAM-DEF UUID="f9250314-2594-4888-a882-f7a9202cef0b">
+                              <SHORT-NAME>WdgArisuCanMax3Reset</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Limit number of resets due to a Watchdog failure&#xD;
+false : Always generate a reset in case of WD fail&#xD;
+true : After 3 consecutive resets due to WD fail, no further reset is generated (only valid in config 1 &amp; 3)</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                            </ECUC-BOOLEAN-PARAM-DEF>
+                          </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="c65cda3d-45d2-4caa-af79-4500cf1881c4">
+                          <SHORT-NAME>WdgMPQ6411</SHORT-NAME>
+                          <PARAMETERS>
+                            <ECUC-FLOAT-PARAM-DEF UUID="fb92521a-0ada-4a1c-ae6a-a0ae605f2ce1">
+                              <SHORT-NAME>WdgMPQ6411InitailOffSet</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Initial Offset period(sec) for watchdog hardware initialization.&#xD;
+&#xD;
+MPQ6411 is need to PowerOnDelay. If the OK purse is occur before PowerOnDelay finish that will be cause the external watchdog reset.&#xD;
+</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>0.010</DEFAULT-VALUE>
+                              <MAX>65.535</MAX>
+                              <MIN>0.000</MIN>
+                            </ECUC-FLOAT-PARAM-DEF>
+                            <ECUC-INTEGER-PARAM-DEF UUID="00fe633a-52be-457d-a74c-db73069541e7">
+                              <SHORT-NAME>WdgMPQ6411TriggerDuty</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Duty of the output signals in percent.&#xD;
+MPQ6411 is need for Out signals width above 10us and below 5ms.&#xD;
+Should be config the duty percentage of Slow/Fast period is match for &#xD;
+MPQ6411 out signals constraint.</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DEFAULT-VALUE>10</DEFAULT-VALUE>
+                              <MAX>99</MAX>
+                              <MIN>1</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <ECUC-REFERENCE-DEF UUID="6c51eaa5-748c-4d98-8338-1b40f19fe19f">
+                              <SHORT-NAME>WdgMPQ6411DioTriggerChannelRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to a DioChannel container in case the hardware watchdog is connected via a DIO pin</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannel</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                            <ECUC-REFERENCE-DEF UUID="f81d7729-63de-410d-919e-e10fa537e26d">
+                              <SHORT-NAME>WdgMPQ6411DioModeChannelRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to a DioChannel container in case the hardware watchdog is connected via a DIO pin</L-2>
+                              </DESC>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTRON</ORIGIN>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannel</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                          </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </CHOICES>
+                    </ECUC-CHOICE-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="c83f71fc-195b-46ea-8ceb-b235ac568b5b">
+              <SHORT-NAME>WdgPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Container holding all Wdg specific published information parameters</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="d83fa2b0-b10b-4173-a625-b097b3a0c0cd">
+                  <SHORT-NAME>WdgTriggerMode</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Watchdog trigger mode (toggle/window/both)</L-2>
+                  </DESC>
+                  <CATEGORY>FIXED</CATEGORY>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                    </ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <DEFAULT-VALUE>WDG_TOGGLE</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="f1da9f7a-10df-4ece-923b-be052523c361">
+                      <SHORT-NAME>WDG_BOTH</SHORT-NAME>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="54451829-9a48-4c41-978f-903a65ef5155">
+                      <SHORT-NAME>WDG_TOGGLE</SHORT-NAME>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="1c6aa75c-9461-4f8d-bdad-217e58d15749">
+                      <SHORT-NAME>WDG_WINDOW</SHORT-NAME>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </ECUC-MODULE-DEF>
+        <ECUC-DEFINITION-COLLECTION>
+          <SHORT-NAME>ParameterDefinition_Wdg</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTRON/Wdg</MODULE-REF>
+          </MODULE-REFS>
+        </ECUC-DEFINITION-COLLECTION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

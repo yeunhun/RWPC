@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Bsw_RomTst</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION>
+          <SHORT-NAME>BswImplementation_RomTst</SHORT-NAME>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <SW-VERSION>1.4.1</SW-VERSION>
+          <VENDOR-ID>76</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Bsw_RomTst/RomTst/BswInternalBehavior_RomTst</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-DESCRIPTION>
+          <SHORT-NAME>RomTst</SHORT-NAME>
+          <MODULE-ID>272</MODULE-ID>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>BswInternalBehavior_RomTst</SHORT-NAME>
+              <INTERNAL-TRIGGERING-POINTS>
+                <BSW-INTERNAL-TRIGGERING-POINT UUID="6cd00a55-50d4-4fb9-a445-f1dd1ca0d9dc">
+                  <SHORT-NAME>BITP_RomTst</SHORT-NAME>
+                  <SW-IMPL-POLICY>QUEUED</SW-IMPL-POLICY>
+                </BSW-INTERNAL-TRIGGERING-POINT>
+              </INTERNAL-TRIGGERING-POINTS>
+              <ENTITYS>
+                <BSW-SCHEDULABLE-ENTITY UUID="ce72ffdc-66a7-42b5-a107-1df094364bdb">
+                  <SHORT-NAME>BSE_RomTst</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_RomTst/RomTst_MainFunction</IMPLEMENTED-ENTRY-REF>
+                </BSW-SCHEDULABLE-ENTITY>
+                <BSW-SCHEDULABLE-ENTITY UUID="55d1d7c1-4657-4095-9aa1-9d98ffb9fcfa">
+                  <SHORT-NAME>BSE_RomTst_ActivateRomTstTask</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <ACTIVATION-POINTS>
+                    <BSW-INTERNAL-TRIGGERING-POINT-REF-CONDITIONAL>
+                      <BSW-INTERNAL-TRIGGERING-POINT-REF DEST="BSW-INTERNAL-TRIGGERING-POINT">/Bsw_RomTst/RomTst/BswInternalBehavior_RomTst/BITP_RomTst</BSW-INTERNAL-TRIGGERING-POINT-REF>
+                    </BSW-INTERNAL-TRIGGERING-POINT-REF-CONDITIONAL>
+                  </ACTIVATION-POINTS>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_RomTst/RomTst_ActivateRomTst_Task</IMPLEMENTED-ENTRY-REF>
+                </BSW-SCHEDULABLE-ENTITY>
+              </ENTITYS>
+              <EVENTS>
+                <BSW-INTERNAL-TRIGGER-OCCURRED-EVENT UUID="afd967b2-948b-4910-a8aa-03c0170848b1">
+                  <SHORT-NAME>BITOE_RomTst</SHORT-NAME>
+                  <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/Bsw_RomTst/RomTst/BswInternalBehavior_RomTst/BSE_RomTst</STARTS-ON-EVENT-REF>
+                  <EVENT-SOURCE-REF DEST="BSW-INTERNAL-TRIGGERING-POINT">/Bsw_RomTst/RomTst/BswInternalBehavior_RomTst/BITP_RomTst</EVENT-SOURCE-REF>
+                </BSW-INTERNAL-TRIGGER-OCCURRED-EVENT>
+              </EVENTS>
+              <DISTINGUISHED-PARTITIONS>
+                <BSW-DISTINGUISHED-PARTITION>
+                  <SHORT-NAME>BswDistinguishedPartition_RomTst</SHORT-NAME>
+                </BSW-DISTINGUISHED-PARTITION>
+              </DISTINGUISHED-PARTITIONS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+        <BSW-MODULE-ENTRY UUID="41bda6a9-4170-4c66-ad7f-67ea7fe90665">
+          <SHORT-NAME>RomTst_MainFunction</SHORT-NAME>
+          <SERVICE-ID>4</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>SCHEDULED</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="ad6a4f23-d3df-4c35-9c4b-3ac633200bd8">
+          <SHORT-NAME>RomTst_ActivateRomTst_Task</SHORT-NAME>
+          <SERVICE-ID>9</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>SCHEDULED</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AppSwComponent_Dem</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>SwComponentType</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE>
+              <SHORT-NAME>SWC_DiagnosticMonitor</SHORT-NAME>
+              <PORTS>
+                <P-PORT-PROTOTYPE UUID="0a2134f0-8d31-4d57-961f-12f7b67c008b">
+                  <SHORT-NAME>InitEvt_DEM_E_TEST_EVENT</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackInitMonitorForEvent/InitMonitorForEvent</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CallbackInitMonitorForEvent</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="c911a51c-cf1c-4e7b-a2e3-2912877a01dd">
+                  <SHORT-NAME>OpCycle_POWER_CYCLE</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/OperationCycle/SetOperationCycleState</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/OperationCycle</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="148fdc87-c825-41c5-98ab-a4fd2a7b2df5">
+                  <SHORT-NAME>Event_DEM_E_TEST_EVENT1</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="b33076b3-8531-4a7b-97bd-38281f069509">
+                  <SHORT-NAME>Event_DEM_E_TEST_EVENT2</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="0020859d-4a3f-482a-abf0-3aa0779712e8">
+                  <SHORT-NAME>Event_DEM_E_TEST_EVENT3</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="437fed3a-e3d2-42d9-8cf3-9f549804c3b2">
+                  <SHORT-NAME>Event_DEM_E_TEST_EVENT4</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="8ec2d87b-a4e2-4e30-b960-0716e373c5e7">
+                  <SHORT-NAME>CBStatusEvt_DEM_E_TEST_EVENT1</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange/EventStatusChanged</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="b387efd9-37a9-466c-90f3-fded1a4b3eea">
+                  <SHORT-NAME>DS000</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ServiceSwComponent_Det/PortInterface/DETService/ReportError</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/ServiceSwComponent_Det/PortInterface/DETService</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="2fda0e08-b445-42bd-8d50-66134e0892e7">
+                  <SHORT-NAME>CBStatusEvt_E_MODE_CHANGE_LOCALCAN</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange/EventStatusChanged</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="829d80f3-479d-4644-a6dc-b93976087212">
+                  <SHORT-NAME>CBStatusEvt_E_MODE_CHANGE_BCAN</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange/EventStatusChanged</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="cce1c0c5-5f6a-435d-ac00-18bfc51018c4">
+                  <SHORT-NAME>CBReadData_DE_0001</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_0001/ReadData</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_0001</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="7c8c143e-53a6-4f11-93a1-4611107be40f">
+                  <SHORT-NAME>CBReadData_DE_0002</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_0002/ReadData</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_0002</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="1ffe305c-2141-428c-a59b-59fe2e7e832d">
+                  <SHORT-NAME>EnableCond_EnableCondtion_0</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/EnableCondition/SetEnableCondition</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/EnableCondition</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="6f5817cc-6ddd-4247-a955-afe378adeaa4">
+                  <SHORT-NAME>IndStatus_DemIndicator_0</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/IndicatorStatus/GetIndicatorStatus</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/IndicatorStatus</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="cd373283-539a-4034-95cc-45678fdc9c6c">
+                  <SHORT-NAME>OpCycle_IGNITION_CYCLE</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <CLIENT-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/OperationCycle/SetOperationCycleState</OPERATION-REF>
+                    </CLIENT-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dem/ClientServerInterfaces/OperationCycle</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="b7fa0f13-c62f-475d-b347-863dacc6dde9">
+                  <SHORT-NAME>InternalBehaviors_DiagnosticMonitor</SHORT-NAME>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="01574b9b-a497-4f85-b626-37e0a17c0d51">
+                      <SHORT-NAME>TimingEvent_DiagnosticMonitor</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/DianosticMonitor</START-ON-EVENT-REF>
+                      <PERIOD>0.01</PERIOD>
+                    </TIMING-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="e23bae7e-f085-4f9f-ae81-38d1b228cb86">
+                      <SHORT-NAME>OIE_InitMonitorForEvent</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/InitMonitorForEvent_DEM_E_TEST</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InitEvt_DEM_E_TEST_EVENT</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackInitMonitorForEvent/InitMonitorForEvent</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="5ae4a952-f301-4973-90a3-7abd860a221c">
+                      <SHORT-NAME>OIE_CBStatusEvt_DEM_E_TEST_EVENT</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/CBStatusEvt_DEM_E_TEST_EVENT1</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/CBStatusEvt_DEM_E_TEST_EVENT1</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange/EventStatusChanged</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="373483cc-df80-4bcc-811e-901500390f62">
+                      <SHORT-NAME>OIE_CBStatusEvt_E_MODE_CHANGE_LOCALCAN_CBStatusEvt_E_MODE_CHANGE_LOCALCAN_EventStatusChanged</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/CBStatusEvt_E_MODE_CHANGE_LOCALCAN</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/CBStatusEvt_E_MODE_CHANGE_LOCALCAN</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange/EventStatusChanged</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="7ecb830e-782a-49b5-bf94-4f8bfa0bd2ca">
+                      <SHORT-NAME>OIE_CBStatusEvt_E_MODE_CHANGE_BCAN_CBStatusEvt_E_MODE_CHANGE_BCAN_EventStatusChanged</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/CBStatusEvt_E_MODE_CHANGE_BCAN</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/CBStatusEvt_E_MODE_CHANGE_BCAN</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CallbackEventStatusChange/EventStatusChanged</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="96cac795-cccf-4572-895c-f64b50cb4e6c">
+                      <SHORT-NAME>OIE_CBReadData_DE_0001</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/CBReadData_DE_0001</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/CBReadData_DE_0001</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_0001/ReadData</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="debf7844-56d9-417e-bf74-c19fe18b6381">
+                      <SHORT-NAME>OIE_CBReadData_DE_0002</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor/CBReadData_DE_0002</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/CBReadData_DE_0002</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/CSDataServices_DE_0002/ReadData</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                  </EVENTS>
+                  <INCLUDED-DATA-TYPE-SETS>
+                    <INCLUDED-DATA-TYPE-SET>
+                      <DATA-TYPE-REFS>
+                        <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Dem/ImplementationDataTypes/Dem_OperationCycleStateType</DATA-TYPE-REF>
+                      </DATA-TYPE-REFS>
+                    </INCLUDED-DATA-TYPE-SET>
+                  </INCLUDED-DATA-TYPE-SETS>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="66c92706-b23e-4e72-8174-21886d5e8678">
+                      <SHORT-NAME>DianosticMonitor</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SERVER-CALL-POINTS>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="82d40f30-4c4a-433d-b96f-4166048638e7">
+                          <SHORT-NAME>SSCP_SetOperationCycleState</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/OpCycle_POWER_CYCLE</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/OperationCycle/SetOperationCycleState</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="d5dbef79-0d9b-44ad-93e6-a8d7e7aef355">
+                          <SHORT-NAME>DEM_E_TEST_EVENT1_SetEventStatus</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/Event_DEM_E_TEST_EVENT1</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="8dc4ce36-cf91-4713-94bc-6b785926fab9">
+                          <SHORT-NAME>DEM_E_TEST_EVENT2_SetEventStatus</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/Event_DEM_E_TEST_EVENT2</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="1eefb789-d233-41c9-b210-d0829b074753">
+                          <SHORT-NAME>DEM_E_TEST_EVENT3_SetEventStatus</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/Event_DEM_E_TEST_EVENT3</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="b46e7b43-d125-4f1a-98bd-6889a50482c0">
+                          <SHORT-NAME>DEM_E_TEST_EVENT4_SetEventStatus</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/Event_DEM_E_TEST_EVENT4</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="7f795091-4207-478e-9e2f-677df174872f">
+                          <SHORT-NAME>Det_ReportError_DS000</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/DS000</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ServiceSwComponent_Det/PortInterface/DETService/ReportError</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="1c866e95-4235-4888-9e88-eada5bb05755">
+                          <SHORT-NAME>EnableCond_EnableCondition_0</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/EnableCond_EnableCondtion_0</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/EnableCondition/SetEnableCondition</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="ea3b21bc-bb6a-4928-84f4-baf97b671077">
+                          <SHORT-NAME>IndStatus_DemIndicator_0</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/IndStatus_DemIndicator_0</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/IndicatorStatus/GetIndicatorStatus</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                        <SYNCHRONOUS-SERVER-CALL-POINT UUID="40ca986b-1d4e-4f1d-bc0e-e82c98a94ea2">
+                          <SHORT-NAME>SSCP_DianosticMonitor_OpCycle_IGNITION_CYCLE_SetOperationCycleState</SHORT-NAME>
+                          <OPERATION-IREF>
+                            <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/OpCycle_IGNITION_CYCLE</CONTEXT-R-PORT-REF>
+                            <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dem/ClientServerInterfaces/OperationCycle/SetOperationCycleState</TARGET-REQUIRED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </SYNCHRONOUS-SERVER-CALL-POINT>
+                      </SERVER-CALL-POINTS>
+                      <SYMBOL>DiagnosticMonitor</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="91f46eee-3e65-47b3-b9ee-5e8558daeffe">
+                      <SHORT-NAME>InitMonitorForEvent_DEM_E_TEST</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>InitMonitorForEvent_DEM_E_TEST</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="4ca66fb8-c078-4378-8a22-2b6d23b30490">
+                      <SHORT-NAME>CBStatusEvt_DEM_E_TEST_EVENT1</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>CBStatusEvt_DEM_E_TEST_EVENT1</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="ed4198f2-2748-40f1-9229-9269c6baa942">
+                      <SHORT-NAME>CBStatusEvt_E_MODE_CHANGE_LOCALCAN</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>CBStatusEvt_E_MODE_CHANGE_LOCALCAN</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="538b6cd0-1f98-4d93-bad0-ed6b5c1f1704">
+                      <SHORT-NAME>CBStatusEvt_E_MODE_CHANGE_BCAN</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>CBStatusEvt_E_MODE_CHANGE_BCAN</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="6555057e-3422-406c-8ec3-3fe05a3b5edd">
+                      <SHORT-NAME>CBReadData_DE_0001</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>CBReadData_DE_0001</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="a8aaaa5f-29a4-44dd-b32d-634602061524">
+                      <SHORT-NAME>CBReadData_DE_0002</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>CBReadData_DE_0002</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+            <SWC-IMPLEMENTATION>
+              <SHORT-NAME>SWC_DiagnosticMonitor_Implementation</SHORT-NAME>
+              <CODE-DESCRIPTORS>
+                <CODE>
+                  <SHORT-NAME>Default</SHORT-NAME>
+                  <ARTIFACT-DESCRIPTORS>
+                    <AUTOSAR-ENGINEERING-OBJECT />
+                  </ARTIFACT-DESCRIPTORS>
+                </CODE>
+              </CODE-DESCRIPTORS>
+              <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/AppSwComponent_Dem/SwComponentType/SWC_DiagnosticMonitor/InternalBehaviors_DiagnosticMonitor</BEHAVIOR-REF>
+            </SWC-IMPLEMENTATION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

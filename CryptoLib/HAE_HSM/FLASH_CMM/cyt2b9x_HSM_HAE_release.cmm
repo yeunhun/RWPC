@@ -1,0 +1,172 @@
+;Thanks for buying our HAE HSM product
+;HSM framework empower customer's security
+;version: 2021. 02. 19@hae
+
+local &filePath
+entry &filePath
+
+gosub Main
+enddo
+
+
+Main:
+(
+	gosub parsePath
+	gosub initCpu
+	gosub haltSys
+	gosub flashSetup
+	gosub eraseFlash
+	gosub writeFw
+	
+	sys.down
+	sys.up
+	
+	return
+)
+
+parsePath:
+(
+	&filePath=STRing.SCANAndExtract(STRing.UPpeR("&filePath"),"HSMPATH=","")
+    IF !OS.FILE("&filePath")
+	(
+		DIALOG.FILE *
+		ENTRY &filePath
+	)
+	return
+)
+
+initCpu:
+(
+	SYStem.cpu CYT2B98CA-CM0+
+	;system.cpu
+	RETURN
+)
+
+haltSys:
+(
+	sys.m.down
+	sys.reset
+	SYS.CONFIG DEBUGPORTTYPE JTAG
+	SYS.JtagClock 10MHz
+	
+	sys.option enreset on
+	sys.option waitidcode on
+	sys.option coresightreset on
+	
+	sys.option cypressacquire on
+	sys.up
+	sys.option cypressacquire off
+	
+	GOSUB wdtDisable
+	return
+)
+
+flashSetup:
+(
+	PRIVATE &nHsmCodeLargeSectors  &nHsmCodeSmallSectors
+	PRIVATE &nHsmWorkFlashLargeSectors &nHsmWorkFlashSmallSectors
+
+	&nHsmCodeLargeSectors=62.			;32KB
+	&nHsmCodeSmallSectors=16.			;8KB
+	// 128kB
+	&nHsmWorkFlashLargeSectors=48.			;2KB
+	&nHsmWorkFlashSmallSectors=256.		;128B
+
+	flash.reset
+
+	; <code flash>
+	; large code
+	FLASH.Create 1. (0x10000000)++(&nHsmCodeLargeSectors*0x8000-0x1) 0x8000 TARGET LONG
+	; small code
+	FLASH.Create 1. (0x10000000+&nHsmCodeLargeSectors*0x8000)++(&nHsmCodeSmallSectors*0x2000-0x1) 0x2000 TARGET LONG
+	
+	; <large flash>
+	; large
+	FLASH.Create 2. (0x14000000)++(&nHsmWorkFlashLargeSectors*0x800-0x1) 0x800 TARGET LONG
+	; small
+	FLASH.Create 2. (0x14000000+&nHsmWorkFlashLargeSectors*0x800)++(&nHsmWorkFlashSmallSectors*0x80-0x1) 0x80 TARGET LONG
+
+	; <SupervisoryFlash>
+	PRIVATE &i
+	&i=0.
+	RePeaT 64.
+	(
+	IF &i==(4.||5.||6.||7.||13.||50.||51.||52.||53.||54.||55.||59.||62.)
+	(
+	  FLASH.Create 3. (0x17000000+&i*0x200)++0x1ff  0x200 TARGET LONG /CENSORSHIP (0x17000000+&i*0x200)++0x1ff
+	)
+	ELSE
+	(
+	  FLASH.Create 3. (0x17000000+&i*0x200)++0x1ff  0x200 NOP LONG /CENSORSHIP (0x17000000+&i*0x200)++0x1ff
+	)
+	&i=&i+1.
+	)
+	; </SupervisoryFlash>
+
+	
+	gosub doFlashAlgorithm
+
+	return
+)
+
+eraseFlash:
+(
+	DIALOG.YESNO "Program flash memory?"
+	LOCAL &progflash
+	ENTRY &progflash
+	IF &progflash
+	(
+		;erase work flash(16KB)
+		flash.erase 0x1401C000++0x3fff
+	  
+		;erase code flash(160KB)
+		flash.erase 0x10000000++0x27FFF
+	)	
+	return
+)
+
+writeFw:
+(
+	flash.auto all /CENSORSHIP
+	data.load.auto "&filePath"
+	flash.auto off
+	
+	return
+)
+
+doFlashAlgorithm:
+(
+	PRIVATE &nSRamBaseAddress &sFirmwareRam &use_dualport &algoPath
+	&nSRamBaseAddress=0x08000000
+	&algoPath="~~/demo/arm/flash/long/traveo_ii.bin"
+	
+	&use_dualport="1"
+	;&sFirmwareRam="0x0803f800++0x7ff"		;rev B
+	;&sFirmwareRam="0x08000000++0x7ff"		;rev C
+	;&sFirmwareRam="/FirmwareRAM &(sFirmwareRam)"
+	&sFirmwareRam=""
+
+	IF (("&use_dualport"!="1")||SYStem.ACCESS.DENIED())
+	FLASH.TARGET &nSRamBaseAddress+0x1000   &nSRamBaseAddress+0x2000 0x1000 "&algoPath" /STACKSIZE 0x800 &sFirmwareRam
+	ELSE
+	FLASH.TARGET &nSRamBaseAddress+0x1000 E:&nSRamBaseAddress+0x2000 0x1000 "&algoPath" /STACKSIZE 0x800 &sFirmwareRam /DUALPORT
+
+	FLASH.CLOCK AUTO
+	return
+)
+
+wdtDisable:
+(
+	;unlock
+	Data.Set AD:0x4026C040 %Long 1
+	Data.Set AD:0x4026C040 %Long 2
+	
+	;jk@devel - global disable
+	;additional information refer to wdt_config debug_trigger_en reg in trm 
+	Data.Set AD:0x4026C000 %Long 0
+	
+	;lock again
+	Data.Set AD:0x4026C040 %Long 3
+	
+	return
+)

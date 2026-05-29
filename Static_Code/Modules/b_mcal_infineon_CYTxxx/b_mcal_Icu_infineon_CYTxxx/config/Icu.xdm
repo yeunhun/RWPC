@@ -1,0 +1,1330 @@
+<?xml version='1.0'?>
+<datamodel version="5.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Icu" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                <ad:ADMIN-DATA>
+                  <ad:DOC-REVISIONS>
+                    <ad:DOC-REVISION>
+                      <ad:REVISION-LABEL>4.2.2</ad:REVISION-LABEL>
+                      <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      <ad:DATE>2014-10-31</ad:DATE>
+                    </ad:DOC-REVISION>
+                  </ad:DOC-REVISIONS>
+                </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="DESC" 
+                   value="EN: Configuration of the Icu (Input Capture Unit) module."/>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="POSTBUILDVARIANTSUPPORT" value="true"/>
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="UPPER-MULTIPLICITY" value="*"/>
+              <a:a name="UUID" value="6f90098b-3e71-433c-a55d-c1a602d9c780"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                     type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                </a:a>
+                <a:a name="LABEL" value="Config Variant"/>
+                <a:a name="UUID" value="88840bb8-183e-4831-b9df-4949ab9b2e8a"/>
+                <a:da name="DEFAULT" value="VariantPostBuild"/>
+                <a:da name="RANGE">
+                  <a:v>VariantPostBuild</a:v>
+                </a:da>
+              </v:var>
+              <v:ctr name="IcuDemEventParameterRefs" type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId symbolic name. The standardized errors are provided in the container and can be extended by vendor specific error references."/>
+                <a:a name="OPTIONAL" value="true"/>
+                <a:a name="UUID" value="95118fe8-2925-4c61-93c2-73737517781b"/>
+                <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                </a:a>
+                <a:da name="ENABLE" value="false"/>
+                <v:ref name="ICU_E_HARDWARE_ERROR" 
+                       type="SYMBOLIC-NAME-REFERENCE">
+                  <a:a name="DESC" 
+                       value="EN: Reference to configured DEM event to report &quot;Hardware failure&quot;. If the reference is not configured the error shall not be reported."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="UUID" value="9d5d4c79-5b52-4f58-8842-576bf866ea49"/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:da name="ENABLE" value="false"/>
+                  <a:da name="REF" 
+                        value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"/>
+                </v:ref>
+              </v:ctr>
+            <v:lst name="IcuConfigSet" type="MAP">
+              <a:da name="MIN" value="1"/>
+              <v:ctr name="IcuConfigSet" type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: This container contains the configuration parameters and sub containers of the AUTOSAR Icu module."/>
+                <a:a name="UUID" value="dc430853-01c4-4f65-ae00-6fa6a5ac8af0"/>
+                <v:var name="IcuMaxChannel" type="INTEGER">
+                  <a:a name="DESC" 
+                       value="EN: This parameter contains the number of Channels configured. It will be gathered by tools during the configuration stage."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="7c8af001-58e7-45a6-bcc5-16d3d3184b6d"/>
+                  <a:da name="DEFAULT" type="XPath" 
+                        expr="num:integer(count(../IcuChannel/*))"/>
+                  <a:da name="INVALID" type="XPath" 
+                        expr=". != num:integer(count(../IcuChannel/*))" 
+                        true="IcuMaxChannel is not equal configured channels. Press calc button."/>
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=65535"/>
+                    <a:tst expr="&gt;=0"/>
+                  </a:da>
+                </v:var>
+                <v:lst name="IcuChannel" type="MAP">
+                  <a:da name="MIN" value="1"/>
+                  <v:ctr name="IcuChannel" type="IDENTIFIABLE">
+                    <a:a name="DESC" 
+                         value="EN: Configuration of an individual ICU channel."/>
+                    <a:a name="UUID" 
+                         value="8c0bca1d-6bcc-453c-9b52-3f4dd7aabdfe"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:uniq(../../IcuChannel/*/@name, ./@name)"
+                            false="Only one IcuChannel is allowed to use this name."/>
+                      <a:tst expr="node:containsValue(node:foreach(node:paths(../../../../IcuConfigSet/*/IcuChannel/*), 'i', 
+                                                                  &quot;node:when(node:name($i) = node:name(.) and 
+                                                                                  substring-before(node:path($i), node:name($i)) != substring-before(node:path(.), node:name(.)), 
+                                                                                    node:ref(concat($i,'/IcuChannelId')) != ./IcuChannelId)&quot;), 'true')"
+                             true="IcuChannel is same name, but IcuChannelId is different."/>
+                    </a:da>
+                    <v:var name="IcuChannelId" type="INTEGER">
+                      <a:a name="DESC" 
+                           value="EN: Channel Id of the ICU channel. This value will be assigned to the symbolic name derived of the IcuChannel container short name."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="SCOPE" value="ECU"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                      <a:a name="UUID" 
+                           value="026bcfe3-b73f-4bef-a917-2701caea1ec8"/>
+                      <a:da name="DEFAULT" type="XPath" 
+                            expr="num:integer(../@index)"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:uniq(../../*/IcuChannelId,.)" 
+                               false="The logical Channel ID has to be unique."/>
+                        <a:tst expr=". &gt;= count(../../*)" 
+                               true="The logical Channel ID has to be zero-based and consecutive."/>
+                      </a:da>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=65535"/>
+                        <a:tst expr="&gt;=0"/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuResource" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: Specifies the physical hardware timer that is assigned to this logical channel. Select TCPWM resource or GPIO resource. TCPWM resource is used for ICU channel and supports all the ICU measurement modes. GPIO resource is used to detect external interrupt and supports only Edge counter and Signal edge detect modes."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                          value="188881d1-b388-4a65-98fe-fea37bbec372"/>
+                      <a:da name="DEFAULT" type="XPath" expr="node:range( . )[1]"/>
+                      <a:da name="RANGE" type="XPath" 
+                            expr="text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' ')) | text:split( text:join( node:foreach(ecu:list('PORT.ports'), 'i', &quot;text:join( text:concat( concat('GPIO_', string($i), '_'), ecu:list(concat('PORT.',string($i) ,'.pins') ) ),  ',')&quot;),  ','),  ',')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst
+                             expr="text:uniq(../../../IcuChannel/*/IcuResource,.)"
+                             false="Only one configuration per Icu Resource is allowed in the same configuration set." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer,.)"
+                             true="GptTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer,.)"
+                             true="GptPredefTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuConfigSet/*/OcuChannel/*/OcuTimer,.)"
+                             true="OcuTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer,.)"
+                             true="PwmTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer,.)"
+                             true="PwmStartDelayTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuDefaultStartEdge" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: Configures the default-activation-edge which shall be used for this channel if there was no activation-edge configured by the call of service Icu_SetActivationCondition()."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="81ee3f3b-b208-4ed5-8bfd-434e9f002b69"/>
+                      <a:da name="DEFAULT" value="ICU_FALLING_EDGE"/>
+                      <a:da name="RANGE">
+                        <a:v>ICU_BOTH_EDGES</a:v>
+                        <a:v>ICU_FALLING_EDGE</a:v>
+                        <a:v>ICU_RISING_EDGE</a:v>
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuMeasurementMode" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: Configures the measurement mode of this channel."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="3f061857-5a2e-45df-b6c8-3c65bf659fa5"/>
+                      <a:da name="DEFAULT" value="ICU_MODE_EDGE_COUNTER"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:value(.) = &apos;ICU_MODE_SIGNAL_MEASUREMENT&apos; and text:contains(node:value(../IcuResource),'GPIO_')"
+                               true="ICU_MODE_SIGNAL_MEASUREMENT can be selected when IcuResource is TCPWM"/>
+                        <a:tst expr="node:value(.) = &apos;ICU_MODE_TIMESTAMP&apos; and text:contains(node:value(../IcuResource),'GPIO_')"
+                               true="ICU_MODE_TIMESTAMP can be selected when IcuResource is TCPWM"/>
+                      </a:da>
+                      <a:da name="RANGE" type="XPath"
+                            expr="node:when(text:contains(node:value(../IcuResource),'GPIO_'),
+                                  text:split(concat(&apos;ICU_MODE_EDGE_COUNTER, &apos;,&apos;ICU_MODE_SIGNAL_EDGE_DETECT, &apos;), &apos;, &apos;),
+                                  text:split(concat(&apos;ICU_MODE_EDGE_COUNTER, &apos;,&apos;ICU_MODE_SIGNAL_EDGE_DETECT, &apos;,&apos;ICU_MODE_SIGNAL_MEASUREMENT, &apos;,&apos;ICU_MODE_TIMESTAMP, &apos;), &apos;, &apos;) )"/>
+                    </v:var>
+                    <v:var name="IcuWakeupCapability" type="BOOLEAN">
+                      <a:a name="DESC" 
+                           value="EN: Information about the wakeup-capability of this channel."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="52b4906d-77a9-4b41-af8e-79fe831164c1"/>
+                      <a:da name="DEFAULT" value="false"/>
+                      <a:da name="INVALID" type="XPath" 
+                            expr="node:value(.) = &apos;true&apos; and not(node:exists(../IcuWakeup))" 
+                            true="IcuWakeup/IcuChannelWakeupInfo not configured for this channel."/>
+                    </v:var>
+                    <v:var name="IcuNoiseFilterEnable" type="BOOLEAN">
+                      <a:a name="DESC" 
+                           value="EN: Noise filter function for this channel. This function is available in GPIO resource only. When TCPWM resource is selected as IcuResource, this function is not available."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                          value="63511575-f1b2-481a-b8fd-dbd606613fa2"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="contains(../IcuResource, 'GPIO_')"/>
+                      <a:da name="DEFAULT" value="false"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:value(.) = 'true' and 
+                                     node:containsValue(node:foreach(node:paths(../../../IcuChannel/*), 'i', 
+                                                                    &quot;node:when(contains(node:ref(concat($i,'/IcuResource')), 'GPIO_') and node:ref(concat($i,'/IcuNoiseFilterEnable')) = 'true' and node:ref(concat($i,'/IcuResource')) != ../IcuResource, 
+                                                                                    substring-before(substring-after(node:ref(concat($i,'/IcuResource')), 'GPIO_'), '_') = substring-before(substring-after(../IcuResource, 'GPIO_'), '_'))&quot;), 'true')"
+                               true="Only one IcuNoiseFilterEnable can be enabled in the same GPIO port"/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuOverflowNotification" type="FUNCTION-NAME">
+                      <a:a name="DESC" 
+                           value="EN: Notification function when the related timer overflows. This function is available in Time stamp and Signal Measurement modes."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                          value="51399758-5907-4c02-b538-35749fd402c8"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst
+                             expr="(. = '') or text:uniq(../../*/IcuOverflowNotification,.)"
+                             false="Duplicated value, IcuOverflowNotification must be unique across all channels." />
+                        <a:tst
+                             expr="(. = '') or not( node:containsValue(../../*/IcuSignalEdgeDetection/IcuSignalNotification, .) )"
+                             false="Duplicated value, IcuOverflowNotification and IcuSignalNotification must be unique across all channels." />
+                        <a:tst
+                             expr="(. = '') or not( node:containsValue(../../*/IcuTimestampMeasurement/IcuTimestampNotification, .) )"
+                             false="Duplicated value, IcuOverflowNotification and IcuTimestampNotification must be unique across all channels." />
+                        <a:tst
+                             expr="(. = '') or not( node:containsValue(../../*/IcuTimestampMeasurement/IcuDmaErrorNotification, .) )"
+                             false="Duplicated value, IcuOverflowNotification and IcuDmaErrorNotification must be unique across all channels." />
+                        <a:tst
+                             expr="../IcuMeasurementMode = 'ICU_MODE_TIMESTAMP' or ../IcuMeasurementMode = 'ICU_MODE_SIGNAL_MEASUREMENT'"
+                             false="Overflow notification function is available in Time stamp and Signal Measurement modes." />
+                        <a:tst
+                             expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                             false="Invalid name of the IcuOverflowNotification. Must be valid C function name."/>
+                      </a:da>
+                      <a:da name="DEFAULT" value="IcuOverflowNotification_0"/>
+                    </v:var>
+                    <v:ref name="IcuChannelClkSrcRef" type="REFERENCE">
+                      <a:a name="DESC" 
+                           value="EN: Reference to the McuClockReferencePoint from which the channel clock is derived."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="UUID" 
+                           value="57f3bc88-9c22-4729-8064-8102fa669df5"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="contains(../IcuResource, 'TCPWM_')"/>
+                      <a:da name="RANGE" type="XPath">
+                        <a:tst expr="node:foreach(node:paths(/AUTOSAR/TOP-LEVEL-PACKAGES/Mcu/ELEMENTS/Mcu/McuModuleConfiguration/*/McuClockSettingConfig/*/McuClockReferencePoint/*),'ref','node:when(substring-before(substring-after(node:ref($ref)/McuClock,&quot;MCU_PCLK_TCPWM&quot;),&quot;_&quot;)=substring-before(substring-after(node:current()/../IcuResource,&quot;TCPWM_&quot;),&quot;_&quot;) and substring-after(node:ref($ref)/McuClock,&quot;CLOCKS&quot;)=substring-after(substring-after(node:current()/../IcuResource,&quot;TCPWM_&quot;),&quot;_&quot;),$ref)')"/>
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:refexists(node:current()) and node:ref(node:current())/McuClock = concat( 'MCU_', ecu:get( concat('TCPWM.',substring-before(substring-after(node:current()/../IcuResource,'TCPWM_'),'_'),'.CLOCKS.',substring-after(substring-after(node:current()/../IcuResource, 'TCPWM_'),'_'))))"
+                            false="Required clock reference point for ICU is not configured in Mcu module."/>
+                      </a:da>
+                      <a:da name="REF" 
+                            value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"/>
+                    </v:ref>
+                    <v:var name="IcuChannelTickFrequency" type="FLOAT">
+                      <a:a name="DESC" 
+                           value="EN: Specifies the tick frequency of the timer in Hz that is used for Signal measurement and Time stamp modes."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="dfdf3fc1-ccee-4c98-9ea4-ddb1538bbf21"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="contains(../IcuResource, 'TCPWM_') and ../IcuMeasurementMode = 'ICU_MODE_TIMESTAMP' or contains(../IcuResource, 'TCPWM_') and ../IcuMeasurementMode = 'ICU_MODE_SIGNAL_MEASUREMENT'"/>
+                      <a:da name="DEFAULT" type="XPath" expr="(node:ref(../IcuChannelClkSrcRef)/McuClockReferencePointFrequency)"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst
+                          expr="num:i(num:div(node:ref(../IcuChannelClkSrcRef)/McuClockReferencePointFrequency,.)) &gt;= 1"
+                          false="The configured IcuChannelTickFrequency is out of range (too low prescaler)."/>
+                        <a:tst
+                          expr="num:i(num:div(node:ref(../IcuChannelClkSrcRef)/McuClockReferencePointFrequency,.)) &lt;= 128"
+                          false="The configured IcuChannelTickFrequency is out of range (too high prescaler)."/>
+                        <a:tst
+                          expr="num:mod(node:ref(../IcuChannelClkSrcRef)/McuClockReferencePointFrequency,.)=0"
+                          false="The configured IcuChannelTickFrequency is invalid due to prescaler inaccuracy."/>
+                        <a:tst
+                          expr="text:contains(text:split('1 2 4 8 16 32 64 128'),num:i(num:div(node:ref(../IcuChannelClkSrcRef)/McuClockReferencePointFrequency,.)))"
+                          false="The configured IcuChannelTickFrequency is out of range due to prescaler inaccuracy."/>
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuInputTriggerSelection" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: &lt;html&gt;Specifies input trigger only when TCPWM resource is selected. The input trigger is used as the input signal bound to one or more TCPWM resources.&lt;br/&gt;&lt;br/&gt;TR_ALL_CNT_IN: Group trigger that is shared by all counters.&lt;br/&gt;TR_ONE_CNT_IN: One-to-one trigger. The trigger is connected to a specified TCPWM resource.&lt;br/&gt;&lt;br/&gt;The trigger configuration between IO input and TCPWM is also required in PORT module. Group trigger or One-to-one trigger is available."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="1ba4262c-c5e1-4632-bbce-024fd231144d"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="contains(../IcuResource, 'TCPWM_')"/>
+                      <a:da name="RANGE" type="XPath"
+                            expr="(text:order(node:foreach(ecu:list(node:when(text:contains(node:value(../IcuResource),'TCPWM_'), concat('TCPWM.',substring-before(substring-after(../IcuResource,'TCPWM_'),'_'),'.pins.TR_ONE_CNT_IN'), 'TCPWM.0.pins.TR_ONE_CNT_IN')),'trg',&quot;node:when(contains(node:current()/../IcuResource, &apos;TCPWM_&apos;) and num:i(num:div(num:i(substring-after($trg,concat('TCPWM_',substring-before(substring-after(../IcuResource,'TCPWM_'),'_'),'_TR_ONE_CNT_IN_'))),num:i(ecu:get(node:when(text:contains(node:value(../IcuResource),'TCPWM_'), concat('TCPWM.',substring-before(substring-after(../IcuResource,'TCPWM_'),'_'),'.TR_ONE_CNT_NR'), 'TCPWM.0.TR_ONE_CNT_NR')))))=num:i(substring-after(substring-after(../IcuResource,'TCPWM_'),'_')),$trg,&apos;&apos;)&quot;)))[position()>=2] |
+                                   node:foreach(text:range(0,ecu:get(node:when(text:contains(node:value(../IcuResource),'TCPWM_'), concat('TCPWM.',substring-before(substring-after(../IcuResource,'TCPWM_'),'_'),'.TR_ALL_CNT_NR'), 'TCPWM.0.TR_ALL_CNT_NR'))-1),'trg',&quot;ecu:get(node:when(text:contains(node:value(../IcuResource),'TCPWM_'), concat(&apos;TCPWM.&apos;,substring-before(substring-after(../IcuResource,&apos;TCPWM_&apos;),&apos;_&apos;),&apos;.trigg.INPUT.TR_ALL_CNT_IN.&apos;,string(num:i($trg)),&apos;.signal&apos;), 'TCPWM.0.trigg.INPUT.TR_ALL_CNT_IN.0.signal'))&quot;)"/>
+                      <a:da name="DEFAULT" type="XPath" expr="node:foreach(text:range(0,ecu:get(concat(&apos;TCPWM.&apos;,substring-before(substring-after(../IcuResource,&apos;TCPWM_&apos;),&apos;_&apos;),&apos;.TR_ALL_CNT_NR&apos;))-1),'trg',&quot;ecu:get(concat(&apos;TCPWM.&apos;,substring-before(substring-after(../IcuResource,&apos;TCPWM_&apos;),&apos;_&apos;),&apos;.trigg.INPUT.TR_ALL_CNT_IN.&apos;,string(num:i($trg)),&apos;.signal&apos;))&quot;)[1]"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="node:containsValue(../../../IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                               true="The same value as IcuChannelGroupStartTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst expr="node:containsValue(../../../IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                               true="The same value as IcuChannelGroupStopTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                             true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                             true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                             true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                             true="PwmChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                             true="PwmChannelGroupStopTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0,.)"
+                             true="PwmStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1,.)"
+                             true="PwmStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                             true="PwmStartDelayTrigger already uses this TCPWM trigger." />
+                      </a:da>
+					  <a:da name="WARNING" type="XPath">
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                             true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuEnableDebug" type="BOOLEAN">
+                      <a:a name="DESC" 
+                           value="EN: Enables debug capability to stop a timer channel when processor is in debug mode."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="d7eee624-dfca-4a58-bee2-bea38b449e06"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="contains(../IcuResource, 'TCPWM_') and ../IcuMeasurementMode = 'ICU_MODE_TIMESTAMP' or contains(../IcuResource, 'TCPWM_') and ../IcuMeasurementMode = 'ICU_MODE_SIGNAL_MEASUREMENT'"/>
+                      <a:da name="DEFAULT" value="false"/>
+                    </v:var>
+                    <v:ctr name="IcuSignalEdgeDetection" type="IDENTIFIABLE">
+                      <a:a name="DESC" 
+                           value="EN: This container contains the configuration (parameters) in case the measurement mode is &quot;IcuSignalEdgeDetection&quot;"/>
+                      <a:a name="UUID" 
+                           value="d38d79e4-188a-465d-b8f7-923fb8bde427"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="node:value(../IcuMeasurementMode) = 'ICU_MODE_SIGNAL_EDGE_DETECT'"/>
+                      <v:var name="IcuSignalNotification" type="FUNCTION-NAME">
+                        <a:a name="DESC" 
+                             value="EN: Notification function for signal notification."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="8b1e51ee-ef67-496b-be31-e755eadde48c"/>
+                        <a:da name="ENABLE" value="false"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="(. = '') or text:uniq(../../../*/IcuSignalEdgeDetection/IcuSignalNotification,.)"
+                               false="Duplicated value, IcuSignalNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuTimestampMeasurement/IcuTimestampNotification, .) )"
+                               false="Duplicated value, IcuTimestampNotification and IcuSignalNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuOverflowNotification, .) )"
+                               false="Duplicated value, IcuOverflowNotification and IcuSignalNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuTimestampMeasurement/IcuDmaErrorNotification, .) )"
+                               false="Duplicated value, IcuDmaErrorNotification and IcuSignalNotification must be unique across all channels." />
+                          <a:tst
+                               expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" 
+                               false="Invalid name of the IcuSignalNotification. Must be valid C function name."/>
+                        </a:da>
+                        <a:da name="DEFAULT" value="IcuSignalNotification_0"/>
+                      </v:var>
+                    </v:ctr>
+                    <v:ctr name="IcuSignalMeasurement" type="IDENTIFIABLE">
+                      <a:a name="DESC" 
+                           value="EN: This container contains the configuration (parameters) in case the measurement mode is &quot;IcuSignalMeasurement&quot;"/>
+                      <a:a name="UUID" 
+                           value="a7220779-f519-40d2-bb62-70907d096e3e"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="(node:value(../IcuMeasurementMode) = 'ICU_MODE_SIGNAL_MEASUREMENT') and (contains(../IcuResource, 'TCPWM_'))"/>
+                      <v:var name="IcuSignalMeasurementProperty" 
+                             type="ENUMERATION">
+                        <a:a name="DESC" 
+                             value="EN: Configures the property that could be measured in case the mode is &quot;IcuSignalMeasurement&quot;."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="55b36c67-10ff-4c95-a558-2191cc3eb79a"/>
+                        <a:da name="DEFAULT" value="ICU_DUTY_CYCLE"/>
+                        <a:da name="RANGE">
+                          <a:v>ICU_DUTY_CYCLE</a:v>
+                          <a:v>ICU_HIGH_TIME</a:v>
+                          <a:v>ICU_LOW_TIME</a:v>
+                          <a:v>ICU_PERIOD_TIME</a:v>
+                        </a:da>
+                      </v:var>
+                    </v:ctr>
+                    <v:ctr name="IcuTimestampMeasurement" type="IDENTIFIABLE">
+                      <a:a name="DESC" 
+                           value="EN: This container contains the configuration (parameters) in case the measurement mode is &quot;IcuTimestamp&quot;"/>
+                      <a:a name="UUID" 
+                           value="1c2eedaf-e02e-41b0-ab8b-af16835f44ac"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="(node:value(../IcuMeasurementMode) = 'ICU_MODE_TIMESTAMP') and (contains(../IcuResource, 'TCPWM_'))"/>
+                      <v:var name="IcuTimestampMeasurementProperty" 
+                             type="ENUMERATION">
+                        <a:a name="DESC" 
+                             value="EN: Configures the handling of the buffer in case the mode is &quot;Timestamp&quot;"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="eb285ad3-b7ff-4d2a-b50d-ab9e7cc942e6"/>
+                        <a:da name="DEFAULT" value="ICU_CIRCULAR_BUFFER"/>
+                        <a:da name="RANGE">
+                          <a:v>ICU_CIRCULAR_BUFFER</a:v>
+                          <a:v>ICU_LINEAR_BUFFER</a:v>
+                        </a:da>
+                      </v:var>
+                      <v:var name="IcuTimestampNotification" 
+                             type="FUNCTION-NAME">
+                        <a:a name="DESC" 
+                             value="EN: Notification function if the number of requested timestamps (Notification interval > 0) are acquired."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="1dcd3163-a77c-4a5d-a730-87ce45f7f42e"/>
+                        <a:da name="ENABLE" value="false"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="(. = '') or text:uniq(../../../*/IcuTimestampMeasurement/IcuTimestampNotification,.)"
+                               false="Duplicated value, IcuTimestampNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuSignalEdgeDetection/IcuSignalNotification, .) )"
+                               false="Duplicated value, IcuTimestampNotification and IcuSignalNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuOverflowNotification, .) )"
+                               false="Duplicated value, IcuOverflowNotification and IcuTimestampNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuTimestampMeasurement/IcuDmaErrorNotification, .) )"
+                               false="Duplicated value, IcuDmaErrorNotification and IcuTimestampNotification must be unique across all channels." />
+                          <a:tst
+                               expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                               false="Invalid name of the IcuTimestampNotification. Must be valid C function name."/>
+                        </a:da>                        
+                        <a:da name="DEFAULT" value="IcuTimestampNotification_0"/>
+                      </v:var>
+                      <v:var name="IcuChannelBufferName" type="STRING">
+                        <a:a name="DESC"
+                             value="EN: Specifies the name of data array that is used for the channel&apos;s Timestamp buffer. Icu_StartTimestamp() confirms whether BufferPtr has a value in the range specified by IcuChannelBufferName and IcuChannelBufferSize. When IcuChannelBufferName is set to &quot;NULL&quot;, buffer range is not checked."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="422ac9bb-c559-4e92-a131-1eaef516f2c3"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="(. = '')"
+                               true="IcuChannelBufferName should be specified." />
+                          <a:tst
+                               expr="(. = 'NULL') or text:uniq(../../../*/IcuTimestampMeasurement/IcuChannelBufferName,.)"
+                               false="Duplicated value, IcuChannelBufferName must be unique across all channels." />
+                        </a:da>
+                        <a:da name="DEFAULT" value="NULL"/>
+                      </v:var>
+                      <v:var name="IcuChannelBufferSize" 
+                             type="INTEGER">
+                        <a:a name="DESC"
+                             value="EN: Specifies the length of data array which is used for the channel's Timestamp buffer. Icu_StartTimestamp() confirms whether BufferPtr has a value in the range specified by IcuChannelBufferSize."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                         </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="ed338abe-c8b3-40b7-a1ed-6d9b34958c82"/>
+                        <a:da name="INVALID" type="Range">
+                          <a:tst expr="&lt;=65535"/>
+                          <a:tst expr="&gt;=1"/>
+                        </a:da>
+                        <a:da name="DEFAULT" value="1"/>
+                      </v:var>
+                      <v:var name="IcuUseDma" type="BOOLEAN">
+                        <a:a name="DESC" 
+                             value="EN: Enables DMA function for Time stamp mode."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="175a52f5-5ee0-4358-bd27-96b27d3df905"/>
+                        <a:da name="DEFAULT" value="false"/>
+                      </v:var>
+                      <v:var name="IcuDmaChannel" type="ENUMERATION">
+                        <a:a name="DESC"
+                             value="EN: Specifies the input trigger from TCPWM to DataWire (DW) channel to initiate a time stamp data transfer. DataWire (DW) is used to transfer data between memory and peripherals. The input trigger configuration between TCPWM and DW is required in PORT module."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="b734483b-47b4-479d-a8bd-36cec77d8477"/>
+                        <a:da name="ENABLE" type="XPath"
+                              expr="../IcuUseDma = &apos;true&apos;"/>
+                        <a:da name="RANGE" type="XPath" expr="text:difference(node:foreach(ecu:list(node:when(text:contains(node:value(../../IcuResource),'TCPWM_'), concat('CPUSS.trigg.FROM.TCPWM.',substring-before(substring-after(../../IcuResource,'TCPWM_'),'_'),'.TR_OUT0.signals'), 'CPUSS.trigg.FROM.TCPWM.0.TR_OUT0.signals')),'trg',&quot;node:when(contains($trg,'CPUSS_DW'),$trg,&apos;&apos;)&quot;), &apos;&apos;)"/>
+                        <a:da name="DEFAULT" type="XPath" expr="node:range( . )[1]"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="../../IcuMeasurementMode = 'ICU_MODE_TIMESTAMP' and
+                                       ../IcuUseDma != 'false' and 
+                                       node:containsValue(node:foreach(node:paths(../../../../../../IcuConfigSet/*/IcuChannel/*), 'i', 
+                                                                       &quot;node:when(node:ref(concat($i,'/IcuMeasurementMode')) = 'ICU_MODE_TIMESTAMP' and 
+                                                                                        node:exists(concat($i,'/IcuTimestampMeasurement/IcuUseDma')) and 
+                                                                                          node:ref(concat($i,'/IcuTimestampMeasurement/IcuUseDma')) != 'false' and 
+                                                                                            node:exists(concat($i,'/IcuTimestampMeasurement/IcuDmaChannel')) and 
+                                                                                              node:ref(concat($i,'/IcuTimestampMeasurement/IcuDmaChannel'))=(.), 
+                                                                                       node:ref(concat($i,'/IcuResource'))!=(../../IcuResource))&quot;), 'true')" 
+                                true="There are different combinations of IcuDmaChannel and IcuResource."/>
+                        </a:da>
+                      </v:var>
+                      <v:var name="IcuDmaErrorNotification" 
+                             type="FUNCTION-NAME">
+                        <a:a name="DESC" 
+                             value="EN: Notification function for Dma Error."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" 
+                             value="e3ccd678-28c1-48bb-837c-6893003473f0"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst
+                               expr="../IcuUseDma = &apos;true&apos;"
+                               false="IcuDmaErrorNotification needs to enable IcuUseDma." />
+                          <a:tst
+                               expr="(. = '') or text:uniq(../../../*/IcuTimestampMeasurement/IcuDmaErrorNotification,.)"
+                               false="Duplicated value, IcuDmaErrorNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuSignalEdgeDetection/IcuSignalNotification, .) )"
+                               false="Duplicated value, IcuDmaErrorNotification and IcuSignalNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuOverflowNotification, .) )"
+                               false="Duplicated value, IcuOverflowNotification and IcuDmaErrorNotification must be unique across all channels." />
+                          <a:tst
+                               expr="(. = '') or not( node:containsValue(../../../*/IcuTimestampMeasurement/IcuTimestampNotification, .) )"
+                               false="Duplicated value, IcuDmaErrorNotification and IcuTimestampNotification must be unique across all channels." />
+                          <a:tst
+                               expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                               false="Invalid name of the IcuDmaErrorNotification. Must be valid C function name."/>
+                        </a:da>                        
+                        <a:da name="DEFAULT" value="IcuDmaErrorNotification_0"/>
+                      </v:var>
+                      </v:ctr>
+                    <v:ctr name="IcuWakeup" type="IDENTIFIABLE">
+                      <a:a name="DESC" 
+                           value="EN: This container contains the configuration (parameters) needed to configure a wakeup capable channel"/>
+                      <a:a name="UUID" 
+                           value="630f694c-3dc2-4a6d-89db-19673eeb0d5b"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:da name="ENABLE" type="XPath"
+                            expr="node:value(../IcuWakeupCapability)"/>
+                      <v:ref name="IcuChannelWakeupInfo" 
+                             type="SYMBOLIC-NAME-REFERENCE">
+                        <a:a name="DESC" 
+                             value="EN: If the wakeup-capability is true the wakeup source referenced  is transmitted to the ECU State Manager (EcuM) ."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="UUID" 
+                             value="dd676944-14e3-4334-b1b2-c232145a8e7d"/>
+                        <a:da name="ENABLE" value="false"/>
+                        <a:da name="REF" 
+                              value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource"/>
+                     </v:ref>
+                      <v:var name="IcuDisableEcumWakeupNotification" type="BOOLEAN">
+                        <a:a name="DESC" 
+                             value="EN: &lt;html&gt;Disables the calling of EcuM_CheckWakeup() from Icu interrupt function for this channel.&lt;br/&gt;true: Icu interrupt function does not call the EcuM_CheckWakeup()&lt;br/&gt;false: Icu interrupt function calls the EcuM_CheckWakeup()"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID" value="793fe12b-a3cf-4f94-8521-e8d0bd401d16"/>
+                        <a:da name="DEFAULT" value="false"/>
+                      </v:var>
+                    </v:ctr>
+                  </v:ctr>
+                </v:lst>
+                <v:lst name="IcuChannelGroup" type="MAP">
+                  <a:da name="MIN" value="0"/>
+                  <v:ctr name="IcuChannelGroup" type="IDENTIFIABLE">
+                    <a:a name="DESC" 
+                         value="EN: This container contains the configuration of Icu ChannelGroup."/>
+                    <a:a name="UUID" 
+                         value="fee8cfc3-ee78-42ca-a78d-7a6bc6c60922"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:uniq(../../IcuChannelGroup/*/@name, ./@name)" false="Only one IcuChannelGroup is allowed to use this name."/>
+                      <a:tst expr="node:containsValue(node:foreach(node:paths(../../../../IcuConfigSet/*/IcuChannelGroup/*), 'i', 
+                                                                  &quot;node:when(node:name($i) = node:name(.), node:ref(concat($i,'/IcuChannelGroupId')) != ./IcuChannelGroupId)&quot;), 'true')"
+                             true="IcuChannelGroup is same name, but IcuChannelGroupId is different."/>
+                    </a:da>
+                    <v:var name="IcuChannelGroupId" type="INTEGER">
+                      <a:a name="DESC" 
+                           value="EN: Group Id of the ICU channel group. This value will be assigned to the symbolic name derived of the IcuChannelGroup container short name."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="SCOPE" value="ECU"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                      <a:a name="UUID" value="3ffc666e-9203-4bd1-a52e-3241406ed241"/>
+                      <a:da name="INVALID" type="Range">
+                        <a:tst expr="&lt;=65535"/>
+                        <a:tst expr="&gt;=0"/>
+                      </a:da>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr=". &gt;= count(../../*)" 
+                               true="The logical Channel Group ID has to be zero-based and consecutive."/>
+                        <a:tst expr="text:uniq(../../*/IcuChannelGroupId,.)" 
+                               false="The logical Channel Group ID has to be unique."/>
+                      </a:da>
+                      <a:da name="DEFAULT" type="XPath" expr="num:integer(../@index)"/>
+                    </v:var>
+                    <v:var name="IcuChannelGroupStartTrigger" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: &lt;html&gt;Specifies the input trigger to start the ICU channel group synchronously. When this parameter is configured, a trigger signal is required to start all the channels in the group. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Icu_StartGroupTrigger(). When this parameter is not configured, the channels in the group start sequentially by Icu_StartGroupTrigger().&lt;br/&gt;&lt;br/&gt;In the following cases, the channels shall be started sequentially by Icu_StartGroupTrigger() even if this parameter is configured.&lt;br/&gt;- Measurement mode is Signal measurement.&lt;br/&gt;- IcuResource is GPIO."/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="f0cd3b24-f7fc-4797-8055-d1392597c7df"/>
+                      <a:da name="DEFAULT" type="XPath" expr="node:range( . )[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:contains(node:foreach(node:refs(../IcuChannelRef/*)/IcuResource,'i',&quot;node:when(starts-with(string($i),substring-before(.,'TR_')) or contains($i, 'GPIO_'),'true','false')&quot;),'false')"
+                               true="IcuChannelRef has IcuResource of different instance or IcuChannelGroupStartTrigger does not match channels in group."/>
+                        <a:tst expr="../../../IcuChannel/*/IcuInputTriggerSelection = ." 
+                               true="The same value as IcuInputTriggerSelection cannot be set."/>
+                        <a:tst expr="node:containsValue(../../*/IcuChannelGroupStopTrigger,.)"
+                               true="The same value as IcuChannelGroupStopTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                             true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                             true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                             true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                             true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                             true="PwmChannelGroupStopTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0,.)"
+                             true="PwmStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1,.)"
+                             true="PwmStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                             true="PwmStartDelayTrigger already uses this TCPWM trigger." />
+                      </a:da>
+                      <a:da name="WARNING" type="XPath">
+                        <a:tst expr="text:uniq(../../*/IcuChannelGroupStartTrigger,.)" 
+                               false="One configuration for each channel allowed in the same configuration set."/>
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                             true="PwmChannelGroupStartTrigger already uses this TCPWM trigger." />
+                      </a:da>
+                    </v:var>
+                    <v:var name="IcuChannelGroupStopTrigger" type="ENUMERATION">
+                      <a:a name="DESC" 
+                           value="EN: &lt;html&gt;Specifies the input trigger to stop the ICU channel group synchronously. When this parameter is configured, a trigger signal is required to stop all the channels in the group. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Icu_StopGroupTrigger(). When this parameter is not configured, the channels in the group stop sequentially by Icu_StopGroupTrigger().&lt;br/&gt;&lt;br/&gt;In the following cases, the channels shall be stopped sequentially by Icu_StopGroupTrigger() even if this parameter is configured.&lt;br/&gt;- Measurement mode is Signal measurement.&lt;br/&gt;- IcuResource is GPIO."/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="Cypress"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" 
+                           value="cbe79ed1-fbd7-4ffe-950c-3cbb4e528adb"/>
+                      <a:da name="DEFAULT" type="XPath" expr="node:range( . )[1]"/>
+                      <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'),'i','text:join(text:concat(concat(&quot;TCPWM.&quot;,string($i),&quot;.trigg.INPUT.TR_ALL_CNT_IN.&quot;),text:concat(node:foreach(text:range(0,ecu:get(concat(&quot;TCPWM.&quot;,string($i),&quot;.TR_ALL_CNT_NR&quot;))-1),&quot;j&quot;,&quot;string(num:i($j))&quot;),&quot;.signal&quot;)))')),' '),'k','ecu:get(string($k))')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:contains(node:foreach(node:refs(../IcuChannelRef/*)/IcuResource,'i',&quot;node:when(starts-with(string($i),substring-before(.,'TR_'))or contains($i, 'GPIO_'),'true','false')&quot;),'false')"
+                               true="IcuChannelRef has IcuResource of different instance or IcuChannelGroupStopTrigger does not match channels in group."/>
+                        <a:tst expr="../../../IcuChannel/*/IcuInputTriggerSelection = ." 
+                               true="The same value as IcuInputTriggerSelection cannot be set."/>
+                        <a:tst expr="node:containsValue(../../*/IcuChannelGroupStartTrigger,.)"
+                               true="The same value as IcuChannelGroupStartTrigger cannot be set in the same cofiguration set."/>
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                             true="GptPredefTimerStartTriggerSelect already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                             true="GptInputTriggerSelection already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect0,.)"
+                             true="OcuStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Ocu/ELEMENTS/Ocu/OcuGeneral/OcuStartTriggerSelect1,.)"
+                             true="OcuStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                             true="PwmChannelGroupStartTrigger already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0,.)"
+                             true="PwmStartTriggerSelect0 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1,.)"
+                             true="PwmStartTriggerSelect1 already uses this TCPWM trigger." />
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                             true="PwmStartDelayTrigger already uses this TCPWM trigger." />
+                      </a:da>
+                      <a:da name="WARNING" type="XPath">
+                        <a:tst expr="text:uniq(../../*/IcuChannelGroupStopTrigger,.)" 
+                               false="One configuration for each channel allowed in the same configuration set."/>
+                        <a:tst
+                             expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                             true="PwmChannelGroupStopTrigger already uses this TCPWM trigger." />
+                      </a:da>
+                    </v:var>
+                    <v:lst name="IcuChannelRef" >
+                      <a:da name="MIN" value="1"/>
+                      <v:ref name="IcuChannelRef" 
+                             type="REFERENCE">
+                        <a:a name="DESC" 
+                             value="EN: This parameter contains reference to the Icu channel Assignment of IcuChannels to a IcuGroups."/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                          <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="Cypress"/>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                        <a:a name="SCOPE" value="LOCAL"/>
+                        <a:a name="UUID" 
+                             value="f9151a35-1811-4599-8e98-015a5146c597"/>
+                        <a:da name="REF" 
+                              value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel"/>
+                        <a:da name="RANGE" type="XPath"
+                              expr="node:foreach(node:paths(node:refs('ASPathDataOfSchema:/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel')),
+                              'i', &quot;node:when(substring-before(substring-after($i,'/IcuConfigSet/'),'/')=substring-before(substring-after(node:path(.),'/IcuConfigSet/'),'/'), $i)&quot;)"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="text:uniq(../*, .)"  false="IcuChannelRef must be unique."/>
+                          <a:tst expr="node:containsValue(node:foreach(node:paths(../../../../IcuChannel/*), 'path', '$path = node:path(node:ref(.))'), 'true')" 
+                                 false="The referenced Icu channel does not exist in current configuration set."/>
+                          <a:tst expr="node:exists(../../IcuChannelGroupStopTrigger) and not(text:uniq(../../../*/IcuChannelRef/*,.))"
+                                 true="The referenced Icu channel cannot be shared between groups configuring IcuChannelGroupStopTrigger."/>
+                        </a:da>
+                      </v:ref>
+                    </v:lst>
+                  </v:ctr>
+                </v:lst>
+              </v:ctr>
+            </v:lst>
+              <v:ctr name="IcuGeneral" type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: Configuration of general ICU parameters."/>
+                <a:a name="UUID" value="ac8f7ed2-8dc1-405d-87de-5ea5fad297f6"/>
+                <v:var name="IcuDevErrorDetect" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switches the Default Error Tracer (Det) detection and notification ON or OFF."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="de57153a-6063-46e2-85c9-8d507a85f86b"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuIndex" type="INTEGER">
+                  <a:a name="DESC" 
+                       value="EN: Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="e8eec2d2-0f96-4a95-a71d-92326e720663"/>
+                  <a:da name="DEFAULT" value="0"/>        
+                  <a:da name="INVALID" type="Range">
+                    <a:tst expr="&lt;=255"/>
+                    <a:tst expr="&gt;=0"/>
+                  </a:da>
+                </v:var>
+                <v:var name="IcuReportWakeupSource" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Switch for enabling Wakeup source reporting."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="46aaeb6b-1251-44b3-82f5-af5cc8f321c7"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="IcuErrorCalloutFunction"  type="FUNCTION-NAME">
+                  <a:a name="DESC">
+                    <a:v>EN: &lt;html&gt;Error callout function. Syntax:&lt;br/&gt; void ErrorCalloutHandler (uint16 ModuleId, uint8 InstanceId, uint8 ApiId, uint8 ErrorId)&lt;br/&gt; &lt;br/&gt; The error callout function is called on every error. The ASIL level of this function limits the ASIL level of the ICU driver.</a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="9e8f8fc8-8bc5-4bff-80ea-def3adc6ecb3"/>
+                  <a:da name="DEFAULT" value="ErrorCalloutHandler"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')" false="Invalid name of the IcuErrorCalloutFunction. Must be valid C function name."/>
+                  </a:da>
+                </v:var>
+                <v:lst name="IcuIncludeFile">
+                  <v:var name="IcuIncludeFile" type="STRING">
+                    <a:a name="DESC"  value="EN: A file that shall be included by Icu_Cfg_Include.h. Any application specific symbol that is used by the Icu configuration (e.g. Error callout function) should be included by configuring this parameter."/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                      <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="UUID"  value="0b3a2333-90fd-452b-b9b5-db2344b9b58e"/>
+                    <a:da name="DEFAULT" value="ErrorCalloutHandler.h" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:match(normalize-space(.),'^[_0-9a-zA-Z]+\.h$')" false="Invalid name of the IcuIncludeFile. Must be a filename with extension .h."/>
+                      <a:tst expr="text:uniq(../*, .)"  false="IcuIncludeFile must be unique."/>
+                    </a:da>
+                  </v:var>
+                </v:lst>
+              </v:ctr>
+              <v:ctr name="IcuOptionalApis" type="IDENTIFIABLE">
+                <a:a name="DESC" 
+                     value="EN: This container contains all configuration switches for configuring optional API services of the ICU driver."/>
+                <a:a name="UUID" value="4a5045c8-8119-4cca-89fc-cba83e19997a"/>
+                <v:var name="IcuDeInitApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_DeInit() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="bc790b97-fa7d-43d3-a78f-c96768ef10a4"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuEnableWakeupApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_EnableWakeup() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="77c82036-d2c4-4ba9-80f8-38ece5263053"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuDisableWakeupApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_DisableWakeup() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="b95f4fcc-7d4e-4875-8316-1fa8aba74160"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuEdgeCountApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes all services related to the edge counting functionality as listed below, from the code: Icu_ResetEdgeCount(), Icu_EnableEdgeCount(), Icu_DisableEdgeCount(), Icu_GetEdgeNumbers()."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="d9879c47-e796-445a-bb9a-0b4f155b1a0a"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuEdgeDetectApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the services related to the edge detection functionality, from the code: Icu_EnableEdgeDetection() and Icu_DisableEdgeDetection()."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="fd8ef35a-58fb-4679-9ed1-9e9a33f0f0aa"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuGetDutyCycleValuesApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_GetDutyCycleValues() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="bcb186c3-73cc-4014-9c98-c1bd81987923"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuGetInputStateApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_GetInputState() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="fbcd43cc-7649-4cf9-b594-28ebbe3537b7"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuGetTimeElapsedApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_GetTimeElapsed() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="8208c8ee-bc5f-48ee-9461-73ec38818316"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuGetVersionInfoApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_GetVersionInfo() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="d0a9e767-91be-4661-8949-1145eab2e617"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuSetModeApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_SetMode() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="9cd52edc-c51b-43d7-a45d-75385e2ce724"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuSignalMeasurementApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the services Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="8e63f994-82ed-4ac8-be5c-3d04707b4ca4"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuTimestampApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes all services related to the timestamping functionality as listed below from the code: Icu_StartTimestamp(), Icu_StopTimestamp(), Icu_GetTimestampIndex()."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="ff982170-c7d7-426d-b7e0-9e4f45631c1b"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuWakeupFunctionalityApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_CheckWakeup() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="12dc7609-f804-440f-86c0-0bd47fc0b367"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuSafetyFunctionApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the services Icu_CheckChannelStatus() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="2d4819af-dd19-455f-9b95-3ebe771e289d"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuSetPrescalerApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_SetPrescaler() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="6eb55316-b205-4c82-9d59-fab172e9cf40"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuGetInputLevelApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Adds / removes the service Icu_GetInputLevel() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="7a6e26ed-7329-46ea-a73a-f904911ea63f"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuChannelGroupApi" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="Adds / removes the service Icu_StartGroupTrigger() and Icu_StopGroupTrigger() from the code."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="29130d5e-5d6e-41b5-b338-dd5222883ae8"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="IcuEnableNotiApiCapableWakeup" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: If IcuEnableNotiApiCapableWakeup is true, API Icu_EnableNotification will enable associated notification for both interrupt and wakeup independently of CPU mode, else API Icu_EnableNotification will be AUTOSAR standard behavior (only associated notification interrupt). "/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="52503c20-e946-4e00-a0e9-09102ee33dba"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="IcuDisableNotiApiCapableWakeup" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: If IcuDisableNotiApiCapableWakeup is true, API Icu_DisableNotification will disable associated notification for both interrupt and wakeup independently of CPU mode, else API Icu_DisableNotification will be AUTOSAR standard behavior (only associated notification interrupt)."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="f12e8fd2-7b6e-43d8-aaad-fc349ced3583"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="IcuWakeupAcceptanceInSetMode" type="BOOLEAN">
+                  <a:a name="DESC" 
+                       value="EN: Acceptance of Wakeup signal during SLEEP transition processing with Icu_SetMode."/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                       type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="2be72b3f-76fa-4cae-ab33-fe92e22d7e37"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+              </v:ctr>
+              <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/EcucDefs/Icu"/>
+            </v:ctr>
+          </d:chc>
+          <d:chc name="ICU_EcuParameterDefinition" type="AR-ELEMENT" 
+                 value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="UUID" value="d63de38b-08c8-4af3-ab92-d8aa51cfc180"/> 
+              <a:a name="DEF" 
+                   value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Icu"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

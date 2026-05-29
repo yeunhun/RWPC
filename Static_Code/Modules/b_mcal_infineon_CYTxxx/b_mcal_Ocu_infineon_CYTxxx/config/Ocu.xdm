@@ -1,0 +1,835 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<datamodel version="5.0"
+           xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd"
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd"
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd"
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+  <d:ctr type="AUTOSAR" factory="autosar"
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd"
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd"
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd"
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd" 
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Ocu" type="AR-ELEMENT" value="MODULE-DEF">
+            <!--VariantPreCompile START-->
+            <v:ctr type="MODULE-DEF">
+              <a:a name="DESC" value="EN:&lt;html&gt; Configuration of Ocu (Output Compare Unit) module.&lt;/html&gt;"/>
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                <ad:ADMIN-DATA>
+                  <ad:DOC-REVISIONS>
+                    <ad:DOC-REVISION>
+                      <ad:REVISION-LABEL>4.2.2</ad:REVISION-LABEL>
+                      <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      <ad:DATE>2014-10-31</ad:DATE>
+                    </ad:DOC-REVISION>
+                  </ad:DOC-REVISIONS>
+                </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="UPPER-MULTIPLICITY" value="1"/>
+              <a:a name="POSTBUILDVARIANTSUPPORT" value="true"/>
+              <a:a name="UUID" value="5d204952-7fad-428e-8f85-fd33a457b62b"/>
+              <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/EcucDefs/Ocu"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                  <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                </a:a>
+                <a:a name="LABEL" value="Config Variant"/>
+                <a:a name="DESC">
+                  <a:v>EN:&lt;html&gt; This is the configuration parameter of setting variant.&lt;/html&gt;</a:v>
+                </a:a>
+                <a:da name="DEFAULT" value="VariantPostBuild"/>
+                <a:da name="RANGE" value="VariantPostBuild"/>
+              </v:var>
+              <v:lst name="OcuConfigSet" type="MAP">
+                  <a:da name="MIN" value="1"/>
+                  <!--OcuConfigSet START-->
+                  <v:ctr name="OcuConfigSet" type="IDENTIFIABLE">
+                    <a:a name="DESC" value="EN:&lt;html&gt; Multiple Configuration Set Container.&lt;/html&gt;"/>
+                    <a:a name="UUID" value="28694fe4-f92e-408e-9dcb-19747331efd2"/>
+                    <v:lst name="OcuChannel" type="MAP">
+                      <a:da name="MIN" value="1"/>
+                      <a:da name="MAX" type="XPath"
+                            expr="count(text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' '))"/>
+                      <a:a name="COLUMNS">
+                        <a:v>OcuChannelId</a:v>
+                        <a:v>OcuChannelTickDuration</a:v>
+                        <a:v>OcuAssignedHardwareChannel</a:v>
+                        <a:v>OcuNotification</a:v>
+                        <a:v>OcuDefaultThreshold</a:v>
+                        <a:v>OcuMaxCounterValue</a:v>
+                        <a:v>OcuHwTriggerOutputLine</a:v>
+                      </a:a>
+                      <v:ctr name="OcuChannel" type="IDENTIFIABLE">
+                        <a:a name="DESC" value="EN:&lt;html&gt; Configuration of an individual OCU channel.&lt;/html&gt;"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                        <a:a name="UUID" value="3c29284e-e352-4865-82c7-3d2e0089fd5f"/>
+                        <v:var name="OcuChannelId" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Channel Id of the OCU channel. This value will be assigned to the symbolic name derived from the OcuChannel container short name. It defines the assignment of the channel to the physical OCU hardware channel.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                          <a:a name="UUID" value="07ef9e70-87ab-4a90-970d-7c72f0a86294"/>
+                          <a:da name="DEFAULT" type="XPath" expr="num:i(../@index)"/>
+                          <a:da name="INVALID" type="Range">
+                            <a:tst expr="&lt;=65535"/>
+                            <a:tst expr="&gt;=0"/>
+                          </a:da>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="(node:fallback( ., 0 ) &gt;= 0) and (node:fallback( ., 0 ) &lt; num:i(count(node:fallback( node:current()/../../*, 1 ))))"
+                                   false="Value out of range: must be in range 0 to N-1 (N is number of configured channels)."/>
+                            <a:tst expr="text:uniq(node:fallback( ../../*/OcuChannelId, text:split('0') ), node:fallback( ., 1 ))"
+                                   false="Duplicated value, OcuChannelId must be unique across all OCU channels."/>
+                            <a:tst expr="node:containsValue(node:foreach(node:paths(../../../../*/OcuChannel/*), &apos;path&apos;, &apos;(node:path(../../..) != node:path(concat($path, &quot;/../..&quot;))) and (node:name(../.) = node:name($path)) and (node:value(.) != node:value(concat($path, &quot;/OcuChannelId&quot;)))&apos;), &apos;true&apos;)"
+                                   true ="All OcuChannelId in the container with the same name should be same for the different configuration sets."/>
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuTimer" type="ENUMERATION">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Specifies the physical hardware timer that is assigned to this logical channel.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="Cypress"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="cd6eb8a0-d832-4060-b20a-32e571c280ed"/>
+                          <a:da name="DEFAULT" type="XPath" expr="(text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' ')))[1]"/>
+                          <a:da name="RANGE" type="XPath" expr="text:concat('TCPWM_',text:split(text:join(node:foreach(text:split(text:join(node:foreach(ecu:list('TCPWM.instances'), 'j', 'text:join(text:concat(text:concat(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.&quot;),ecu:list(concat(&quot;TCPWM.&quot;,string($j),&quot;.GRP.instances&quot;))),&quot;.CNT.instances&quot;))')),' '),'i','text:join(text:concat(concat(substring-before(substring-after(string($i),&quot;TCPWM.&quot;),&quot;.&quot;),&quot;_&quot;),num:add(num:i(num:mul(256,num:i(substring-before(substring-after(string($i),&quot;GRP.&quot;),&quot;.&quot;)))),text:split(text:join(ecu:list($i)),&quot; &quot;))))')),' '))"/>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="text:uniq(../../*/OcuTimer,.)"
+                                   false="Only one configuration per Ocu Timer is allowed in the same configuration set." />
+                            <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuResource,.)"
+                                   true="IcuResource already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                            <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptTimer,.)"
+                                   true="GptTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                            <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmTimer,.)"
+                                   true="PwmTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                            <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerChannelConfiguration/*/GptPredefTimer,.)"
+                                   true="GptPredefTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                            <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTimer,.)"
+                                   true="PwmStartDelayTimer already uses this TCPWM Timer - the timer hardware must not be configured multiple times." />
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuChannelTickDuration" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Specifies the tick duration of the counter of the channel. This parameter is the number of the input clock edges (rising edges or falling edges exclusively) counted each time to increase the counter by one unit.The value range depends from the used HW, not all allowed values may be relevant.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="08c7256f-bb01-49a3-bebb-8b1491514ba6"/>
+                          <a:da name="DEFAULT" value="1"/>
+                          <a:da name="INVALID" type="Range">
+                            <a:tst expr="=1"/>
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuAssignedHardwareChannel" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; The physical hardware channel that is assigned to this logical channel.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="3957184d-8c55-4c95-95a0-95f0e7199cbf"/>
+                          <a:da name="DEFAULT" value="0"/>
+                          <a:da name="INVALID" type="Range">
+                            <a:tst expr="&lt;=255"/>
+                            <a:tst expr="&gt;=0"/>
+                          </a:da>
+                          <a:da name="EDITABLE" value="false"/>
+                        </v:var>
+                        <v:var name="OcuNotification" type="FUNCTION-NAME">
+                          <a:a name="DESC" value="EN:&lt;html&gt; Definition of a function pointer to a Callback function.&lt;/html&gt;"/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="OPTIONAL" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="1df48c76-8a30-44e8-a5b5-0a835a14cb61"/>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="text:uniq(../../*/OcuNotification,.)"
+                                   false="Duplicated value, OcuNotification must be unique across all channels."/>
+                            <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                                   false="Invalid name of the OcuNotification. Must be valid C function name."/>
+                          </a:da>
+                          <a:da name="DEFAULT" value="Ocu_Notification_0"/>
+                       </v:var>
+                        <v:var name="OcuDefaultThreshold" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Value of comparison threshold used for Initialization.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="a1c81d66-6870-4959-939a-fb6339ae2003"/>
+                          <a:da name="DEFAULT" type="XPath" expr="num:i(bit:shl(1,num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../OcuTimer,'_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))))-1)"/>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="num:i(.) &lt;= 4294967295"
+                                   false="OcuDefaultThreshold must not be greater than 4294967295 (=0xFFFFFFFF)"/>
+                            <a:tst expr="num:i(.) &lt; bit:shl(1,num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../OcuTimer,'_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))))"
+                                   false="OcuDefaultThreshold must not exceed the limit of the HW instance."/>
+                            <a:tst expr="num:i(.) &gt;= 0"
+                                   false="OcuDefaultThreshold must not be less than zero."/>
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuMaxCounterValue" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Maximum value in ticks, the counter of the OCU channel is able to count.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="7a7c8a6a-a9bb-4e9e-ab54-ce08b493430d"/>
+                          <a:da name="DEFAULT" type="XPath" expr="num:i(bit:shl(1,num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../OcuTimer,'_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))))-1)"/>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="num:i(.) &lt;= 4294967295"
+                                   false="OcuMaxCounterValue must not be greater than 4294967295 (=0xFFFFFFFF)"/>
+                            <a:tst expr="num:i(.) &lt; bit:shl(1,num:i(ecu:get(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'_'),'_'),'.GRP_NR.',string(num:i(num:div(num:i(substring-after(substring-after(../OcuTimer,'_'),'_')),256))),'.CNT.GRP_CNT_WIDTH'))))"
+                                   false="OcuMaxCounterValue must not exceed the limit of the HW instance."/>
+                            <a:tst expr="num:i(.) &gt;= 1"
+                                   false="OcuMaxCounterValue must not be less than one."/>
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuHardwareTriggeredAdc" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; This parameter is used to allow the OCU channel to trigger an ADC channel upon compare match, if this is supported by hardware. The value of the parameter represents the ADC physical channel to trigger. &lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="OPTIONAL" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="b13429f3-22af-44b0-896b-fcb5501266a6"/>
+                          <a:da name="DEFAULT" value="0"/>
+                          <a:da name="INVALID" type="Range">
+                            <a:tst expr="&lt;=255"/>
+                            <a:tst expr="&gt;=0"/>
+                          </a:da>
+                          <a:da name="ENABLE" value="false"/>
+                          <a:da name="EDITABLE" value="false"/>
+                        </v:var>
+                        <v:var name="OcuHardwareTriggeredDMA" type="INTEGER">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; This parameter is used to allow the OCU channel to trigger a DMA channel upon compare match, if this is supported by hardware. The value of the parameter represents the DMA physical channel to trigger. &lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="OPTIONAL" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="7d353d0a-d6d9-4a93-a075-252dccd352f2"/>
+                          <a:da name="DEFAULT" value="0"/>
+                          <a:da name="INVALID" type="Range">
+                            <a:tst expr="&lt;=255"/>
+                            <a:tst expr="&gt;=0"/>
+                          </a:da>
+                          <a:da name="ENABLE" value="false"/>
+                          <a:da name="EDITABLE" value="false"/>
+                        </v:var>
+                        <v:var name="OcuHwTriggerOutputLine" type="ENUMERATION">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Specifies the output trigger channel.The available output trigger channel depends on device.The trigger connection between output trigger channel (trigger source) and trigger destination should be configured with PORT module. &lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="Cypress"/>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="OPTIONAL" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="0275e198-2355-4e17-8331-4a8afdf1ab8a"/>
+                          <a:da name="DEFAULT" type="XPath"
+                                expr="node:when(ecu:has(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT0.',substring-after(substring-after(../OcuTimer,'TCPWM_'),'_'),'.signal')),'TR_OUT0',
+                                node:when(ecu:has(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT1.',substring-after(substring-after(../OcuTimer,'TCPWM_'),'_'),'.signal')),'TR_OUT1',''))"/>
+                          <a:da name="RANGE">
+                            <a:v>TR_OUT0</a:v>
+                            <a:v>TR_OUT1</a:v>
+                            <a:v>BOTH</a:v>
+                          </a:da>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst
+                               expr= "((.='TR_OUT0' or .='BOTH') and ecu:has(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT0.',substring-after(substring-after(../OcuTimer,'TCPWM_'),'_'),'.signal'))=false()) or ((.='TR_OUT1' or .='BOTH')  and ecu:has(concat('TCPWM.',substring-before(substring-after(../OcuTimer,'TCPWM_'),'_'),'.trigg.OUTPUT.TR_OUT1.',substring-after(substring-after(../OcuTimer,'TCPWM_'),'_'),'.signal'))=false())"
+                               true="There is no OcuHwTriggerOutputLine available for this TCPWM." />
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuOuptutPinUsed" type="BOOLEAN">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; Information about the usage of an output pin on this channel.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="61adfce4-1204-4a5c-913c-8b956076a8c6"/>
+                          <a:da name="DEFAULT" value="true"/>
+                        </v:var>
+                        <v:var name="OcuOutputPinDefaultState" type="ENUMERATION">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; The parameter OcuOutputPinDefaultState represents the state that a pin associated with a channel shall be set to after initialisation.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="OPTIONAL" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="7084be07-e7c4-4f90-8e3d-7d700295d47c"/>
+                          <a:da name="DEFAULT" value="OCU_LOW"/>
+                          <a:da name="RANGE">
+                            <a:v>OCU_LOW</a:v>
+                            <a:v>OCU_HIGH</a:v>
+                          </a:da>
+                        </v:var>
+                        <v:ref name="OcuChannelClockSource" type="REFERENCE">
+                          <a:a name="DESC" value="EN:&lt;html&gt; The OCU module specific clock input for the timer unit can statically be configured and allows to select difference clock sources per channel.&lt;/html&gt;"/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="Cypress"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="ECU"/>
+                          <a:a name="UUID" value="7b30bcf0-04b3-4d65-8da9-6fc790d7fd01"/>
+                          <a:da name="REF" value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint"/>
+                          <a:da name="RANGE" type="XPath">
+                            <a:tst expr="node:foreach(node:paths(/*/*/*/*/*/McuModuleConfiguration/*/McuClockSettingConfig/*/McuClockReferencePoint/*),'ref','node:when(node:ref($ref)/McuClock=concat(&quot;MCU_&quot;,ecu:get(concat(&quot;TCPWM.&quot;,substring-before(substring-after(node:current()/../OcuTimer,&quot;TCPWM_&quot;),&quot;_&quot;),&quot;.CLOCKS.&quot;,substring-after(substring-after(node:current()/../OcuTimer,&quot;TCPWM_&quot;),&quot;_&quot;)))),$ref)')"/>
+                          </a:da>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="node:refexists(node:current()) and node:ref(node:current())/McuClock = concat( 'MCU_', ecu:get( concat('TCPWM.',substring-before(substring-after(node:current()/../OcuTimer,'_'),'_'),'.CLOCKS.',substring-after(substring-after(node:current()/../OcuTimer,'_'),'_'))))"
+                                   false="Required clock reference point for OCU is not configured in Mcu module."/>
+                          </a:da>
+                        </v:ref>
+                        <v:var name="OcuChannelPrescale" type="ENUMERATION">
+                          <a:a name="DESC">
+                            <a:v>EN:&lt;html&gt; OCU module specific prescaler factor per channel.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="Cypress"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="22c746a7-b973-4a1a-abaf-7aefb906836f"/>
+                          <a:da name="DEFAULT" value="OCU_PRESCALE_1"/>
+                          <a:da name="RANGE" type="XPath"
+                                expr="text:concat('OCU_PRESCALE_',node:foreach(num:i(text:range( 0, 7 )),'idx','bit:shl(1,$idx)'))">
+                          </a:da>
+                        </v:var>
+                        <v:var name="OcuDebugMode" type="ENUMERATION">
+                          <a:a name="DESC"
+                               value="EN: Enables debug capability to stop a timer channel when proseccor is in debug mode."/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="ORIGIN" value="Cypress"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                          <a:a name="UUID" value="3E22F9AE-4C61-4cbe-BDA1-9F4645AD541A"/>
+                          <a:da name="DEFAULT" value="OCU_DEBUG_MODE_CONTINUE"/>
+                          <a:da name="RANGE">
+                            <a:v>OCU_DEBUG_MODE_CONTINUE</a:v>
+                            <a:v>OCU_DEBUG_MODE_HALT</a:v>
+                          </a:da>
+                        </v:var>
+                      </v:ctr>
+                    </v:lst>
+                    <!--OcuConfigSet END-->
+                    <!--OcuGroup START-->
+                    <v:lst name="OcuGroup" type="MAP">
+                      <a:a name="COLUMNS">
+                        <a:v>OcuGroupId</a:v>
+                        <a:v>OcuGroupDefinition</a:v>
+                      </a:a>
+                      <a:da name="MIN" value="0"/>
+                      <v:ctr name="OcuGroup" type="IDENTIFIABLE">
+                        <a:a name="DESC" value="EN:&lt;html&gt; Configuration of an individual OCU channel group.&lt;/html&gt;"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="UUID" value="f848cc3d-dad1-4d4e-8e0c-4ed824af4e08"/>
+                        <a:da name="INVALID" type="XPath">
+                          <a:tst expr="node:containsValue(node:foreach(node:paths(../../OcuGroup/*), 'path', '(node:path(.) != $path) and (node:name($path) = node:name(.))'), 'true')"
+                                 true = "Only one OcuGroup is allowed to use this name in the same configuration set."/>
+                          <a:tst expr="node:containsValue(node:foreach(node:paths(../../../*/OcuGroup/*), 'path', '(node:path(../..) != node:path(concat($path, &quot;/../..&quot;))) and (node:name($path) = node:name(.)) and (node:value(concat($path, &quot;/OcuGroupId&quot;)) != node:value(./OcuGroupId))'), 'true')"
+                                 true = "All OcuGroupId of the container of the same name should be the same for the different configuration set." />
+                        </a:da>
+                        <a:da name="EDITABLE" value="false"/>
+                        <a:da name="ENABLE" value="false"/>
+                        <v:var name="OcuGroupId" type="INTEGER">
+                          <a:a name="DESC">
+                               <a:v>EN:&lt;html&gt; Numeric ID of the group. This parameter is the symbolic name of the group.&lt;/html&gt;</a:v>
+                          </a:a>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                          </a:a>
+                          <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                          <a:a name="UUID" value="3d04683d-64df-40bf-a277-d4385dec067d"/>
+                          <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                          <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                          <a:a name="SCOPE" value="LOCAL"/>
+                          <a:da name="DEFAULT" value="0"/>
+                          <a:da name="INVALID" type="XPath">
+                            <a:tst expr="(. &gt;= 0) and (. &lt;= 65535)"
+                                   false="OcuGroupId must be between 0 and 65535."/>
+                            <a:tst expr=". &lt;= num:i(count(../../*)-1)"
+                                   false="OcuGroupId has to be zero-based and consecutive."/>
+                            <a:tst expr="text:uniq(../../*/OcuGroupId,.)" 
+                                   false="Only one configuration per group is allowed in the same configuration set. I.e. OcuGroupId has to be unique."/>
+                          </a:da>
+                          <a:da name="EDITABLE" value="false"/>
+                          <a:da name="ENABLE" value="false"/>
+                        </v:var>
+                        <v:lst name="OcuGroupDefinition">
+                          <a:da name="MIN" value="1"/>
+                          <v:ref name="OcuGroupDefinition" type="REFERENCE">
+                            <a:a name="DESC">
+                              <a:v>EN:&lt;html&gt; Assignment of OcuChannels to an OcuGroup.&lt;/html&gt;</a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                              <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                              <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                            <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                            <a:a name="SCOPE" value="LOCAL"/>
+                            <a:a name="UUID" value="c6e4fbba-5df9-4b3d-8c50-5cfec8f8c5f3"/>
+                            <a:da name="REF" value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Ocu/OcuConfigSet/OcuChannel"/>
+                            <a:da name="RANGE" type="XPath">
+                              <a:tst expr="node:paths(../../../OcuChannel/*)"/>
+                            </a:da>
+                            <a:da name="INVALID" type="XPath">
+                              <a:tst expr="node:containsValue(node:foreach(node:paths(../../../../OcuChannel/*), 'path', '$path = node:path(node:ref(.))'), 'true')" 
+                                     false="Referenced channel does not exist in current configuration set."/>
+                              <a:tst expr="text:uniq(../*, .)" false="OcuGroupDefinition must be unique."/>
+                            </a:da>
+                            <a:da name="EDITABLE" value="false"/>
+                            <a:da name="ENABLE" value="false"/>
+                          </v:ref>
+                        </v:lst>
+                      </v:ctr>
+                    </v:lst>
+                  <!--OcuGroup END-->
+                  <!--OcuHWSpecificSettings START-->
+                  <v:ctr name="OcuHWSpecificSettings" type="IDENTIFIABLE">
+                    <a:a name="DESC" value="EN:&lt;html&gt; This container contains Ocu-specific parameters for selecting the clock source and setting optional prescalers if supported by hardware. Implementation is defined vendor specific.&lt;/html&gt;"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="UUID" value="6ff264cc-2570-4dee-8391-f302cb4a7b33"/>
+                    <a:da name="EDITABLE" value="false"/>
+                    <a:da name="ENABLE" value="false"/>
+                    <a:a name="OPTIONAL" value="true"/>
+                    <v:var name="OcuClockSource" type="ENUMERATION">
+                      <a:a name="DESC" value="EN:&lt;html&gt; Reference to the clock configuration, which is set in the MCU driver configuration.&lt;/html&gt;"/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="1cfe3afd-644e-4107-873d-5319fe39d1a7"/>
+                      <a:da name="DEFAULT" value="OCU_NOT_USED"/>
+                      <a:da name="RANGE">
+                        <a:v>OCU_NOT_USED</a:v>
+                      </a:da>
+                      <a:da name="EDITABLE" value="false"/>
+                      <a:da name="ENABLE" value="false"/>
+                    </v:var>
+                    <v:var name="OcuPrescale" type="ENUMERATION">
+                      <a:a name="DESC">
+                        <a:v>EN:&lt;html&gt; Optional OCU driver specific clock prescale factor, if supported by hardware. Implementation is defined vendor specific.&lt;/html&gt;</a:v>
+                      </a:a>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                        <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                        <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                      </a:a>
+                      <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                      <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                      <a:a name="OPTIONAL" value="true"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID" value="cd682cfd-560d-4085-861a-bbd4aba4070b"/>
+                      <a:da name="DEFAULT" value="OCU_NOT_USED"/>
+                      <a:da name="RANGE">
+                        <a:v>OCU_NOT_USED</a:v>
+                      </a:da>
+                      <a:da name="EDITABLE" value="false"/>
+                      <a:da name="ENABLE" value="false"/>
+                    </v:var>
+                  </v:ctr>
+                  <!--OcuHWSpecificSettings END-->
+                  <!--OcuCountdirection START-->
+                  <v:var name="OcuCountdirection" type="ENUMERATION">
+                    <a:a name="DESC">
+                      <a:v>EN:&lt;html&gt; This parameter indicates the count direction for the whole OCU driver.&lt;/html&gt;</a:v>
+                    </a:a>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PostBuild">VariantPostBuild</icc:v>
+                      <icc:v vclass="PostBuild">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="OPTIONAL" value="true"/>
+                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                    <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="true"/>
+                    <a:a name="POSTBUILDVARIANTVALUE" value="true"/>
+                    <a:a name="SCOPE" value="LOCAL"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="UUID" value="25b41997-1473-48ff-b204-5ae1495bfb8c"/>
+                    <a:da name="DEFAULT" value="OCU_UPCOUNTING"/>
+                    <a:da name="RANGE">
+                      <a:v>OCU_UPCOUNTING</a:v>
+                      <a:v>OCU_DOWNCOUNTING</a:v>
+                    </a:da>
+                  </v:var>
+                  <!--OcuCountdirection END-->
+                  </v:ctr>
+                </v:lst>
+              <!--OcuConfigurationOfOptionalApis START-->
+              <v:ctr name="OcuConfigurationOfOptionalApis" type="IDENTIFIABLE">
+                <a:a name="DESC" value="EN:&lt;html&gt; This container contains settings for enabling or disabling of API services.&lt;/html&gt;"/>
+                <a:a name="UUID" value="fcc96d7d-502b-4051-bd2a-de078cb609ee"/>
+                <v:var name="OcuDeInitApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Adds / removes the service Ocu_DeInit() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="02cdb6dd-0b77-49ef-9268-30d0d98e8ea5"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuSetPinActionApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt;Adds / removes the service Ocu_SetPinAction() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="611cc24c-78b3-4ea2-b330-8388f34c1a81"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuSetPinStateApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Adds / removes the service Ocu_SetPinState() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="5309eaf3-dac5-4e47-9789-45b2fe1ff78d"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuGetCounterApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Adds / removes the service Ocu_GetCounter() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="c7363687-a7ee-45ee-9bcb-7f5d2613de2e"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuSetAbsoluteThresholdApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Adds / removes the service Ocu_SetAbsoluteThreshold() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="2cfcc245-4f17-4ecf-bac4-d21c2e632a95"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuSetRelativeThresholdApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Adds / removes the service Ocu_SetRelativeThreshold() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="164cd53f-5d1e-4642-8839-3b2dd23a725b"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuNotificationSupported" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Adds / removes the services Ocu_EnableNotification() and Ocu_DisableNotification() from the code.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="113b9679-90e9-44a5-99e0-dc1efc0b15bb"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuVersionInfoApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Switch to indicate that the Ocu_GetVersionInfo() is supported.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="eb3a764e-f562-455a-b28b-d5d210824db3"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuSafetyFunctionApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Switch to indicate that the Ocu_CheckChannelStatus() is supported.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="6b188ce5-6962-4919-9224-e6156f7e6381"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+                <v:var name="OcuSetPrescalerApi" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Switch to indicate that the Ocu_SetPrescaler() is supported.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="f1f89b8d-ec53-47f6-a133-8dc8a9a726e3"/>
+                  <a:da name="DEFAULT" value="true"/>
+                </v:var>
+              </v:ctr>
+              <!--OcuConfigurationOfOptionalApis END-->
+              <!--OcuGeneral START-->
+              <v:ctr name="OcuGeneral" type="IDENTIFIABLE">
+                <a:a name="DESC" value="EN:&lt;html&gt; This container contains the module-wide configuration parameters of the OCU Driver.&lt;/html&gt;"/>
+                <a:a name="UUID" value="f2cb5554-ac22-4d88-b44a-5780bd5007ef"/>
+                <v:var name="OcuDevErrorDetect" type="BOOLEAN">
+                  <a:a name="DESC" value="EN:&lt;html&gt; Switches the Default Error Tracer (Det) detection and notification ON or OFF.&lt;/html&gt;"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="bd1cb0fb-97fd-44d4-baea-8cc4e024ded6"/>
+                  <a:da name="DEFAULT" value="false"/>
+                </v:var>
+                <v:var name="OcuErrorCalloutFunction" type="FUNCTION-NAME">
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt; The error callout function is called on every error. The ASIL level of this function limits the ASIL level of the OCU driver.&lt;/html&gt;
+                    </a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:da name="DEFAULT" value="ErrorCalloutHandler"/>
+                  <a:da name="INVALID" type="XPath">
+                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$')"
+                           false="Invalid name of the OcuErrorCalloutFunction. Must be valid C function name."/>
+                  </a:da>
+                  <a:a name="UUID" value="d3ad48bc-f787-436c-859b-c5773aab814d"/>
+                </v:var>
+                <v:var name="OcuStartTriggerSelect0" type="ENUMERATION">
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt; Specifies the input trigger of TCPWM instance 0 to start timers synchronously. When this parameter is configured, a trigger signal is required to start timers. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Ocu_Init(). In this case, the group trigger configuration is also required in PORT module. When this parameter is not configured, timers start sequentially by Ocu_Init().&lt;/html&gt;</a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="ff3e3b98-6a06-4da6-9632-ddd391bf4c99"/>
+                  <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.0.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;))[1]"/>
+                  <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.0.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;)"/>
+                  <a:da name="EDITABLE" type="XPath" expr="node:containsValue(ecu:list('TCPWM.instances'),'0') or node:exists(.)"/>
+                  <a:da name="INVALID" type="XPath">
+                  <a:tst expr="node:containsValue(ecu:list('TCPWM.instances'),'0')"
+                           false="There is not this instance."/>
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                           true="The same value as IcuInputTriggerSelection cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                           true="The same value as IcuChannelGroupStartTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                           true="The same value as IcuChannelGroupStopTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                           true="The same value as GptPredefTimerStartTriggerSelect cannot be set." />
+                  <a:tst  expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                           true="The same value as GptInputTriggerSelection cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                           true="The same value as PwmChannelGroupStartTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                           true="The same value as PwmChannelGroupStopTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                           true="The same value as PwmStartDelayTrigger cannot be set." />
+                  </a:da>
+                  <a:da name="WARNING" type="XPath">
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect0,.)"
+                           true="PwmStartTriggerSelect0 already uses this TCPWM trigger." />
+                  </a:da>
+                </v:var>
+                <v:var name="OcuStartTriggerSelect1" type="ENUMERATION">
+                  <a:a name="DESC">
+                    <a:v>EN:&lt;html&gt; Specifies the input trigger of TCPWM instance 1 to start timers synchronously. When this parameter is configured, a trigger signal is required to start timers. It is necessary to call Port_ActTrigger() to issue a trigger signal after calling Ocu_Init(). In this case, the group trigger configuration is also required in PORT module. When this parameter is not configured, timers start sequentially by Ocu_Init().&lt;/html&gt;</a:v>
+                  </a:a>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                    <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                  </a:a>
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                  <a:a name="OPTIONAL" value="true"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="68bf2ac8-f4a3-4e4e-89f1-76ffb82bdb05"/>
+                  <a:da name="DEFAULT" type="XPath" expr="(node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.1.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;))[1]"/>
+                  <a:da name="RANGE" type="XPath" expr="node:foreach(text:split(text:join(node:foreach(text:concat(text:concat('TCPWM.1.trigg.INPUT.TR_ALL_CNT_IN.', num:i(text:range(0,255))), '.signal'), 'i', &quot;node:when(ecu:has($i), $i, '')&quot;)), ' '), 'j', &quot;ecu:get($j)&quot;)"/>
+                  <a:da name="EDITABLE" type="XPath" expr="node:containsValue(ecu:list('TCPWM.instances'),'1') or node:exists(.)"/>
+                  <a:da name="INVALID" type="XPath">
+                  <a:tst expr="node:containsValue(ecu:list('TCPWM.instances'),'1')"
+                           false="There is not this instance."/>
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannel/*/IcuInputTriggerSelection,.)"
+                           true="The same value as IcuInputTriggerSelection cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStartTrigger,.)"
+                           true="The same value as IcuChannelGroupStartTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Icu/ELEMENTS/Icu/IcuConfigSet/*/IcuChannelGroup/*/IcuChannelGroupStopTrigger,.)"
+                           true="The same value as IcuChannelGroupStopTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptPredefTimerStartTriggerConfiguration/GptPredefTimerStartTriggerSelect,.)"
+                           true="The same value as GptPredefTimerStartTriggerSelect cannot be set." />
+                  <a:tst  expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Gpt/ELEMENTS/Gpt/GptChannelConfigSet/*/GptChannelConfiguration/*/GptInputTriggerSelection,.)"
+                           true="The same value as GptInputTriggerSelection cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStartTrigger,.)"
+                           true="The same value as PwmChannelGroupStartTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannelGroup/*/PwmChannelGroupStopTrigger,.)"
+                           true="The same value as PwmChannelGroupStopTrigger cannot be set." />
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmChannelConfigSet/*/PwmChannel/*/PwmStartDelayTrigger,.)"
+                           true="The same value as PwmStartDelayTrigger cannot be set." />
+                  </a:da>
+                  <a:da name="WARNING" type="XPath">
+                  <a:tst expr="node:exists(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1) and node:containsValue(/AUTOSAR/TOP-LEVEL-PACKAGES/Pwm/ELEMENTS/Pwm/PwmGeneral/PwmStartTriggerSelect1,.)"
+                           true="PwmStartTriggerSelect1 already uses this TCPWM trigger." />
+                  </a:da>
+                </v:var>
+                <v:lst name="OcuIncludeFile">
+                  <v:var name="OcuIncludeFile" type="STRING">
+                    <a:a name="DESC" value="EN:&lt;html&gt; A file that shall be included by Ocu_Cfg_Include.h. Any application specific symbol that is used by the Ocu configuration (e.g. Error callout function) should be included by configuring this parameter.&lt;/html&gt;"/>
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS"  type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v mclass="PreCompile">VariantPostBuild</icc:v>
+                      <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                    </a:a>
+                    <a:a name="ORIGIN" value="Cypress"/>
+                    <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                    <a:a name="SCOPE" value="LOCAL"/>
+                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                    <a:a name="UUID" value="174edfea-5568-4397-811f-4f2b157a88b9"/>
+                    <a:da name="DEFAULT" value="ErrorCalloutHandler.h" />
+                    <a:da name="INVALID" type="XPath">
+                      <a:tst expr="text:match(normalize-space(.),'^[_0-9a-zA-Z]+\.h$')"
+                             false="Invalid name of the OcuIncludeFile. Must be a filename with extension .h."/>
+                      <a:tst expr="text:uniq(../*,.)"
+                             false="OcuIncludeFile must be unique."/>
+                    </a:da>
+                  </v:var>
+                </v:lst>
+              </v:ctr>
+              <!--OcuGeneral END-->
+            </v:ctr>
+            <!--VariantPreCompile END-->
+          </d:chc>
+          <d:chc name="OCU_EcuParameterDefinition" type="AR-ELEMENT" value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="UUID" value="082418f9-3e15-4172-9469-ba2040b0a01f"/>
+              <a:a name="DEF" value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Ocu"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+</datamodel>

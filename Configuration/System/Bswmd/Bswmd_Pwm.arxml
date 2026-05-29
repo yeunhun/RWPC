@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="04696ab1-fd37-4d2d-9064-09ed70cc1434">
+      <SHORT-NAME>TS_T40D13M1I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="3b471145-0528-4067-b4a2-6192aac892e1">
+          <SHORT-NAME>PwmImplementation</SHORT-NAME>
+          <SW-VERSION>1.10.0</SW-VERSION>
+          <VENDOR-ID>66</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.2.2</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/TS_T40D13M1I0R0/BswDescr/Pwm/PwmBehavior</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-ENTRY UUID="2c1abad5-ad92-4b20-a8e2-175da9f0e8a1">
+          <SHORT-NAME>Pwm_Init</SHORT-NAME>
+          <SERVICE-ID>0</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="57899a9f-0ddf-4c08-9dae-f8bbe117c597">
+          <SHORT-NAME>Pwm_DeInit</SHORT-NAME>
+          <SERVICE-ID>1</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="1b55a8bd-86e9-4d88-a5e2-3dfe2d0affac">
+          <SHORT-NAME>Pwm_SetDutyCycle</SHORT-NAME>
+          <SERVICE-ID>2</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="6c2575af-0929-484e-9167-c8373566f7b6">
+          <SHORT-NAME>Pwm_SetPeriodAndDuty</SHORT-NAME>
+          <SERVICE-ID>3</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="2857fade-7b74-45b9-840b-5fed4f8c5f8b">
+          <SHORT-NAME>Pwm_SetOutputToIdle</SHORT-NAME>
+          <SERVICE-ID>4</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="daa50103-11b8-4112-aed5-30a3db99b23e">
+          <SHORT-NAME>Pwm_GetOutputState</SHORT-NAME>
+          <SERVICE-ID>5</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="7ef66b9c-d35b-4ae4-adc4-d296f135f0de">
+          <SHORT-NAME>Pwm_DisableNotification</SHORT-NAME>
+          <SERVICE-ID>6</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="b0ea4eda-b03b-406a-8b20-0294872f51d7">
+          <SHORT-NAME>Pwm_EnableNotification</SHORT-NAME>
+          <SERVICE-ID>7</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="cb4d824b-fa54-4512-8bb2-599c1356244b">
+          <SHORT-NAME>Pwm_GetVersionInfo</SHORT-NAME>
+          <SERVICE-ID>8</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="4b004ff9-f896-4716-8eb0-f2a6d27b769b">
+          <SHORT-NAME>Pwm_GetChannelStatus</SHORT-NAME>
+          <SERVICE-ID>32</SERVICE-ID>
+          <IS-REENTRANT>true</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <BSW-MODULE-ENTRY UUID="3aae7be4-4b9e-4495-8e77-975b615e1af1">
+          <SHORT-NAME>Pwm_StartGroupTrigger</SHORT-NAME>
+          <SERVICE-ID>65</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="9957f145-e01e-4a9e-a948-79722a09bcc9">
+          <SHORT-NAME>BswDescr</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-DESCRIPTION UUID="32444005-c17d-424e-9dc4-1b3390735297">
+              <SHORT-NAME>Pwm</SHORT-NAME>
+              <MODULE-ID>121</MODULE-ID>
+              <INTERNAL-BEHAVIORS>
+                <BSW-INTERNAL-BEHAVIOR UUID="3fe55bfd-6525-451d-b87c-57dd77f047c0">
+                  <SHORT-NAME>PwmBehavior</SHORT-NAME>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA UUID="09949c45-91a9-461d-8596-452ef0351bb0">
+                      <SHORT-NAME>PWM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <ENTITYS>
+                    <BSW-CALLED-ENTITY UUID="4ea0f4c2-fc10-4eac-be9c-a398d60e1608">
+                      <SHORT-NAME>Pwm_Init</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_Init</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="94f5d2e4-cd1d-40a8-b748-1cf634c244a4">
+                      <SHORT-NAME>Pwm_DeInit</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Pwm/PwmBehavior/PWM_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_DeInit</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="55d5d24d-0b8a-4511-ade8-ebc3f72440a1">
+                      <SHORT-NAME>Pwm_SetDutyCycle</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_SetDutyCycle</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="43a7297e-d434-46cf-9b0a-7d8dfc791e03">
+                      <SHORT-NAME>Pwm_SetPeriodAndDuty</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_SetPeriodAndDuty</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="a0ebb40d-a69c-4635-9a0a-5ee48706ec13">
+                      <SHORT-NAME>Pwm_SetOutputToIdle</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_SetOutputToIdle</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="21c31fbd-cdb7-441e-bde6-f00dc19bf3a3">
+                      <SHORT-NAME>Pwm_GetOutputState</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_GetOutputState</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="c8c32fc5-9da3-4f87-a20f-c8abcf5a6ad5">
+                      <SHORT-NAME>Pwm_DisableNotification</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_DisableNotification</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="fca64284-bead-45d3-9e46-02f20f621192">
+                      <SHORT-NAME>Pwm_EnableNotification</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_EnableNotification</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="c4b9a415-8f73-44d9-b3ab-401b633aab90">
+                      <SHORT-NAME>Pwm_GetVersionInfo</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_GetVersionInfo</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="e47118ed-bc13-4b56-b4e2-c2e03c34826c">
+                      <SHORT-NAME>Pwm_GetChannelStatus</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_GetChannelStatus</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                    <BSW-CALLED-ENTITY UUID="5ad18924-5ce3-4c5e-933d-75398627260f">
+                      <SHORT-NAME>Pwm_StartGroupTrigger</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Pwm_StartGroupTrigger</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                  </ENTITYS>
+                  <DISTINGUISHED-PARTITIONS>
+                    <BSW-DISTINGUISHED-PARTITION>
+                      <SHORT-NAME>BswDistinguishedPartition_Pwm</SHORT-NAME>
+                    </BSW-DISTINGUISHED-PARTITION>
+                  </DISTINGUISHED-PARTITIONS>
+                </BSW-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </BSW-MODULE-DESCRIPTION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

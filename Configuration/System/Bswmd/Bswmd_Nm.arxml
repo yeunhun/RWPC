@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+		<AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ArPackage_Nm</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-MODULE-DESCRIPTION>
+          <SHORT-NAME>Nm</SHORT-NAME>
+          <MODULE-ID>29</MODULE-ID>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>BswInternalBehavior_Nm</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="19d63260-e397-405e-b67c-5303478e7185">
+                  <SHORT-NAME>UPDATE_NETWORK_STATUS_NW0</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA UUID="3440d282-a2d5-47f4-960d-69658a4a8290">
+                  <SHORT-NAME>UPDATE_NETWORK_STATUS_NW1</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <ENTITYS>
+                <BSW-SCHEDULABLE-ENTITY>
+                  <SHORT-NAME>BswSE_Nm_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ArPackage_Nm/Nm/BswInternalBehavior_Nm/UPDATE_NETWORK_STATUS_NW0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ArPackage_Nm/Nm/BswInternalBehavior_Nm/UPDATE_NETWORK_STATUS_NW1</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/ArPackage_Nm/Nm_MainFunction</IMPLEMENTED-ENTRY-REF>
+                </BSW-SCHEDULABLE-ENTITY>
+              </ENTITYS>
+              <DISTINGUISHED-PARTITIONS>
+                <BSW-DISTINGUISHED-PARTITION>
+                  <SHORT-NAME>BswDistinguishedPartition_Nm</SHORT-NAME>
+                </BSW-DISTINGUISHED-PARTITION>
+              </DISTINGUISHED-PARTITIONS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+        <BSW-IMPLEMENTATION>
+          <SHORT-NAME>BswImplementation_Nm</SHORT-NAME>
+          <SW-VERSION>2.3.0</SW-VERSION>
+          <VENDOR-ID>76</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/ArPackage_Nm/Nm/BswInternalBehavior_Nm</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-ENTRY>
+          <SHORT-NAME>Nm_MainFunction</SHORT-NAME>
+          <SERVICE-ID>16</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+          <CALL-TYPE>SCHEDULED</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

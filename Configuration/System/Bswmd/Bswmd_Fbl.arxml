@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="dff8a08a-d28d-4b68-ba6e-cfbd00dd5640">
+      <SHORT-NAME>Bsw_Fbl</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="937ef9b0-689b-4eda-9b8f-85f6bc121a36">
+          <SHORT-NAME>BswImplementation_Fbl</SHORT-NAME>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <SW-VERSION>1.1.0</SW-VERSION>
+          <VENDOR-ID>76</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Bsw_Fbl/Fbl/BswInternalBehavior_Fbl</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-DESCRIPTION UUID="079fd869-a069-44c2-aa7b-eb2ef627cd9f">
+          <SHORT-NAME>Fbl</SHORT-NAME>
+          <CATEGORY>BSW_MODULE</CATEGORY>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR UUID="5ba32cda-c038-45a9-ad44-84976482f936">
+              <SHORT-NAME>BswInternalBehavior_Fbl</SHORT-NAME>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

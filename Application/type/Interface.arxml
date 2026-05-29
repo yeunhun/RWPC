@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="f0b0b579-e93d-4f09-8e60-aa2ceff50d3d">
+      <SHORT-NAME>ARP_Interface</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE UUID="a5e31c33-3e9d-4496-84d9-5c75e90abed1">
+          <SHORT-NAME>SRIF_u8</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="34739060-85f1-400c-b647-8897c50590fa">
+              <SHORT-NAME>SR_u8</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="6fe06715-ecc3-454f-b24d-5c61b0555e01">
+          <SHORT-NAME>SRIF_u16</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="b65050eb-21a5-4770-a39b-bcb421de2efe">
+              <SHORT-NAME>SR_u16</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVARu16</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="69f3469d-e67d-43ab-ab8b-d82881c4af8d">
+      <SHORT-NAME>ARP_io_interface</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE UUID="aff3e9ad-5aae-4d2c-970b-d26abc8a0e39">
+          <SHORT-NAME>SR_BCAN_Input</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="a2b2d242-786b-4457-a68c-ae14a232b923">
+              <SHORT-NAME>BCM_07_200ms_Lamp_IntTailLmpOnReq</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="7e62fe1a-5109-4624-a790-9c3ede9daf43">
+          <SHORT-NAME>SR_BCAN_Output</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="cd4ccbc3-0a94-48df-a748-76b17be7293a">
+              <SHORT-NAME>RWPC_01_200ms_USM_ValCmdSta</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="68f37305-69f3-4e72-8a0c-ca74c91a76da">
+              <SHORT-NAME>RWPC_01_200ms_USM_ValCmdStaforATS</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="cd6e693c-7500-4bcb-883f-364ef3d185ed">
+              <SHORT-NAME>RWPC_01_200ms_WPC_PhnLftWrngRWPCSta</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="96dbd772-7e18-4d6d-9eec-be7935ffe72e">
+              <SHORT-NAME>RWPC_01_200ms_RWPC_SWVerMajor1</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="e3fca531-80ab-462f-aa08-6b10d7bc25cd">
+              <SHORT-NAME>RWPC_01_200ms_RWPC_SWVerMinor1</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="4379da7b-1b28-4f46-bff0-f8020f193bd1">
+              <SHORT-NAME>RWPC_01_200ms_RWPC_SWVerMinor2</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="d8e9daff-53c3-4056-bb70-e27f73cc5fe4">
+          <SHORT-NAME>SR_LCAN_Input</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="176d14f8-ebba-463e-971b-03903684a972">
+              <SHORT-NAME>BDC_01_C_WPCNFCcmd</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="7c8c0938-be1d-4255-a08b-3dfc0d2f2e0e">
+              <SHORT-NAME>BDC_01_C_BDCWPCNFCCmd</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="bb038c5b-90bf-4301-ae5d-47d804f4cebd">
+          <SHORT-NAME>SR_LCAN_Ouput</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="2d71b99a-2b2c-4d4e-867c-33428a3e8203">
+              <SHORT-NAME>WPC_01_C_WPC_NFCReset</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="c5250760-002d-4279-915f-8cf3436df2b4">
+              <SHORT-NAME>WPC_01_C_WPC_NFCDetection</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="4ee6cf54-3f02-44c8-a892-87f7e2c61a4f">
+          <SHORT-NAME>SR_Analog_Input</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="04a0d2c9-c29b-4905-82d1-50b394841a64">
+              <SHORT-NAME>A_Thermistor_In_WPC</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="59192dbf-0bb8-4518-a2c8-20ac7eed2ec9">
+              <SHORT-NAME>A_Thermistor2_In_WPC</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+            <VARIABLE-DATA-PROTOTYPE UUID="b7f6518c-d6f0-492f-93fa-193ba9bd180f">
+              <SHORT-NAME>A_Thermistor3_In_WPC</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="79e02bf2-f099-4d92-b5bf-21ce18ff7fc9">
+          <SHORT-NAME>SR_Digital_Input</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="3f62c5a2-304f-43e1-9ecd-634619ff4359">
+              <SHORT-NAME>D_VN7140AS_MULTI_In_WPC</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="0091a0a7-cad8-4aac-83c3-c264a777db93">
+          <SHORT-NAME>SR_Digital_Output</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="da9f1e86-f973-45e5-bdf4-e4b7a31ebb50">
+              <SHORT-NAME>D_VBATSW_EN_Out_WPC</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tVAR</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="ecdab807-5294-42e7-8f96-e389da6b7740">
+      <SHORT-NAME>ARP_Slpwup</SHORT-NAME>
+      <ELEMENTS>
+        <CLIENT-SERVER-INTERFACE UUID="e38a9b54-a452-4597-b78c-a01c0104fa46">
+          <SHORT-NAME>CS_RequestMode</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="1603c600-6c9e-47c1-9cc0-1c858988b18d">
+              <SHORT-NAME>RequestComMode</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="a805375c-e8f2-4450-882a-10c9a04df61b">
+                  <SHORT-NAME>Data</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="5eae6b14-f3a5-4039-bf71-ab0b32243558">
+          <SHORT-NAME>CS_EcuM_StateRequest</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="f2de2feb-5c8e-409e-a069-aa0ff66ae01c">
+              <SHORT-NAME>RequestState</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="202e2b37-5e66-4dc7-a13d-27ba912e6a0d">
+                  <SHORT-NAME>Data</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="4383295c-97a0-4ead-b28c-37dbcb2d01df">
+      <SHORT-NAME>ARP_EepData</SHORT-NAME>
+      <ELEMENTS>
+        <CLIENT-SERVER-INTERFACE UUID="665b1da2-fb74-4bcc-a86d-61d7fd47c005">
+          <SHORT-NAME>CS_ReadEep</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="205c20ef-51a2-4fe6-8b81-22770cb67c1e">
+              <SHORT-NAME>ReadEep</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="276ce722-95c6-40c8-9494-70d0ebde1444">
+                  <SHORT-NAME>Read_EepBlock</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tEepBlock</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="5f6d649b-e1b1-4fd7-a63b-cc8e14642a73">
+                  <SHORT-NAME>Read_EepData</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tEepDataArray_u8</TYPE-TREF>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="21ccadb8-7fe6-43a1-be9b-8ecec843d4d5">
+          <SHORT-NAME>CS_WriteEep</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="205c20ef-51a2-4fe6-8b81-22770cb67c1e">
+              <SHORT-NAME>WriteEep</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="36ec4d90-9335-4e96-ae43-04346f356de3">
+                  <SHORT-NAME>Write_EepBlock</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tEepBlock</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="75312865-3f61-41c1-8b85-58865a59d278">
+                  <SHORT-NAME>Write_EepWriteReq</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tEepWriteReq</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="2b6d5d80-6036-465d-ac94-b644f5864ebc">
+                  <SHORT-NAME>Write_EepData</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tEepDataArray_u8</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="6af74b0e-e271-4436-a9fd-447182ce3932">
+          <SHORT-NAME>CS_ModeReq</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="0c10c516-2ee5-4cd2-bcbf-9f171c659a58">
+              <SHORT-NAME>ECUMode</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="ce969fbc-317d-454d-aca2-0b46c5335731">
+                  <SHORT-NAME>ECUMode_Req</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tModeReq</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="e7831c0e-3f5a-4d59-988b-169a60fdef82">
+          <SHORT-NAME>CS_AppOperating</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="5c6600bb-534c-4a15-81ea-0d3facdae2c3">
+              <SHORT-NAME>AppOperating</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="4b9d1d5d-4d39-4f0c-9211-938db54da618">
+                  <SHORT-NAME>OperatingCmd</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tOperatingCmd</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="8b5f501d-c9c7-4484-92e3-b52192627f3e">
+          <SHORT-NAME>CS_ReadArrayData_u8</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="b7074b57-b860-4ccb-b52b-ca84b0dfc213">
+              <SHORT-NAME>ArrayData</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="838c1e83-0ede-49c2-a02f-ff3492916d34">
+                  <SHORT-NAME>Length</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="2c79b8c7-92d4-4136-8856-ae7d0c298144">
+                  <SHORT-NAME>Data</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tDataArrayType_u8</TYPE-TREF>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="ae3dfa8f-4687-42f9-a799-fd61c02bc04a">
+          <SHORT-NAME>CS_WriteArrayData_u8</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="b7074b57-b860-4ccb-b52b-ca84b0dfc213">
+              <SHORT-NAME>ArrayData</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="838c1e83-0ede-49c2-a02f-ff3492916d34">
+                  <SHORT-NAME>Length</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="2c79b8c7-92d4-4136-8856-ae7d0c298144">
+                  <SHORT-NAME>Data</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/ImplementationDataTypes/tDataArrayType_u8</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE UUID="3ef82a69-7682-4c2e-954d-f19885e3a8c0">
+          <SHORT-NAME>CS_ReadSts</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION UUID="66851e65-123f-4ca2-a5a3-d53a4b9dcad7">
+              <SHORT-NAME>AppStatus</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="6da1c127-8364-478e-8119-38e6130c8f0b">
+                  <SHORT-NAME>Status</SHORT-NAME>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_DataTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

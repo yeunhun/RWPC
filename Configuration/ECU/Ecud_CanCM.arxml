@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES>
+          <SHORT-NAME>CanCM</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTRON/CanCM</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/ArPackage_CanCM/BswImplementation_CanCM</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>CanCMGlobalConfig</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMGlobalConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMDevErrorDetect</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMMainFunctionPeriod</DEFINITION-REF>
+                  <VALUE>0.005</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMVersionInfoApi</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMDemStatusReport</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMDisableDMOnAbnormalVoltage</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMFilteringConstant</DEFINITION-REF>
+                  <VALUE>128</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMWakeupSupport</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTRON/CanCM/CanCMGlobalConfig/CanCMHysteresisSupport</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>CanCMBatMonConfig_Main</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMBatMonConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/CanCM/CanCMBatMonConfig/CanCMAdcDefault</DEFINITION-REF>
+                  <VALUE>500</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMBatMonConfig/CanCMBatAnalogInputRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/IoHwAb/IoHwAbConfig/IoHwAbAnalogInputDirect/AnaInDir_Battery_Real</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="26886d11-c872-4369-8cad-69a0187a09f8">
+              <SHORT-NAME>CanCMChannel_BCAN</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:AUTO_CONFIGURED">
+                    <SD T="2025-03-31T14:53:16Z" GID="CanCMChannelId">0</SD>
+                    <SD T="2025-03-31T14:53:16Z" GID="CanCMComMChannelId">/AUTOSAR/ComM/ComMConfigSet/ComMChannel_BCAN</SD>
+                  </SDG>
+                  <SDG GID="ODIN_AUTO_CONFIG_PROPERTY">
+                    <SD GID="CanCMChannelId">true</SD>
+                    <SD GID="CanCMComMChannelId">true</SD>
+                  </SDG>
+                  <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                    <SD T="2022-01-28T14:41:34Z" GID="CanCMVoltageHysteresis">0</SD>
+                  </SDG>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2022-04-01T11:31:21Z" GID="CanCMNetworkActivationTime">0.12</SD>
+                    <SD T="2022-04-01T11:31:30Z" GID="CanCMVoltageErrorDelayTime">0.10</SD>
+                    <SD T="2023-08-28T22:30:48Z" GID="CanCMVoltageAbnormalUpper">3111</SD>
+                    <SD T="2023-08-28T22:30:39Z" GID="CanCMVoltageAbnormalLower">1683</SD>
+                    <SD T="2023-08-28T22:29:56Z" GID="CanCMVoltageCriticalUpper">3563</SD>
+                    <SD T="2023-08-28T22:28:15Z" GID="CanCMVoltageCriticalLower">1234</SD>
+                    <SD T="2022-09-30T18:38:51Z" GID="CanCMVoltageHysteresis">40</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMChannelConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMChannelId</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageHysteresis</DEFINITION-REF>
+                  <VALUE>40</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMNetworkActivationTime</DEFINITION-REF>
+                  <VALUE>0.12</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageErrorDelayTime</DEFINITION-REF>
+                  <VALUE>0.10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMTimeoutMonitoringStartTime</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageAbnormalUpper</DEFINITION-REF>
+                  <VALUE>3111</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageAbnormalLower</DEFINITION-REF>
+                  <VALUE>1683</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageCriticalUpper</DEFINITION-REF>
+                  <VALUE>3563</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageCriticalLower</DEFINITION-REF>
+                  <VALUE>1234</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMComMChannelId</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/ComM/ComMConfigSet/ComMChannel_BCAN</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>CanCMDemEventParameterRefs</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMDemEventParameterRefs</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMDemEventParameterRefs/CANCM_E_BAT_FAIL</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/Dem/DemConfigSet/CANCM_E_BAT_FAIL</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>CanCMWakeupParameterRefs</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMWakeupParameterRefs</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMWakeupParameterRefs/CanCMEcuMWakeupSourceRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/EcuM/EcuMConfiguration/EcuMCommonConfiguration/ECUM_WKSOURCE_BCAN_RX_POLL</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMWakeupParameterRefs/CanCMIoHwAbWakeupPinNameRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/IoHwAb/IoHwAbConfig/IoHwAbDigitalDirect/IoHwAbDigitalDirectLogical_BCAN_RX</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="866af4d2-f854-4b2b-a3d1-1fd1d1d8a22b">
+              <SHORT-NAME>CanCMChannel_LOCALCAN</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="ODIN_WRITER_TYPE:AUTO_CONFIGURED">
+                    <SD T="2025-03-31T14:53:16Z" GID="CanCMChannelId">1</SD>
+                    <SD T="2025-03-31T14:53:16Z" GID="CanCMComMChannelId">/AUTOSAR/ComM/ComMConfigSet/ComMChannel_LOCALCAN</SD>
+                  </SDG>
+                  <SDG GID="ODIN_AUTO_CONFIG_PROPERTY">
+                    <SD GID="CanCMChannelId">true</SD>
+                    <SD GID="CanCMComMChannelId">true</SD>
+                  </SDG>
+                  <SDG GID="ODIN_WRITER_TYPE:DEFAULT_CONFIGURED">
+                    <SD T="2022-01-28T14:41:34Z" GID="CanCMVoltageHysteresis">0</SD>
+                  </SDG>
+                  <SDG GID="ODIN_WRITER_TYPE:USER_CONFIGURED">
+                    <SD T="2022-04-01T11:31:27Z" GID="CanCMNetworkActivationTime">0.12</SD>
+                    <SD T="2022-04-01T11:31:40Z" GID="CanCMVoltageErrorDelayTime">0.10</SD>
+                    <SD T="2023-08-28T22:30:51Z" GID="CanCMVoltageAbnormalUpper">3111</SD>
+                    <SD T="2023-08-28T22:30:44Z" GID="CanCMVoltageAbnormalLower">1683</SD>
+                    <SD T="2023-08-28T22:29:53Z" GID="CanCMVoltageCriticalUpper">3563</SD>
+                    <SD T="2023-08-28T22:29:06Z" GID="CanCMVoltageCriticalLower">1234</SD>
+                    <SD T="2022-09-30T18:38:54Z" GID="CanCMVoltageHysteresis">40</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMChannelConfig</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMChannelId</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageHysteresis</DEFINITION-REF>
+                  <VALUE>40</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMNetworkActivationTime</DEFINITION-REF>
+                  <VALUE>0.12</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageErrorDelayTime</DEFINITION-REF>
+                  <VALUE>0.10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMTimeoutMonitoringStartTime</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageAbnormalUpper</DEFINITION-REF>
+                  <VALUE>3111</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageAbnormalLower</DEFINITION-REF>
+                  <VALUE>1683</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageCriticalUpper</DEFINITION-REF>
+                  <VALUE>3563</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMVoltageCriticalLower</DEFINITION-REF>
+                  <VALUE>1234</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMComMChannelId</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/ComM/ComMConfigSet/ComMChannel_LOCALCAN</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>CanCMDemEventParameterRefs</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMDemEventParameterRefs</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMDemEventParameterRefs/CANCM_E_BAT_FAIL</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/Dem/DemConfigSet/CANCM_E_BAT_FAIL</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>CanCMWakeupParameterRefs</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMWakeupParameterRefs</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMWakeupParameterRefs/CanCMEcuMWakeupSourceRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/EcuM/EcuMConfiguration/EcuMCommonConfiguration/ECUM_WKSOURCE_LOCALCAN_RX_POLL</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTRON/CanCM/CanCMChannelConfig/CanCMWakeupParameterRefs/CanCMIoHwAbWakeupPinNameRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/AUTOSAR/IoHwAb/IoHwAbConfig/IoHwAbDigitalDirect/IoHwAbDigitalDirectLogical_LOCALCAN_RX</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

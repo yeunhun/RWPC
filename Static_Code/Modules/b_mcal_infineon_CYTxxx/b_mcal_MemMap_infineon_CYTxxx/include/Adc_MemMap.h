@@ -1,0 +1,11911 @@
+
+/******************************************************************************
+* \brief AUTOSAR Memory Mapping Header
+* 
+* This file is the sample file for the Autosar memory mapping.
+* This file contains the template implementation of the Autosar memory mapping.
+* See document "Specification of Memory Mapping"
+*
+* \version 1.0.0
+*
+* Product: SW-MCAL42-DRV
+******************************************************************************/
+/*****************************************************************************/
+/* __DISCLAIMER_START__                                                      */
+/******************************************************************************
+* (c) 2017-2020, Cypress Semiconductor Corporation
+* or a subsidiary of Cypress Semiconductor Corporation. All rights
+* reserved.
+*
+* This software, including source code, documentation and related
+* materials ("Software"), is owned by Cypress Semiconductor
+* Corporation or one of its subsidiaries ("Cypress") and is protected by
+* and subject to worldwide patent protection (United States and foreign),
+* United States copyright laws and international treaty provisions.
+* Therefore, you may use this Software only as provided in the license
+* agreement accompanying the software package from which you
+* obtained this Software ("EULA").
+*
+* If no EULA applies, Cypress hereby grants you a personal, nonexclusive,
+* non-transferable license to copy, modify, and compile the
+* Software source code solely for use in connection with Cypress's
+* integrated circuit products. Any reproduction, modification, translation,
+* compilation, or representation of this Software except as specified
+* above is prohibited without the express written permission of Cypress.
+*
+* Disclaimer: THIS SOFTWARE IS PROVIDED AS-IS, WITH NO
+* WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING,
+* BUT NOT LIMITED TO, NONINFRINGEMENT, IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+* PARTICULAR PURPOSE. Cypress reserves the right to make
+* changes to the Software without notice. Cypress does not assume any
+* liability arising out of the application or use of the Software or any
+* product or circuit described in the Software. Cypress does not
+* authorize its products for use in any products where a malfunction or
+* failure of the Cypress product may reasonably be expected to result in
+* significant property damage, injury or death ("High Risk Product"). By
+* including Cypress's product in a High Risk Product, the manufacturer
+* of such system or application assumes all risk of such use and in doing
+* so agrees to indemnify Cypress against all liability.
+******************************************************************************/
+/* __DISCLAIMER_END__                                                        */
+
+/*==================[inclusions]=============================================*/
+
+/*==================[macros]=================================================*/
+
+/*------------------[MemMap error checking]----------------------------------*/
+
+/* Deviation from MISRA-C:2004 rule 19.15, MISRA-C:2012 Dir-4.10
+   Justification: AUTOSAR specification to be included more than once in a single compilation unit. */
+/* PRQA S 883 1 */
+#if (defined MEMMAP_ERROR) /* to prevent double definition */
+#error MEMMAP_ERROR defined, wrong MemMap.h usage
+#endif /* if (defined MEMMAP_ERROR) */
+
+/** \brief Checks if this file has been correctly used
+ **
+ ** This definition checks if this file has been correctly included
+ ** the last time.
+ ** We do it here, before the big if-elif. */
+#define MEMMAP_ERROR
+
+/* Deviation from MISRA-C:2004 rule 19.6, MISRA-C:2012 Rule-20.5
+   Justification: This implementation is specified by AUTOSAR specification. */
+/* PRQA S 841 EOF */
+
+/*------------------[Start of module Adc ]--------------------------------------*/
+
+#ifdef ADC_START_SEC_CODE_ASIL_B
+  #undef ADC_START_SEC_CODE_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CODE_ASIL_B_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CODE_ASIL_B
+  #undef ADC_STOP_SEC_CODE_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CODE_ASIL_B_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CODE_ASIL_B_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CALLOUT_CODE_ASIL_B
+  #undef ADC_START_SEC_CALLOUT_CODE_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CALLOUT_CODE_ASIL_B_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CALLOUT_CODE_ASIL_B
+  #undef ADC_STOP_SEC_CALLOUT_CODE_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CALLOUT_CODE_ASIL_B_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CALLOUT_CODE_ASIL_B_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CODE_FAST_ASIL_B
+  #undef ADC_START_SEC_CODE_FAST_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CODE_FAST_ASIL_B_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CODE_FAST_ASIL_B
+  #undef ADC_STOP_SEC_CODE_FAST_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CODE_FAST_ASIL_B_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CODE_FAST_ASIL_B_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CODE_SLOW_ASIL_B
+  #undef ADC_START_SEC_CODE_SLOW_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CODE_SLOW_ASIL_B_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CODE_SLOW_ASIL_B
+  #undef ADC_STOP_SEC_CODE_SLOW_ASIL_B
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CODE_SLOW_ASIL_B_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CODE_SLOW_ASIL_B_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_CONST_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_CONST_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_ASIL_B_8
+  #undef ADC_START_SEC_CONST_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_ASIL_B_8
+  #undef ADC_STOP_SEC_CONST_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_ASIL_B_16
+  #undef ADC_START_SEC_CONST_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_ASIL_B_16
+  #undef ADC_STOP_SEC_CONST_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_ASIL_B_32
+  #undef ADC_START_SEC_CONST_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_ASIL_B_32
+  #undef ADC_STOP_SEC_CONST_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_CONST_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_CONST_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8
+  #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8
+  #undef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16
+  #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16
+  #undef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32
+  #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32
+  #undef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONST_SAVED_RECOVERY_ZONE_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CALIB_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_CALIB_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CALIB_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CALIB_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_CALIB_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CALIB_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CALIB_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CALIB_ASIL_B_8
+  #undef ADC_START_SEC_CALIB_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CALIB_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CALIB_ASIL_B_8
+  #undef ADC_STOP_SEC_CALIB_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CALIB_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CALIB_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CALIB_ASIL_B_16
+  #undef ADC_START_SEC_CALIB_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CALIB_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CALIB_ASIL_B_16
+  #undef ADC_STOP_SEC_CALIB_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CALIB_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CALIB_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CALIB_ASIL_B_32
+  #undef ADC_START_SEC_CALIB_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CALIB_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CALIB_ASIL_B_32
+  #undef ADC_STOP_SEC_CALIB_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CALIB_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CALIB_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CALIB_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_CALIB_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CALIB_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CALIB_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_CALIB_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CALIB_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CALIB_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONFIG_DATA_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONFIG_DATA_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONFIG_DATA_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONFIG_DATA_ASIL_B_8
+  #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONFIG_DATA_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_8
+  #undef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONFIG_DATA_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONFIG_DATA_ASIL_B_16
+  #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONFIG_DATA_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_16
+  #undef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONFIG_DATA_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONFIG_DATA_ASIL_B_32
+  #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONFIG_DATA_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_32
+  #undef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONFIG_DATA_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_CONFIG_DATA_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_FAST_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SLOW_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8
+  #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16
+  #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32
+  #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_NO_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_CLEARED_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_8
+  #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_16
+  #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_32
+  #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_INTERNAL_VAR_POWER_ON_INIT_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN
+  #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_8
+  #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_8
+  #undef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_16
+  #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_16
+  #undef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_32
+  #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_32
+  #undef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_SAVED_ZONE_ASIL_B_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE0_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE0_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE0_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE1_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE1_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE1_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE2_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE2_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE2_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE3_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE3_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE3_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE4_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE4_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE4_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE5_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE5_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE5_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE6_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE6_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE6_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_GLOBAL_CORE7_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_CORE7_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_BOOLEAN_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_8_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_16_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_32_STARTED
+  #endif
+#endif
+
+#ifdef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifdef MEMMAP_STARTED
+    #error "MemMap error: Section started without stopping of previous section."
+  #else
+    #define MEMMAP_STARTED
+  #endif
+  #define ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED_STARTED
+#endif
+
+#ifdef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #undef ADC_STOP_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED
+  #ifndef MEMMAP_ERROR
+    #error "MemMap error: Multiple sections selected."
+  #endif
+  #undef MEMMAP_ERROR
+  #ifndef MEMMAP_STARTED
+    #error "MemMap error: Section must be started before stopping."
+  #else
+    #undef MEMMAP_STARTED
+  #endif
+  #ifndef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED_STARTED
+    #error "MemMap error: Stop section does not match start section."
+  #else
+    #undef ADC_START_SEC_VAR_NO_INIT_ASIL_B_LOCAL_OR_GLOBAL_CORE7_UNSPECIFIED_STARTED
+  #endif
+#endif
+
+/*------------------[MemMap error checking]----------------------------------*/
+
+#if (defined MEMMAP_ERROR) /* to prevent double definition */
+#error MEMMAP_ERROR defined, wrong MemMap.h usage
+#endif /* if (defined MEMMAP_ERROR) */
+
+/*==================[type definitions]=======================================*/
+
+/*==================[external function declarations]=========================*/
+
+/*==================[internal function declarations]=========================*/
+
+/*==================[external constants]=====================================*/
+
+/*==================[internal constants]=====================================*/
+
+/*==================[external data]==========================================*/
+
+/*==================[internal data]==========================================*/
+
+/*==================[external function definitions]==========================*/
+
+/*==================[internal function definitions]==========================*/
+
+/*==================[end of file]============================================*/

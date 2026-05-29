@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Bsw_CanTp</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION>
+          <SHORT-NAME>BswImplementation_CanTp</SHORT-NAME>
+          <SW-VERSION>1.11.2</SW-VERSION>
+          <SWC-BSW-MAPPING-REF DEST="SWC-BSW-MAPPING">/Bsw_CanTp/SwcBswMapping_CanTp</SWC-BSW-MAPPING-REF>
+          <VENDOR-ID>76</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.0.3</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Bsw_CanTp/CanTp/BswInternalBehavior_CanTp</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-DESCRIPTION>
+          <SHORT-NAME>CanTp</SHORT-NAME>
+          <MODULE-ID>35</MODULE-ID>
+          <BSW-MODULE-DEPENDENCYS>
+            <BSW-MODULE-DEPENDENCY>
+              <SHORT-NAME>BswModuleDependency0</SHORT-NAME>
+              <TARGET-MODULE-ID>60</TARGET-MODULE-ID>
+              <REQUIRED-ENTRYS>
+                <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_CanIf/CanIf_SetPduMode</BSW-MODULE-ENTRY-REF>
+                </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              </REQUIRED-ENTRYS>
+            </BSW-MODULE-DEPENDENCY>
+          </BSW-MODULE-DEPENDENCYS>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>BswInternalBehavior_CanTp</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA>
+                  <SHORT-NAME>TIMER_PROTECTION</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <ENTITYS>
+                <BSW-SCHEDULABLE-ENTITY>
+                  <SHORT-NAME>BswSE_CanTp_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Bsw_CanTp/CanTp/BswInternalBehavior_CanTp/TIMER_PROTECTION</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Bsw_CanTp/CanTp_MainFunction</IMPLEMENTED-ENTRY-REF>
+                </BSW-SCHEDULABLE-ENTITY>
+              </ENTITYS>
+              <EVENTS>
+                <BSW-TIMING-EVENT>
+                  <SHORT-NAME>BswTE_CanTp_MainFunction</SHORT-NAME>
+                  <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/Bsw_CanTp/CanTp/BswInternalBehavior_CanTp/BswSE_CanTp_MainFunction</STARTS-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </BSW-TIMING-EVENT>
+              </EVENTS>
+              <DISTINGUISHED-PARTITIONS>
+                <BSW-DISTINGUISHED-PARTITION>
+                  <SHORT-NAME>BswDistinguishedPartition_CanTp</SHORT-NAME>
+                </BSW-DISTINGUISHED-PARTITION>
+              </DISTINGUISHED-PARTITIONS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+        <BSW-MODULE-ENTRY>
+          <SHORT-NAME>CanTp_MainFunction</SHORT-NAME>
+          <SERVICE-ID>6</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
+          <CALL-TYPE>SCHEDULED</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+        <SWC-BSW-MAPPING UUID="f3e207c1-f59c-462f-abce-30e6785c08cb">
+          <SHORT-NAME>SwcBswMapping_CanTp</SHORT-NAME>
+          <BSW-BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Bsw_CanTp/CanTp/BswInternalBehavior_CanTp</BSW-BEHAVIOR-REF>
+          <SWC-BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/Svc_CanTp/CanTp/SwcIB_CanTp</SWC-BEHAVIOR-REF>
+        </SWC-BSW-MAPPING>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

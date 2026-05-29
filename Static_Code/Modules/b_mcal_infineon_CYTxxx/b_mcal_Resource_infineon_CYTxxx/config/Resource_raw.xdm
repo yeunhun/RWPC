@@ -1,0 +1,199 @@
+<?xml version="1.0" ?><datamodel version="5.0" xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd" xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd" xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd" xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd">
+
+  <d:ctr factory="autosar" type="AUTOSAR" xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd" xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T40D13M1I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="04696AB1-FD37-4d2d-9064-09ED70CC1434"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Resource" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+              <a:a name="RELEASE" value="asc:4.2.2"/>
+              <a:a name="DESC" value="Configuration of the Resource module."/>
+              <a:a name="LOWER-MULTIPLICITY" value="1"/>
+              <a:a name="UPPER-MULTIPLICITY" value="1"/>
+              <a:a name="UUID" value="DCE925BC-ED62-43e6-9F81-390BD5AECFD5"/>
+              <v:ctr name="ResourceGeneral" type="IDENTIFIABLE">
+                <a:a name="DESC" value="This container contains the configuration (parameters) of the Resource driver."/>
+                <a:a name="UUID" value="0BCE0794-7A9A-421d-AF58-EDB2CD3D72BE"/>
+                <v:var name="ResourceSubDerivative" type="ENUMERATION">
+                  <a:a name="DESC" value="Selects a sub-derivative"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>                  
+                  <a:a name="ORIGIN" value="Cypress"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID" value="5DC7A909-D136-4444-97CA-05F887EDC740"/>
+                  <a:da name="DEFAULT" value="CYT2B78CAS"/>
+                  <a:da name="RANGE">
+                    <a:v>CYT2A0100E</a:v>
+                    <a:v>CYT2B63BAE</a:v>
+                    <a:v>CYT2B63BAS</a:v>
+                    <a:v>CYT2B63CAE</a:v>
+                    <a:v>CYT2B63CAS</a:v>
+                    <a:v>CYT2B64BAE</a:v>
+                    <a:v>CYT2B64BAS</a:v>
+                    <a:v>CYT2B64CAE</a:v>
+                    <a:v>CYT2B64CAS</a:v>
+                    <a:v>CYT2B65BAE</a:v>
+                    <a:v>CYT2B65BAS</a:v>
+                    <a:v>CYT2B65CAE</a:v>
+                    <a:v>CYT2B65CAS</a:v>
+                    <a:v>CYT2B73BAE</a:v>
+                    <a:v>CYT2B73BAS</a:v>
+                    <a:v>CYT2B73CAE</a:v>
+                    <a:v>CYT2B73CAS</a:v>
+                    <a:v>CYT2B74BAE</a:v>
+                    <a:v>CYT2B74BAS</a:v>
+                    <a:v>CYT2B74CAE</a:v>
+                    <a:v>CYT2B74CAS</a:v>
+                    <a:v>CYT2B75BAE</a:v>
+                    <a:v>CYT2B75BAS</a:v>
+                    <a:v>CYT2B75CAE</a:v>
+                    <a:v>CYT2B75CAS</a:v>
+                    <a:v>CYT2B77BAE</a:v>
+                    <a:v>CYT2B77BAS</a:v>
+                    <a:v>CYT2B77CAE</a:v>
+                    <a:v>CYT2B77CAS</a:v>
+                    <a:v>CYT2B78BAE</a:v>
+                    <a:v>CYT2B78BAS</a:v>
+                    <a:v>CYT2B78CAE</a:v>
+                    <a:v>CYT2B78CAS</a:v>
+                    <a:v>CYT2B93BAE</a:v>
+                    <a:v>CYT2B93BAS</a:v>
+                    <a:v>CYT2B93CAE</a:v>
+                    <a:v>CYT2B93CAS</a:v>
+                    <a:v>CYT2B94BAE</a:v>
+                    <a:v>CYT2B94BAS</a:v>
+                    <a:v>CYT2B94CAE</a:v>
+                    <a:v>CYT2B94CAS</a:v>
+                    <a:v>CYT2B95BAE</a:v>
+                    <a:v>CYT2B95BAS</a:v>
+                    <a:v>CYT2B95CAE</a:v>
+                    <a:v>CYT2B95CAS</a:v>
+                    <a:v>CYT2B97BAE</a:v>
+                    <a:v>CYT2B97BAS</a:v>
+                    <a:v>CYT2B97CAE</a:v>
+                    <a:v>CYT2B97CAS</a:v>
+                    <a:v>CYT2B98BAE</a:v>
+                    <a:v>CYT2B98BAS</a:v>
+                    <a:v>CYT2B98CAE</a:v>
+                    <a:v>CYT2B98CAS</a:v>
+                    <a:v>CYT2BL3BAE</a:v>
+                    <a:v>CYT2BL3BAS</a:v>
+                    <a:v>CYT2BL3CAE</a:v>
+                    <a:v>CYT2BL3CAS</a:v>
+                    <a:v>CYT2BL4BAE</a:v>
+                    <a:v>CYT2BL4BAS</a:v>
+                    <a:v>CYT2BL4CAE</a:v>
+                    <a:v>CYT2BL4CAS</a:v>
+                    <a:v>CYT2BL5BAE</a:v>
+                    <a:v>CYT2BL5BAS</a:v>
+                    <a:v>CYT2BL5CAE</a:v>
+                    <a:v>CYT2BL5CAS</a:v>
+                    <a:v>CYT2BL7BAE</a:v>
+                    <a:v>CYT2BL7BAS</a:v>
+                    <a:v>CYT2BL7CAE</a:v>
+                    <a:v>CYT2BL7CAS</a:v>
+                    <a:v>CYT2BL8BAE</a:v>
+                    <a:v>CYT2BL8BAS</a:v>
+                    <a:v>CYT2BL8CAE</a:v>
+                    <a:v>CYT2BL8CAS</a:v>
+                    <a:v>CYT2C9HBAS</a:v>
+                    <a:v>CYT2C97BAS</a:v>
+                    <a:v>CYT2C98BAS</a:v>
+                    <a:v>CYT2CL7BAS</a:v>
+                    <a:v>CYT2CL8BAS</a:v>
+                    <a:v>CYT2CLHBAS</a:v>
+                    <a:v>CYT3BB5CEE</a:v>
+                    <a:v>CYT3BB5CES</a:v>
+                    <a:v>CYT3BB7CEE</a:v>
+                    <a:v>CYT3BB7CES</a:v>
+                    <a:v>CYT3BB8CEE</a:v>
+                    <a:v>CYT3BB8CES</a:v>
+                    <a:v>CYT3BBBCEE</a:v>
+                    <a:v>CYT3BBBCES</a:v>
+                    <a:v>CYT3DL9BAS</a:v>
+                    <a:v>CYT3DL9BBS</a:v>
+                    <a:v>CYT3DL9BCS</a:v>
+                    <a:v>CYT3DL9BDS</a:v>
+                    <a:v>CYT3DL9BES</a:v>
+                    <a:v>CYT3DL9BFS</a:v>
+                    <a:v>CYT3DL9BGS</a:v>
+                    <a:v>CYT3DL9BHS</a:v>
+                    <a:v>CYT3DLABAS</a:v>
+                    <a:v>CYT3DLABBS</a:v>
+                    <a:v>CYT3DLABCS</a:v>
+                    <a:v>CYT3DLABDS</a:v>
+                    <a:v>CYT3DLABES</a:v>
+                    <a:v>CYT3DLABFS</a:v>
+                    <a:v>CYT3DLABGS</a:v>
+                    <a:v>CYT3DLABHS</a:v>
+                    <a:v>CYT3DLBBAS</a:v>
+                    <a:v>CYT3DLBBBS</a:v>
+                    <a:v>CYT3DLBBCS</a:v>
+                    <a:v>CYT3DLBBDS</a:v>
+                    <a:v>CYT3DLBBES</a:v>
+                    <a:v>CYT3DLBBFS</a:v>
+                    <a:v>CYT3DLBBGS</a:v>
+                    <a:v>CYT3DLBBHS</a:v>
+                    <a:v>CYT3DLJBBS</a:v>
+                    <a:v>CYT3DLJBDS</a:v>
+                    <a:v>CYT3DLJBFS</a:v>
+                    <a:v>CYT3DLJBHS</a:v>
+                    <a:v>CYT4A0100S</a:v>
+                    <a:v>CYT4BB5CEE</a:v>
+                    <a:v>CYT4BB5CES</a:v>
+                    <a:v>CYT4BB7CEE</a:v>
+                    <a:v>CYT4BB7CES</a:v>
+                    <a:v>CYT4BB8CEE</a:v>
+                    <a:v>CYT4BB8CES</a:v>
+                    <a:v>CYT4BBBCEE</a:v>
+                    <a:v>CYT4BBBCES</a:v>
+                    <a:v>CYT4BF8CDE</a:v>
+                    <a:v>CYT4BF8CDS</a:v>
+                    <a:v>CYT4BF8CEE</a:v>
+                    <a:v>CYT4BF8CES</a:v>
+                    <a:v>CYT4BFBCHE</a:v>
+                    <a:v>CYT4BFBCHS</a:v>
+                    <a:v>CYT4BFBCJE</a:v>
+                    <a:v>CYT4BFBCJS</a:v>
+                    <a:v>CYT4BFCCHE</a:v>
+                    <a:v>CYT4BFCCHS</a:v>
+                    <a:v>CYT4BFCCJE</a:v>
+                    <a:v>CYT4BFCCJS</a:v>
+                    <a:v>CYT4DNJBAS</a:v>
+                    <a:v>CYT4DNJBBS</a:v>
+                    <a:v>CYT4DNJBCS</a:v>
+                    <a:v>CYT4DNJBDS</a:v>
+                    <a:v>CYT4DNJBES</a:v>
+                    <a:v>CYT4DNJBFS</a:v>
+                    <a:v>CYT4DNJBGS</a:v>
+                    <a:v>CYT4DNJBHS</a:v>
+                    <a:v>CYT4DNJBJS</a:v>
+                    <a:v>CYT4DNJBKS</a:v>
+                    <a:v>CYT4DNJBLS</a:v>
+                    <a:v>CYT4DNJBMS</a:v>
+                    <a:v>CYT4DNJBNS</a:v>
+                    <a:v>CYT4DNJBPS</a:v>
+                    <a:v>CYT4DNJBQS</a:v>
+                    <a:v>CYT4DNJBRS</a:v>
+                  </a:da>
+                </v:var>
+              </v:ctr>
+            </v:ctr>
+          </d:chc>
+          <d:chc name="RESOURCE_EcuParameterDefinition" type="AR-ELEMENT" value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="DEF" value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <a:a name="UUID" value="DAA54643-F9D9-499d-881A-3DA561D0543D"/>
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T40D13M1I0R0/Resource"/>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

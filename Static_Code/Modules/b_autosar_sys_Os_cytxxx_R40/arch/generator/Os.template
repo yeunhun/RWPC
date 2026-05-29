@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GENERAL-INFORMATION>
+
+  <!-- Template version -->
+  <TEMPLATE-VERSION>2.3.0</TEMPLATE-VERSION>
+  
+  <!-- Generation Tool versions which are supported by this Template -->
+  <SUPPORTED-TOOL-VERSIONS>2.3.0</SUPPORTED-TOOL-VERSIONS>
+
+  <!-- Parser Details for Config Module -->
+  <PARSER-DETAILS>
+    <!-- Module under test --> 
+    <MODULE-UNDER-TEST>OS</MODULE-UNDER-TEST>
+    <!-- Modules required MDT File information -->
+    <MODULE-UNDER-TEST-MDT>OS</MODULE-UNDER-TEST-MDT>
+    <!-- Mandatory Modules required to Parse Os -->
+    <MANDATORY-MODULES>OS</MANDATORY-MODULES>
+    <!-- All the Modules to be Parsed -->
+    <MODULES>OSHARDWAREDETAILS OS GPT</MODULES>
+    <!-- Provide all command line options here in capital case, first letter of each commandline option will also be 
+         a valid command line option but it need not be mentioned below.
+         command line options should not conflict with each other including the first charactor of option
+    -->
+    <CMDLINEOPTIONS>ldfile</CMDLINEOPTIONS>
+    <!-- Containers which contain reference parameters -->
+    <REFERENCE-CONTAINER-ARRAY>TskAutostart Task TskResourceLock Alarm AlarmSetEvent OsOS Isr AlarmIncrement AlarmAutostart AlarmActivateTask Counter Driver Resource IsrResourceLock ScheduleTable SchedTblAutostart SchedTblTaskActivation SchedTblEventSetting  SchedTblEventSetting Application</REFERENCE-CONTAINER-ARRAY>
+    <!-- Parameter required to fetch more than one values in a destination container -->
+    <PARAMETER-COPY>
+      <ENTRY NAME = '' DETAILS = ''></ENTRY>
+    </PARAMETER-COPY>
+    <!-- Name of the containers and their corresponding reference parameters -->
+    <SYMREF-PARAM>
+      <ENTRY NAME = 'Task'                       DETAILS = 'TskAccessingAppl TskEventRef TskResourceRef'></ENTRY>
+      <ENTRY NAME = 'TskResourceLock'            DETAILS = 'TskResourceLockResourceRef'></ENTRY>
+      <ENTRY NAME = 'TskAutostart'               DETAILS = 'TskAppModeRef'></ENTRY>
+      <ENTRY NAME = 'Alarm'                      DETAILS = 'AccessingAppl CounterRef'></ENTRY>
+      <ENTRY NAME = 'AlarmActivateTask'          DETAILS = 'ActivateTaskRef'></ENTRY>
+      <ENTRY NAME = 'AlarmIncrementCounter'      DETAILS = 'IncrementCounterRef'></ENTRY>
+      <ENTRY NAME = 'AlarmSetEvent'              DETAILS = 'SetEventRef SetEventTaskRef'></ENTRY>
+      <ENTRY NAME = 'AlarmAutostart'             DETAILS = 'AppModeRef'></ENTRY>
+      <ENTRY NAME = 'Counter'                    DETAILS = 'AccessingAppl'></ENTRY>
+      <ENTRY NAME = 'Driver'                     DETAILS = 'GptChannelRef'></ENTRY>
+      <ENTRY NAME = 'OsOS'                       DETAILS = 'GptWatchdogChannelRef'></ENTRY>
+      <ENTRY NAME = 'Isr'                        DETAILS = 'ResourceRef CounterRef'></ENTRY>
+      <ENTRY NAME = 'IsrResourceLock'            DETAILS = 'ResourceLockResourceRef'></ENTRY>
+      <ENTRY NAME = 'Resource'                   DETAILS = 'AccessingAppl LinkedResourceRef'></ENTRY>
+      <ENTRY NAME = 'ScheduleTable'              DETAILS = 'SchedTblAccessingAppl SchedTblCounterRef'></ENTRY>
+      <ENTRY NAME = 'SchedTblAutostart'          DETAILS = 'SchedTblAppModeRef'></ENTRY>
+      <ENTRY NAME = 'SchedTblTaskActivation'     DETAILS = 'SchedTblActivateTaskRef'></ENTRY>
+      <ENTRY NAME = 'SchedTblEventSetting'       DETAILS = 'SchedTblSetEventRef SchedTblSetEventTaskRef'></ENTRY>
+      <ENTRY NAME = 'Application'                DETAILS = 'AppAlarmRef AppCounterRef AppIsrRef AppResourceRef AppSchedTblRef AppTaskRef RestartTask'></ENTRY>
+    </SYMREF-PARAM>
+    <!-- For each reference parameters corresponding destination containers and parameters -->
+    <REFERENCES>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'TskAccessingAppl'                  DESTINATION-CONTAINER = 'Application'              DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'TskResourceRef'                    DESTINATION-CONTAINER = 'Resource'                 DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'TskEventRef'                       DESTINATION-CONTAINER = 'Event'                    DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'TskAppModeRef'                     DESTINATION-CONTAINER = 'AppMode'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'TskResourceLockResourceRef'        DESTINATION-CONTAINER = 'Resource'                 DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AccessingAppl'                     DESTINATION-CONTAINER = 'Application'              DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'ActivateTaskRef'                   DESTINATION-CONTAINER = 'Task'                     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'IncrementCounterRef'               DESTINATION-CONTAINER = 'Counter'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SetEventRef'                       DESTINATION-CONTAINER = 'Event'                    DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SetEventTaskRef'                   DESTINATION-CONTAINER = 'Task'                     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppModeRef'                        DESTINATION-CONTAINER = 'AppMode'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'GptWatchdogChannelRef'             DESTINATION-CONTAINER = 'GptChannelConfig'         DESTINATION-PARAMETER = 'ChannelId'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'GptChannelRef'                     DESTINATION-CONTAINER = 'GptChannelConfig'         DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'ResourceRef'                       DESTINATION-CONTAINER = 'Resource'                 DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'CounterRef'                        DESTINATION-CONTAINER = 'Counter'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'ResourceLockResourceRef'           DESTINATION-CONTAINER = 'Resource'                 DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'LinkedResourceRef'                 DESTINATION-CONTAINER = 'Resource'                 DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SchedTblAccessingAppl'             DESTINATION-CONTAINER = 'Application'              DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SchedTblCounterRef'                DESTINATION-CONTAINER = 'Counter'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>  
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SchedTblAppModeRef'                DESTINATION-CONTAINER = 'AppMode'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SchedTblSetEventRef'               DESTINATION-CONTAINER = 'Event'                    DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>  
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SchedTblSetEventTaskRef'           DESTINATION-CONTAINER = 'Task'                     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'SchedTblActivateTaskRef'           DESTINATION-CONTAINER = 'Task'                     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>  
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppAlarmRef'                       DESTINATION-CONTAINER = 'Alarm'                    DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppCounterRef'                     DESTINATION-CONTAINER = 'Counter'                  DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL> 
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppIsrRef'                         DESTINATION-CONTAINER = 'Isr'                      DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppResourceRef'                    DESTINATION-CONTAINER = 'Resource'                 DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>  
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppSchedTblRef'                    DESTINATION-CONTAINER = 'ScheduleTable'            DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'AppTaskRef'                        DESTINATION-CONTAINER = 'Task'                     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+      <REFERENCE-PARAM-DETAIL REFERENCE-PARAM-NAME = 'RestartTask'                       DESTINATION-CONTAINER = 'Task'                     DESTINATION-PARAMETER = 'ShortName'></REFERENCE-PARAM-DETAIL>
+    </REFERENCES>
+    <!-- To check if the correct description file is provided as input.
+      ArReleaseVersion in the description file is compared with the below versions -->
+    <FOR-VERSION-CHECK>
+      <VERSIONS>4.0.3</VERSIONS>
+      <MESSAGE-TYPE>INF</MESSAGE-TYPE>
+    </FOR-VERSION-CHECK>
+    <!-- If parameter multiplicity is more than one -->
+    <PARAM-MULTIPLICITY>
+      <ENTRY>TskAccessingAppl</ENTRY>
+      <ENTRY>TskEventRef</ENTRY>
+      <ENTRY>TskResourceRef</ENTRY>
+      <ENTRY>TskAppModeRef</ENTRY>
+      <ENTRY>AccessingAppl</ENTRY>
+      <ENTRY>AppModeRef</ENTRY>
+      <ENTRY>ResourceRef</ENTRY>
+      <ENTRY>SchedTblAccessingAppl</ENTRY>
+      <ENTRY>SchedTblAppModeRef</ENTRY>
+      <ENTRY>AppAlarmRef</ENTRY>
+      <ENTRY>AppCounterRef</ENTRY>
+      <ENTRY>AppIsrRef</ENTRY>
+      <ENTRY>AppResourceRef</ENTRY>
+      <ENTRY>AppSchedTblRef</ENTRY>
+      <ENTRY>AppTaskRef</ENTRY>
+      <ENTRY>AlarmRef</ENTRY>
+      <ENTRY>TaskRef</ENTRY>
+      <ENTRY>SchedTblRef</ENTRY>
+    </PARAM-MULTIPLICITY>
+    <!-- For the parameters listed below reference need not be configured -->
+    <REF-MUL>
+      <ENTRY>AccessingAppl</ENTRY>
+      <ENTRY>AppAlarmRef</ENTRY>
+      <ENTRY>AppCounterRef</ENTRY>
+      <ENTRY>AppIsrRef</ENTRY>
+      <ENTRY>AppResourceRef</ENTRY>
+      <ENTRY>AppSchedTblRef</ENTRY>
+      <ENTRY>AppTaskRef</ENTRY>
+      <ENTRY>RestartTask</ENTRY>
+      <ENTRY>GptChannelRef</ENTRY>
+      <ENTRY>ResourceRef</ENTRY>
+      <ENTRY>CounterRef</ENTRY>
+      <ENTRY>GptWatchdogChannelRef</ENTRY>
+      <ENTRY>LinkedResourceRef</ENTRY>
+      <ENTRY>SchedTblAccessingAppl</ENTRY>
+      <ENTRY>TskAccessingAppl</ENTRY>
+      <ENTRY>TskEventRef</ENTRY>
+      <ENTRY>TskResourceRef</ENTRY>
+    </REF-MUL>
+  </PARSER-DETAILS>
+  <!-- Handle Id details -->
+  <HANDLE-ID-DETAILS>
+    <HANDLE-ENTRY CONTAINER-NAME = ''     PARAMETER-NAME = '' TYPE-CAST = ''></HANDLE-ENTRY>
+  </HANDLE-ID-DETAILS>
+  <!-- Map Names -->
+  <MAP-NAMES>
+    <!-- List all SWC related tags for which map names are required -->
+    <SWC-DETAILS> 
+      <SWC-TAG ORIGINAL-NAME = 'IMPLEMENTATION-DATA-TYPE'              MAP-NAME = 'ImplDataTyp'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'SW-BASE-TYPE'                          MAP-NAME = 'SwBaseTyp'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'SHORT-NAME'                            MAP-NAME = 'ShortName'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'SUB-ELEMENTS'                          MAP-NAME = 'subElements'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'SW-DATA-DEF-PROPS'                     MAP-NAME = 'SwDataDef'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'IMPLEMENTATION-DATA-TYPE-ELEMENT'      MAP-NAME = 'ImplDataTypEle'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'ARRAY-SIZE'                            MAP-NAME = 'ArraySize'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'ARRAY-SIZE-SEMANTICS'                  MAP-NAME = 'ArraySizeScmen'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'MAX-BASE-TYPE-SIZE'                    MAP-NAME = 'MaxBaseTypSize'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'BASE-TYPE-SIZE'                        MAP-NAME = 'BaseTypSize'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'BYTE-ORDER'                            MAP-NAME = 'ByteOrder'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'BASE-TYPE-ENCODING'                    MAP-NAME = 'BaseTypEncode'></SWC-TAG>
+      <SWC-TAG ORIGINAL-NAME = 'NATIVE-DECLARATION'                    MAP-NAME = 'NativeDecl'></SWC-TAG>
+    </SWC-DETAILS>
+    <CONTAINER-DETAILS>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarm'                           MAP-NAME = 'Alarm'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmAccessingApplication'     MAP-NAME = 'AccessingAppl'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmCounterRef'               MAP-NAME = 'CounterRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarmAction'                     MAP-NAME = 'AlarmAction'></CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarmAutostart'                  MAP-NAME = 'AlarmAutostart'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmAlarmTime'                MAP-NAME = 'AlarmTime'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmAutostartType'            MAP-NAME = 'AutostartType'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmCycleTime'                MAP-NAME = 'CycleTime'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmAppModeRef'               MAP-NAME = 'AppModeRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>    
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarmActivateTask'               MAP-NAME = 'AlarmActivateTask'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmActivateTaskRef'          MAP-NAME = 'ActivateTaskRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>       
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarmCallback'                   MAP-NAME = 'AlarmCallback'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmCallbackName'             MAP-NAME = 'CallbackName'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>       
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarmIncrementCounter'           MAP-NAME = 'AlarmIncrementCounter'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmIncrementCounterRef'      MAP-NAME = 'IncrementCounterRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>          
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAlarmSetEvent'                   MAP-NAME = 'AlarmSetEvent'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmSetEventRef'              MAP-NAME = 'SetEventRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAlarmSetEventTaskRef'          MAP-NAME = 'SetEventTaskRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>      
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsAppMode'                         MAP-NAME = 'AppMode'>
+      </CONTAINER-DETAIL>      
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsApplication'                     MAP-NAME = 'Application'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTrusted'                       MAP-NAME = 'Trusted'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppAlarmRef'                   MAP-NAME = 'AppAlarmRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppCounterRef'                 MAP-NAME = 'AppCounterRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppIsrRef'                     MAP-NAME = 'AppIsrRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppResourceRef'                MAP-NAME = 'AppResourceRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppScheduleTableRef'           MAP-NAME = 'AppSchedTblRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppTaskRef'                    MAP-NAME = 'AppTaskRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsRestartTask'                   MAP-NAME = 'RestartTask'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsApplicationCoreAssignment'     MAP-NAME = 'CoreAssign'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsApplicationStackSize'          MAP-NAME = 'AppStackSize'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsCounter'                         MAP-NAME = 'Counter'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsCounterMaxAllowedValue'        MAP-NAME = 'MaxAllowedValue'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsCounterMinCycle'               MAP-NAME = 'MinCycle'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsCounterTicksPerBase'           MAP-NAME = 'TicksPerBase'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsCounterType'                   MAP-NAME = 'Type'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsDrivingInterrupt'              MAP-NAME = 'DrivInterrupt'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsSecondsPerTick'                MAP-NAME = 'SecPerTick'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsCounterAccessingApplication'   MAP-NAME = 'AccessingAppl'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsCounterHardwarePriority'       MAP-NAME = 'HwPriority'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsDriver'                          MAP-NAME = 'Driver'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsGptChannelRef'                 MAP-NAME = 'GptChannelRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsTimeConstant'                    MAP-NAME = 'TimeConstant'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsConstName'                     MAP-NAME = 'ConstName'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTimeValue'                     MAP-NAME = 'TimeValue'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsEvent'                           MAP-NAME = 'Event'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsEventMask'                     MAP-NAME = 'EventMask'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIsr'                             MAP-NAME = 'Isr'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrCategory'                   MAP-NAME = 'Category'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrName'                       MAP-NAME = 'Name'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrHardwarePriority'           MAP-NAME = 'HwPriority'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrResourceRef'                MAP-NAME = 'ResourceRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIsrTimingProtection'             MAP-NAME = 'IsrTimingProtection'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrAllInterruptLockBudget'     MAP-NAME = 'AllInterruptLockBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrExecutionBudget'            MAP-NAME = 'ExecutionBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrOsInterruptLockBudget'      MAP-NAME = 'OsInterruptLockBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrTimeFrame'                  MAP-NAME = 'TimeFrame'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIsrResourceLock'                 MAP-NAME = 'IsrResourceLock'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrResourceLockBudget'         MAP-NAME = 'ResourceLockBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIsrResourceLockResourceRef'    MAP-NAME = 'ResourceLockResourceRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsOS'                              MAP-NAME = 'OsOS'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScalabilityClass'              MAP-NAME = 'ScalabilityClass'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsStackMonitoring'               MAP-NAME = 'StackMonitoring'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsStatus'                        MAP-NAME = 'Status'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsUseGetServiceId'               MAP-NAME = 'UseGetServiceId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsUseParameterAccess'            MAP-NAME = 'UseParameterAccess'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsUseResScheduler'               MAP-NAME = 'UseResScheduler'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsProcessor'                     MAP-NAME = 'Processor'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIncludeHeaderFile'             MAP-NAME = 'IncludeHeaderFile'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsProcessorSeries'               MAP-NAME = 'ProcessorSeries'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsNumberOfCores'                 MAP-NAME = 'NoOfCores'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsSystemTimerClock'              MAP-NAME = 'SystemTimerClock'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsHooks'                           MAP-NAME = 'Hooks'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsErrorHook'                     MAP-NAME = 'ErrorHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsPostTaskHook'                  MAP-NAME = 'PostTaskHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsPreTaskHook'                   MAP-NAME = 'PreTaskHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsProtectionHook'                MAP-NAME = 'ProtectionHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsShutdownHook'                  MAP-NAME = 'ShutdownHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsStartupHook'                   MAP-NAME = 'StartupHook'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsResource'                        MAP-NAME = 'Resource'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsResourceProperty'              MAP-NAME = 'Property'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsResourceAccessingApplication'  MAP-NAME = 'AccessingAppl'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsResourceLinkedResourceRef'     MAP-NAME = 'LinkedResourceRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTable'                   MAP-NAME = 'ScheduleTable'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableRepeating'        MAP-NAME = 'SchedTblRepeating'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableDuration'         MAP-NAME = 'SchedTblDuration'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsSchTblAccessingApplication'    MAP-NAME = 'SchedTblAccessingAppl'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableCounterRef'       MAP-NAME = 'SchedTblCounterRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTableAutostart'          MAP-NAME = 'SchedTblAutostart'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableStartValue'       MAP-NAME = 'SchedTblStartValue'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableAutostartType'    MAP-NAME = 'SchedTblAutostartType'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableAppModeRef'       MAP-NAME = 'SchedTblAppModeRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTableExpiryPoint'        MAP-NAME = 'SchedTblExpiryPoint'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTblExpPointOffset'     MAP-NAME = 'SchedTblExpPointOffset'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTableEventSetting'       MAP-NAME = 'SchedTblEventSetting'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableSetEventRef'      MAP-NAME = 'SchedTblSetEventRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableSetEventTaskRef'  MAP-NAME = 'SchedTblSetEventTaskRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTableTaskActivation'     MAP-NAME = 'SchedTblTaskActivation'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableActivateTaskRef'  MAP-NAME = 'SchedTblActivateTaskRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTblAdjustableExpPoint'   MAP-NAME = 'SchedTblAdjustableExpPoint'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableMaxLengthen'      MAP-NAME = 'SchedTblMaxLengthen'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTableMaxShorten'       MAP-NAME = 'SchedTblMaxShorten'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsScheduleTableSync'               MAP-NAME = 'SchedTblSync'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTblExplicitPrecision'  MAP-NAME = 'SchedTblExplicitPrecision'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsScheduleTblSyncStrategy'       MAP-NAME = 'SchedTblSyncStrategy'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsTask'                            MAP-NAME = 'Task'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskActivation'                MAP-NAME = 'TskActivation'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskPriority'                  MAP-NAME = 'TskPriority'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskSchedule'                  MAP-NAME = 'TskSchedule'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskStackSize'                 MAP-NAME = 'TskStackSize'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskAccessingApplication'      MAP-NAME = 'TskAccessingAppl'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskEventRef'                  MAP-NAME = 'TskEventRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskResourceRef'               MAP-NAME = 'TskResourceRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskPeripheralAccess'          MAP-NAME = 'TskPeripheralAcc'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsTaskAutostart'                   MAP-NAME = 'TskAutostart'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskAppModeRef'                MAP-NAME = 'TskAppModeRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsTaskTimingProtection'            MAP-NAME = 'TskTimingProtection'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskAllInterruptLockBudget'    MAP-NAME = 'TskAllInterruptLockBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskExecutionBudget'           MAP-NAME = 'TskExecutionBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskOsInterruptLockBudget'     MAP-NAME = 'TskOsInterruptLockBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskTimeFrame'                 MAP-NAME = 'TskTimeFrame'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsTaskResourceLock'                MAP-NAME = 'TskResourceLock'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskResourceLockBudget'        MAP-NAME = 'TskResourceLockBudget'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTaskResourceLockResourceRef'   MAP-NAME = 'TskResourceLockResourceRef'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsApplicationHooks'                MAP-NAME = 'ApplHooks'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppErrorHook'                  MAP-NAME = 'AppErrorHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppShutdownHook'               MAP-NAME = 'AppShutdownHook'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsAppStartupHook'                MAP-NAME = 'AppStartupHook'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsApplicationTrustedFunction'      MAP-NAME = 'AppTrustedFunction'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTrustedFunctionName'           MAP-NAME = 'TrustedFuncName'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsTrustedFunctionIndex'          MAP-NAME = 'TrustedFuncIndex'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'GptChannelConfiguration'           MAP-NAME = 'GptChannelConfig'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'GptChannelId'                    MAP-NAME = 'ChannelId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'GptChannelPrescale'              MAP-NAME = 'GptPreScaler'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'GptChannelMode'                  MAP-NAME = 'GptChannelMode'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsMemoryBlock'                     MAP-NAME = 'MemoryBlock'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsMemoryStartAddress'            MAP-NAME = 'MemoryStartAddr'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsMemoryEndAddress'              MAP-NAME = 'MemoryEndAddr'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsMemoryAccesType'               MAP-NAME = 'MemoryAccesType'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIoc'                             MAP-NAME = 'Ioc'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocCbkStackSize'               MAP-NAME = 'CbkStackSize'></PARAMETER-DETAIL>
+			</CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIocCommunication'                MAP-NAME = 'IocComm'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocBufferLength'               MAP-NAME = 'IocBuffLen'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIocReceiverProperties'           MAP-NAME = 'IocRecProp'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocReceiverPullCB'             MAP-NAME = 'ReceiverPullCB'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocReceivingOsApplicationRef'  MAP-NAME = 'RevApplication'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocFunctionImplementationKind'    MAP-NAME = 'FunImplKind'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIocSenderProperties'             MAP-NAME = 'IocSendProp'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocSenderId'                   MAP-NAME = 'SenderId'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocSendingOsApplicationRef'    MAP-NAME = 'SendApplication'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocFunctionImplementationKind' MAP-NAME = 'FunImplKind'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsIocDataProperties'               MAP-NAME = 'IocDataProp'>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocDataPropertyIndex'          MAP-NAME = 'DataPropIdx'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocDataTypeRef'                MAP-NAME = 'DataTypeRef'></PARAMETER-DETAIL>
+        <PARAMETER-DETAIL ORIGINAL-NAME = 'OsIocInitValue'                  MAP-NAME = 'InitVal'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      <CONTAINER-DETAIL ORIGINAL-NAME = 'OsSpinlock'                         MAP-NAME = 'Spinlock'>
+          <PARAMETER-DETAIL ORIGINAL-NAME = 'OsSpinlockSuccessor'            MAP-NAME = 'SpnlckSuccessor'></PARAMETER-DETAIL>
+          <PARAMETER-DETAIL ORIGINAL-NAME = 'OsSpinlockAccessingApplication' MAP-NAME = 'SpnlckAccessApp'></PARAMETER-DETAIL>
+      </CONTAINER-DETAIL>
+      </CONTAINER-DETAILS>
+  </MAP-NAMES>
+
+  <!-- Container Count -->
+  <CONTAINER-COUNTS>
+    <CONTAINER-COUNT MAP-NAME = 'Alarm'                              COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlarmAction'                        COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlarmAutostart'                     COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlarmActivateTask'                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlarmCallback'                      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlarmIncrementCounter'              COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AlarmSetEvent'                      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AppMode'                            COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Application'                        COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Counter'                            COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Driver'                             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'TimeConstant'                       COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Event'                              COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Isr'                                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'IsrTimingProtection'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'IsrResourceLock'                    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'OsOS'                               COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Hooks'                              COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Resource'                           COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'ScheduleTable'                      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SchedTblAutostart'                  COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SchedTblExpiryPoint'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SchedTblEventSetting'               COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SchedTblTaskActivation'             COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SchedTblAdjustableExpPoint'         COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'SchedTblSync'                       COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'Task'                               COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'TskAutostart'                       COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'TskTimingProtection'                COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'TskResourceLock'                    COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'ApplHooks'                          COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'AppTrustedFunction'                 COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'GptChannelConfig'                   COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'CommonPubInfo'                      COUNT = '0'></CONTAINER-COUNT>
+    <CONTAINER-COUNT MAP-NAME = 'OsApplicationMemoryBlock'           COUNT = '0'></CONTAINER-COUNT>
+  </CONTAINER-COUNTS>
+
+  <!-- Pre compile options -->
+  <PRE-COMPILE-OPTIONS>
+    <MACRO-ENTRY
+      Name      = 'OS_CAT1_ISR_COUNT'
+      Type      = '5'
+      Value     = '0'
+      Pos       = ''
+      Prefix    = ''
+      Postfix   = 'u'
+      Comment   = 'Number of CAT1 interrupts configured'
+      Container = ''
+      Parameter = '' >
+    </MACRO-ENTRY>
+		<MACRO-ENTRY
+      Name      = 'OS_CAT2_ISR_COUNT'
+      Type      = '5'
+      Value     = '0'
+      Pos       = ''
+      Prefix    = ''
+      Postfix   = 'u'
+      Comment   = 'Total number of Category 2 Isrs'
+      Container = ''
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+      Name      = 'OS_ISR_COUNT'
+      Type      = '5'
+      Value     = '0'
+      Pos       = ''
+      Prefix    = ''
+      Postfix   = 'u'
+      Comment   = 'Total number of Isrs'
+      Container = ''
+      Parameter = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+        Name      = 'OS_CAT1_LEAST_PRIORITY'
+        Type      = '5'
+        Value     = '0'
+        Pos       = ''
+        Prefix    = ''
+        Postfix   = 'u'
+        Comment   = 'Least Priority In Cat 1 Interrupts'
+        Container = ''
+        Parameter = '' 
+        Structure = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+        Name      = 'OS_CAT2_MAX_PRIORITY'
+        Type      = '5'
+        Value     = '7'
+        Pos       = ''
+        Prefix    = ''
+        Postfix   = 'u'
+        Comment   = 'Highest Priority In Cat 2 Interrupts'
+        Container = ''
+        Parameter = '' 
+        Structure = '' >
+    </MACRO-ENTRY>
+    <MACRO-ENTRY
+        Name      = 'OS_TIMER_CLOCK'
+        Type      = '2'
+        Value     = ''
+        Pos       = ''
+        Prefix    = ''
+        Postfix   = 'u'
+        Comment   = 'OS Timer Clock(MHz)'
+        Container = 'OsOS'
+        Parameter = 'SystemTimerClock' 
+        Structure = '' >
+    </MACRO-ENTRY>
+  </PRE-COMPILE-OPTIONS>
+
+    <!-- Pointer Cast -->
+  <POINTER-CAST>
+    <ENTRY NAME = 'Os_GaaISRPriority' FIELD = 'pICRAddress' DETAILS = '(volatile uint32 *)'></ENTRY>
+    <ENTRY NAME = 'Os_GaaISRPriority' FIELD = 'usISRPrioritymask' DETAILS = '(uint16)'></ENTRY>
+    <ENTRY NAME = 'Os_GaaISRIndex' FIELD = 'ucIsrStartIdx' DETAILS = '(uint8)'></ENTRY>
+    <ENTRY NAME = 'Os_GaaISRIndex' FIELD = 'ucIsrCount' DETAILS = '(uint8)'></ENTRY>
+    <ENTRY NAME = 'Os_GaaHardWareResource' FIELD = 'ulHardwarePriority' DETAILS = '(uint32)'></ENTRY>
+    <ENTRY NAME = 'Os_GaaHardwareCounter' FIELD = 'ddNextCount' DETAILS = '(TickType)'></ENTRY>
+    <ENTRY NAME = 'Os_GaaHardwareCounter' FIELD = 'ddTicksPerBase' DETAILS = '(TickType)'></ENTRY>
+  </POINTER-CAST>
+
+   <!-- Decimal Fields -->
+  <DECIMAL-FIELDS>
+    <ENTRY>ucNodeId</ENTRY>
+  </DECIMAL-FIELDS>
+  
+  <!-- Contains all consistency checks -->
+  <CONSISTENCY-CHECKS>
+  
+    <!-- Mandatory check -->
+    <MANDATORY-CHECK>
+    </MANDATORY-CHECK>
+    
+    <!-- String check -->
+    <STRING-CHECK>
+    </STRING-CHECK>
+    
+  </CONSISTENCY-CHECKS>
+
+  <!-- Static code that is to be added in the output files -->
+  <OUTPUT-FILES>
+    <Os_PCfg.h>
+      <TEMPLATE>
+/*******************************************************************************
+**  FILE-NAME: Os_PCfg.h                                                      **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR Os Module                                            **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION BEGIN (MISRA-C RULE CHECKER)                **
+*******************************************************************************/
+
+#ifndef  OS_PCFG_H
+#define  OS_PCFG_H
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+INCLUDE_FILE
+/*******************************************************************************
+**                      Global Data Types                                     **
+*******************************************************************************/
+TYPEDEF_STACKTYPE
+/*******************************************************************************
+**                      Configuration Set Handles                             **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Pre-compile options/Macros                            **
+*******************************************************************************/
+PRECOMPILE_OPTIONS
+/*******************************************************************************
+**                      Function Prototypes                                   **
+*******************************************************************************/
+
+EXTERN_ISR
+
+#endif /* OS_PCFG_H */
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION END (MISRA-C RULE CHECKER)                **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+
+</TEMPLATE>
+    </Os_PCfg.h>
+    <Os_PCfg.c>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Os_PCfg.c                                                      **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR Os Module                                            **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION BEGIN (MISRA-C RULE CHECKER)                **
+*******************************************************************************/
+/* polyspace:begin&lt;RTE:ABS_ADDR:Not a defect:Justify with annotations&gt; MCU register access */
+/* polyspace-begin MISRA-C3:8.4 [Justified:Medium] "External linkage is defined in other location" */
+/* polyspace-begin MISRA-C3:9.5 [Justified:Medium] "The generator generates exact size of initializers" */
+/* polyspace-begin MISRA-C3:11.4 [Justified:Low] "Conversion is needed for implementation" */
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+#include "Os_Gen.h"
+
+#if (OS_HARDWARE_COUNTER_COUNT != 0)
+#include "Os_Arch_Timer.h"
+#include "Os_Arch_Regs.h"
+#endif
+
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Tasks/Isrs                                            **
+*******************************************************************************/
+Os_GaaISRPriority
+/*******************************************************************************
+**                      Isr Index                                             **
+*******************************************************************************/
+Os_GaaISRIndex
+/*******************************************************************************
+**                      Resources                                             **
+*******************************************************************************/
+Os_GaaHardWareResource
+/*******************************************************************************
+**                      Counters                                              **
+*******************************************************************************/
+/* Os Hardware counter structure */
+Os_GaaHardwareCounter
+/*******************************************************************************
+**                      Functions                                             **
+*******************************************************************************/
+Func_HW_CounterInit
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION END (MISRA-C RULE CHECKER)                  **
+*******************************************************************************/
+/* polyspace:end&lt;RTE:ABS_ADDR:Not a defect:Justify with annotations&gt; MCU register access */
+/* polyspace-end MISRA-C3:8.4 */
+/* polyspace-end MISRA-C3:9.5 */
+/* polyspace-end MISRA-C3:11.4 */
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+
+</TEMPLATE>
+      <STRUCTURES-AND-ARRAYS>
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Os_GaaHardWareResource</NAME>
+          <COMMENT>/* CONST(Tdd_Os_HardWareResource, OS_CONST)Os_GaaHardWareResource[OS_RESOURCE_COUNT]; */</COMMENT>
+          <FIELD>ulHardwarePriority</FIELD>
+          <TYPE>UINT32</TYPE>
+          <RANGE>NONE#NONE</RANGE>
+          <DEFAULT-VALUE></DEFAULT-VALUE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <STRUCTURE-COMMENT>/* Os Hardware resource priority structure */</STRUCTURE-COMMENT>
+          <REFERENCE>HwPriority#Isr</REFERENCE>
+          <MEMMAP-START>#define OS_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define OS_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE></ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Os_GaaISRPriority</NAME>
+          <COMMENT>/* CONST(Tdd_Os_ISRPriority, OS_CONST)Os_GaaISRPriority[]; */</COMMENT>
+          <FIELD>pICRAddress usISRPrioritymask ucType ddAppId </FIELD>
+          <TYPE>UINT32 UINT16 UINT8 UINT8 </TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <!-- htkim mod end -->
+          <DEFAULT-VALUE></DEFAULT-VALUE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <STRUCTURE-COMMENT>/* Os Category 2 Isr's */</STRUCTURE-COMMENT>
+          <REFERENCE>Name#Isr NONE NONE Category#Isr NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define OS_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define OS_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE></ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Os_GaaISRIndex</NAME>
+          <COMMENT>/* CONST(Tdd_Os_ISRIndex, OS_CONST)Os_GaaISRIndex[]; */</COMMENT>
+          <FIELD>ucIsrCount ucIsrStartIdx</FIELD>
+          <TYPE>UINT8 UINT8</TYPE>
+          <RANGE>NONE#NONE NONE#NONE</RANGE>
+          <DEFAULT-VALUE></DEFAULT-VALUE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <STRUCTURE-COMMENT>/* Os ISR Index and Count for respective cores structure */</STRUCTURE-COMMENT>
+          <REFERENCE>NONE NONE</REFERENCE>
+          <MEMMAP-START>#define OS_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define OS_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE></ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+        <STRUCTURE-ARRAY-ENTRY>
+          <NAME>Os_GaaHardwareCounter</NAME>
+          <COMMENT>/* VAR(Tdd_Os_HardwareCounter, OS_VAR) Os_GaaHardwareCounter
+  [OS_HARDWARE_COUNTER_COUNT]; */</COMMENT>
+          <FIELD>pNextInterruptTick pStaticCounter ddNextCount ddTicksPerBase enChannelId</FIELD>
+          <TYPE>PSTR PSTR UINT32 UINT32 UINT32</TYPE>
+          <RANGE>NONE#NONE NONE#NONE NONE#NONE NONE#NONE NONE#NONE</RANGE>
+          <ELEMENT-COMMENT></ELEMENT-COMMENT>
+          <REFERENCE>NONE NONE NONE NONE NONE</REFERENCE>
+          <MEMMAP-START>#define OS_START_SEC_VAR_INIT_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-START>
+          <MEMMAP-STOP>#define OS_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "MemMap.h"</MEMMAP-STOP>
+          <ENTRY-TYPE>Structure</ENTRY-TYPE>
+        </STRUCTURE-ARRAY-ENTRY>
+      </STRUCTURES-AND-ARRAYS>
+    </Os_PCfg.c>
+    <Os_Vector.c>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Os_Vector.c                                                    **
+**                                                                            **
+**  MODULE-NAME: AUTOSAR Os Module                                            **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION BEGIN (MISRA-C RULE CHECKER)                **
+*******************************************************************************/
+/* polyspace-begin MISRA-C3:8.4 [Justified:Medium] "External linkage is defined in other location" */
+/* polyspace-begin MISRA-C3:8.5 [Justified:Medium] "Redundant declaration for generated code" */
+
+/*******************************************************************************
+**                      Include Section                                       **
+*******************************************************************************/
+INCLUDE
+/*******************************************************************************
+**                      Extern declarations                                   **
+*******************************************************************************/
+Declare
+Cat1Declare
+/*******************************************************************************
+**                      Global Data                                           **
+*******************************************************************************/
+IsrTable
+/*******************************************************************************
+**                      Interrupts                                            **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Functions                                             **
+*******************************************************************************/
+
+/*******************************************************************************
+**              PRE-JUSTIFICATION END (MISRA-C RULE CHECKER)                  **
+*******************************************************************************/
+/* polyspace-end MISRA-C3:8.4 */
+/* polyspace-end MISRA-C3:8.5 */
+
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+
+</TEMPLATE>
+    </Os_Vector.c>
+    <Os_LSL.ld>
+      <TEMPLATE>/*******************************************************************************
+**  FILE-NAME: Os_LSL.ld                                                      **
+**                                                                            **
+**  MODULE-NAME: Linker Script                                                **
+**                                                                            **
+**  NOTE: This file is auto generated, do not edit this file manually.        **
+**                                                                            **
+********************************************************************************
+
+********************************************************************************
+**                      Generation Tool Information                           **
+********************************************************************************
+TOOL_VERSION
+**                                                                            **
+**  Change History: Refer log file (use -l option to generate log file)       **
+**                                                                            **
+********************************************************************************
+**                      File Generation Information                           **
+*******************************************************************************/
+
+CREATED_DATE_FILE
+
+/*******************************************************************************
+**                      Module section mapping                                **
+*******************************************************************************/
+LINKER_SCRIPT_SECTION
+/*******************************************************************************
+**                      End of File                                           **
+*******************************************************************************/
+</TEMPLATE>
+    </Os_LSL.ld>
+  </OUTPUT-FILES>
+</GENERAL-INFORMATION>

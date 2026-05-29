@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="04696ab1-fd37-4d2d-9064-09ed70cc1434">
+      <SHORT-NAME>TS_T40D13M1I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="c5884213-91b4-4e24-9126-82f3d03e92b2">
+          <SHORT-NAME>OcuImplementation</SHORT-NAME>
+          <SW-VERSION>1.6.0</SW-VERSION>
+          <VENDOR-ID>66</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.2.2</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/TS_T40D13M1I0R0/BswDescr/Ocu/OcuBehavior</BEHAVIOR-REF>
+        </BSW-IMPLEMENTATION>
+        <BSW-MODULE-ENTRY UUID="ba8ac1d4-bf30-4785-9074-a7223ef4e935">
+          <SHORT-NAME>Ocu_EnterCriticalSection</SHORT-NAME>
+          <SERVICE-ID>1</SERVICE-ID>
+          <IS-REENTRANT>false</IS-REENTRANT>
+          <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+          <CALL-TYPE>REGULAR</CALL-TYPE>
+          <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+          <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+        </BSW-MODULE-ENTRY>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="9957f145-e01e-4a9e-a948-79722a09bcc9">
+          <SHORT-NAME>BswDescr</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-DESCRIPTION UUID="3d457360-d1d8-48a9-80f4-6be730051659">
+              <SHORT-NAME>Ocu</SHORT-NAME>
+              <MODULE-ID>102</MODULE-ID>
+              <INTERNAL-BEHAVIORS>
+                <BSW-INTERNAL-BEHAVIOR UUID="5e876218-df9f-4bc7-b050-0d82ec0969cf">
+                  <SHORT-NAME>OcuBehavior</SHORT-NAME>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA UUID="d6d1fccf-6ddc-4da0-92cf-ada519734808">
+                      <SHORT-NAME>OCU_EXCLUSIVE_AREA_0</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <ENTITYS>
+                    <BSW-CALLED-ENTITY UUID="7f7552a8-5b12-428b-94fb-2ddb0d624fee">
+                      <SHORT-NAME>Ocu_EnterCriticalSection</SHORT-NAME>
+                      <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                        <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/TS_T40D13M1I0R0/BswDescr/Ocu/OcuBehavior/OCU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                      </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D13M1I0R0/Ocu_EnterCriticalSection</IMPLEMENTED-ENTRY-REF>
+                    </BSW-CALLED-ENTITY>
+                  </ENTITYS>
+                  <DISTINGUISHED-PARTITIONS>
+                    <BSW-DISTINGUISHED-PARTITION>
+                      <SHORT-NAME>BswDistinguishedPartition_Ocu</SHORT-NAME>
+                    </BSW-DISTINGUISHED-PARTITION>
+                  </DISTINGUISHED-PARTITIONS>
+                </BSW-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </BSW-MODULE-DESCRIPTION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

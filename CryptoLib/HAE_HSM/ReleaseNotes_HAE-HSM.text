@@ -1,0 +1,110 @@
+# HKMC Security Module(HSM, Secure Flash, ASK, HK-FST, SRT) Contact Information.
+# If you have any questions concerning our products, please email <HKMC_Security_Module@hyundai-autoever.com> with Module Name, MCU.
+# Your inquiry will be sent to the appropriate specialist who will be in touch with you as soon as possible.
+
+#   Copyright: (C) 2015-2021 Hyundai Autoever
+===========================================
+# request ID : SLB-220421-0027
+# <Revision History>
+[V2.5.4, 2022-09-24 08:45:38]
+[V2.5.4]
+[ALL]
+#1. 유선 FoD V1.67 사양 변경에 따른 신규 API 추가(상세 내역 Secure Application 메뉴얼 참조)
+- HSM_FeatureOnDemandCertStore_Rev1
+- HSM_FeatureOnDemandCertDelete_Rev1
+- HSM_FeatureOnDemandUserFVStore
+- HSM_FeatureOnDemandUserFVRead
+
+#2. PRNG의 랜덤성 개선
+
+[V2.5.3]
+[Traveo2]
+#1. added - CYT4DNx 지원 추가
+#2. fixed - CM7_1 core에서 crypto api 호출하는 경우 실패할 수 있는 문제 수정(CYT4BBx, CYT4BFx ONLY)
+
+[Aurix 2G]
+#1. fixed - 메모리 이중화 지원 Firmware Tamper Detection 기능 버그 수정
+
+[V2.5.2]
+[CYT4Bx]
+HSM Driver
+HOST의 Master Core에서만 초기화 설정이 가능하도록 수정
+모빌진 클래식 환경 OS 시작 이전 ASW_PreInit에서 HSM 드라이버 초기화를 호출하거나 Multi-Core 에서 동시에 HSM 드라이버 초기화/설정 API를 호출하는 경우 문제가 있던 부분 수정
+
+이하 Master Core에서만 동작하도록 변경 된 API
+HSM_DriverInitialize
+HSM_EnableService
+HSM_SetInterruptConfig
+HSM_EnableInterruptService
+HSM_DisableInterruptService
+HSM_SetHsmHandlerIrqN
+
+HSM_RegSetConfigRegulator
+HSM_RegSetSwitchOverRegulator
+HSM_RegSetLoadRegulatorTrim
+
+HSM_IrqHandler
+
+[V2.5.1]
+[TV2]
+HSM Driver
+#1. 기본 NVIC IRQ 번호를 모빌진 클래식 default 환경과 동일하게 변경(OS ISR 메뉴의 Hardware Priority 설정값)
+CYT2Bx
+4 -> 6
+CYT3Bx, CYT4Bx
+3 -> 6
+
+#2. HSM_DRIVER_SECTION_DATA 섹션 추가
+
+#3. CYT4Bx 에서 의도하지 않은 코어에 CPUSS 인터럽트 등록을 하는 문제 수정
+
+[V2.5.0]
+[ALL]
+modified - T/PRNG 관련 신뢰성 작업 일부 반영(justification -> 코드 수정)
+modified - secure boot, firmware tamper detection 내부 코드 리펙터링
+
+[TV2]
+fixed - OS와 IPC 채널 중첩 되는 부분 변경(CYT3Bx, CYT4BBx, CYT4BFx)
+IPC 채널 6, 7 -> 3, 7, HSM Driver 기본 CPUSS 3번으로 변경
+(HOST 플랫폼에 HSM Driver 인터럽트 관련 CPUSS번호가 6번으로 설정되어 있는 경우 3번으로 변경 작업 필요함, CYT2Bx 시리즈는 관련 없음)
+
+added - configuration lock을 HSM Driver API를 통해 가능하도록 개선
+상세 내역은 타겟 메뉴얼 참조
+
+[TV2, Aurix 2G]
+modified - secure boot, firmware tamper detection 기능이 메모리 이중화를 지원하도록 개선
+상세 설명 HSM UM Secure Application Guide 3.1.5, 3.2.5 챕터 참조
+(TC33x 미지원, 기타 다른 회사 타겟들은 변경 사항과 관련 없음)
+
+====================================================
+
+[V2.5.0, 2022.06.30 15:26:18]
+[ALL]
+modified - T/PRNG 관련 신뢰성 작업 일부 반영(justification -> 코드 수정)
+modified - secure boot, firmware tamper detection 내부 코드 리펙터링
+
+[TV2]
+fixed - OS와 IPC 채널 중첩 되는 부분 변경(CYT3Bx, CYT4BBx, CYT4BFx)
+IPC 채널 6, 7 -> 3, 7, HSM Driver 기본 CPUSS 3번으로 변경
+(HOST 플랫폼에 HSM Driver 인터럽트 관련 CPUSS번호가 6번으로 설정되어 있는 경우 3번으로 변경 작업 필요함, CYT2Bx 시리즈는 관련 없음)
+
+added - configuration lock을 HSM Driver API를 통해 가능하도록 개선
+상세 내역은 타겟 메뉴얼 참조
+
+[TV2, Aurix 2G]
+modified - secure boot, firmware tamper detection 기능이 메모리 이중화를 지원하도록 개선
+상세 설명 HSM UM Secure Application Guide 3.1.5, 3.2.5 챕터 참조
+(TC33x 미지원, 기타 다른 회사 타겟들은 변경 사항과 관련 없음)
+
+====================================================
+
+[V2.4.21, 2022.05.10 14:10:09]
+[ALL]
+HSM - 신뢰성 작업 반영
+
+[TV2]
+HSM/HSM Driver - work flash를 memcpy하는 루틴에서 dmac이 비활성화 되어 있는 경우 활성화 하고 사용하도록 변경
+HSM Driver - 초기화 코드 리펙터링
+
+[RH850]
+HSM - 클럭 설정 코드 리펙터링

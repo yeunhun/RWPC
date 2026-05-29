@@ -1,0 +1,31 @@
+# This is the UTIP Configuration File
+
+# Init Area
+INIT -r=0x10048000-0x1020FFFF
+
+# Load file
+LOAD ..\..\..\Debug\e_rg3_pe_rwpc_v201.sre
+
+# Fill Area
+FILL skip -r=0x10048000-0x1020FFFF -op=0xFF
+
+# Section Area
+SECTION 'ASW' -r=0x10048000-0x1004880F
+SECTION 'ASW_CRC' -r=0x10048810-0x100488FF
+SECTION 'ASW_SK' -r=0x10048900-0x100489FF
+SECTION 'SIGNATURE' -r=0x10048A00-0x10048BFF
+SECTION 'SIGINFO' -r=0x10048C00-0x10048CFF
+SECTION 'ASW' -r=0x10048D00-0x1020FFFF
+
+# ENCRYPT Information
+
+# CRCSUM Information
+CRCSUM CRC16 I -r=ASW -w=0x10048810 -i=0x10048807 
+
+# SIGINFO Information, Only FDT Enable support
+SIGINFOCHECK I -r=0x10048000-0x100488FF, 0x10048C00-0x1020FFFF -w=0x10048C00
+
+# Save Information
+save ..\..\..\Debug\e_rg3_pe_Rwpc_ReprogramFW.s19' MOTO32 -r=ASW, ASW_CRC, SIGINFO
+
+exit

@@ -1,0 +1,259 @@
+;/******************************************************************************
+;**                          HYUNDAI AUTRON Co., Ltd.                         **
+;*******************************************************************************
+;** Copyright (C) HYUNDAI AUTRON Co., Ltd. 2021 - All Rights Reserved         **
+;** The reproduction, distribution and utilization of this document as well as**
+;** the communication of its contents to others without explicit authorization**
+;** is prohibited. Offenders will be held liable for the payment of damages.  **
+;*******************************************************************************
+;**  SRC-MODULE: Startup_m4.arm                                               **
+;**                                                                           **
+;**  PRODUCT   : Traveo II                                                    **
+;**                                                                           **
+;**  PURPOSE   : This file provides the startup code for FBL for Traveo II uC **
+;**                                                                           **
+;**  HARDWARE DEPENDANT [yes/no]: No                                          **
+;**                                                                           **
+;******************************************************************************/
+;
+;/******************************************************************************
+;**                            Revision History                               **
+;*******************************************************************************
+;** Revision  Date           By           Description                         **
+;*******************************************************************************
+;** 1.0.0     25-Feb-2021  JHLim        Initial version                       **
+;******************************************************************************/
+
+; /* 
+;  * Target core : CM4
+;  * Compile option should be added if you want to compile
+;  * Compile Option : -D__cortexm4__
+;  */
+#if defined(__cortexm4__)
+
+        .file "Startup_m4.arm"
+
+;/******************************************************************************
+;**                           Local definitions                               **
+;******************************************************************************/
+
+
+VTOR                               .equ 0xe000ed08
+
+
+;************************************************************************
+;* Import symbols
+;************************************************************************
+
+        .import __ghsend_stack
+        .import Startup_Init
+
+
+;************************************************************************
+;* Export symbols
+;************************************************************************
+
+        .export _start
+        .export __vector_table
+        .export __vector_table_0x1c
+        .export __Vectors
+        .export __Vectors_End
+        .export __Vectors_Size
+        .export __ramVectors
+        .export Cy_SaveIRQ
+        .export Cy_RestoreIRQ
+        .export Cy_u32StartupStackStartAddress
+        .export Cy_u32StartupStackEndAddress
+
+
+;************************************************************************
+;* Vector Table and RAM Vector Table
+;************************************************************************
+
+        .section ".intvec", "a"
+        ; align to 128 byte, CM4_VECTOR_TABLE_BASE register supports address bits [31:7] (Note: this is also the minimum requirement for VTOR)
+        .align 128
+
+__vector_table:
+        DCD     __ghsend_stack
+        DCD     Reset_Handler
+        DCD     NMI_Handler
+        DCD     HardFault_Handler
+        DCD     MemManage_Handler
+        DCD     BusFault_Handler
+        DCD     UsageFault_Handler
+__vector_table_0x1c:
+        DCD     0
+        DCD     0
+        DCD     0
+        DCD     0
+        DCD     SVC_Handler
+        DCD     DebugMon_Handler
+        DCD     0
+        DCD     PendSV_Handler
+        DCD     SysTick_Handler
+
+        ; External interrupts          PowerMode      Description
+
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #0
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #1
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #2
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #3
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #4
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #5
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #6
+        DCD     undefined_handler      ; DeepSleep    CPU User Interrupt #7
+
+        ; These IRQs can only be triggered by SW via NVIC regs
+        DCD     undefined_handler     ; Active       CPU User Interrupt #8
+        DCD     undefined_handler     ; Active       CPU User Interrupt #9
+        DCD     undefined_handler     ; Active       CPU User Interrupt #10
+        DCD     undefined_handler     ; Active       CPU User Interrupt #11
+        DCD     undefined_handler     ; Active       CPU User Interrupt #12
+        DCD     undefined_handler     ; Active       CPU User Interrupt #13
+        DCD     undefined_handler     ; Active       CPU User Interrupt #14
+        DCD     undefined_handler     ; Active       CPU User Interrupt #15
+__Vectors_End:
+
+        .endo __vector_table
+
+__Vectors       .equ   __vector_table
+__Vectors_Size  .equ   __Vectors_End - __Vectors
+
+
+;************************************************************************
+;* Helper functions
+;************************************************************************
+
+; Saves and disables the interrupts
+
+        .text
+Cy_SaveIRQ:
+        MRS   r0, PRIMASK
+        CPSID I
+        BX    LR
+
+        .endf Cy_SaveIRQ
+
+;-----------------------------------------
+
+; Restores the interrupts
+
+        .text
+Cy_RestoreIRQ:
+        MSR   PRIMASK, r0
+        BX    LR
+
+        .endf Cy_RestoreIRQ
+
+;************************************************************************
+;* Start-up Code
+;************************************************************************
+        .section ".startup", "ax"
+        .weak Reset_Handler
+        .thumb2
+
+Reset_Handler:
+_start:
+
+; Disable global interrupts
+        CPSID   I
+
+; Update Vector Table Offset Register with address of user ROM table
+; (will be updated later to user RAM table address in C startup code)
+        LDR  r0, =__vector_table
+        LDR  r1, =VTOR
+        STR  r0, [r1]
+        DSB
+
+; Initialize ECC of startup stack (needed for local variables in C startup code) by processing 8 bytes per loop iteration,
+; because the ECC initialization feature uses this generic granularity that will cover any memory (SRAM/TCM) in any TVII device
+; Prerequisite: Stack Pointer (SP) has not been modified (from the vector table init value) by above code (otherwise code must be adapted)
+        MOVS r0, #0 ; clear value
+        MOVS r1, #0 ; clear value
+        LDR  r2, Cy_u32StartupStackStartAddress
+startup_stack_ecc_init_loop:
+        STRD r0, r1, [r2], #8
+        CMP  r2, sp
+        BNE  startup_stack_ecc_init_loop
+
+; Call C startup code (no ANSI C context established yet!)
+        LDR  r7, =Startup_Init
+        BLX  r7
+
+; Call system library
+        LDR  r5, pool_myaddr
+        SUB  r5, r5, 1          ; unset the low order bit
+myaddr:
+        MOV  r2, pc
+        SUB  r5, r2, r5         ; Now r5 contains picbase
+
+        MOV  r0, 0
+        MOV  fp, r0              ;* No previous frame *
+
+        LDR  r0, pool_baseptrs
+        ADD  r0, r0, r5 ;* Add in picbase *
+        MOV  r1, 0 ;* Clear argc reg *
+        MOV  r2, 0 ;* Clear argv reg *
+        MOV  r3, 0 ;* Clear envp reg *
+        MOV  r4, 0 ;* Clear global regs *
+        MOV  r5, 0
+        MOV  r6, 0
+        bl main
+
+; Note: Control flow does not necessarily return here.
+; On some tool-chains (e.g. IAR) control flow will never return from
+; the system library.
+Cy_Main_Exited:
+        B    Cy_Main_Exited
+
+        .endf _start
+
+;************************************************************************
+;* Literal pool
+;************************************************************************
+
+        .align 4
+
+        .ltorg
+
+        .align 4
+
+;************************************************************************
+;* All area of Stack
+;************************************************************************
+Cy_u32StartupStackStartAddress:
+        DCD (__ghsbegin_stack)
+        .endo Cy_u32StartupStackStartAddress
+
+Cy_u32StartupStackEndAddress:
+        DCD (__ghsend_stack - 1)
+        .endo Cy_u32StartupStackEndAddress
+
+pool_myaddr:
+        DCD (myaddr + 4)
+        .endo pool_myaddr
+
+pool_baseptrs:
+        DCD baseptrs
+        .endo pool_baseptrs
+
+baseptrs:
+        DCD 1 ;* baseptrs version number *
+        ;DCD __ghsbegin_picbase
+        ;DCD __ghsbegin_robase
+        ;DCD __ghsbegin_pidbase
+        DCD __ghs_rambootcodestart
+        DCD __ghs_rambootcodeend
+        DCD __ghs_rombootcodestart
+        DCD __ghs_rombootcodeend
+        .endo baseptrs
+
+;/******************************************************************************
+;**                                   File end                                **
+;******************************************************************************/
+
+        END
+        
+#endif
+;/* __cortexm4__ */
